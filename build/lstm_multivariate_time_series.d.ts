@@ -1,4 +1,4 @@
-import { TensorScriptOptions, TensorScriptProperties, Matrix, TensorScriptLayers, TensorScriptSavedLayers, NestedArray, TensorScriptModelContext, TensorScriptLSTMModelContext } from './model_interface';
+import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, TensorScriptSavedLayers, NestedArray, TensorScriptModelContext, TensorScriptLSTMModelContext } from './model_interface';
 import { LSTMTimeSeries } from './lstm_time_series';
 /**
  * Long Short Term Memory Multivariate Time Series with Tensorflow
@@ -161,7 +161,7 @@ export declare class LSTMMultivariateTimeSeries extends LSTMTimeSeries {
         yShape: import("./model_interface").Shape;
         xShape: import("./model_interface").Shape;
         y_matrix: any;
-        x_matrix: number[] | number[][];
+        x_matrix: Matrix | Vector;
     };
     createDataset: (...args: any[]) => NestedArray<number>;
     seriesToSupervised: (...args: any[]) => Array<number>;

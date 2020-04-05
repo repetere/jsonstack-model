@@ -1,0 +1,816 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TensorScriptModelInterface | @modelx/model</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@modelx/model</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_model_interface_.html">&quot;model_interface&quot;</a>
+				</li>
+				<li>
+					<a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>
+				</li>
+			</ul>
+			<h1>Class TensorScriptModelInterface</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Base class for tensorscript models</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>interface</dt>
+						<dd><p>TensorScriptModelInterface</p>
+						</dd>
+						<dt>property</dt>
+						<dd><p>{Object} settings - tensorflow model hyperparameters</p>
+						</dd>
+						<dt>property</dt>
+						<dd><p>{Object} model - tensorflow model</p>
+						</dd>
+						<dt>property</dt>
+						<dd><p>{Object} tf - tensorflow / tensorflow-node / tensorflow-node-gpu</p>
+						</dd>
+						<dt>property</dt>
+						<dd><p>{Function} reshape - static reshape array function</p>
+						</dd>
+						<dt>property</dt>
+						<dd><p>{Function} getInputShape - static TensorScriptModelInterface</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TensorScriptModelInterface</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_base_neural_network_.baseneuralnetwork.html" class="tsd-signature-type">BaseNeuralNetwork</a>
+							</li>
+							<li>
+								<a href="_text_embedding_.textembedding.html" class="tsd-signature-type">TextEmbedding</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#layers" class="tsd-kind-icon">layers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#model" class="tsd-kind-icon">model</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#reshape" class="tsd-kind-icon">reshape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#settings" class="tsd-kind-icon">settings</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#tf" class="tsd-kind-icon">tf</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#trained" class="tsd-kind-icon">trained</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#calculate" class="tsd-kind-icon">calculate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#predict" class="tsd-kind-icon">predict</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#train" class="tsd-kind-icon">train</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_model_interface_.tensorscriptmodelinterface.html#reshape-1" class="tsd-kind-icon">reshape</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Tensor<wbr>Script<wbr>Model<wbr>Interface<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a>, properties<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-signature-type">TensorScriptProperties</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_model_interface_.tensorscriptmodelinterface.html" class="tsd-signature-type">TensorScriptModelInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L116">src/model_interface.ts:116</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>tensorflow model hyperparameters</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> properties: <a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-signature-type">TensorScriptProperties</a><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>extra instance properties</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_model_interface_.tensorscriptmodelinterface.html" class="tsd-signature-type">TensorScriptModelInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="getinputshape" class="tsd-anchor"></a>
+					<h3>get<wbr>Input<wbr>Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L113">src/model_interface.ts:113</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="layers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> layers</h3>
+					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L116">src/model_interface.ts:116</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="model" class="tsd-anchor"></a>
+					<h3>model</h3>
+					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L108">src/model_interface.ts:108</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="reshape" class="tsd-anchor"></a>
+					<h3>reshape</h3>
+					<div class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L112">src/model_interface.ts:112</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="settings" class="tsd-anchor"></a>
+					<h3>settings</h3>
+					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L107">src/model_interface.ts:107</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="tf" class="tsd-anchor"></a>
+					<h3>tf</h3>
+					<div class="tsd-signature tsd-kind-icon">tf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L110">src/model_interface.ts:110</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="tokenizer" class="tsd-anchor"></a>
+					<h3>tokenizer</h3>
+					<div class="tsd-signature tsd-kind-icon">tokenizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L109">src/model_interface.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="trained" class="tsd-anchor"></a>
+					<h3>trained</h3>
+					<div class="tsd-signature tsd-kind-icon">trained<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L111">src/model_interface.ts:111</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="xshape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> x<wbr>Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">x<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L114">src/model_interface.ts:114</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="yshape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> y<wbr>Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">y<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L115">src/model_interface.ts:115</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="calculate" class="tsd-anchor"></a>
+					<h3>calculate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">calculate<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#calculation" class="tsd-signature-type">Calculation</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L257">src/model_interface.ts:257</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Predicts new dependent variables</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>abstract</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new test independent variables</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_model_interface_.html#calculation" class="tsd-signature-type">Calculation</a></h4>
+							<p>returns tensorflow prediction</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="loadmodel" class="tsd-anchor"></a>
+					<h3>load<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L266">src/model_interface.ts:266</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Loads a saved tensoflow / keras model, this is an alias for</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>tensorflow load model options</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>tensorflow model</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="predict" class="tsd-anchor"></a>
+					<h3>predict</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">predict<span class="tsd-signature-symbol">(</span>input_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a>, options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L291">src/model_interface.ts:291</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns prediction values from tensorflow model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new test independent variables</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>predicted model values</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="savemodel" class="tsd-anchor"></a>
+					<h3>save<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">save<wbr>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L278">src/model_interface.ts:278</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>saves a tensorflow model, this is an alias for</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>tensorflow save model options</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>tensorflow model</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="train" class="tsd-anchor"></a>
+					<h3>train</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">train<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, y_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, layers<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a>, x_test<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, y_test<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LayersModel</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L246">src/model_interface.ts:246</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Asynchronously trains tensorflow model, must be implemented by tensorscript class</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>abstract</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>independent variables</p>
+									</div>
+								</li>
+								<li>
+									<h5>y_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>dependent variables</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> layers: <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> x_test: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> y_test: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LayersModel</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>returns trained tensorflow model</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getinputshape-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Input<wbr>Shape</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L220">src/model_interface.ts:220</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the shape of an input matrix</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>function</dt>
+									<dd></dd>
+									<dt>example</dt>
+									<dd><p>const input = [
+											[ 0, 1, ],
+											[ 1, 0, ],
+											];
+										TensorScriptModelInterface.getInputShape(input) // =&gt; [2,2]</p>
+									</dd>
+									<dt>see</dt>
+									<dd><p>{<a href="https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array%7D">https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array}</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> matrix: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = []</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>input matrix</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a></h4>
+							<p>returns the shape of a matrix (e.g. [2,2])</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="reshape-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> reshape</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a>, shape<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/e562f34/src/model_interface.ts#L155">src/model_interface.ts:155</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reshapes an array</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>function</dt>
+									<dd></dd>
+									<dt>example</dt>
+									<dd><p>const array = [ 0, 1, 1, 0, ];
+											const shape = [2,2];
+											TensorScriptModelInterface.reshape(array,shape) // =&gt;
+											[
+											[ 0, 1, ],
+											[ 1, 0, ],
+										];</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>array: <a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>input array</p>
+									</div>
+								</li>
+								<li>
+									<h5>shape: <a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>shape array</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a></h4>
+							<p>returns a matrix with the defined shape</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_base_neural_network_.html">&quot;base_<wbr>neural_<wbr>network&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_classification_.html">&quot;classification&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_logistic_regression_.html">&quot;logistic_<wbr>regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lstm_multivariate_time_series_.html">&quot;lstm_<wbr>multivariate_<wbr>time_<wbr>series&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lstm_time_series_.html">&quot;lstm_<wbr>time_<wbr>series&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_model_interface_.html">&quot;model_<wbr>interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_multiple_linear_regression_.html">&quot;multiple_<wbr>linear_<wbr>regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_regression_.html">&quot;regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_text_embedding_.html">&quot;text_<wbr>embedding&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_model_interface_.tensorscriptmodelinterface.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Interface</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#layers" class="tsd-kind-icon">layers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#model" class="tsd-kind-icon">model</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#reshape" class="tsd-kind-icon">reshape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#settings" class="tsd-kind-icon">settings</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#tf" class="tsd-kind-icon">tf</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#trained" class="tsd-kind-icon">trained</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#calculate" class="tsd-kind-icon">calculate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#predict" class="tsd-kind-icon">predict</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#train" class="tsd-kind-icon">train</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#reshape-1" class="tsd-kind-icon">reshape</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-kind-icon">Nested<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>ScriptLSTMModel<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_model_interface_.tensorscriptmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#calculation" class="tsd-kind-icon">Calculation</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#denselayer" class="tsd-kind-icon">Dense<wbr>Layer</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#inputtextarray" class="tsd-kind-icon">Input<wbr>Text<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#matrix" class="tsd-kind-icon">Matrix</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#predictionoptions" class="tsd-kind-icon">Prediction<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#shape" class="tsd-kind-icon">Shape</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Layers</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Properties</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Saved<wbr>Layers</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_model_interface_.html#vector" class="tsd-kind-icon">Vector</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@modelx/model</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@modelx/model</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@modelx/model</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#modelxmodel---machine-learning-and-neural-networks-with-tensorflow" id="modelxmodel---machine-learning-and-neural-networks-with-tensorflow" style="color: inherit; text-decoration: none;">
+					<h1>@modelx/Model - Machine Learning and Neural Networks with Tensorflow</h1>
+				</a>
+				<p><a href="https://coveralls.io/github/repetere/modelx-model?branch=master"><img src="https://coveralls.io/repos/github/repetere/modelx-model/badge.svg?branch=master" alt="Coverage Status"></a> <img src="https://github.com/repetere/modelx-model/workflows/Build,%20Test%20&%20Coverage/badge.svg" alt="Build, Test &amp; Coverage"></p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting started</h2>
+				</a>
+				<p>Clone the repo and drop your module in the src directory.</p>
+				<pre><code class="language-shell"><span class="hljs-meta">#</span><span class="bash"> Install Prerequisites</span>
+<span class="hljs-meta">$</span><span class="bash"> npm install rollup typedoc jest sitedown --g</span></code></pre>
+				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
+					<h2>Basic Usage</h2>
+				</a>
+				<pre><code class="language-shell"><span class="hljs-meta">$</span><span class="bash"> npm run build <span class="hljs-comment">#builds type declarations, created bundled artifacts with rollup and generates documenation</span></span></code></pre>
+				<a href="#introduction" id="introduction" style="color: inherit; text-decoration: none;">
+					<h2>Introduction</h2>
+				</a>
+				<p>This library is a compilation of model building modules with a consistent API for quickly implementing Tensorflow at edge(browser) or any JavaScript environment (Node JS / GPU).</p>
+				<a href="#a-hrefhttpsrepeteregithubiotensorscriptmanualoverviewhtmlread-the-manuala" id="a-hrefhttpsrepeteregithubiotensorscriptmanualoverviewhtmlread-the-manuala" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://repetere.github.io/tensorscript/manual/overview.html">Read the manual</a></h3>
+				</a>
+				<a href="#list-of-tensorflow-models" id="list-of-tensorflow-models" style="color: inherit; text-decoration: none;">
+					<h2>List of Tensorflow models</h2>
+				</a>
+				<a href="#classification" id="classification" style="color: inherit; text-decoration: none;">
+					<h3>Classification</h3>
+				</a>
+				<ul>
+					<li>Deep Learning Classification: <a href="https://repetere.github.io/tensorscript/manual/usage.html#classification"><code>DeepLearningClassification</code></a></li>
+					<li>Logistic Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#classification"><code>LogisticRegression</code></a></li>
+				</ul>
+				<a href="#regression" id="regression" style="color: inherit; text-decoration: none;">
+					<h3>Regression</h3>
+				</a>
+				<ul>
+					<li>Deep Learning Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#regression"><code>DeepLearningRegression</code></a></li>
+					<li>Multivariate Linear Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#regression"><code>MultipleLinearRegression</code></a></li>
+				</ul>
+				<a href="#artificial-neural-networks-ann" id="artificial-neural-networks-ann" style="color: inherit; text-decoration: none;">
+					<h3>Artificial neural networks (ANN)</h3>
+				</a>
+				<ul>
+					<li>Multi-Layered Perceptrons: <a href="https://repetere.github.io/tensorscript/manual/usage.html#neural-networks"><code>BaseNeuralNetwork</code></a></li>
+				</ul>
+				<a href="#lstm-time-series" id="lstm-time-series" style="color: inherit; text-decoration: none;">
+					<h3>LSTM Time Series</h3>
+				</a>
+				<ul>
+					<li>Long Short Term Memory Time Series: <a href="https://repetere.github.io/tensorscript/manual/usage.html#timeseries"><code>LSTMTimeSeries</code></a></li>
+					<li>Long Short Term Memory Multivariate Time Series: <a href="https://repetere.github.io/tensorscript/manual/usage.html#timeseries"><code>LSTMMultivariateTimeSeries</code></a></li>
+				</ul>
+				<a href="#basic-usage-1" id="basic-usage-1" style="color: inherit; text-decoration: none;">
+					<h2>Basic Usage</h2>
+				</a>
+				<p>TensorScript is and ECMA Script module designed to be used in an <code>ES2015+</code> environment, if you need compiled modules for older versions of node use the compiled modules in the bundle folder.</p>
+				<p>Please read more on tensorflow configuration options, specifying epochs, and using custom layers in <a href="https://repetere.github.io/tensorscript/manual/overview.html#configuration">configuration</a>.</p>
+				<a href="#regression-examples" id="regression-examples" style="color: inherit; text-decoration: none;">
+					<h3>Regression Examples</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { MultipleLinearRegression, DeepLearningRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">const</span> independentVariables = [ <span class="hljs-string">'sqft'</span>, <span class="hljs-string">'bedrooms'</span>,];
+  <span class="hljs-keyword">const</span> dependentVariables = [ <span class="hljs-string">'price'</span>, ];
+  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/portland_housing_data.csv'</span>);
+  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV);
+  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
+  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
+  <span class="hljs-keyword">const</span> MLR = <span class="hljs-keyword">new</span> MultipleLinearRegression();
+  <span class="hljs-keyword">await</span> MLR.train(x_matrix, y_matrix);
+  <span class="hljs-keyword">const</span> DLR = <span class="hljs-keyword">new</span> DeepLearningRegression();
+  <span class="hljs-keyword">await</span> DLR.train(x_matrix, y_matrix);
+  <span class="hljs-comment">//1600 sqft, 3 bedrooms</span>
+  <span class="hljs-keyword">await</span> MLR.predict([<span class="hljs-number">1650</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt;[293081.46]</span>
+  <span class="hljs-keyword">await</span> DLR.predict([<span class="hljs-number">1650</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt;[293081.46]</span>
+}
+main();</code></pre>
+				<a href="#classification-examples" id="classification-examples" style="color: inherit; text-decoration: none;">
+					<h3>Classification Examples</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DeepLearningClassification, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">const</span> independentVariables = [
+    <span class="hljs-string">'sepal_length_cm'</span>,
+    <span class="hljs-string">'sepal_width_cm'</span>,
+    <span class="hljs-string">'petal_length_cm'</span>,
+    <span class="hljs-string">'petal_width_cm'</span>,
+  ];
+  <span class="hljs-keyword">const</span> dependentVariables = [
+    <span class="hljs-string">'plant_Iris-setosa'</span>,
+    <span class="hljs-string">'plant_Iris-versicolor'</span>,
+    <span class="hljs-string">'plant_Iris-virginica'</span>,
+  ];
+  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/iris_data.csv'</span>);
+  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV).fitColumns({ <span class="hljs-attr">columns</span>: {<span class="hljs-attr">plant</span>:<span class="hljs-string">'onehot'</span>}, });
+  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
+  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
+  <span class="hljs-keyword">const</span> nnClassification = <span class="hljs-keyword">new</span> DeepLearningClassification();
+  <span class="hljs-keyword">await</span> nnClassification.train(x_matrix, y_matrix);
+  <span class="hljs-keyword">const</span> input_x = [
+    [<span class="hljs-number">5.1</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">1.4</span>, <span class="hljs-number">0.2</span>, ],
+    [<span class="hljs-number">6.3</span>, <span class="hljs-number">3.3</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">2.5</span>, ],
+    [<span class="hljs-number">5.6</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">1.5</span>, ],
+    [<span class="hljs-number">5.0</span>, <span class="hljs-number">3.2</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">0.2</span>, ],
+    [<span class="hljs-number">4.5</span>, <span class="hljs-number">2.3</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">0.3</span>, ],
+  ];
+  <span class="hljs-keyword">const</span> predictions = <span class="hljs-keyword">await</span> nnClassification.predict(input_x); 
+  <span class="hljs-keyword">const</span> answers = <span class="hljs-keyword">await</span> nnClassification.predict(input_x, { <span class="hljs-attr">probability</span>:<span class="hljs-literal">false</span>, });
+  <span class="hljs-comment">/*
+    predictions = [
+      [ 0.989512026309967, 0.010471616871654987, 0.00001649192017794121, ],
+      [ 0.0000016141033256644732, 0.054614484310150146, 0.9453839063644409, ],
+      [ 0.001930746017023921, 0.6456733345985413, 0.3523959517478943, ],
+      [ 0.9875779747962952, 0.01239941269159317, 0.00002274810685776174, ],
+      [ 0.9545140862464905, 0.04520365223288536, 0.0002823179238475859, ],
+    ];
+    answers = [
+      [ 1, 0, 0, ], //setosa
+      [ 0, 0, 1, ], //virginica
+      [ 0, 1, 0, ], //versicolor
+      [ 1, 0, 0, ], //setosa
+      [ 1, 0, 0, ], //setosa
+    ];
+   */</span>
+}
+main();</code></pre>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LogisticRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">const</span> independentVariables = [
+    <span class="hljs-string">'Age'</span>,
+    <span class="hljs-string">'EstimatedSalary'</span>,
+  ];
+  <span class="hljs-keyword">const</span> dependentVariables = [
+    <span class="hljs-string">'Purchased'</span>,
+  ];
+  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/social_network_ads.csv'</span>);
+  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV).fitColumns({ <span class="hljs-attr">columns</span>: {<span class="hljs-attr">Age</span>:[<span class="hljs-string">'scale'</span>,<span class="hljs-string">'standard'</span>],
+  <span class="hljs-attr">EstimatedSalary</span>:[<span class="hljs-string">'scale'</span>,<span class="hljs-string">'standard'</span>],}, });
+  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
+  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
+  <span class="hljs-keyword">const</span> LR = <span class="hljs-keyword">new</span> LogisticRegression();
+  <span class="hljs-keyword">await</span> LR.train(x_matrix, y_matrix);
+  <span class="hljs-keyword">const</span> input_x = [
+    [<span class="hljs-number">-0.062482849427819266</span>, <span class="hljs-number">0.30083326827486173</span>,], <span class="hljs-comment">//0</span>
+    [<span class="hljs-number">0.7960601198093905</span>, <span class="hljs-number">-1.1069168538010206</span>,], <span class="hljs-comment">//1</span>
+    [<span class="hljs-number">0.7960601198093905</span>, <span class="hljs-number">0.12486450301537644</span>,], <span class="hljs-comment">//0</span>
+    [<span class="hljs-number">0.4144854668150751</span>, <span class="hljs-number">-0.49102617539282206</span>,], <span class="hljs-comment">//0</span>
+    [<span class="hljs-number">0.3190918035664962</span>, <span class="hljs-number">0.5061301610775946</span>,], <span class="hljs-comment">//1</span>
+  ];
+  <span class="hljs-keyword">const</span> predictions = <span class="hljs-keyword">await</span> LR.predict(input_x); <span class="hljs-comment">// =&gt; [ [ 0 ], [ 0 ], [ 1 ], [ 0 ], [ 1 ] ];</span>
+}
+main();</code></pre>
+				<a href="#time-series-example" id="time-series-example" style="color: inherit; text-decoration: none;">
+					<h3>Time Series Example</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LSTMTimeSeries, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">const</span> dependentVariables = [
+    <span class="hljs-string">'Passengers'</span>,
+  ];
+  <span class="hljs-keyword">const</span> airlineCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/airline-sales.csv'</span>);
+  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(airlineCSV);
+  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
+  <span class="hljs-keyword">const</span> TS = <span class="hljs-keyword">new</span> LSTMTimeSeries();
+  <span class="hljs-keyword">await</span> TS.train(x_matrix);
+  <span class="hljs-keyword">const</span> forecastData = TS.getTimeseriesDataSet([ [<span class="hljs-number">100</span> ], [<span class="hljs-number">200</span>], [<span class="hljs-number">300</span>], ])
+  <span class="hljs-keyword">await</span> TS.predict(forecastData.x_matrix); <span class="hljs-comment">//=&gt;[200,300,400]</span>
+}
+main();</code></pre>
+				<a href="#special-thanks" id="special-thanks" style="color: inherit; text-decoration: none;">
+					<h3>Special Thanks</h3>
+				</a>
+				<ul>
+					<li><a href="https://machinelearningmastery.com/">Machine Learning Mastery</a></li>
+					<li><a href="https://www.superdatascience.com/">Super Data Science</a></li>
+					<li><a href="https://pythonprogramming.net/">Python Programming</a></li>
+					<li><a href="https://towardsdatascience.com/">Towards Data Science</a></li>
+					<li><a href="https://github.com/mljs/ml">ml.js</a></li>
+				</ul>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>MIT</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_base_neural_network_.html">&quot;base_<wbr>neural_<wbr>network&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_classification_.html">&quot;classification&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_logistic_regression_.html">&quot;logistic_<wbr>regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lstm_multivariate_time_series_.html">&quot;lstm_<wbr>multivariate_<wbr>time_<wbr>series&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lstm_time_series_.html">&quot;lstm_<wbr>time_<wbr>series&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_model_interface_.html">&quot;model_<wbr>interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_multiple_linear_regression_.html">&quot;multiple_<wbr>linear_<wbr>regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_regression_.html">&quot;regression&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_text_embedding_.html">&quot;text_<wbr>embedding&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

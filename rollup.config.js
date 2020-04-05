@@ -5,12 +5,19 @@ import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 import replace from '@rollup/plugin-replace';
 import terser from 'rollup-plugin-terser-js';
-import sucrase from '@rollup/plugin-sucrase';
+// import sucrase from '@rollup/plugin-sucrase';
 import json from '@rollup/plugin-json';
 import pkg from "./package.json";
+import alias from '@rollup/plugin-alias';
 
 const name = 'ModelXModel';
 const external = [
+];
+const serverExternal = [
+  "@tensorflow-models/universal-sentence-encoder",
+  "@tensorflow/tfjs",
+  "@tensorflow/tfjs-node",
+  "lodash.range",
 ];
 const windowGlobals = {
 };
@@ -62,8 +69,9 @@ function getOutput({ minify = false, server = false, }) {
 }
 
 function getPlugins({
-    minify = false,
-    browser = false,
+  minify = false,
+  browser = false,
+  server= false,
 }) {
   const plugins = [ ];
   if (browser) {
@@ -79,10 +87,10 @@ function getPlugins({
   } 
   
   plugins.push(...[
-    sucrase({
-      // exclude: ['node_modules/**'],
-      transforms: [ 'jsx', 'typescript' ]
-    }),
+    // sucrase({
+    //   // exclude: ['node_modules/**'],
+    //   transforms: [ 'typescript' ]
+    // }),
     json(),
     // // external(),
     replace({
@@ -153,7 +161,7 @@ function getPlugins({
 
 export default [
   {
-    input: "src/index.tsx",
+    input: "src/index.ts",
     output: getOutput({
       minify: false,
       server: false,
@@ -165,18 +173,7 @@ export default [
     }),
   },
   {
-    input: "src/index.tsx",
-    output: getOutput({
-      minify: false,
-      server: true,
-    }),
-    external,
-    plugins: getPlugins({
-      minify: false,
-    }),
-  },
-  {
-    input: "src/index.tsx",
+    input: "src/index.ts",
     output: getOutput({
       minify: true,
       server: false,
@@ -188,14 +185,27 @@ export default [
     }),
   },
   {
-    input: "src/index.tsx",
+    input: "src/index.ts",
+    output: getOutput({
+      minify: false,
+      server: true,
+    }),
+    external:serverExternal,
+    plugins: getPlugins({
+      minify: false,
+      server: true,
+    }),
+  },
+  {
+    input: "src/index.ts",
     output: getOutput({
       minify: true,
       server: true,
     }),
-    external,
+    external:serverExternal,
     plugins: getPlugins({
       minify: true,
+      server: true,
     }),
   },
 ];

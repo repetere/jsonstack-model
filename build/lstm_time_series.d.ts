@@ -55,7 +55,7 @@ export declare class LSTMTimeSeries extends BaseNeuralNetwork {
         yShape: Shape;
         xShape: Shape;
         y_matrix: never[][];
-        x_matrix: number[] | number[][];
+        x_matrix: Matrix | Vector;
     };
     createDataset: (...args: any[]) => NestedArray<number>;
     getTimeseriesShape: (...args: any[]) => any;
