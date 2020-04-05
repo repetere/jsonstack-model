@@ -1,0 +1,86 @@
+{
+  "name": "@modelx/model",
+  "version": "0.0.1",
+  "description": "Deep Learning Classification, LSTM Time Series, Regression and Multi-Layered Perceptrons with Tensorflow",
+  "main": "dist/index.cjs.js",
+  "module": "build/index.js",
+  "esm": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "web": "dist/index.web.js",
+  "modules.root": "build",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/repetere/modelx-model.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "First Last",
+    "email": "first.last@email.com"
+  },
+  "bugs": {
+    "url": "https://github.com/repetere/modelx-model/issues"
+  },
+  "homepage": "https://github.com/repetere/modelx-model#readme",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "benchmark": "node -r esm  benchmark/main_bmrk.js",
+    "test": "jest --coverage",
+    "doc": "tsc && typedoc && sitedown manual/ -b docs/manual",
+    "compile": "tsc",
+    "build": "tsc && rollup -c && typedoc && sitedown manual/ -b docs/manual",
+    "coverage": "coveralls"
+  },
+  "dependencies": {
+    "@tensorflow-models/universal-sentence-encoder": "1.2.2",
+    "@tensorflow/tfjs": "1.7.2",
+    "@tensorflow/tfjs-node": "1.7.2",
+    "lodash.range": "^3.2.0"
+  },
+  "devDependencies": {
+    "@modelx/data": "^1.0.0",
+    "@rollup/plugin-alias": "^3.0.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
+    "@rollup/plugin-sucrase": "^3.0.0",
+    "@rollup/plugin-typescript": "^3.1.1",
+    "@tensorflow/tfjs-backend-wasm": "^1.7.2",
+    "@types/chai": "^4.2.11",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.4",
+    "@types/lodash.range": "^3.2.6",
+    "@types/react": "^16.9.31",
+    "@types/react-dom": "^16.9.6",
+    "@types/sinon": "^9.0.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "install": "^0.13.0",
+    "jest": "^25.2.6",
+    "npm": "^6.14.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.3.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-terser-js": "^1.0.2",
+    "sinon": "^9.0.1",
+    "sinon-chai": "^3.5.0",
+    "ts-jest": "^25.3.0",
+    "tslib": "^1.11.1",
+    "typedoc": "^0.17.3",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    }
+  }
+}
