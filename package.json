@@ -1,6 +1,6 @@
 {
   "name": "@modelx/model",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Deep Learning Classification, LSTM Time Series, Regression and Multi-Layered Perceptrons with Tensorflow",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -13,7 +13,18 @@
     "type": "git",
     "url": "git+https://github.com/repetere/modelx-model.git"
   },
-  "keywords": [],
+  "keywords": [
+    "regression",
+    "classification",
+    "supervised",
+    "learning",
+    "supervised learning",
+    "dl",
+    "deep learning",
+    "tensorflow",
+    "machine learning",
+    "ai"
+  ],
   "author": {
     "name": "Yaw Etse",
     "email": "yaw.etse@gmail.com"
