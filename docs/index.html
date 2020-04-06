@@ -82,8 +82,8 @@
 					<h2>Introduction</h2>
 				</a>
 				<p>This library is a compilation of model building modules with a consistent API for quickly implementing Tensorflow at edge(browser) or any JavaScript environment (Node JS / GPU).</p>
-				<a href="#a-hrefhttpsrepeteregithubiotensorscriptmanualoverviewhtmlread-the-manuala" id="a-hrefhttpsrepeteregithubiotensorscriptmanualoverviewhtmlread-the-manuala" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://repetere.github.io/tensorscript/manual/overview.html">Read the manual</a></h3>
+				<a href="#a-hrefhttpsrepeteregithubiomodelx-modelmanualoverviewhtmlread-the-manuala" id="a-hrefhttpsrepeteregithubiomodelx-modelmanualoverviewhtmlread-the-manuala" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://repetere.github.io/modelx-model/manual/overview.html">Read the manual</a></h3>
 				</a>
 				<a href="#list-of-tensorflow-models" id="list-of-tensorflow-models" style="color: inherit; text-decoration: none;">
 					<h2>List of Tensorflow models</h2>
@@ -92,38 +92,38 @@
 					<h3>Classification</h3>
 				</a>
 				<ul>
-					<li>Deep Learning Classification: <a href="https://repetere.github.io/tensorscript/manual/usage.html#classification"><code>DeepLearningClassification</code></a></li>
-					<li>Logistic Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#classification"><code>LogisticRegression</code></a></li>
+					<li>Deep Learning Classification: <a href="https://repetere.github.io/modelx-model/manual/usage.html#classification"><code>DeepLearningClassification</code></a></li>
+					<li>Logistic Regression: <a href="https://repetere.github.io/modelx-model/manual/usage.html#classification"><code>LogisticRegression</code></a></li>
 				</ul>
 				<a href="#regression" id="regression" style="color: inherit; text-decoration: none;">
 					<h3>Regression</h3>
 				</a>
 				<ul>
-					<li>Deep Learning Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#regression"><code>DeepLearningRegression</code></a></li>
-					<li>Multivariate Linear Regression: <a href="https://repetere.github.io/tensorscript/manual/usage.html#regression"><code>MultipleLinearRegression</code></a></li>
+					<li>Deep Learning Regression: <a href="https://repetere.github.io/modelx-model/manual/usage.html#regression"><code>DeepLearningRegression</code></a></li>
+					<li>Multivariate Linear Regression: <a href="https://repetere.github.io/modelx-model/manual/usage.html#regression"><code>MultipleLinearRegression</code></a></li>
 				</ul>
 				<a href="#artificial-neural-networks-ann" id="artificial-neural-networks-ann" style="color: inherit; text-decoration: none;">
 					<h3>Artificial neural networks (ANN)</h3>
 				</a>
 				<ul>
-					<li>Multi-Layered Perceptrons: <a href="https://repetere.github.io/tensorscript/manual/usage.html#neural-networks"><code>BaseNeuralNetwork</code></a></li>
+					<li>Multi-Layered Perceptrons: <a href="https://repetere.github.io/modelx-model/manual/usage.html#neural-networks"><code>BaseNeuralNetwork</code></a></li>
 				</ul>
 				<a href="#lstm-time-series" id="lstm-time-series" style="color: inherit; text-decoration: none;">
 					<h3>LSTM Time Series</h3>
 				</a>
 				<ul>
-					<li>Long Short Term Memory Time Series: <a href="https://repetere.github.io/tensorscript/manual/usage.html#timeseries"><code>LSTMTimeSeries</code></a></li>
-					<li>Long Short Term Memory Multivariate Time Series: <a href="https://repetere.github.io/tensorscript/manual/usage.html#timeseries"><code>LSTMMultivariateTimeSeries</code></a></li>
+					<li>Long Short Term Memory Time Series: <a href="https://repetere.github.io/modelx-model/manual/usage.html#timeseries"><code>LSTMTimeSeries</code></a></li>
+					<li>Long Short Term Memory Multivariate Time Series: <a href="https://repetere.github.io/modelx-model/manual/usage.html#timeseries"><code>LSTMMultivariateTimeSeries</code></a></li>
 				</ul>
 				<a href="#basic-usage-1" id="basic-usage-1" style="color: inherit; text-decoration: none;">
 					<h2>Basic Usage</h2>
 				</a>
 				<p>TensorScript is and ECMA Script module designed to be used in an <code>ES2015+</code> environment, if you need compiled modules for older versions of node use the compiled modules in the bundle folder.</p>
-				<p>Please read more on tensorflow configuration options, specifying epochs, and using custom layers in <a href="https://repetere.github.io/tensorscript/manual/overview.html#configuration">configuration</a>.</p>
+				<p>Please read more on tensorflow configuration options, specifying epochs, and using custom layers in <a href="https://repetere.github.io/modelx-model/manual/overview.html#configuration">configuration</a>.</p>
 				<a href="#regression-examples" id="regression-examples" style="color: inherit; text-decoration: none;">
 					<h3>Regression Examples</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { MultipleLinearRegression, DeepLearningRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { MultipleLinearRegression, DeepLearningRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
 <span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
@@ -145,7 +145,7 @@ main();</code></pre>
 				<a href="#classification-examples" id="classification-examples" style="color: inherit; text-decoration: none;">
 					<h3>Classification Examples</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DeepLearningClassification, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DeepLearningClassification, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
 <span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
@@ -193,7 +193,7 @@ main();</code></pre>
    */</span>
 }
 main();</code></pre>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LogisticRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LogisticRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
 <span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
@@ -224,7 +224,7 @@ main();</code></pre>
 				<a href="#time-series-example" id="time-series-example" style="color: inherit; text-decoration: none;">
 					<h3>Time Series Example</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LSTMTimeSeries, } <span class="hljs-keyword">from</span> <span class="hljs-string">'tensorscript'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LSTMTimeSeries, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
 <span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{

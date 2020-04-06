@@ -18,6 +18,8 @@ export class TextEmbedding extends TensorScriptModelInterface {
     const config = Object.assign({
     }, options);
     super(config, properties);
+    this.type = 'TextEmbedding';
+
     return this;
   }
   /**
@@ -36,6 +38,9 @@ export class TextEmbedding extends TensorScriptModelInterface {
     if (!tokenizer) tokenizer = USE[ 1 ];
     this.model = model;
     this.tokenizer = tokenizer;
+    this.trained = true;
+    this.compiled = true;
+
     return this.model;
   }
   /**

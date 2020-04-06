@@ -124,6 +124,7 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#compiled" class="tsd-kind-icon">compiled</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#layers" class="tsd-kind-icon">layers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#model" class="tsd-kind-icon">model</a></li>
@@ -132,6 +133,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#tf" class="tsd-kind-icon">tf</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#trained" class="tsd-kind-icon">trained</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
 							</ul>
@@ -140,7 +142,9 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_base_neural_network_.baseneuralnetwork.html#calculate" class="tsd-kind-icon">calculate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_base_neural_network_.baseneuralnetwork.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#predict" class="tsd-kind-icon">predict</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_base_neural_network_.baseneuralnetwork.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a></li>
@@ -165,7 +169,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/base_neural_network.ts#L8">src/base_neural_network.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/base_neural_network.ts#L8">src/base_neural_network.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -197,13 +201,24 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="compiled" class="tsd-anchor"></a>
+					<h3>compiled</h3>
+					<div class="tsd-signature tsd-kind-icon">compiled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#compiled">compiled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L117">src/model_interface.ts:117</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="getinputshape" class="tsd-anchor"></a>
 					<h3>get<wbr>Input<wbr>Shape</h3>
 					<div class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape">getInputShape</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L113">src/model_interface.ts:113</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L119">src/model_interface.ts:119</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -235,7 +250,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#layers">layers</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L116">src/model_interface.ts:116</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L122">src/model_interface.ts:122</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +261,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#model">model</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L108">src/model_interface.ts:108</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L113">src/model_interface.ts:113</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +272,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#reshape">reshape</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L112">src/model_interface.ts:112</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L118">src/model_interface.ts:118</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -289,7 +304,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#settings">settings</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L107">src/model_interface.ts:107</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L112">src/model_interface.ts:112</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +315,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#tf">tf</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L110">src/model_interface.ts:110</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L115">src/model_interface.ts:115</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +326,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#tokenizer">tokenizer</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L109">src/model_interface.ts:109</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L114">src/model_interface.ts:114</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -322,7 +337,18 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#trained">trained</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L111">src/model_interface.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L116">src/model_interface.ts:116</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#type">type</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L111">src/model_interface.ts:111</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +359,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#xshape">xShape</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L114">src/model_interface.ts:114</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L120">src/model_interface.ts:120</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -344,7 +370,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#yshape">yShape</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L115">src/model_interface.ts:115</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L121">src/model_interface.ts:121</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -362,7 +388,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#calculate">calculate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/base_neural_network.ts#L73">src/base_neural_network.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/base_neural_network.ts#L76">src/base_neural_network.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,6 +417,24 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="exportconfiguration" class="tsd-anchor"></a>
+					<h3>export<wbr>Configuration</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">export<wbr>Configuration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#exportconfiguration">exportConfiguration</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L247">src/model_interface.ts:247</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="generatelayers" class="tsd-anchor"></a>
 					<h3>generate<wbr>Layers</h3>
@@ -401,7 +445,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/base_neural_network.ts#L36">src/base_neural_network.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/base_neural_network.ts#L37">src/base_neural_network.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,6 +489,30 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="importconfiguration" class="tsd-anchor"></a>
+					<h3>import<wbr>Configuration</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">import<wbr>Configuration<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#importconfiguration">importConfiguration</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L258">src/model_interface.ts:258</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>configuration: <a href="../interfaces/_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="loadmodel" class="tsd-anchor"></a>
 					<h3>load<wbr>Model</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -455,7 +523,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#loadmodel">loadModel</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L266">src/model_interface.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L297">src/model_interface.ts:297</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -493,7 +561,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#predict">predict</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L291">src/model_interface.ts:291</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L323">src/model_interface.ts:323</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -529,7 +597,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#savemodel">saveModel</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L278">src/model_interface.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L310">src/model_interface.ts:310</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -567,7 +635,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#train">train</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/base_neural_network.ts#L49">src/base_neural_network.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/base_neural_network.ts#L50">src/base_neural_network.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -622,7 +690,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape">getInputShape</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L220">src/model_interface.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L228">src/model_interface.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -669,7 +737,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#reshape">reshape</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5674200/src/model_interface.ts#L155">src/model_interface.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L163">src/model_interface.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -761,6 +829,9 @@
 								<a href="_base_neural_network_.baseneuralnetwork.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_base_neural_network_.baseneuralnetwork.html#compiled" class="tsd-kind-icon">compiled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_base_neural_network_.baseneuralnetwork.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -785,6 +856,9 @@
 								<a href="_base_neural_network_.baseneuralnetwork.html#trained" class="tsd-kind-icon">trained</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_base_neural_network_.baseneuralnetwork.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_base_neural_network_.baseneuralnetwork.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -793,8 +867,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_base_neural_network_.baseneuralnetwork.html#calculate" class="tsd-kind-icon">calculate</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_base_neural_network_.baseneuralnetwork.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_base_neural_network_.baseneuralnetwork.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_base_neural_network_.baseneuralnetwork.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_base_neural_network_.baseneuralnetwork.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a>

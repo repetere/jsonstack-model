@@ -1,14 +1,18 @@
 import * as tf from '@tensorflow/tfjs-node';
-export interface TensorScriptModelContext {
+export interface TensorScriptContext {
+    type?: string;
     settings: TensorScriptOptions;
-    model: any;
-    tf: any;
     trained: boolean;
-    reshape: (...args: any[]) => any;
-    getInputShape: (...args: any[]) => any;
+    compiled: boolean;
     xShape?: number[];
     yShape?: number[];
     layers?: TensorScriptLayers | TensorScriptSavedLayers;
+}
+export interface TensorScriptModelContext extends TensorScriptContext {
+    model: any;
+    tf: any;
+    reshape: (...args: any[]) => any;
+    getInputShape: (...args: any[]) => any;
 }
 export interface TensorScriptLSTMModelContext extends TensorScriptModelContext {
     createDataset: (...args: any[]) => any;
@@ -83,11 +87,13 @@ export declare type Calculation = {
  * @property {Function} getInputShape - static TensorScriptModelInterface
  */
 export declare class TensorScriptModelInterface {
+    type: string;
     settings: TensorScriptOptions;
     model: any;
     tokenizer: any;
     tf: any;
     trained: boolean;
+    compiled: boolean;
     reshape: (...args: any[]) => any;
     getInputShape: (...args: any[]) => any;
     xShape?: number[];
@@ -129,6 +135,8 @@ export declare class TensorScriptModelInterface {
      * @return {Array<number>} returns the shape of a matrix (e.g. [2,2])
      */
     static getInputShape(matrix?: any): Shape;
+    exportConfiguration(): TensorScriptContext;
+    importConfiguration(configuration: TensorScriptContext): void;
     /**
      * Asynchronously trains tensorflow model, must be implemented by tensorscript class
      * @abstract

@@ -31,6 +31,7 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
             },
         }, options);
         super(config, properties);
+        this.type = 'LSTMTimeSeries';
         this.createDataset = LSTMTimeSeries.createDataset;
         this.getTimeseriesDataSet = LSTMTimeSeries.getTimeseriesDataSet;
         this.getTimeseriesShape = LSTMTimeSeries.getTimeseriesShape;
@@ -209,7 +210,7 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
         const ys = this.tf.tensor(y_matrix, yShape);
         this.xShape = timeseriesShape;
         this.yShape = yShape;
-        if (this.trained === false) {
+        if (this.compiled === false) {
             this.model = this.tf.sequential();
             //@ts-ignore
             this.generateLayers.call(this, x_matrix_timeseries, y_matrix, layers || this.layers);
@@ -217,8 +218,10 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
             if (this.settings.fit && this.settings.stateful) {
                 this.settings.fit.shuffle = false;
             }
+            this.compiled = true;
         }
         await this.model.fit(xs, ys, this.settings.fit);
+        this.trained = true;
         // this.model.summary();
         xs.dispose();
         ys.dispose();

@@ -7,16 +7,20 @@ import * as tf from '@tensorflow/tfjs-node';
 /* istanbul ignore next */
 // const tf = (tensorflow && tensorflow.default) ? tensorflow.default : tensorflow;
 
-export interface TensorScriptModelContext {
+export interface TensorScriptContext { 
+  type?: string;
   settings: TensorScriptOptions;
-  model: any;
-  tf: any;
   trained: boolean;
-  reshape: (...args: any[]) => any;
-  getInputShape:(...args: any[]) => any;
+  compiled: boolean;
   xShape?: number[];
   yShape?: number[];
   layers?: TensorScriptLayers | TensorScriptSavedLayers;
+}
+export interface TensorScriptModelContext extends TensorScriptContext{
+  model: any;
+  tf: any;
+  reshape: (...args: any[]) => any;
+  getInputShape:(...args: any[]) => any;
 };
 
 export interface TensorScriptLSTMModelContext extends TensorScriptModelContext{
@@ -104,11 +108,13 @@ export type Calculation = {
  * @property {Function} getInputShape - static TensorScriptModelInterface
  */
 export class TensorScriptModelInterface  {
+  type: string;
   settings: TensorScriptOptions;
   model: any;
   tokenizer: any;
   tf: any;
   trained: boolean;
+  compiled: boolean;
   reshape: (...args: any[]) => any;
   getInputShape: (...args: any[]) => any;
   xShape?: number[];
@@ -122,6 +128,7 @@ export class TensorScriptModelInterface  {
    */
   constructor(options:TensorScriptOptions = {}, properties:TensorScriptProperties = {}) {
     // tf.setBackend('cpu');
+    this.type = 'ModelInterface';
     /** @type {Object} */
     this.settings = Object.assign({  }, options);
     /** @type {Object} */
@@ -130,6 +137,7 @@ export class TensorScriptModelInterface  {
     this.tf = properties.tf || tf;
     /** @type {Boolean} */
     this.trained = false;
+    this.compiled = false;
     /** @type {Function} */
     this.reshape = TensorScriptModelInterface.reshape;
     /** @type {Function} */
@@ -236,6 +244,29 @@ export class TensorScriptModelInterface  {
     }
     return dim;
   }
+  exportConfiguration():TensorScriptContext {
+    return {
+      type: this.type,
+      settings: this.settings,
+      trained: this.trained,
+      compiled: this.compiled,
+      xShape: this.xShape,
+      yShape: this.yShape,
+      layers: this.layers,
+    };
+  }
+  importConfiguration(configuration:TensorScriptContext):void {
+    this.type = configuration.type || this.type;
+    this.settings = {
+      ...this.settings,
+      ...configuration.settings,
+    };
+    this.trained = configuration.trained || this.trained;
+    this.compiled = configuration.compiled || this.compiled;
+    this.xShape = configuration.xShape || this.xShape;
+    this.yShape = configuration.yShape || this.yShape;
+    this.layers = configuration.layers || this.layers;
+  }
   /**
    * Asynchronously trains tensorflow model, must be implemented by tensorscript class
    * @abstract 
@@ -267,6 +298,7 @@ export class TensorScriptModelInterface  {
     this.model = await this.tf.loadLayersModel(options);
     this.xShape = this.model.inputs[0].shape;
     this.yShape = this.model.outputs[0].shape;
+    this.trained = true;
     return this.model;
   }
   /**

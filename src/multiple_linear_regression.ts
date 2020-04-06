@@ -25,6 +25,8 @@ export class MultipleLinearRegression extends BaseNeuralNetwork {
       },
     }, options);
     super(config, properties);
+    this.type = 'MultipleLinearRegression';
+
     return this;
   }
   /**

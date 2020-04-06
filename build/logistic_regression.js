@@ -23,6 +23,7 @@ export class LogisticRegression extends BaseNeuralNetwork {
             },
         }, options);
         super(config, properties);
+        this.type = 'LogisticRegression';
         return this;
     }
     /**

@@ -299,6 +299,8 @@ const dropped = getDropableColumns(8, n_in, n_out); //=> [ 10, 11, 12, 13, 14, 1
       },
     }, options);
     super(config, properties);
+    this.type = 'LSTMMultivariateTimeSeries';
+
     this.createDataset = LSTMMultivariateTimeSeries.createDataset;
     this.seriesToSupervised = LSTMMultivariateTimeSeries.seriesToSupervised;
     this.getDropableColumns = LSTMMultivariateTimeSeries.getDropableColumns;
@@ -396,18 +398,21 @@ const dropped = getDropableColumns(8, n_in, n_out); //=> [ 10, 11, 12, 13, 14, 1
     const ys = this.tf.tensor(y_matrix, yShape);
     this.xShape = timeseriesShape;
     this.yShape = yShape;
-    if (this.trained===false) {
+    if (this.compiled===false) {
       this.model = this.tf.sequential();
       //@ts-ignore
       this.generateLayers.call(this, x_matrix_timeseries, y_matrix, layers || this.layers,
       //  x_test, y_test
       );
       this.model.compile(this.settings.compile);
+      this.compiled = true;
     }
     if (x_test && y_test && this.settings && this.settings.fit) {
       this.settings.fit.validation_data = [ x_test, y_test, ];
     }
     await this.model.fit(xs, ys, this.settings.fit);
+    this.trained = true;
+
     // this.model.summary();
     xs.dispose();
     ys.dispose();

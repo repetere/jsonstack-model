@@ -22,6 +22,7 @@ export class DeepLearningClassification extends BaseNeuralNetwork {
             },
         }, options);
         super(config, properties);
+        this.type = 'DeepLearningClassification';
         return this;
     }
     /**

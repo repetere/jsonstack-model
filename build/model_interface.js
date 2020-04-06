@@ -20,6 +20,7 @@ export class TensorScriptModelInterface {
      */
     constructor(options = {}, properties = {}) {
         // tf.setBackend('cpu');
+        this.type = 'ModelInterface';
         /** @type {Object} */
         this.settings = Object.assign({}, options);
         /** @type {Object} */
@@ -28,6 +29,7 @@ export class TensorScriptModelInterface {
         this.tf = properties.tf || tf;
         /** @type {Boolean} */
         this.trained = false;
+        this.compiled = false;
         /** @type {Function} */
         this.reshape = TensorScriptModelInterface.reshape;
         /** @type {Function} */
@@ -126,6 +128,29 @@ export class TensorScriptModelInterface {
         }
         return dim;
     }
+    exportConfiguration() {
+        return {
+            type: this.type,
+            settings: this.settings,
+            trained: this.trained,
+            compiled: this.compiled,
+            xShape: this.xShape,
+            yShape: this.yShape,
+            layers: this.layers,
+        };
+    }
+    importConfiguration(configuration) {
+        this.type = configuration.type || this.type;
+        this.settings = {
+            ...this.settings,
+            ...configuration.settings,
+        };
+        this.trained = configuration.trained || this.trained;
+        this.compiled = configuration.compiled || this.compiled;
+        this.xShape = configuration.xShape || this.xShape;
+        this.yShape = configuration.yShape || this.yShape;
+        this.layers = configuration.layers || this.layers;
+    }
     train(x_matrix, y_matrix) {
         throw new ReferenceError('train method is not implemented');
     }
@@ -148,6 +173,7 @@ export class TensorScriptModelInterface {
         this.model = await this.tf.loadLayersModel(options);
         this.xShape = this.model.inputs[0].shape;
         this.yShape = this.model.outputs[0].shape;
+        this.trained = true;
         return this.model;
     }
     /**

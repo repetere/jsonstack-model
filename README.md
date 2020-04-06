@@ -18,40 +18,40 @@ $ npm run build #builds type declarations, created bundled artifacts with rollup
 
 This library is a compilation of model building modules with a consistent API for quickly implementing Tensorflow at edge(browser) or any JavaScript environment (Node JS / GPU).
 
-### [Read the manual](https://repetere.github.io/tensorscript/manual/overview.html)
+### [Read the manual](https://repetere.github.io/modelx-model/manual/overview.html)
 
 ## List of Tensorflow models
 
 ### Classification
 
-* Deep Learning Classification: [`DeepLearningClassification`](https://repetere.github.io/tensorscript/manual/usage.html#classification)
-* Logistic Regression: [`LogisticRegression`](https://repetere.github.io/tensorscript/manual/usage.html#classification)
+* Deep Learning Classification: [`DeepLearningClassification`](https://repetere.github.io/modelx-model/manual/usage.html#classification)
+* Logistic Regression: [`LogisticRegression`](https://repetere.github.io/modelx-model/manual/usage.html#classification)
 
 
 ### Regression
 
-* Deep Learning Regression: [`DeepLearningRegression`](https://repetere.github.io/tensorscript/manual/usage.html#regression)
-* Multivariate Linear Regression: [`MultipleLinearRegression`](https://repetere.github.io/tensorscript/manual/usage.html#regression)
+* Deep Learning Regression: [`DeepLearningRegression`](https://repetere.github.io/modelx-model/manual/usage.html#regression)
+* Multivariate Linear Regression: [`MultipleLinearRegression`](https://repetere.github.io/modelx-model/manual/usage.html#regression)
 
 ### Artificial neural networks (ANN)
 
-* Multi-Layered Perceptrons: [`BaseNeuralNetwork`](https://repetere.github.io/tensorscript/manual/usage.html#neural-networks)
+* Multi-Layered Perceptrons: [`BaseNeuralNetwork`](https://repetere.github.io/modelx-model/manual/usage.html#neural-networks)
 
 ### LSTM Time Series
 
-* Long Short Term Memory Time Series: [`LSTMTimeSeries`](https://repetere.github.io/tensorscript/manual/usage.html#timeseries)
-* Long Short Term Memory Multivariate Time Series: [`LSTMMultivariateTimeSeries`](https://repetere.github.io/tensorscript/manual/usage.html#timeseries)
+* Long Short Term Memory Time Series: [`LSTMTimeSeries`](https://repetere.github.io/modelx-model/manual/usage.html#timeseries)
+* Long Short Term Memory Multivariate Time Series: [`LSTMMultivariateTimeSeries`](https://repetere.github.io/modelx-model/manual/usage.html#timeseries)
 
 ## Basic Usage
 
 TensorScript is and ECMA Script module designed to be used in an `ES2015+` environment, if you need compiled modules for older versions of node use the compiled modules in the bundle folder.
 
-Please read more on tensorflow configuration options, specifying epochs, and using custom layers in [configuration](https://repetere.github.io/tensorscript/manual/overview.html#configuration).
+Please read more on tensorflow configuration options, specifying epochs, and using custom layers in [configuration](https://repetere.github.io/modelx-model/manual/overview.html#configuration).
 
 ### Regression Examples
 
 ```javascript
-import { MultipleLinearRegression, DeepLearningRegression, } from 'tensorscript';
+import { MultipleLinearRegression, DeepLearningRegression, } from '@modelx/model';
 import ms from 'modelscript';
 
 async function main(){
@@ -75,7 +75,7 @@ main();
 ### Classification Examples
 
 ```javascript
-import { DeepLearningClassification, } from 'tensorscript';
+import { DeepLearningClassification, } from '@modelx/model';
 import ms from 'modelscript';
 
 async function main(){
@@ -126,7 +126,7 @@ main();
 ```
 
 ```javascript
-import { LogisticRegression, } from 'tensorscript';
+import { LogisticRegression, } from '@modelx/model';
 import ms from 'modelscript';
 
 async function main(){
@@ -159,7 +159,7 @@ main();
 ### Time Series Example
 
 ```javascript
-import { LSTMTimeSeries, } from 'tensorscript';
+import { LSTMTimeSeries, } from '@modelx/model';
 import ms from 'modelscript';
 
 async function main(){

@@ -23,6 +23,7 @@ export class DeepLearningRegression extends BaseNeuralNetwork {
             },
         }, options);
         super(config, properties);
+        this.type = 'DeepLearningRegression';
         return this;
     }
     /**

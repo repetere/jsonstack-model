@@ -205,7 +205,7 @@ describe('TensorScriptModelInterface', function () {
         expect(e2).to.match(/Dimension mismatch/);
       }
     });
-    it('should return preductions', async function () {
+    it('should return predictions', async function () {
       const TSMMLR = new MLR();
       const input = [
         [1, 2,],
@@ -292,5 +292,34 @@ describe('TensorScriptModelInterface', function () {
       await fs.remove(saveFilePath);
       // MultipleLinearRegression
     },120000);
+  });
+  describe('exportConfiguration / importConfiguration',  ()=> {
+    it('should export configuration from exportConfiguration', function () {
+      const TSM = new MultipleLinearRegression({ stateful: true, });
+      const config = TSM.exportConfiguration();
+      // const savedModel = await TSM.saveModel();
+      expect(config.settings.stateful).to.eql(true);
+      expect(config.trained).to.eql(false);
+      expect(config.type).to.eql('MultipleLinearRegression');
+    });
+    it('should import configuration from importConfiguration', function () {
+      const trainedMLR = new MultipleLinearRegression({
+        fit: {
+          epochs: 100,
+          batchSize: 5,
+          verbose:0,
+        },
+      });
+      trainedMLR.importConfiguration({
+        type: 'CustomMLR',
+        settings: {},
+        compiled: false,
+        trained: false,
+      });
+      // console.log({ trainedMLR });
+      expect(trainedMLR.type).to.eql('CustomMLR');
+
+      // MultipleLinearRegression
+    });
   });
 });

@@ -23,6 +23,7 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
             },
         }, options);
         super(config, properties);
+        this.type = 'BaseNeuralNetwork';
         return this;
     }
     /**
@@ -52,12 +53,14 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
         const ys = this.tf.tensor(y_matrix, yShape);
         this.xShape = xShape;
         this.yShape = yShape;
-        if (typeof this.trained === 'undefined' || this.trained === false) {
+        if (typeof this.compiled === 'undefined' || this.compiled === false) {
             this.model = this.tf.sequential();
             this.generateLayers.call(this, x_matrix, y_matrix, layers || this.layers, x_test, y_test);
             this.model.compile(this.settings.compile);
+            this.compiled = true;
         }
         await this.model.fit(xs, ys, this.settings.fit);
+        this.trained = true;
         xs.dispose();
         ys.dispose();
         return this.model;

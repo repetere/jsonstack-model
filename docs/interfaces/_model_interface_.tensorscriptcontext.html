@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TensorScriptModelContext | @modelx/model</title>
+	<title>TensorScriptContext | @modelx/model</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_model_interface_.html">&quot;model_interface&quot;</a>
 				</li>
 				<li>
-					<a href="_model_interface_.tensorscriptmodelcontext.html">TensorScriptModelContext</a>
+					<a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>
 				</li>
 			</ul>
-			<h1>Interface TensorScriptModelContext</h1>
+			<h1>Interface TensorScriptContext</h1>
 		</div>
 	</div>
 </header>
@@ -73,15 +73,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a>
+						<span class="target">TensorScriptContext</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">TensorScriptModelContext</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-signature-type">TensorScriptLSTMModelContext</a>
-									</li>
-								</ul>
+								<a href="_model_interface_.tensorscriptmodelcontext.html" class="tsd-signature-type">TensorScriptModelContext</a>
 							</li>
 						</ul>
 					</li>
@@ -94,17 +89,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#compiled" class="tsd-kind-icon">compiled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptmodelcontext.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#layers" class="tsd-kind-icon">layers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptmodelcontext.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptmodelcontext.html#reshape" class="tsd-kind-icon">reshape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#settings" class="tsd-kind-icon">settings</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptmodelcontext.html#tf" class="tsd-kind-icon">tf</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#trained" class="tsd-kind-icon">trained</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_model_interface_.tensorscriptmodelcontext.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#compiled" class="tsd-kind-icon">compiled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#layers" class="tsd-kind-icon">layers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#settings" class="tsd-kind-icon">settings</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#trained" class="tsd-kind-icon">trained</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_model_interface_.tensorscriptcontext.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,160 +103,71 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="compiled" class="tsd-anchor"></a>
 					<h3>compiled</h3>
 					<div class="tsd-signature tsd-kind-icon">compiled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#compiled">compiled</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L14">src/model_interface.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="getinputshape" class="tsd-anchor"></a>
-					<h3>get<wbr>Input<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L23">src/model_interface.ts:23</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="layers" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> layers</h3>
 					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#layers">layers</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L17">src/model_interface.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="model" class="tsd-anchor"></a>
-					<h3>model</h3>
-					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L20">src/model_interface.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="reshape" class="tsd-anchor"></a>
-					<h3>reshape</h3>
-					<div class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L22">src/model_interface.ts:22</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="settings" class="tsd-anchor"></a>
 					<h3>settings</h3>
 					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#settings">settings</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L12">src/model_interface.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tf" class="tsd-anchor"></a>
-					<h3>tf</h3>
-					<div class="tsd-signature tsd-kind-icon">tf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L21">src/model_interface.ts:21</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="trained" class="tsd-anchor"></a>
 					<h3>trained</h3>
 					<div class="tsd-signature tsd-kind-icon">trained<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#trained">trained</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L13">src/model_interface.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="type" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#type">type</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L11">src/model_interface.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="xshape" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> x<wbr>Shape</h3>
 					<div class="tsd-signature tsd-kind-icon">x<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#xshape">xShape</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L15">src/model_interface.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="yshape" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> y<wbr>Shape</h3>
 					<div class="tsd-signature tsd-kind-icon">y<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_model_interface_.tensorscriptcontext.html">TensorScriptContext</a>.<a href="_model_interface_.tensorscriptcontext.html#yshape">yShape</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/7d95121/src/model_interface.ts#L16">src/model_interface.ts:16</a></li>
 						</ul>
@@ -319,54 +221,42 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_model_interface_.nestedarray.html" class="tsd-kind-icon">Nested<wbr>Array</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_model_interface_.tensorscriptcontext.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Context</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>ScriptLSTMModel<wbr>Context</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_model_interface_.tensorscriptmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Context</a>
+						<a href="_model_interface_.tensorscriptcontext.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Context</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#compiled" class="tsd-kind-icon">compiled</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_model_interface_.tensorscriptcontext.html#compiled" class="tsd-kind-icon">compiled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#layers" class="tsd-kind-icon">layers</a>
+								<a href="_model_interface_.tensorscriptcontext.html#layers" class="tsd-kind-icon">layers</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#model" class="tsd-kind-icon">model</a>
+								<a href="_model_interface_.tensorscriptcontext.html#settings" class="tsd-kind-icon">settings</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#reshape" class="tsd-kind-icon">reshape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#settings" class="tsd-kind-icon">settings</a>
+								<a href="_model_interface_.tensorscriptcontext.html#trained" class="tsd-kind-icon">trained</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#tf" class="tsd-kind-icon">tf</a>
+								<a href="_model_interface_.tensorscriptcontext.html#type" class="tsd-kind-icon">type</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#trained" class="tsd-kind-icon">trained</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_model_interface_.tensorscriptcontext.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_model_interface_.tensorscriptmodelcontext.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_model_interface_.tensorscriptcontext.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>ScriptLSTMModel<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_model_interface_.tensorscriptmodelcontext.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Context</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/_model_interface_.html#calculation" class="tsd-kind-icon">Calculation</a>
 					</li>
