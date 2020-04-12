@@ -148,7 +148,7 @@ describe('LSTMMultivariateTimeSeries', function () {
       returnData:true,
     });
     //{ train_size: 16, test_size: 9 }
-    train_size = parseInt(DataSet.data.length * 0.67);
+    train_size = Math.round(DataSet.data.length * 0.67);
     test_size = DataSet.data.length - train_size;
     train_x_data = DataSet.data.slice(0, train_size);
     test_x_data = DataSet.data.slice(train_size, DataSet.data.length);
@@ -177,7 +177,7 @@ describe('LSTMMultivariateTimeSeries', function () {
       fit,
     });
     TSTSONE = new LSTMMultivariateTimeSeries({
-      lookBack: 1,
+      lookback: 1,
       features: 8,
       fit,
     });
@@ -384,8 +384,8 @@ describe('LSTMMultivariateTimeSeries', function () {
       expect(predictions).to.have.lengthOf(1);
       expect(LSTMTS.layers).to.be.a('object');
       return true;
-    });
-  },120000);
+    },120000);
+  });
   /** @test {LSTMMultivariateTimeSeries#generateLayers} */
   describe('generateLayers', () => {
     // it('should generate a classification network', async () => {

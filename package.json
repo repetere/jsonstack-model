@@ -1,6 +1,6 @@
 {
   "name": "@modelx/model",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Deep Learning Classification, LSTM Time Series, Regression and Multi-Layered Perceptrons with Tensorflow",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",

@@ -39,6 +39,9 @@ export declare type TensorScriptSavedLayers = {
     denseLayers?: DenseLayer[];
     rnnLayers?: DenseLayer[];
 };
+export declare type EpochLog = {
+    loss: number;
+};
 export declare type TensorScriptOptions = {
     layers?: TensorScriptLayers | TensorScriptSavedLayers;
     layerPreference?: string;
@@ -53,6 +56,15 @@ export declare type TensorScriptOptions = {
         validationData?: [Matrix, Matrix];
         validation_data?: [Matrix, Matrix];
         shuffle?: boolean;
+        callbacks?: {
+            onTrainBegin?: (logs: EpochLog) => void;
+            onTrainEnd?: (logs: EpochLog) => void;
+            onEpochBegin?: (epoch: number, logs: EpochLog) => void;
+            onEpochEnd?: (epoch: number, logs: EpochLog) => void;
+            onBatchBegin?: (batch: number, logs: EpochLog) => void;
+            onBatchEnd?: (batch: number, logs: EpochLog) => void;
+            onYield?: (epoch: number, batch: number, logs: EpochLog) => void;
+        };
     };
     type?: string;
     stateful?: boolean;

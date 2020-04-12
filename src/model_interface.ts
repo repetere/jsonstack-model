@@ -52,6 +52,9 @@ export type TensorScriptSavedLayers = {
   rnnLayers?: DenseLayer[];
 };
 
+export type EpochLog = {
+  loss: number;
+}
 export type TensorScriptOptions = {
   layers?: TensorScriptLayers | TensorScriptSavedLayers;
   layerPreference?: string;
@@ -66,6 +69,22 @@ export type TensorScriptOptions = {
     validationData?: [Matrix, Matrix];
     validation_data?: [Matrix, Matrix];
     shuffle?: boolean;
+    callbacks?: {
+      // called when training begins.
+      onTrainBegin?: (logs:EpochLog) => void;
+      // called when training ends.
+      onTrainEnd?: (logs:EpochLog) => void;
+      //called at the start of every epoch.
+      onEpochBegin?: (epoch: number, logs: EpochLog) => void;
+      //called at the end of every epoch.
+      onEpochEnd?: (epoch: number, logs: EpochLog) => void;
+      //called at the start of every batch.
+      onBatchBegin?:(batch:number, logs: EpochLog)=> void;
+      //called at the end of every batch.
+      onBatchEnd?:(batch:number, logs: EpochLog)=> void;
+      //called every yieldEvery milliseconds with the current epoch, batch and logs. The logs are the same as in onBatchEnd(). Note that onYield can skip batches or epochs. See also docs for yieldEvery below.
+      onYield?:(epoch:number, batch:number, logs: EpochLog)=> void;
+    }
   }
   //logistic regression
   type?: string;
