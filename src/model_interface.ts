@@ -139,6 +139,7 @@ export class TensorScriptModelInterface  {
   xShape?: number[];
   yShape?: number[];
   layers?: TensorScriptLayers | TensorScriptSavedLayers;
+  getTimeseriesShape?: (x_timeseries: NestedArray<any> | undefined) => Shape;
 
   /**
    * @param {Object} options - tensorflow model hyperparameters
