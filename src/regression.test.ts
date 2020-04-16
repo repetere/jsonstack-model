@@ -3,6 +3,8 @@ import * as ms from '@modelx/data';
 import { DeepLearningRegression, } from './index';
 import * as tf from '@tensorflow/tfjs-node';
 import '@tensorflow/tfjs-node';
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 // import '@tensorflow/tfjs-backend-wasm';
 // import { setWasmPath } from '@tensorflow/tfjs-backend-wasm';
 // const wasmpath = `${path.join(__dirname, '../node_modules/@tensorflow/tfjs-backend-wasm/dist/tfjs-backend-wasm.wasm')}`;
@@ -148,8 +150,8 @@ describe('DeepLearningRegression', function () {
       expect(predictions).toHaveLength(input_x.length);
       expect(nnRegressionDeep.layers).toHaveLength(3);
       expect(shape).toMatchObject([2, 1,]);
-      expect(Math.round(predictions_unscaled[ 0 ])).toBeCloseTo(24, 15);
-      expect(Math.round(predictions_unscaled[ 0 ])).toBeCloseTo(21, 15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(24-15, 24+15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(21-15, 21+15);
     });
     it('should generate a wide network', async () => {
       const predictions = await nnRegressionWide.predict(input_x);
@@ -159,8 +161,8 @@ describe('DeepLearningRegression', function () {
       expect(predictions).toHaveLength(input_x.length);
       expect(nnRegressionWide.layers).toHaveLength(2);
       expect(shape).toMatchObject([2, 1,]);
-      expect(Math.round(predictions_unscaled[ 0 ])).toBeCloseTo(24, 15);
-      expect(Math.round(predictions_unscaled[ 0 ])).toBeCloseTo(21, 15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(24-15, 24+15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(21-15, 21+15);
     });
     it('should generate a network from layers', async () => { 
       const nnRegressionCustom = new DeepLearningRegression({ layerPreference:'custom', fit, });

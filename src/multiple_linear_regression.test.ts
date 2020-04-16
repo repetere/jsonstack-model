@@ -1,6 +1,8 @@
 import path from 'path';
 import * as ms from '@modelx/data';
 import { MultipleLinearRegression, } from './index';
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 const independentVariables = ['sqft', 'bedrooms', ];
 const dependentVariables = ['price',];
 let housingDataCSV;
@@ -101,8 +103,8 @@ describe('MultipleLinearRegression', function () {
       expect(predictions).toHaveLength(input_x.length);
       expect(trainedMLR.layers).toHaveLength(1);
       const descaledPredictions = predictions.map(DataSet.scalers.get('price').descale);
-      expect(descaledPredictions[ 0 ]).toBeCloseTo(630000, 20000);
-      expect(descaledPredictions[ 1 ]).toBeCloseTo(190000, 10000);
+      expect(descaledPredictions[ 0 ]).toBeWithinRange(610000, 650000);
+      expect(descaledPredictions[ 1 ]).toBeWithinRange(180000, 200000);
       return true;
     });
     it('should generate a network from layers', async () => {
