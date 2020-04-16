@@ -1,11 +1,7 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { LogisticRegression, } from './index';
 
-const expect = chai.expect;
 const independentVariables = [
   'Age',
   'EstimatedSalary',
@@ -38,8 +34,6 @@ const input_x = [
   [0.4144854668150751, -0.49102617539282206, ], //0
   [0.3190918035664962, 0.5061301610775946, ], //1
 ];
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -109,9 +103,9 @@ describe('LogisticRegression', function () {
     it('should export a named module class', () => {
       const NN = new LogisticRegression();
       const NNConfigured = new LogisticRegression({ test: 'prop', });
-      expect(LogisticRegression).to.be.a('function');
-      expect(NN).to.be.instanceOf(LogisticRegression);
-      expect(NNConfigured.settings.test).to.eql('prop');
+      expect(typeof LogisticRegression).toBe('function');
+      expect(NN).toBeInstanceOf(LogisticRegression);
+      expect(NNConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {LogisticRegression#generateLayers} */
@@ -123,16 +117,16 @@ describe('LogisticRegression', function () {
       });
       const shape = nnLR.getInputShape(predictions);
      
-      expect(predictions).to.have.lengthOf(input_x.length);
-      expect(nnLR.layers).to.have.lengthOf(1);
-      expect(shape).to.eql([5, 1, ]);
+      expect(predictions).toHaveLength(input_x.length);
+      expect(nnLR.layers).toHaveLength(1);
+      expect(shape).toEqual([5, 1, ]);
       // expect(answers[ 0 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
       return true;
     });
     it('should generate a network from layers', async () => { 
       const nnLRCustom = new LogisticRegression({ type:'custom', fit, });
       await nnLRCustom.train(x_matrix, y_matrix, nnLR.layers);
-      expect(nnLRCustom.layers).to.have.lengthOf(1);
+      expect(nnLRCustom.layers).toHaveLength(1);
     },120000);
     // it('should validate trainning data', async () => { 
     //   const nnLRCustom = new LogisticRegression({ type:'custom', fit, });

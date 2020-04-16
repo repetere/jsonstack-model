@@ -1,10 +1,6 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { LSTMTimeSeries, } from './index';
-const expect = chai.expect;
 const independentVariables = [
   'Passengers',
 ];
@@ -38,8 +34,6 @@ const fit= {
   batchSize: 1,
 };
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -172,10 +166,10 @@ describe('LSTMTimeSeries', function () {
     it('should return timeseries datasets', () => {
       const [datax, datay, ] = LSTMTimeSeries.createDataset(ds);
       const [ datax2, datay2, ] = LSTMTimeSeries.createDataset(ds, lookback);
-      expect(datax).to.have.lengthOf(datay.length);
-      expect(datax2).to.have.lengthOf(datay2.length);
-      expect(datax[ 0 ]).to.have.lengthOf(1);
-      expect(datax2[ 0 ]).to.have.lengthOf(lookback);
+      expect(datax).toHaveLength(datay.length);
+      expect(datax2).toHaveLength(datay2.length);
+      expect(datax[ 0 ]).toHaveLength(1);
+      expect(datax2[ 0 ]).toHaveLength(lookback);
     });
   });
   /** @test {LSTMTimeSeries#getTimeseriesShape} */
@@ -203,9 +197,9 @@ describe('LSTMTimeSeries', function () {
           stateful:true,
         },
       }, datax);
-      expect(tsShape).to.eql([6, 1, 3,]);
-      expect(tsShape2).to.eql([6, 3, 1,]);
-      expect(tsShape3).to.eql([6, 3, 1,]);
+      expect(tsShape).toMatchObject([6, 1, 3,]);
+      expect(tsShape2).toMatchObject([6, 3, 1,]);
+      expect(tsShape3).toMatchObject([6, 3, 1,]);
     });
   });
   /** @test {LSTMTimeSeries#getTimeseriesDataSet} */
@@ -219,9 +213,9 @@ describe('LSTMTimeSeries', function () {
           mulitpleTimeSteps:true,
         },
       }, ds, 3);
-      expect(tsShape.yShape).to.eql([6, 1,]);
-      expect(tsShape.xShape).to.eql([6, 3,]);
-      expect(tsShape.y_matrix).to.eql(datay);
+      expect(tsShape.yShape).toMatchObject([6, 1,]);
+      expect(tsShape.xShape).toMatchObject([6, 3,]);
+      expect(tsShape.y_matrix).toMatchObject(datay);
       // expect(tsShape.x_matrix).to.eql(datax);
       // console.log({ tsShape, });
     });
@@ -231,9 +225,9 @@ describe('LSTMTimeSeries', function () {
     it('should export a named module class', () => {
       const NN = new LSTMTimeSeries();
       const NNConfigured = new LSTMTimeSeries({ test: 'prop', });
-      expect(LSTMTimeSeries).to.be.a('function');
-      expect(NN).to.be.instanceOf(LSTMTimeSeries);
-      expect(NNConfigured.settings.test).to.eql('prop');
+      expect(typeof LSTMTimeSeries).toBe('function');
+      expect(NN).toBeInstanceOf(LSTMTimeSeries);
+      expect(NNConfigured.settings.test).toBe('prop');
     });
   });
   /** @test {LSTMTimeSeries#predict} */
@@ -241,13 +235,13 @@ describe('LSTMTimeSeries', function () {
     it('should allow for stateless predictions with one step time windows', async () => {
       const accr = await getModelAccuracy({ model: TSTSONE, modelname: 'TSTSONE', });
       // console.log({ accr });
-      expect(accr.accuracy).to.be.ok;
+      expect(accr.accuracy).toBeTruthy();
       return true;
     },120000);
     it('should allow for stateless predictions with multiple step time windows', async () => {
       const accr = await getModelAccuracy({ model: TSTS, modelname: 'TSTSONE', });
       // console.log({ accr, });
-      expect(accr.accuracy).to.be.ok;
+      expect(accr.accuracy).toBeTruthy();
       return true;
     },120000);
     // it('should make stateful predictions', async () => {
@@ -261,7 +255,7 @@ describe('LSTMTimeSeries', function () {
     it('should make single predictions', async () => {
       const testData = TSTSONE.getTimeseriesDataSet(x_matrix_test);
       const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
-      expect(predictions).to.have.lengthOf(1);
+      expect(predictions).toHaveLength(1);
       // console.log({ predictions });
       return true;
     },120000);
@@ -278,8 +272,8 @@ describe('LSTMTimeSeries', function () {
       const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
       const predictions_unscaled = predictions.map(pred => [DataSet.scalers.get('Passengers').descale(pred[ 0 ]),]);
       console.log({ predictions_unscaled });
-      expect(predictions).to.have.lengthOf(1);
-      expect(LSTMTS.layers).to.be.a('object');
+      expect(predictions).toHaveLength(1);
+      expect(typeof LSTMTS.layers).toBe('object');
       return true;
     },120000);
   });
@@ -313,7 +307,7 @@ describe('LSTMTimeSeries', function () {
       const LSTMTS = new LSTMTimeSeries({ layerPreference: 'custom', fit, });
       console.log('TSTSONE.layers', TSTSONE.layers);
       await LSTMTS.train(x_matrix, y_matrix, TSTSONE.layers);
-      expect(LSTMTS.layers).to.be.a('object');
+      expect(typeof LSTMTS.layers).toBe('object');
       return true;
     },120000);
   });

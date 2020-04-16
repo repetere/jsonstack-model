@@ -1,11 +1,7 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { LSTMMultivariateTimeSeries, } from './index';
 
-const expect = chai.expect;
 const independentVariables = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8',];
 const dependentVariables = ['o1', ];
 const ds = [
@@ -44,8 +40,6 @@ const fit= {
   batchSize: 1,
 };
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -210,7 +204,7 @@ describe('LSTMMultivariateTimeSeries', function () {
       ];
       const dropColumns = [1, 3,];
       const droppedFormatted = LSTMMultivariateTimeSeries.drop(data, dropColumns);
-      expect(droppedFormatted).to.eql(droppedData);
+      expect(droppedFormatted).toEqual(droppedData);
     });
   });
   /** @test {LSTMMultivariateTimeSeries#getDropableColumns} */
@@ -232,14 +226,14 @@ describe('LSTMMultivariateTimeSeries', function () {
       const droppableColumns3 = LSTMMultivariateTimeSeries.getDropableColumns(2, 3, 1);
       const droppableColumns4 = LSTMMultivariateTimeSeries.getDropableColumns(2, 1, 1);
       // console.log({ droppableColumns3,droppableColumns4 });
-      expect(droppableColumns).to.eql(drops);
-      expect(droppableColumns1).to.eql([3, ]);
-      expect(droppableColumns2).to.eql([7, ]);
-      expect(droppableColumns3).to.eql([10, 11, ]);
-      expect(droppableColumns4).to.eql([4, 5, ]);
+      expect(droppableColumns).toEqual(drops);
+      expect(droppableColumns1).toEqual([3, ]);
+      expect(droppableColumns2).toEqual([7, ]);
+      expect(droppableColumns3).toEqual([10, 11, ]);
+      expect(droppableColumns4).toEqual([4, 5, ]);
     });
     it('should throw an error if more that one future iteration', () => {
-      expect(LSTMMultivariateTimeSeries.getDropableColumns.bind(null, 8, 1, 3)).to.throw(/Only 1 future/);
+      expect(LSTMMultivariateTimeSeries.getDropableColumns.bind(null, 8, 1, 3)).toThrowError(/Only 1 future/);
     });
   });
   /** @test {LSTMMultivariateTimeSeries#seriesToSupervised} */
@@ -268,18 +262,18 @@ describe('LSTMMultivariateTimeSeries', function () {
       ];
       const series = LSTMMultivariateTimeSeries.seriesToSupervised(originalData, n_in, n_out);
       const series1 = LSTMMultivariateTimeSeries.seriesToSupervised(s1, 3, n_out);
-      expect(series).to.eql(data);
-      expect(series1[ 0 ]).to.have.lengthOf(8);
+      expect(series).toEqual(data);
+      expect(series1[ 0 ]).toHaveLength(8);
       // expect(droppableColumns1).to.eql([3]);
       // expect(droppableColumns2).to.eql([7]);
       // expect(droppableColumns3).to.eql([10,11]);
       // expect(droppableColumns4).to.eql([4,5]);
     });
     it('should throw an error if more that one future iteration', () => {
-      expect(LSTMMultivariateTimeSeries.seriesToSupervised.bind(null, originalData, 1, 3)).to.throw(/Only 1 future/);
+      expect(LSTMMultivariateTimeSeries.seriesToSupervised.bind(null, originalData, 1, 3)).toThrowError(/Only 1 future/);
     });
     it('should throw an error if no dependent variable supplied', () => {
-      expect(LSTMMultivariateTimeSeries.seriesToSupervised.bind(null, [[1, ], [2, ], ], 1, 1)).to.throw(/Must include at least two columns/);
+      expect(LSTMMultivariateTimeSeries.seriesToSupervised.bind(null, [[1, ], [2, ], ], 1, 1)).toThrowError(/Must include at least two columns/);
     });
   });
   /** @test {LSTMMultivariateTimeSeries#createDataset} */
@@ -288,11 +282,11 @@ describe('LSTMMultivariateTimeSeries', function () {
     it('should return timeseries datasets', () => {
       const [datax, datay, features,] = LSTMMultivariateTimeSeries.createDataset(ds);
       const [datax2, datay2, features2,] = LSTMMultivariateTimeSeries.createDataset(ds, lookback);
-      expect(datax).to.have.lengthOf(datay.length);
-      expect(datax2).to.have.lengthOf(datay2.length);
-      expect(datax[ 0 ]).to.have.lengthOf(features);
-      expect(datax[ 0 ]).to.have.lengthOf(features*1+(1-1));
-      expect(datax2[ 0 ]).to.have.lengthOf(features2*lookback+(lookback-1));
+      expect(datax).toHaveLength(datay.length);
+      expect(datax2).toHaveLength(datay2.length);
+      expect(datax[ 0 ]).toHaveLength(features);
+      expect(datax[ 0 ]).toHaveLength(features*1+(1-1));
+      expect(datax2[ 0 ]).toHaveLength(features2*lookback+(lookback-1));
     });
   });
   /** @test {LSTMMultivariateTimeSeries#getTimeseriesShape} */
@@ -312,8 +306,8 @@ describe('LSTMMultivariateTimeSeries', function () {
           lookback: 3,
         },
       }, datax2);
-      expect(tsShape).to.eql([9,1,8 ]);
-      expect(tsShape2).to.eql([7,3,26, ]);
+      expect(tsShape).toEqual([9,1,8 ]);
+      expect(tsShape2).toEqual([7,3,26, ]);
     });
   });
   /** @test {LSTMMultivariateTimeSeries#getTimeseriesDataSet} */
@@ -325,9 +319,9 @@ describe('LSTMMultivariateTimeSeries', function () {
         settings: {
         },
       }, ds, 1);
-      expect(tsShape.yShape).to.eql([9, 1,]);
-      expect(tsShape.xShape).to.eql([9, 1,8,]);
-      expect(tsShape.y_matrix).to.eql(datay);
+      expect(tsShape.yShape).toEqual([9, 1,]);
+      expect(tsShape.xShape).toEqual([9, 1,8,]);
+      expect(tsShape.y_matrix).toEqual(datay);
       // expect(tsShape.x_matrix).to.eql(datax);
       // console.log({ tsShape, });
     });
@@ -337,9 +331,9 @@ describe('LSTMMultivariateTimeSeries', function () {
     it('should export a named module class', () => {
       const NN = new LSTMMultivariateTimeSeries();
       const NNConfigured = new LSTMMultivariateTimeSeries({ test: 'prop', });
-      expect(LSTMMultivariateTimeSeries).to.be.a('function');
-      expect(NN).to.be.instanceOf(LSTMMultivariateTimeSeries);
-      expect(NNConfigured.settings.test).to.eql('prop');
+      expect(typeof LSTMMultivariateTimeSeries).toBe('function');
+      expect(NN).toBeInstanceOf(LSTMMultivariateTimeSeries);
+      expect(NNConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {LSTMMultivariateTimeSeries#predict} */
@@ -347,19 +341,19 @@ describe('LSTMMultivariateTimeSeries', function () {
     it('should allow for stateless predictions with one step time windows', async () => {
       const accr = await getModelAccuracy({ model: TSTSONE, modelname: 'TSTSONE', });
       // console.log({ accr });
-      expect(accr.accuracy).to.be.ok;
+      expect(accr.accuracy).toBeTruthy();
       return true;
     },120000);
     it('should allow for stateless predictions with multiple step time windows', async () => {
       const accr = await getModelAccuracy({ model: TSTS, modelname: 'TSTSONE', });
       // console.log({ accr, });
-      expect(accr.accuracy).to.be.ok;
+      expect(accr.accuracy).toBeTruthy();
       return true;
     },120000);
     it('should make single predictions', async () => {
       const testData = TSTSONE.getTimeseriesDataSet(x_matrix_test);
       const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
-      expect(predictions).to.have.lengthOf(1);
+      expect(predictions).toHaveLength(1);
       console.log({ predictions });
       return true;
     },120000);
@@ -381,8 +375,8 @@ describe('LSTMMultivariateTimeSeries', function () {
       const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
       const predictions_unscaled = predictions.map(pred => [DataSet.scalers.get('o1').descale(pred[ 0 ]),]);
       // console.log({ predictions_unscaled });
-      expect(predictions).to.have.lengthOf(1);
-      expect(LSTMTS.layers).to.be.a('object');
+      expect(predictions).toHaveLength(1);
+      expect(typeof LSTMTS.layers).toBe('object');
       return true;
     },120000);
   });
@@ -417,7 +411,7 @@ describe('LSTMMultivariateTimeSeries', function () {
       const testData = LSTMTS.getTimeseriesDataSet(x_matrix_test);
       console.log('TSTSONE.layers', TSTSONE.layers);
       await LSTMTS.train(x_matrix, y_matrix, TSTSONE.layers,testData.x_matrix,testData.y_matrix);
-      expect(LSTMTS.layers).to.be.a('object');
+      expect(typeof LSTMTS.layers).toBe('object');
       return true;
     },120000);
   });
