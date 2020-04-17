@@ -1,16 +1,8 @@
-import chai from 'chai';
-import path from 'path';
-import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { TextEmbedding, } from './index';
 
-const expect = chai.expect;
 let housingDataCSV;
 let DataSet;
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 
 /** @test {TextEmbedding} */
 describe('TextEmbedding', function () {
@@ -28,9 +20,9 @@ describe('TextEmbedding', function () {
     it('should export a named module class', () => {
       const TE = new TextEmbedding();
       const TEConfigured = new TextEmbedding({ test: 'prop', });
-      expect(TextEmbedding).to.be.a('function');
-      expect(TE).to.be.instanceOf(TextEmbedding);
-      expect(TEConfigured.settings.test).to.eql('prop');
+      expect(typeof TextEmbedding).toBe('function');
+      expect(TE).toBeInstanceOf(TextEmbedding);
+      expect(TEConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {TextEmbedding#train} */
@@ -38,7 +30,7 @@ describe('TextEmbedding', function () {
     it('should Load and Return Universal Sentence Encoder and Tokenizer', async function () {
       const NN = new TextEmbedding();
       const trainedModel = await NN.train();
-      expect(trainedModel).to.be.an('object');
+      expect(typeof trainedModel).toBe('object');
       // expect(trainedModel).to.be.instanceOf(UniversalSentenceEncoder);
       // expect(trainedModel2).to.be.an('object');
     },10000);
@@ -47,9 +39,9 @@ describe('TextEmbedding', function () {
   describe('calculate', () => {
     it('should throw an error if input is invalid', () => {
       const NN = new TextEmbedding();
-      expect(NN.calculate).to.be.a('function');
-      expect(NN.calculate.bind()).to.throw(/invalid input array of sentences/);
-      expect(NN.calculate.bind(null, 'invalid')).to.throw(/invalid input array of sentences/);
+      expect(typeof NN.calculate).toBe('function');
+      expect(NN.calculate.bind()).toThrowError(/invalid input array of sentences/);
+      expect(NN.calculate.bind(null, 'invalid')).toThrowError(/invalid input array of sentences/);
     },10000);
     it('should train a TextEmbedder', async function () {
       const TextEmbedder = new TextEmbedding();
@@ -60,10 +52,11 @@ describe('TextEmbedding', function () {
       ];
       const predictions = await TextEmbedder.predict(sentences);
       const tokens = await TextEmbedder.tokenizer.encode('Hello, how are you?');
-      expect(tokens).to.be.an('array').that.includes.members([341, 4125, 8, 140, 31, 19, 54, ]);
-      expect(predictions).to.be.an('array');
-      expect(predictions).to.have.lengthOf(2);
-      expect(predictions[0]).to.have.lengthOf(512);
+      expect(tokens).toBeInstanceOf(Array);
+      expect(tokens).toEqual(expect.arrayContaining([341, 4125, 8, 140, 31, 19, 54, ]));
+      expect(predictions).toBeInstanceOf(Array);
+      expect(predictions).toHaveLength(2);
+      expect(predictions[0]).toHaveLength(512);
     },10000);
     it('should handle empty text', async function () {
       const TextEmbedder = new TextEmbedding();

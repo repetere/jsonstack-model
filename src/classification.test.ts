@@ -1,11 +1,7 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { DeepLearningClassification, } from './index';
 import '@tensorflow/tfjs-node';
-const expect = chai.expect;
 const independentVariables = [
   'sepal_length_cm',
   'sepal_width_cm',
@@ -40,8 +36,6 @@ const input_x = [
   [5.0, 3.2, 1.2, 0.2, ],
   [4.5, 2.3, 1.3, 0.3, ],
 ];
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -120,9 +114,9 @@ describe('DeepLearningClassification', function () {
     it('should export a named module class', () => {
       const NN = new DeepLearningClassification();
       const NNConfigured = new DeepLearningClassification({ test: 'prop', });
-      expect(DeepLearningClassification).to.be.a('function');
-      expect(NN).to.be.instanceOf(DeepLearningClassification);
-      expect(NNConfigured.settings.test).to.eql('prop');
+      expect(typeof DeepLearningClassification).toBe('function');
+      expect(NN).toBeInstanceOf(DeepLearningClassification);
+      expect(NNConfigured.settings.test).toBe('prop');
     });
   });
   /** @test {DeepLearningClassification#generateLayers} */
@@ -155,10 +149,10 @@ describe('DeepLearningClassification', function () {
       //   // results,
       //   shape,
       // });
-      expect(predictions).to.have.lengthOf(input_x.length);
-      expect(nnClassification.layers).to.have.lengthOf(2);
-      expect(shape).to.eql([5, 3,]);
-      expect(answers[ 0 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
+      expect(predictions).toHaveLength(input_x.length);
+      expect(nnClassification.layers).toHaveLength(2);
+      expect(shape).toMatchObject([5, 3,]);
+      expect(answers[ 0 ]).toMatchObject(encodedAnswers[ 'Iris-setosa' ]);
       // expect(answers[ 1 ]).to.eql(encodedAnswers[ 'Iris-virginica' ]);
       // expect(answers[ 2 ]).to.eql(encodedAnswers[ 'Iris-versicolor' ]);
       // expect(answers[ 3 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
@@ -168,7 +162,7 @@ describe('DeepLearningClassification', function () {
     it('should generate a network from layers', async () => { 
       const nnClassificationCustom = new DeepLearningClassification({ layerPreference:'custom', fit, });
       await nnClassificationCustom.train(x_matrix, y_matrix, nnClassification.layers);
-      expect(nnClassificationCustom.layers).to.have.lengthOf(2);
+      expect(nnClassificationCustom.layers).toHaveLength(2);
     },120000);
   });
 });

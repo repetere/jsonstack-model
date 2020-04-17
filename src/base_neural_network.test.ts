@@ -1,11 +1,6 @@
-import chai from 'chai';
-import sinon from 'sinon';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { BaseNeuralNetwork, } from './index';
-const expect = chai.expect;
 const independentVariables = [
   'CRIM',
   'ZN',
@@ -28,8 +23,6 @@ const columns = independentVariables.concat(dependentVariables);
 let housingDataCSV;
 let DataSet;
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -58,9 +51,9 @@ describe('BaseNeuralNetwork', function () {
     it('should export a named module class', () => {
       const MLR = new BaseNeuralNetwork();
       const MLRConfigured = new BaseNeuralNetwork({ test: 'prop', });
-      expect(BaseNeuralNetwork).to.be.a('function');
-      expect(MLR).to.be.instanceOf(BaseNeuralNetwork);
-      expect(MLRConfigured.settings.test).to.eql('prop');
+      expect(typeof BaseNeuralNetwork).toBe('function');
+      expect(MLR).toBeInstanceOf(BaseNeuralNetwork);
+      expect(MLRConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {BaseNeuralNetwork#generateLayers} */
@@ -73,10 +66,10 @@ describe('BaseNeuralNetwork', function () {
       }
       const TS = new BaseNeuralNetwork();
       const TSNN = new NN();
-      expect(TS.generateLayers).to.be.a('function');
-      expect(TS.generateLayers.bind(null)).to.throw('generateLayers method is not implemented');
-      expect(TSNN.generateLayers).to.be.a('function');
-      expect(TSNN.generateLayers.bind(null)).to.be.ok;
+      expect(typeof TS.generateLayers).toBe('function');
+      expect(TS.generateLayers.bind(null)).toThrowError('generateLayers method is not implemented');
+      expect(typeof TSNN.generateLayers).toBe('function');
+      expect(TSNN.generateLayers.bind(null)).toBeTruthy();
     });
   });
   /** @test {BaseNeuralNetwork#train} */
@@ -111,17 +104,17 @@ describe('BaseNeuralNetwork', function () {
         settings,
         layers:[],
       }, x, y);
-      expect(trainedModel).to.be.an('object');
-      expect(trainedModel2).to.be.an('object');
+      expect(typeof trainedModel).toBe('object');
+      expect(typeof trainedModel2).toBe('object');
     });
   });
   /** @test {BaseNeuralNetwork#calculate} */
   describe('calculate', () => {
     it('should throw an error if input is invalid', () => {
       const NN = new BaseNeuralNetwork();
-      expect(NN.calculate).to.be.a('function');
-      expect(NN.calculate.bind()).to.throw(/invalid input matrix/);
-      expect(NN.calculate.bind(null, 'invalid')).to.throw(/invalid input matrix/);
+      expect(typeof NN.calculate).toBe('function');
+      expect(NN.calculate.bind()).toThrowError(/invalid input matrix/);
+      expect(NN.calculate.bind(null, 'invalid')).toThrowError(/invalid input matrix/);
     });
     it('should train a NN', async function () {
       const NN = new BaseNeuralNetwork();
@@ -147,8 +140,8 @@ describe('BaseNeuralNetwork', function () {
         tf,
         model,
       }, x2);
-      expect(prediction).to.be.true;
-      expect(prediction2).to.be.true;
+      expect(prediction).toBe(true);
+      expect(prediction2).toBe(true);
     });
   });
 });

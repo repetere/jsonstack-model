@@ -1,10 +1,8 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { MultipleLinearRegression, } from './index';
-const expect = chai.expect;
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 const independentVariables = ['sqft', 'bedrooms', ];
 const dependentVariables = ['price',];
 let housingDataCSV;
@@ -15,8 +13,6 @@ let y_matrix;
 let trainedMLR;
 let trainedMLRModel;
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -89,9 +85,9 @@ describe('MultipleLinearRegression', function () {
         },
       });
       const MLRConfigured = new MultipleLinearRegression({ test: 'prop', }, {});
-      expect(MultipleLinearRegression).to.be.a('function');
-      expect(MLR).to.be.instanceOf(MultipleLinearRegression);
-      expect(MLRConfigured.settings.test).to.eql('prop');
+      expect(typeof MultipleLinearRegression).toBe('function');
+      expect(MLR).toBeInstanceOf(MultipleLinearRegression);
+      expect(MLRConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {MultipleLinearRegression#generateLayers} */
@@ -104,11 +100,11 @@ describe('MultipleLinearRegression', function () {
       //   predictions,
       //   shape,
       // });
-      expect(predictions).to.have.lengthOf(input_x.length);
-      expect(trainedMLR.layers).to.have.lengthOf(1);
+      expect(predictions).toHaveLength(input_x.length);
+      expect(trainedMLR.layers).toHaveLength(1);
       const descaledPredictions = predictions.map(DataSet.scalers.get('price').descale);
-      expect(descaledPredictions[ 0 ]).to.be.closeTo(630000, 20000);
-      expect(descaledPredictions[ 1 ]).to.be.closeTo(190000, 10000);
+      expect(descaledPredictions[ 0 ]).toBeWithinRange(610000, 650000);
+      expect(descaledPredictions[ 1 ]).toBeWithinRange(180000, 200000);
       return true;
     });
     it('should generate a network from layers', async () => {
@@ -120,7 +116,7 @@ describe('MultipleLinearRegression', function () {
         },
       });
       await nnLRCustom.train(x_matrix, y_matrix, trainedMLR.layers);
-      expect(nnLRCustom.layers).to.have.lengthOf(1);
+      expect(nnLRCustom.layers).toHaveLength(1);
       return true;
     }, 20000);
   });

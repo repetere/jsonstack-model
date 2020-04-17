@@ -1,18 +1,14 @@
-import chai from 'chai';
 import path from 'path';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { DeepLearningRegression, } from './index';
 import * as tf from '@tensorflow/tfjs-node';
 import '@tensorflow/tfjs-node';
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 // import '@tensorflow/tfjs-backend-wasm';
 // import { setWasmPath } from '@tensorflow/tfjs-backend-wasm';
 // const wasmpath = `${path.join(__dirname, '../node_modules/@tensorflow/tfjs-backend-wasm/dist/tfjs-backend-wasm.wasm')}`;
 // console.log({ wasmpath });
-
-
-const expect = chai.expect;
 const independentVariables = [
   'CRIM',
   'ZN',
@@ -69,8 +65,6 @@ const input_x = [
   [-0.41692666996409716, -0.4872401872268264, -0.5927943782429392, -0.272329067679207, -0.7395303607434242, 0.1940823874370036, 0.3668034264326209, 0.5566090495704026, -0.8670244885881488, -0.9863533804386945, -0.3027944997494681, 0.4406158949991029, -0.49195252491856634,],
 ];
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
 function scaleColumnMap(columnName) {
   return {
     name: columnName,
@@ -136,9 +130,9 @@ describe('DeepLearningRegression', function () {
     it('should export a named module class', () => {
       const NN = new DeepLearningRegression();
       const NNConfigured = new DeepLearningRegression({ test: 'prop', });
-      expect(DeepLearningRegression).to.be.a('function');
-      expect(NN).to.be.instanceOf(DeepLearningRegression);
-      expect(NNConfigured.settings.test).to.eql('prop');
+      expect(typeof DeepLearningRegression).toBe('function');
+      expect(NN).toBeInstanceOf(DeepLearningRegression);
+      expect(NNConfigured.settings.test).toEqual('prop');
     });
   });
   /** @test {DeepLearningRegression#generateLayers} */
@@ -153,27 +147,27 @@ describe('DeepLearningRegression', function () {
       //   predictions,
       //   shape,
       // });
-      expect(predictions).to.have.lengthOf(input_x.length);
-      expect(nnRegressionDeep.layers).to.have.lengthOf(3);
-      expect(shape).to.eql([2, 1,]);
-      expect(predictions_unscaled[ 0 ]).to.be.closeTo(24, 15);
-      expect(predictions_unscaled[ 0 ]).to.be.closeTo(21, 15);
+      expect(predictions).toHaveLength(input_x.length);
+      expect(nnRegressionDeep.layers).toHaveLength(3);
+      expect(shape).toMatchObject([2, 1,]);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(24-15, 24+15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(21-15, 21+15);
     });
     it('should generate a wide network', async () => {
       const predictions = await nnRegressionWide.predict(input_x);
       const predictions_unscaled = predictions.map(pred=>DataSet.scalers.get('MEDV').descale(pred[0]));
       const shape = nnRegressionWide.getInputShape(predictions);
       // console.log('nnRegressionWide.layers', nnRegressionWide.layers);
-      expect(predictions).to.have.lengthOf(input_x.length);
-      expect(nnRegressionWide.layers).to.have.lengthOf(2);
-      expect(shape).to.eql([2, 1,]);
-      expect(predictions_unscaled[ 0 ]).to.be.closeTo(24, 15);
-      expect(predictions_unscaled[ 0 ]).to.be.closeTo(21, 15);
+      expect(predictions).toHaveLength(input_x.length);
+      expect(nnRegressionWide.layers).toHaveLength(2);
+      expect(shape).toMatchObject([2, 1,]);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(24-15, 24+15);
+      expect(Math.round(predictions_unscaled[ 0 ])).toBeWithinRange(21-15, 21+15);
     });
     it('should generate a network from layers', async () => { 
       const nnRegressionCustom = new DeepLearningRegression({ layerPreference:'custom', fit, });
       await nnRegressionCustom.train(x_matrix, y_matrix, nnRegressionWide.layers);
-      expect(nnRegressionCustom.layers).to.have.lengthOf(2);
+      expect(nnRegressionCustom.layers).toHaveLength(2);
     },120000);
   });
 });

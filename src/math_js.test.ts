@@ -1,7 +1,5 @@
-import chai from 'chai';
 import { TensorScriptModelInterface, size, flatten, } from './model_interface';
 import assert from 'assert';
-const expect = chai.expect;
 const array = {
   reshape: TensorScriptModelInterface.reshape,
   flatten,

@@ -1,14 +1,10 @@
-import chai from 'chai';
 import path from 'path';
 import fs from 'fs-extra';
 import * as tf from '@tensorflow/tfjs-node';
 import * as ms from '@modelx/data';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import { TensorScriptModelInterface, MultipleLinearRegression, } from './index';
-const expect = chai.expect;
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 
 /** @test {TensorScriptModelInterface} */
 describe('TensorScriptModelInterface', function () {
@@ -25,6 +21,7 @@ describe('TensorScriptModelInterface', function () {
       },
     };
   }
+
   let housingDataCSV;
   let DataSet;
   let x_matrix;
@@ -61,15 +58,15 @@ describe('TensorScriptModelInterface', function () {
 
       const TSM = new TensorScriptModelInterface({},{tf});
       const TSMConfigured = new TensorScriptModelInterface({ test: 'prop', });
-      expect(TensorScriptModelInterface).to.be.a('function');
-      expect(TSM).to.be.instanceOf(TensorScriptModelInterface);
-      expect(TSMConfigured.settings.test).to.eql('prop');
+      expect(typeof TensorScriptModelInterface).toBe('function');
+      expect(TSM).toBeInstanceOf(TensorScriptModelInterface);
+      expect(TSMConfigured.settings.test).toBe('prop');
     });
   });
   /** @test {TensorScriptModelInterface#reshape} */
   describe('reshape', () => {
     it('should export a static method', () => {
-      expect(TensorScriptModelInterface.reshape).to.be.a('function');
+      expect(typeof TensorScriptModelInterface.reshape).toBe('function');
     });
     it('should reshape an array into a matrix', () => {
       const array = [1, 0, 0, 1,];
@@ -79,7 +76,7 @@ describe('TensorScriptModelInterface', function () {
         [0, 1, ],
       ];
       const result = TensorScriptModelInterface.reshape(array, shape);
-      expect(result).to.eql(matrix);
+      expect(result).toMatchObject(matrix);
       // expect(TensorScriptModelInterface.reshape.bind(null, array, [1, 2, ])).to.throw(/specified shape/);
     });
     it('should reshape multiple dimensions', () => {
@@ -96,7 +93,7 @@ describe('TensorScriptModelInterface', function () {
   /** @test {TensorScriptModelInterface#getInputShape} */
   describe('getInputShape', () => {
     it('should export a static method', () => {
-      expect(TensorScriptModelInterface.getInputShape).to.be.a('function');
+      expect(typeof TensorScriptModelInterface.getInputShape).toBe('function');
     });
     it('should return the shape of a matrix', () => {
       const matrix = [
@@ -133,14 +130,14 @@ describe('TensorScriptModelInterface', function () {
         [[1,], [1,], [0,],],
       ];
       TensorScriptModelInterface.getInputShape(matrix5);
-      expect(TensorScriptModelInterface.getInputShape(matrix)).to.eql([2, 2, ]);
-      expect(TensorScriptModelInterface.getInputShape(matrix2)).to.eql([7, 2, ]);
-      expect(TensorScriptModelInterface.getInputShape(matrix3)).to.eql([5, 4, ]);
-      expect(TensorScriptModelInterface.getInputShape.bind(null, matrix4)).to.throw(/input must have the same length in each row/);
-      expect(TensorScriptModelInterface.getInputShape(matrix5)).to.eql([6, 3, 1,]);
+      expect(TensorScriptModelInterface.getInputShape(matrix)).toMatchObject([2, 2, ]);
+      expect(TensorScriptModelInterface.getInputShape(matrix2)).toMatchObject([7, 2, ]);
+      expect(TensorScriptModelInterface.getInputShape(matrix3)).toMatchObject([5, 4, ]);
+      expect(TensorScriptModelInterface.getInputShape.bind(null, matrix4)).toThrowError(/input must have the same length in each row/);
+      expect(TensorScriptModelInterface.getInputShape(matrix5)).toMatchObject([6, 3, 1,]);
     });
     it('should throw an error if input is not a matrix', () => {
-      expect(TensorScriptModelInterface.getInputShape.bind()).to.throw(/must be a matrix/);
+      expect(TensorScriptModelInterface.getInputShape.bind()).toThrowError(/must be a matrix/);
     });
   });
   /** @test {TensorScriptModelInterface#train} */
@@ -153,10 +150,10 @@ describe('TensorScriptModelInterface', function () {
       }
       const TSM = new TensorScriptModelInterface();
       const TSMMLR = new MLR();
-      expect(TSM.train).to.be.a('function');
-      expect(TSM.train.bind(null)).to.throw('train method is not implemented');
-      expect(TSMMLR.train).to.be.a('function');
-      expect(TSMMLR.train.bind(null)).to.be.ok;
+      expect(typeof TSM.train).toBe('function');
+      expect(TSM.train.bind(null)).toThrowError('train method is not implemented');
+      expect(typeof TSMMLR.train).toBe('function');
+      expect(TSMMLR.train.bind(null)).toBeTruthy();
     });
   });
   /** @test {TensorScriptModelInterface#calculate} */
@@ -169,10 +166,10 @@ describe('TensorScriptModelInterface', function () {
       }
       const TSM = new TensorScriptModelInterface();
       const TSMMLR = new MLR();
-      expect(TSM.calculate).to.be.a('function');
-      expect(TSM.calculate.bind(null)).to.throw('calculate method is not implemented');
-      expect(TSMMLR.calculate).to.be.a('function');
-      expect(TSMMLR.calculate.bind(null)).to.be.ok;
+      expect(typeof TSM.calculate).toBe('function');
+      expect(TSM.calculate.bind(null)).toThrowError('calculate method is not implemented');
+      expect(typeof TSMMLR.calculate).toBe('function');
+      expect(TSMMLR.calculate.bind(null)).toBeTruthy();
     });
   });
   /** @test {TensorScriptModelInterface#predict} */
@@ -192,17 +189,17 @@ describe('TensorScriptModelInterface', function () {
       const TSMMLR = new MLR();
       try {
         const predictPromise = await TSMMLR.predict();
-        expect(predictPromise).to.not.exist;
+        expect(predictPromise).toBeFalsy();
       } catch (e) {
-        expect(e).to.be.an('error');
-        expect(e).to.match(/invalid input matrix/);
+        expect(e).toBeInstanceOf(Error);
+        expect(e.message).toMatch(/invalid input matrix/);
       }
       try {
         const predictPromiseCatch = await TSMMLR.predict([1, ]);
-        expect(predictPromiseCatch).to.not.exist;
+        expect(predictPromiseCatch).toBeFalsy();
       } catch (e2) {
-        expect(e2).to.be.an('error');
-        expect(e2).to.match(/Dimension mismatch/);
+        expect(e2).toBeInstanceOf(Error);
+        expect(e2.message).toMatch(/Dimension mismatch/);
       }
     });
     it('should return predictions', async function () {
@@ -214,11 +211,11 @@ describe('TensorScriptModelInterface', function () {
       const predictions = await TSMMLR.predict(input);
       const predictionsRounded = await TSMMLR.predict(input, { probability:false, });
       const predictionsRaw = await TSMMLR.predict(input, { json: false, });
-      expect(predictions).to.have.lengthOf(2);
-      expect(predictionsRaw).to.be.a('Float32Array');
+      expect(predictions).toHaveLength(2);
+      expect(predictionsRaw).toBeInstanceOf(Float32Array);
       predictionsRounded.forEach(predRow => {
         predRow.forEach(pred => {
-          expect(Number.isInteger(pred)).to.be.true;
+          expect(Number.isInteger(pred)).toBe(true);
         });
       });
     });
@@ -235,7 +232,7 @@ describe('TensorScriptModelInterface', function () {
         },
       });
       const loadedModel = await TSM.loadModel();
-      expect(loadedModel).to.be.an('object');
+      expect(typeof loadedModel).toBe('object');
     });
     it('should load a model and make predictions', async function () {
       const loadedFilePath = `${path.join(__dirname, './test/mock_saved_files/mlr_model/model.json')}`;
@@ -258,8 +255,8 @@ describe('TensorScriptModelInterface', function () {
         const datum = Object.assign({}, input, val);
         return DataSet.inverseTransformObject(datum);
       });
-      expect(descaledPredictions[ 0 ].price).to.be.closeTo(630000, 20000);
-      expect(descaledPredictions[ 1 ].price).to.be.closeTo(190000, 10000);
+      expect(Math.round(descaledPredictions[0].price)).toBeWithinRange(610000, 650000);
+      expect(Math.round(descaledPredictions[1].price)).toBeWithinRange(180000, 200000);
     },120000);
   });
   describe('saveModel',  ()=> {
@@ -270,7 +267,7 @@ describe('TensorScriptModelInterface', function () {
         },
       });
       const savedModel = await TSM.saveModel();
-      expect(savedModel).to.eql(true);
+      expect(savedModel).toBe(true);
     });
     it('should save a trained model to a file', async function () {
       const trainedMLR = new MultipleLinearRegression({
@@ -284,11 +281,11 @@ describe('TensorScriptModelInterface', function () {
       const saved_predictions = await trainedMLR.predict(input_x);
       const savedModelStatus = await trainedMLR.saveModel(saveModelPath);
       // console.log({ trainedMLR, trainedMLRModel, });
-      expect(fs.existsSync(saveFilePath)).to.be.true;
-      expect(fs.existsSync(path.join(saveFilePath, 'model.json'))).to.be.true;
-      expect(fs.existsSync(path.join(saveFilePath, 'weights.bin'))).to.be.true;
-      expect(trainedMLRModel).to.be.ok;
-      expect(savedModelStatus).to.haveOwnProperty('modelArtifactsInfo');
+      expect(fs.existsSync(saveFilePath)).toBe(true);
+      expect(fs.existsSync(path.join(saveFilePath, 'model.json'))).toBe(true);
+      expect(fs.existsSync(path.join(saveFilePath, 'weights.bin'))).toBe(true);
+      expect(trainedMLRModel).toBeTruthy();
+      expect(savedModelStatus).toHaveProperty('modelArtifactsInfo');
       await fs.remove(saveFilePath);
       // MultipleLinearRegression
     },120000);
@@ -298,9 +295,9 @@ describe('TensorScriptModelInterface', function () {
       const TSM = new MultipleLinearRegression({ stateful: true, });
       const config = TSM.exportConfiguration();
       // const savedModel = await TSM.saveModel();
-      expect(config.settings.stateful).to.eql(true);
-      expect(config.trained).to.eql(false);
-      expect(config.type).to.eql('MultipleLinearRegression');
+      expect(config.settings.stateful).toBe(true);
+      expect(config.trained).toBe(false);
+      expect(config.type).toBe('MultipleLinearRegression');
     });
     it('should import configuration from importConfiguration', function () {
       const trainedMLR = new MultipleLinearRegression({
@@ -317,7 +314,7 @@ describe('TensorScriptModelInterface', function () {
         trained: false,
       });
       // console.log({ trainedMLR });
-      expect(trainedMLR.type).to.eql('CustomMLR');
+      expect(trainedMLR.type).toBe('CustomMLR');
 
       // MultipleLinearRegression
     });
