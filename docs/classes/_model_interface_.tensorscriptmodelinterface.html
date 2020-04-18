@@ -127,6 +127,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#compiled" class="tsd-kind-icon">compiled</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#layers" class="tsd-kind-icon">layers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#model" class="tsd-kind-icon">model</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_model_interface_.tensorscriptmodelinterface.html#reshape" class="tsd-kind-icon">reshape</a></li>
@@ -168,7 +169,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L141">src/model_interface.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L142">src/model_interface.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">compiled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L136">src/model_interface.ts:136</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L136">src/model_interface.ts:136</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L138">src/model_interface.ts:138</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L138">src/model_interface.ts:138</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -241,12 +242,22 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="gettimeseriesshape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> get<wbr>Timeseries<wbr>Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>x_timeseries<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a><span class="tsd-signature-symbol">)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L142">src/model_interface.ts:142</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="layers" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> layers</h3>
 					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L141">src/model_interface.ts:141</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L141">src/model_interface.ts:141</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L132">src/model_interface.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L132">src/model_interface.ts:132</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -266,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L137">src/model_interface.ts:137</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L137">src/model_interface.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -297,7 +308,7 @@
 					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L131">src/model_interface.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L131">src/model_interface.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -307,7 +318,7 @@
 					<div class="tsd-signature tsd-kind-icon">tf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L134">src/model_interface.ts:134</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L134">src/model_interface.ts:134</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -317,7 +328,7 @@
 					<div class="tsd-signature tsd-kind-icon">tokenizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L133">src/model_interface.ts:133</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L133">src/model_interface.ts:133</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +338,7 @@
 					<div class="tsd-signature tsd-kind-icon">trained<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L135">src/model_interface.ts:135</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L135">src/model_interface.ts:135</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -337,7 +348,7 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L130">src/model_interface.ts:130</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L130">src/model_interface.ts:130</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +358,7 @@
 					<div class="tsd-signature tsd-kind-icon">x<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L139">src/model_interface.ts:139</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L139">src/model_interface.ts:139</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +368,7 @@
 					<div class="tsd-signature tsd-kind-icon">y<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L140">src/model_interface.ts:140</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L140">src/model_interface.ts:140</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -374,7 +385,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L307">src/model_interface.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L308">src/model_interface.ts:308</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L266">src/model_interface.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L267">src/model_interface.ts:267</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_model_interface_.tensorscriptcontext.html" class="tsd-signature-type">TensorScriptContext</a></h4>
@@ -427,7 +438,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L277">src/model_interface.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L278">src/model_interface.ts:278</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -450,7 +461,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L316">src/model_interface.ts:316</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L317">src/model_interface.ts:317</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -487,7 +498,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L342">src/model_interface.ts:342</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L343">src/model_interface.ts:343</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -522,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L329">src/model_interface.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L330">src/model_interface.ts:330</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -559,7 +570,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L296">src/model_interface.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L297">src/model_interface.ts:297</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -610,7 +621,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L247">src/model_interface.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L248">src/model_interface.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -656,7 +667,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/bfcd8ec/src/model_interface.ts#L182">src/model_interface.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/c9c9919/src/model_interface.ts#L183">src/model_interface.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -752,6 +763,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_model_interface_.tensorscriptmodelinterface.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_model_interface_.tensorscriptmodelinterface.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_model_interface_.tensorscriptmodelinterface.html#layers" class="tsd-kind-icon">layers</a>

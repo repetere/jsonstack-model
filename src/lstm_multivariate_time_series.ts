@@ -102,7 +102,7 @@ const newdata = drop(data,dropColumns); //=> [
   * @param {Array<number>} columns - array of column indexes
    * @returns {Array<Array<number>>} matrix with dropped columns
    */
-  static drop(data:NestedArray<Array<number>>, columns:Array<number>):NestedArray<Array<number>> {
+  static drop(data:NestedArray<Array<number>>, columns:Array<number>):NestedArray<Array<number>>|number[] {
     return data.reduce((cols:NestedArray<Array<number>>, row, i) => { 
       cols[ i ] = [];
       row.forEach((col: any, idx:number) => {

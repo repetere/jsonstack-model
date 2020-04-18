@@ -30,7 +30,7 @@ export declare class LSTMTimeSeries extends BaseNeuralNetwork {
      * @param {Number} look_back - number of values in each feature
      * @return {[Array<Array<number>>,Array<number>]} returns x matrix and y matrix for model trainning
      */
-    static createDataset(dataset?: never[], look_back?: number): never[][][];
+    static createDataset(dataset?: never[], look_back?: number): any[][];
     /**
      * Reshape input to be [samples, time steps, features]
      * @example
@@ -54,7 +54,7 @@ export declare class LSTMTimeSeries extends BaseNeuralNetwork {
     static getTimeseriesDataSet(this: TensorScriptLSTMModelContext, timeseries: never[] | undefined, look_back: any): {
         yShape: Shape;
         xShape: Shape;
-        y_matrix: never[][];
+        y_matrix: any[];
         x_matrix: Matrix | Vector;
     };
     createDataset: (...args: any[]) => NestedArray<number>;

@@ -111,6 +111,7 @@ export declare class TensorScriptModelInterface {
     xShape?: number[];
     yShape?: number[];
     layers?: TensorScriptLayers | TensorScriptSavedLayers;
+    getTimeseriesShape?: (x_timeseries: NestedArray<any> | undefined) => Shape;
     /**
      * @param {Object} options - tensorflow model hyperparameters
      * @param {Object} customTF - custom, overridale tensorflow / tensorflow-node / tensorflow-node-gpu

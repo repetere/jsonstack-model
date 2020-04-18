@@ -59,8 +59,8 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
      */
     /* istanbul ignore next */
     static createDataset(dataset = [], look_back = 1) {
-        const dataX = [];
-        const dataY = [];
+        const dataX = new Array();
+        const dataY = new Array();
         for (let index in range(dataset.length - look_back - 1)) {
             let i = parseInt(index);
             let a = dataset.slice(i, i + look_back);

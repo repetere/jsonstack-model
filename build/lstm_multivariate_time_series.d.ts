@@ -73,7 +73,7 @@ export declare class LSTMMultivariateTimeSeries extends LSTMTimeSeries {
     * @param {Array<number>} columns - array of column indexes
      * @returns {Array<Array<number>>} matrix with dropped columns
      */
-    static drop(data: NestedArray<Array<number>>, columns: Array<number>): NestedArray<Array<number>>;
+    static drop(data: NestedArray<Array<number>>, columns: Array<number>): NestedArray<Array<number>> | number[];
     /**
      * Converts data set to supervised labels for forecasting, the first column must be the dependent variable
      * @example
