@@ -33,18 +33,21 @@ export type TensorScriptProperties = {
   model?: any;
   tf?: any;
 };
-
+export type LambdaLayer = (...args: any[]) => any;
 export type DenseLayer = {
   units: number;
   inputDim?: number;
+  inputLength?: number;
   activation?: string;
   kernelInitializer?: string;
   kernelRegularizer?: any;
   inputShape?: any;
   batchInputShape?: any;
   returnSequences?: boolean;
-};
+  // [index: function]
+} | LambdaLayer;
 
+tf.layers.add((x)=>tf.mean(x,1))
 export type TensorScriptLayers = DenseLayer[];
 export type TensorScriptSavedLayers = {
   lstmLayers?: DenseLayer[];
@@ -96,6 +99,8 @@ export type TensorScriptOptions = {
   features?: number;
   outputs?: number;
   learningRate?: number;
+  embedSize?: number;
+  windowSize?: number;
 };
 
 export type PredictionOptions = {
@@ -115,6 +120,59 @@ export type Matrix = Vector[];
 // }
 export type Calculation = {
   data: ()=>Promise<Vector>;
+}
+
+/******************************************************************************
+ * tensorflow.js lambda layer
+ * written by twitter.com/benjaminwegener
+ * license: MIT
+ */
+export class lambdaLayer extends tf.layers.Layer {
+  constructor(config) {
+      super(config);
+      if (config.name === undefined) {
+          config.name = ((+new Date) * Math.random()).toString(36); //random name from timestamp in case name hasn't been set
+      }
+      this.name = config.name;
+      this.lambdaFunction = config.lambdaFunction;
+      this.lambdaOutputShape = config.lambdaOutputShape;
+  }
+
+  call(input) {
+    // console.log({ input }, 'input[0].shape', input[0].shape)
+    // input[0].data().then(inputData=>console.log)
+    // console.log('input[0].data()', input[0].data())
+    return input;
+    return tf.tidy(() => {
+        return tf.mean(tf.tensor(input),1,true)
+    //       let result = null;
+    //       eval(this.lambdaFunction);
+    //     // result = tf.mean(input,1);
+    //       return result;
+    });
+  }
+
+  computeOutputShape(inputShape) {
+    console.log('computeOutputShape',{inputShape})
+      if (this.lambdaOutputShape === undefined) { //if no outputshape provided, try to set as inputshape
+          return inputShape[0];
+      } else {
+          return this.lambdaOutputShape;
+      }
+  }
+
+  getConfig() {
+      const config = super.getConfig();
+      Object.assign(config, {
+          lambdaFunction: this.lambdaFunction,
+ lambdaOutputShape: this.lambdaOutputShape
+      });
+      return config;
+  }
+
+  static get className() {
+      return 'lambdaLayer';
+  }
 }
 
 /**
@@ -294,11 +352,10 @@ export class TensorScriptModelInterface  {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @return {Object} returns trained tensorflow model 
    */
-  async train(x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers, x_test?:Matrix, y_test?:Matrix):Promise<tf.LayersModel>
+  async train(x_matrix: Matrix, y_matrix?: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<tf.LayersModel>
   train(x_matrix:Matrix, y_matrix:Matrix):any {
     throw new ReferenceError('train method is not implemented');
   }
-  
   /**
    * Predicts new dependent variables
    * @abstract 
@@ -351,6 +408,7 @@ export class TensorScriptModelInterface  {
       json: true,
       probability: true,
     }, options);
+    console.log('this.calculate', this.calculate);
     return this.calculate(x_matrix as Matrix)
       .data()
       .then((predictions:Vector) => {
