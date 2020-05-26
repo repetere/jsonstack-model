@@ -1,4 +1,4 @@
-import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, NestedArray, InputTextArray, PredictionOptions, Shape, TensorScriptLSTMModelContext, lambdaLayer, DenseLayer, asyncForEach, Features, Corpus} from './model_interface';
+import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, NestedArray, InputTextArray, PredictionOptions, Shape, TensorScriptLSTMModelContext, LambdaLayer, DenseLayer, asyncForEach, Features, Corpus} from './model_interface';
 import * as Tensorflow from '@tensorflow/tfjs-node';
 import { BaseNeuralNetwork, } from './base_neural_network';
 import range from 'lodash.range';
@@ -149,7 +149,7 @@ cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
     }
     this.layers = denseLayers;
     // console.log({ denseLayers });
-    this.tf.serialization.registerClass(lambdaLayer);
+    // this.tf.serialization.registerClass(lambdaLayer);
     this.model.add(this.tf.layers.embedding(denseLayers[0]));
     // this.model.add(new lambdaLayer(denseLayers[1]));
     this.model.add(this.tf.layers.flatten());
