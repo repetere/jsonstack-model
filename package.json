@@ -45,7 +45,7 @@
   "dependencies": {
     "@tensorflow-models/universal-sentence-encoder": "1.2.2",
     "@tensorflow/tfjs": "1.7.2",
-    "@tensorflow/tfjs-node": "1.7.2",
+    "@tensorflow/tfjs-node": "1.7.4",
     "@tensorflow/tfjs-tsne": "^0.2.0",
     "lodash.range": "^3.2.0",
     "tsne-js": "^1.0.3"
