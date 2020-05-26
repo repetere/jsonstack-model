@@ -1,0 +1,32 @@
+food used for hunger.
+food used to eat.
+need food to eat.
+need food for hunger.
+want food for hunger.
+want food to eat.
+want car to drive.
+need car to drive.
+need car to travel.
+want car to travel.
+can walk for travel.
+can fly for travel.
+use fly to travel fast.
+fast fly for travel.
+can eat while fly.
+need food to play.
+need food to live.
+need to eat to live.
+tesla is a kind of car.
+tesla is a fast car.
+tesls is an electic car.
+car fly walk are ways to travel.
+travel by car.
+travel by walk.
+travel by fly.
+food for hunger.
+food to eat.
+I want a tesla to drive a car.
+I want food to solve my hunger.
+I need to eat food because of my hunger.
+I want a tesla to drive a fast far.
+I need a plane to fly.
