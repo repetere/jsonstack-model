@@ -11,7 +11,7 @@ export class DeepLearningClassification extends BaseNeuralNetwork{
    * @param {{layers:Array<Object>,compile:Object,fit:Object}} options - neural network configuration and tensorflow model hyperparameters
    * @param {{model:Object,tf:Object,}} properties - extra instance properties
    */
-  constructor(options:TensorScriptOptions = {}, properties:TensorScriptProperties) {
+  constructor(options:TensorScriptOptions = {}, properties?:TensorScriptProperties) {
     const config = Object.assign({
       layers: [],
       compile: {

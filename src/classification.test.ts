@@ -113,6 +113,7 @@ describe('DeepLearningClassification', function () {
   describe('constructor', () => {
     it('should export a named module class', () => {
       const NN = new DeepLearningClassification();
+      //@ts-ignore
       const NNConfigured = new DeepLearningClassification({ test: 'prop', });
       expect(typeof DeepLearningClassification).toBe('function');
       expect(NN).toBeInstanceOf(DeepLearningClassification);
