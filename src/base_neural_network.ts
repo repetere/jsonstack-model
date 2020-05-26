@@ -34,6 +34,7 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @param {Array<Object>} layers - model dense layer parameters
    */
+  generateLayers(x_matrix: Matrix, layers?: TensorScriptLayers | TensorScriptSavedLayers): void 
   generateLayers(x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers|TensorScriptSavedLayers, x_test?:Matrix, y_test?:Matrix) {
     throw new ReferenceError('generateLayers method is not implemented');
   }
