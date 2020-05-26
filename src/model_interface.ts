@@ -33,10 +33,15 @@ export type TensorScriptProperties = {
   model?: any;
   tf?: any;
 };
-export type LambdaLayer = (...args: any[]) => any;
+export type LambdaLayer = {
+  lambdaFunction: string;
+  lambdaOutputShape: Matrix;
+}
+// export type LambdaLayer = (...args: any[]) => any;
 export type DenseLayer = {
   units: number;
   inputDim?: number;
+  outputDim?: number;
   inputLength?: number;
   activation?: string;
   kernelInitializer?: string;
@@ -47,7 +52,7 @@ export type DenseLayer = {
   // [index: function]
 } | LambdaLayer;
 
-tf.layers.add((x)=>tf.mean(x,1))
+// tf.layers.add((x)=>tf.mean(x,1))
 export type TensorScriptLayers = DenseLayer[];
 export type TensorScriptSavedLayers = {
   lstmLayers?: DenseLayer[];
@@ -99,6 +104,8 @@ export type TensorScriptOptions = {
   features?: number;
   outputs?: number;
   learningRate?: number;
+  //Embedding options
+  PAD?: string;
   embedSize?: number;
   windowSize?: number;
 };
@@ -114,6 +121,9 @@ export interface NestedArray<T> extends Array<T | NestedArray<T>> { }
 export type Shape = Array<number>|number;
 export type Vector = number[];
 export type Matrix = Vector[];
+
+export type Features = Array<string | number>
+export type Corpus = Array<Features>
 // export type DataCalculation = ()=>Promise<Vector>
 // export type DataCalculation = {
 //   data:()=>Promise<Vector>
@@ -126,6 +136,7 @@ export type Calculation = {
  * tensorflow.js lambda layer
  * written by twitter.com/benjaminwegener
  * license: MIT
+ * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
  */
 export class lambdaLayer extends tf.layers.Layer {
   constructor(config) {
@@ -353,6 +364,7 @@ export class TensorScriptModelInterface  {
    * @return {Object} returns trained tensorflow model 
    */
   async train(x_matrix: Matrix, y_matrix?: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<tf.LayersModel>
+  async train(x_matrix:Matrix, y_matrix:Matrix):Promise<Matrix>
   train(x_matrix:Matrix, y_matrix:Matrix):any {
     throw new ReferenceError('train method is not implemented');
   }
@@ -397,6 +409,7 @@ export class TensorScriptModelInterface  {
    * @param {Boolean} [options.skip_matrix_check=false] - validate input is a matrix
    * @return {Array<number>|Array<Array<number>>} predicted model values
    */
+  async predict(options?:Matrix|Vector|InputTextArray|PredictionOptions):Promise<Matrix> 
   async predict(input_matrix:Matrix|Vector|InputTextArray, options:PredictionOptions = {}) {
     if (!input_matrix || Array.isArray(input_matrix)===false) throw new Error('invalid input matrix');
     const x_matrix = (Array.isArray(input_matrix[ 0 ])||options.skip_matrix_check)
@@ -408,7 +421,6 @@ export class TensorScriptModelInterface  {
       json: true,
       probability: true,
     }, options);
-    console.log('this.calculate', this.calculate);
     return this.calculate(x_matrix as Matrix)
       .data()
       .then((predictions:Vector) => {
@@ -540,4 +552,11 @@ export function flatten(array:NestedArray<number>):Vector {
   });
 
   return flat;
+}
+
+
+export async function asyncForEach(array:Array<any>, callback: (item:any, index:number,arr:Array<any>) => Promise<any>) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
 }

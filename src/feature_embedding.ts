@@ -1,33 +1,31 @@
-import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, NestedArray, InputTextArray, PredictionOptions, Shape, TensorScriptLSTMModelContext, lambdaLayer, DenseLayer, } from './model_interface';
+import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, NestedArray, InputTextArray, PredictionOptions, Shape, TensorScriptLSTMModelContext, lambdaLayer, DenseLayer, asyncForEach, Features, Corpus} from './model_interface';
+import * as Tensorflow from '@tensorflow/tfjs-node';
 import { BaseNeuralNetwork, } from './base_neural_network';
 import range from 'lodash.range';
+import TSNE from 'tsne-js';
+//https://towardsdatascience.com/understanding-feature-engineering-part-4-deep-learning-methods-for-text-data-96c44370bbfa
 
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
-  }
-}
 /**
- * Long Short Term Memory Time Series with Tensorflow
+ * use a corpus to generate features from an embedding layer with Tensorflow
  * @class FeatureEmbedding
  * @implements {BaseNeuralNetwork}
  */
 export class FeatureEmbedding extends BaseNeuralNetwork {
   layers?: TensorScriptLayers;
-  word2id?: any;
-  id2word?: any;
-  wids?: any;
-  vocab_size?: any;
+  featureToId?: any;
+  IdToFeature?: any;
+  featureIds?: any;
+  numberOfFeatures?: any;
   // settings: TensorScriptOptions;
-  static async getFeatureDataSet({ inputMatrixFeatures, PAD = 'PAD', }: { inputMatrixFeatures: Matrix; PAD?: string;}) {
+  static async getFeatureDataSet(this: any, { inputMatrixFeatures, PAD = 'PAD', }: { inputMatrixFeatures: Corpus; PAD?: string;}) {
     let featIndex = 1;
-    const id2word = { 0: PAD };
-    const word2id = inputMatrixFeatures.reduce((result, inputFeatureArray) => { 
+    const IdToFeature = { 0: this && this.settings && this.settings.PAD ? this.settings.PAD : PAD };
+    const featureToId = inputMatrixFeatures.reduce((result, inputFeatureArray) => { 
       inputFeatureArray.forEach((inputFeature) => {
         if (!result[inputFeature]) {
           result[inputFeature] = featIndex;
           //@ts-ignore
-          id2word[featIndex] = inputFeature;
+          IdToFeature[featIndex] = inputFeature;
           featIndex++;
         }
       });
@@ -36,18 +34,18 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       [PAD]:0
     });
     //@ts-ignore
-    const wids = inputMatrixFeatures.map(inputFeatureArray =>
-      inputFeatureArray.map(inputFeature => word2id[inputFeature])
+    const featureIds = inputMatrixFeatures.map(inputFeatureArray =>
+      inputFeatureArray.map(inputFeature => featureToId[inputFeature])
     );
-    // console.log('wids', wids);
-    // console.log('wids.length', wids.length);
+    // console.log('featureIds', featureIds);
+    // console.log('featureIds.length', featureIds.length);
     // console.log('inputMatrixFeatures.length', inputMatrixFeatures.length);
-    const vocab_size = Object.keys(word2id).length;
+    const numberOfFeatures = Object.keys(featureToId).length;
     return {
-      word2id,
-      id2word,
-      wids,
-      vocab_size,
+      featureToId, //word2id
+      IdToFeature, //id2word
+      featureIds, //wids
+      numberOfFeatures, //vocab_size
     };
   }
   static getMergedArray(base:Vector = [], merger:Vector= [], append=false) {
@@ -58,12 +56,12 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
   }
   /**
    */
-  static async getContextPairs(this:any, { inputMatrix, vocab_size, window_size = 2, tf, }: { inputMatrix: Matrix; vocab_size: number; window_size: number; tf: any;}) {
-    const tensorflow = tf || this.tf;
-    const context_length = window_size * 2
+  static async getContextPairs(this:any, { inputMatrix, numberOfFeatures, window_size = 2, tf, }: { inputMatrix: Matrix; numberOfFeatures: number; window_size?: number; tf?: any;}) {
+    const tensorflow = this && this.tf ? this.tf : Tensorflow;
+    const context_length = (this && this.settings && this.settings.windowSize ? this.settings.windowSize : window_size) * 2;
     const [emptyXVector, emptyYVector] = await Promise.all([
       tensorflow.zeros([context_length]).array(),
-      tensorflow.zeros([vocab_size]).array(),
+      tensorflow.zeros([numberOfFeatures]).array(),
     ]);
     const x:Matrix = [];
     const y:Matrix = [];
@@ -90,6 +88,9 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       y,
     };
   }
+  getMergedArray: typeof FeatureEmbedding.getMergedArray;
+  getFeatureDataSet: typeof FeatureEmbedding.getFeatureDataSet;
+  getContextPairs: typeof FeatureEmbedding.getContextPairs;
   constructor(options:TensorScriptOptions = {}, properties?:TensorScriptProperties) {
     const config = {
       layers: [],
@@ -102,18 +103,19 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
         epochs: 15,
         batchSize: 1,
       },
-      embedSize: 100,
-      windowSize:2,
+      embedSize: 50,
+      windowSize: 2,
+      PAD:'PAD',
       ...options
     };
     super(config, properties);
     this.type = 'FeatureEmbedding';
-    this.word2id;
-    this.id2word;
-    this.wids;
-    this.vocab_size;
+    this.featureToId;
+    this.IdToFeature;
+    this.featureIds;
+    this.numberOfFeatures;
     this.getMergedArray = FeatureEmbedding.getMergedArray;
-    this.getFeatureDataSet = FeatureEmbedding.getFeatureDataSet;
+    this.getFeatureDataSet = FeatureEmbedding.getFeatureDataSet.bind(this);
     this.getContextPairs = FeatureEmbedding.getContextPairs.bind(this);
     return this;
   }
@@ -124,11 +126,11 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @param {Array<Object>} layers - model dense layer parameters
    */
-  generateLayers(this: FeatureEmbedding,x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers) {
-    const xShape = this.getInputShape(x_matrix);
-    const yShape = [this.vocab_size, this.settings.embedSize,];// this.getInputShape(y_matrix);
+  generateLayers(this: FeatureEmbedding,x_matrix:Matrix, layers?:TensorScriptLayers) {
+    // const xShape = this.getInputShape(x_matrix);
+    const yShape = [this.numberOfFeatures, this.settings.embedSize,];// this.getInputShape(y_matrix);
     this.yShape = yShape;
-    this.xShape = xShape;
+    // this.xShape = xShape;
     const denseLayers:TensorScriptLayers = [];
     if (layers) {
       denseLayers.push(...layers);
@@ -136,56 +138,36 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       /**
        * 
        cbow = Sequential()
-cbow.add(Embedding(input_dim=vocab_size, output_dim=embed_size, input_length=window_size*2))
+cbow.add(Embedding(input_dim=numberOfFeatures, output_dim=embed_size, input_length=window_size*2))
 cbow.add(Lambda(lambda x: K.mean(x, axis=1), output_shape=(embed_size,)))
-cbow.add(Dense(vocab_size, activation='softmax'))
+cbow.add(Dense(numberOfFeatures, activation='softmax'))
 cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
        */
-      denseLayers.push({ inputDim: this.vocab_size, outputDim: this.settings.embedSize, inputLength: this.settings.windowSize * 2, });
-      denseLayers.push({ lambdaFunction: 'result = tf.mean(input,1,true)', lambdaOutputShape: [this.vocab_size, this.settings.embedSize] });
-      denseLayers.push({ units: this.vocab_size, activation: 'softmax', });
+      denseLayers.push({ units: this.numberOfFeatures, inputDim: this.numberOfFeatures, outputDim: this.settings.embedSize, inputLength: (this.settings.windowSize||2) * 2, });
+      denseLayers.push({ lambdaFunction: 'result = tf.mean(input,1,true)', lambdaOutputShape: [this.numberOfFeatures, this.settings.embedSize] });
+      denseLayers.push({ units: this.numberOfFeatures, activation: 'softmax', });
     }
     this.layers = denseLayers;
-    console.log({ denseLayers });
+    // console.log({ denseLayers });
     this.tf.serialization.registerClass(lambdaLayer);
     this.model.add(this.tf.layers.embedding(denseLayers[0]));
     // this.model.add(new lambdaLayer(denseLayers[1]));
     this.model.add(this.tf.layers.flatten());
     this.model.add(this.tf.layers.dense(denseLayers[2]));
   }
-  async train(x_matrix: Matrix, y_matrix:Matrix, layers?: DenseLayer[]) {
+  async train(x_matrix: Matrix|Corpus, layers?: DenseLayer[]) {
     const featureEmbedDataSet = await this.getFeatureDataSet({ inputMatrixFeatures: x_matrix, });
-    this.word2id = featureEmbedDataSet.word2id;
-    this.id2word = featureEmbedDataSet.id2word;
-    this.wids = featureEmbedDataSet.wids;
-    this.vocab_size = featureEmbedDataSet.vocab_size;
-    const cxt = await this.getContextPairs({ tf:this.tf, vocab_size: this.vocab_size, inputMatrix: this.wids });
+    this.featureToId = featureEmbedDataSet.featureToId;
+    this.IdToFeature = featureEmbedDataSet.IdToFeature;
+    this.featureIds = featureEmbedDataSet.featureIds;
+    this.numberOfFeatures = featureEmbedDataSet.numberOfFeatures;
+    const cxt = await this.getContextPairs({ tf:this.tf, numberOfFeatures: this.numberOfFeatures, inputMatrix: this.featureIds });
     const x_input_matrix = cxt.x;
     const y_output_matrix = cxt.y;
-    // let yShape;
-    // let x_matrix;
-    // let y_matrix;
-    // const look_back = this.settings.lookback;
-    // if (y_timeseries) {
-    //   x_matrix = x_timeseries;
-    //   y_matrix = y_timeseries;
-    // } else {
-    //   const matrices = this.createDataset(x_timeseries, look_back);
-    //   x_matrix = matrices[ 0 ];
-    //   y_matrix = matrices[ 1 ];
-    //   yShape = this.getInputShape(y_matrix);
-    // }
-    // //_samples, _timeSteps, _features
-    // const timeseriesShape = this.getTimeseriesShape(x_matrix);
-    // const x_matrix_timeseries = BaseNeuralNetwork.reshape(x_matrix, timeseriesShape);
-    // const xs = this.tf.tensor(x_matrix_timeseries, timeseriesShape);
-    // const ys = this.tf.tensor(y_matrix, yShape);
-    // this.xShape = timeseriesShape;
-    // this.yShape = yShape;
     if (this.compiled === false) {
       this.model = this.tf.sequential();
       //@ts-ignore
-      this.generateLayers.call(this, x_input_matrix, y_output_matrix, layers || this.layers,
+      this.generateLayers.call(this, x_input_matrix, layers || this.layers,
         // x_test, y_test
       );
       this.model.compile(this.settings.compile);
@@ -195,7 +177,7 @@ cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
     if(this.settings.fit?.callbacks?.onTrainBegin)this.settings.fit?.callbacks?.onTrainBegin({ loss });
     await asyncForEach(range(1, this.settings.fit?.epochs), async (epoch:number) => {
       if (this.settings.fit?.callbacks?.onEpochBegin) this.settings.fit?.callbacks?.onEpochBegin(epoch, { loss });
-      await asyncForEach(x_input_matrix, async (x_input, xIndex) => {
+      await asyncForEach(x_input_matrix, async (x_input:Vector, xIndex:number) => {
         if (this.settings.fit?.callbacks?.onBatchBegin) this.settings.fit?.callbacks?.onBatchBegin(xIndex, { loss });
         const y_output = y_output_matrix[xIndex];
         const xShape = this.getInputShape([x_input]);
@@ -214,47 +196,155 @@ cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
       if (this.settings.fit?.callbacks?.onEpochEnd) this.settings.fit?.callbacks?.onEpochEnd(epoch, { loss });
     });
     if(this.settings.fit?.callbacks?.onTrainEnd)this.settings.fit?.callbacks?.onTrainEnd({ loss });
-    
-
-    // await this.model.fit(xs, ys, this.settings.fit);
     this.trained = true;
-
-    // // this.model.summary();
-    // xs.dispose();
-    // ys.dispose();
     return this.model;
   }
   // async calculate(x_matrix: Matrix | Vector | InputTextArray) {
   async calculate() {
     return this.model.getWeights()[0];
-    console.log('calculate arguments', arguments);
-    // console.log('this.model.layers[0].getWeights()',this.model.layers[0].getWeights())
-    const weights = this.model.getWeights()[0];
-    console.log('in calc',{ weights });
-    const arr = await weights.data()
-    // const arrM = this.reshape(arr,weights.shape)
-    console.log({ arr });
-    return weights.data();
-    // return weights.toTensor();
-    // // const weights = this.model.layers[0].getWeights();
-    // return arr;
-    // // return super.calculate(input_matrix);
   }
   // async predict(input_matrix: any[], options: PredictionOptions | undefined) {
   async predict(options: PredictionOptions = {}) {
     const predictions = await this.calculate();
     if (options.json === false) {
-      return predictions.data();
+      return await predictions.data();
     } else {
+      // console.log({predictions})
       const arr = await predictions.array()
       if (!this.yShape) throw new Error('Model is missing yShape');
       return this.reshape(arr, predictions.shape);
     }
   }
+  /**
+   * Converts matrix of layer weights into labeled features
+   * @example
+const weights = [
+  [1.5,1,4,1.6,3.5],
+  [4.3,3.2,5.5,6.5]
+]
+FeatureEmbeddingInstance.labelWeights(weights) //=> 
+weights = {
+  car:[1.5,1,4,1.6,3.5],
+  boat:[4.3,3.2,5.5,6.5]
+}
+   */
   labelWeights(weights: Matrix) {
-    return weights.reduce((result, weight, index) => { 
-      result[this.id2word[index]] = weight;
+    return weights.reduce((result: { [index: string]: Vector;}, weight:Vector, index:number) => { 
+      result[this.IdToFeature[index]] = weight;
       return result;
     }, {});
   }
+  /**
+   * Uses tSNE to reduce dimensionality of features
+   * @example
+const weights = [
+  [1.5,1,4,1.6,3.5],
+  [4.3,3.2,5.5,6.5]
+]
+FeatureEmbeddingInstance.reduceWeights(weights) //=> 
+[
+  [1,2],
+  [2,3],
+]
+   */
+  async reduceWeights(weights: Matrix, options?: any) {
+    let model = new TSNE({
+      dim: 2,
+      perplexity: 30.0,
+      earlyExaggeration: 4.0,
+      learningRate: 100.0,
+      nIter: 1000,
+      metric: 'euclidean',
+      ...options
+    });
+    model.init({
+      data: weights,
+      type: options ? options.type : 'dense'
+    });
+    let [error, iter] = model.run();
+    // console.log({ error, iter });
+    let output = model.getOutput(); 
+    return output;
+  }
+/**
+ * Uses either cosineProximity or Eucledian distance to rank similarity
+@example
+//weights = [ [1,2,3,], [1,2,2], [0,-1,3] ]
+//labeledWeights = [ {car:[1,2,3,],tesla:[1,2,2],boat:[0,-1,3]}]
+FeatureEmbeddingInstance.findSimilarFeatures(weights,{features:['car'], limit:2,}) //=> 
+{
+  car:[
+  {
+    comparedFeature: 'tesla',
+    proximity: -0.5087087154388428,
+    distance: 0.03015853278338909
+  },
+  {
+    comparedFeature: 'boat',
+    proximity: -0.3032159209251404,
+    distance: 0.036241017282009125
+  },
+  ]
+}
+ */
+  async findSimilarFeatures(weights: Matrix, options: SimilarFeatureOptions = {}) {
+    const tf:typeof Tensorflow = this.tf;
+    const { features = [], limit=5, labeledWeights, metric='distance' } = options;
+    const labeledFeatureWeights = labeledWeights || this.labelWeights(weights);
+    if(this.settings && this.settings.PAD) delete labeledFeatureWeights[this.settings.PAD]
+    return features.reduce((result:SimilarFeatures,feature: string) => {
+      const featureWeights = labeledFeatureWeights[feature];
+      if(!featureWeights) throw new ReferenceError(`Invalid feature: ${feature}`);
+     
+      const sims = Object.keys(labeledFeatureWeights)
+        .map(searchFeature => {
+          const prox = tf.tidy(() => {
+            const proximity = tf.metrics.cosineProximity(
+              tf.tensor(featureWeights),
+              tf.tensor(labeledFeatureWeights[searchFeature])
+            );
+            const distance = tf.metrics.meanSquaredError(
+              tf.tensor(featureWeights),
+              tf.tensor(labeledFeatureWeights[searchFeature])
+            );
+            return [
+              proximity.asScalar().dataSync()[0],
+              distance.asScalar().dataSync()[0],
+            ];
+          });
+          return {
+            comparedFeature: searchFeature,
+            proximity: prox[0],
+            distance: prox[1],
+          }
+        })
+        .sort((a, b) => (metric === 'distance')
+          ? a.distance - b.distance
+          : a.proximity - b.proximity);
+      // sims.shift()
+      
+      result[feature]= sims.slice(1, limit+1);
+      return result;
+    }, {});
+  }
+}
+
+export type LabeledWeights = {
+  [index: string]: Vector;
+}
+export enum SimilarityMetric {
+  DISTANCE = 'distance',
+  PROXIMITY = 'proximity',
+}
+export type SimilarFeatureOptions = {
+  features?: string[];
+  limit?: number;
+  labeledWeights?: LabeledWeights; 
+  metric?: SimilarityMetric;
+}
+export type SimilarFeatures =  { [index: string]: SimilarFeature[];} 
+export type SimilarFeature = {
+  comparedFeature: string;
+  distance: number;
+  proximity: number;
 }

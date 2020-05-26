@@ -1,162 +1,101 @@
+import util from 'util';
 import path from 'path';
 import * as ms from '@modelx/data';
+import * as jskp from 'jskit-plot';
 import { FeatureEmbedding, } from './index';
 import '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
-import { stop_words, } from './test/mock/data/stopwords';
-// const independentVariables = [
-//   'sepal_length_cm',
-//   'sepal_width_cm',
-//   'petal_length_cm',
-//   'petal_width_cm',
-// ];
-// const dependentVariables = [
-//   'plant_Iris-setosa',
-//   'plant_Iris-versicolor',
-//   'plant_Iris-virginica',
-// ];
-// const columns = independentVariables.concat(dependentVariables);
-// let housingDataCSV;
-// let DataSet;
-// let x_matrix;
-// let y_matrix;
-// let nnClassification;
-// let nnClassificationModel;
-// const fit = {
-//   epochs: 100,
-//   batchSize: 5,
-// };
-// const encodedAnswers = {
-//   'Iris-setosa': [1, 0, 0, ],
-//   'Iris-versicolor': [0, 1, 0, ],
-//   'Iris-virginica': [0, 0, 1, ],
-// };
-// const input_x = [
-//   [5.1, 3.5, 1.4, 0.2, ],
-//   [6.3,3.3,6.0,2.5, ],
-//   [5.6, 3.0, 4.5, 1.5, ],
-//   [5.0, 3.2, 1.2, 0.2, ],
-//   [4.5, 2.3, 1.3, 0.3, ],
-// ];
-// function scaleColumnMap(columnName) {
-//   return {
-//     name: columnName,
-//     options: {
-//       strategy: 'scale',
-//       scaleOptions: {
-//         strategy:'standard',
-//       },
-//     },
-//   };
-// }
+import { stop_words, norm_bible, norm_bible_matrix, products, furniture } from './test/mock/data/stopwords';
+const FeatureDS:any = {};
+const ContextPairs: any = {};
+let FE;
+let FEModel;
+let FEweights;
 
-const norm_bible = [
-  'food used hunger',
-  'food used eat',
-  'need food eat',
-  'need food hunger',
-  'want food hunger',
-  'want food eat',
-  'want car drive',
-  'need car drive',
-  'need car travel',
-  'want car travel',
-  'use fly travel fast',
-  'fast fly travel',
-  'need food play',
-  'need food live',
-  'need eat live',
-  'tesla kind car',
-  'tesla fast car',
-  'tesla is an electric car',
-  'electric is fast',
-  'car fly walk ways travel',
-  'want tesla drive car',
-  'want food solve hunger',
-  'need eat food hunger',
-  'want tesla drive fast far',
-  'need plane fly'];
-const norm_bible_matrix = norm_bible.map(nb => nb.split(' ').filter(nb => !stop_words.includes(nb)));
 // console.log({ norm_bible_matrix });
 /** @test {FeatureEmbedding} */
 describe('FeatureEmbedding', function () {
   beforeAll(async function () {
-    const conf = await FeatureEmbedding.getFeatureDataSet({ inputMatrixFeatures: norm_bible_matrix, });
-    const {
-      word2id,
-      id2word,
-      wids,
-      vocab_size,
-    } = conf;
-    // console.log({ conf });
+    const ds = await FeatureEmbedding.getFeatureDataSet({
+      inputMatrixFeatures: norm_bible_matrix,
+    });
+    
+    FeatureDS.featureToId = ds.featureToId;
+    FeatureDS.IdToFeature = ds.IdToFeature;
+    FeatureDS.featureIds = ds.featureIds;
+    FeatureDS.numberOfFeatures = ds.numberOfFeatures;
+    // console.log('FeatureDS',FeatureDS);
     // console.log('wids',wids);
     
-    const cxt = await FeatureEmbedding.getContextPairs({ tf, vocab_size, inputMatrix: wids });
-    // cxt.x.forEach((xitem, i) => {
-    //   console.log(xitem, cxt.y[i]);
-    // })
-    // console.log('cxt.x.length',cxt.x.length);
-    // console.log('cxt.y.length',cxt.y.length);
-    // console.log('cxt',cxt);
-    // /**
-    //  * encodedData = [ 
-    //  *  { sepal_length_cm: 5.1,
-    //      sepal_width_cm: 3.5,
-    //     petal_length_cm: 1.4,
-    //     petal_width_cm: 0.2,
-    //     plant: 'Iris-setosa',
-    //     'plant_Iris-setosa': 1,
-    //     'plant_Iris-versicolor': 0,
-    //     'plant_Iris-virginica': 0 },
-    //     ...
-    //     { sepal_length_cm: 5.9,
-    //     sepal_width_cm: 3,
-    //     petal_length_cm: 4.2,
-    //     petal_width_cm: 1.5,
-    //     plant: 'Iris-versicolor',
-    //     'plant_Iris-setosa': 0,
-    //     'plant_Iris-versicolor': 1,
-    //     'plant_Iris-virginica': 0 },
-    //   ];
-    // */
-    // housingDataCSV = await ms.csv.loadCSV(path.join(__dirname,'/test/mock/data/iris_data.csv'));
-    // DataSet = new ms.DataSet(housingDataCSV);
-    // // DataSet.fitColumns({
-    // //   columns: columns.map(scaleColumnMap),
-    // //   returnData:false,
-    // // });
-    // const encodedData = DataSet.fitColumns({
-    //   columns: [
-    //     {
-    //       name: 'plant',
-    //       options: {
-    //         strategy: 'onehot',
-    //       },
-    //     },
-    //   ],
-    //   returnData:true,
-    // });
-    // x_matrix = DataSet.columnMatrix(independentVariables); 
-    // y_matrix = DataSet.columnMatrix(dependentVariables);
-    // /*
-    // x_matrix = [
-    //   [ 5.1, 3.5, 1.4, 0.2 ],
-    //   [ 4.9, 3, 1.4, 0.2 ],
-    //   [ 4.7, 3.2, 1.3, 0.2 ],
-    //   ...
-    // ]; 
-    // y_matrix = [
-    //   [ 1, 0, 0 ],
-    //   [ 1, 0, 0 ],
-    //   [ 1, 0, 0 ],
-    //   ...
-    // ] 
-    // */
-    // // console.log({ x_matrix, y_matrix, });
+    const cxt = await FeatureEmbedding.getContextPairs({
+      tf,
+      numberOfFeatures: FeatureDS.numberOfFeatures,
+      inputMatrix: FeatureDS.featureIds
+    });
+    ContextPairs.context_length = cxt.context_length;
+    ContextPairs.emptyXVector = cxt.emptyXVector;
+    ContextPairs.emptyYVector = cxt.emptyYVector;
+    ContextPairs.x = cxt.x;
+    ContextPairs.y = cxt.y;
+    // console.log({ ContextPairs });
+    // console.log('ContextPairs.x',ContextPairs.x);
+    // console.log('ContextPairs.y',ContextPairs.y);
 
     // nnClassification = new FeatureEmbedding({ fit, });
-    // nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
+    FEModel = new FeatureEmbedding({});
+    await FEModel.train(norm_bible_matrix);
+    FEweights = await FEModel.predict();
+
   }, 120000);
+  /** @test {FeatureEmbedding#getFeatureDataSet} */
+  describe('static getFeatureDataSet', () => {
+    it('should assign each feature to an ID', () => {
+      expect(FeatureDS.featureToId.PAD).toBe(0);
+      expect(FeatureDS.featureToId.food).toBe(1);
+    });
+    it('should assign each ID to a feature', () => {
+      expect(FeatureDS.IdToFeature[0]).toBe('PAD');
+      expect(FeatureDS.IdToFeature[1]).toBe('food');
+    });
+    it('should convert list of features to ids', () => {
+      FeatureDS.featureIds.forEach(feats => {
+        feats.forEach(feat => {
+          expect(typeof feat).toBe('number');
+        });
+      });
+      expect(Object.values(FeatureDS.featureToId).includes(FeatureDS.featureIds[0][0])).toBe(true);
+    });
+    it('should calculate total number of features', () => {
+      expect(Array.from(new Set(FeatureDS.featureIds.flat())).length).toBe(Object.values(FeatureDS.featureToId).length - 1);
+    });
+  });
+  /** @test {FeatureEmbedding#getContextPairs} */
+  describe('static getContextPairs', () => {
+
+    it('should assign window size and context_length', async () => {
+      const cl6 = await FeatureEmbedding.getContextPairs({ inputMatrix: [[]], numberOfFeatures: 4, window_size: 3 });
+      const cl10 = await FeatureEmbedding.getContextPairs.call({ settings: { windowSize: 5, } }, { inputMatrix: [[]], numberOfFeatures: 4, window_size: 3 });
+      expect(cl6.context_length).toBe(6);
+      expect(cl10.context_length).toBe(10);
+      expect(ContextPairs.context_length).toBe(4);
+    });
+    it('should create empty vectors', () => {
+      expect(ContextPairs.emptyXVector).toMatchObject([0, 0, 0, 0]);
+      expect(ContextPairs.emptyYVector).toMatchObject([
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ]);
+    });
+    it('should training matrices', () => {
+      expect(ContextPairs.x[0]).toMatchObject([0, 0, 2, 3]);
+      expect(ContextPairs.y[0]).toMatchObject([
+        0, 1, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ]);
+    });
+  });
   /** @test {FeatureEmbedding#getMergedArray} */
   describe('static getMergedArray', () => {
     it('should merge two arrays', () => {
@@ -196,26 +135,129 @@ describe('FeatureEmbedding', function () {
   /** @test {FeatureEmbedding#constructor} */
   describe('constructor', () => {
     it('should export a named module class', () => {
-      const NN = new FeatureEmbedding();
+      const FE = new FeatureEmbedding();
       //@ts-ignore
-      const NNConfigured = new FeatureEmbedding({ test: 'prop', });
+      const FEConfigured = new FeatureEmbedding({ test: 'prop', });
       expect(typeof FeatureEmbedding).toBe('function');
-      expect(NN).toBeInstanceOf(FeatureEmbedding);
-      expect(NNConfigured.settings.test).toBe('prop');
+      expect(FE).toBeInstanceOf(FeatureEmbedding);
+      expect(FEConfigured.settings.test).toBe('prop');
     });
   });
   describe('generate feature embedder', () => {
-    it('should train a model', async () => {
+    it('should train a model and get embedding weights', async () => {
       const FE = new FeatureEmbedding({
+        windowSize: 3,
         fit: {
-          epochs: 15,
+          epochs: 25,
+          batchSize: 1,
+          callbacks: {
+            onTrainEnd: (logs: any) => console.log('onTrainEnd', { logs, }),
+            onEpochBegin: (epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
+          }
+        },
+      });
+      // console.log({furniture})
+      // await FE.train(furniture);
+      await FE.train(products);
+      const weights = await FE.predict();
+      const firstFeature = Object.keys(FE.featureToId)[0];
+      expect(weights[0].length).toBe(FE.settings.embedSize);
+    })
+  })
+  /** @test {FeatureEmbedding#labelWeights} */
+  describe('labelWeights', () => {
+    it('should label weights from model featureToId', async () => {
+      const weights = FEweights;
+      const labeled = FEModel.labelWeights(weights);
+      const firstFeature = Object.keys(FEModel.featureToId)[0];
+      expect(labeled[firstFeature].length).toBe(FEModel.settings.embedSize);
+      /**
+       * labeledFEweights: {
+        PAD: [
+             0.08473291248083115,   0.06016451492905617,   -0.09881442785263062,
+...
+            -0.02249222621321678,   0.06540007144212723
+        ],
+        food: [
+          -0.19053350389003754,   0.12037993222475052,   0.2405654937028885,
+...
+           0.16511322557926178,  -0.10890625417232513
+        ],
+       */
+    });
+  });
+  /** @test {FeatureEmbedding#findSimilarFeatures} */
+  describe('findSimilarFeatures', () => {
+    it('should finish test', async () => {
+      const labeledFEweights = FEModel.labelWeights(FEweights);
+      const sims = await FEModel.findSimilarFeatures(FEweights, { limit: 10, labeledWeights: labeledFEweights, features: ['car', 'food', 'tesla'] });
+      // console.log('sims', util.inspect(sims, { depth: 20 }));
+      expect(Object.keys(sims.car[0])).toMatchObject(['comparedFeature', 'proximity', 'distance'])
+      expect(sims.car[0].distance).toBeGreaterThanOrEqual(-1);
+      expect(sims.car[0].distance).toBeLessThanOrEqual(1);
+      expect(sims.car[0].proximity).toBeGreaterThanOrEqual(-1);
+      expect(sims.car[0].proximity).toBeLessThanOrEqual(1);
+      /**
+       * {
+        car: [
+            {
+              comparedFeature: 'far',
+              proximity: -0.5087087154388428,
+              distance: 0.03015853278338909
+            },
+            {
+              comparedFeature: 'solve',
+              proximity: -0.3032159209251404,
+              distance: 0.036241017282009125
+            },
+            {
+              comparedFeature: 'use',
+              proximity: -0.0551472045481205,
+              distance: 0.04211376607418
+            }
+          ]
+        }
+       */
+    });
+  });
+  /** @test {FeatureEmbedding#reduceWeights} */
+  describe('reduceWeights', () => {
+    it('should reduce dimensions with tSNE', async () => {
+      const reducedWeights = await FEModel.reduceWeights(FEweights);
+      const reducedlabeled = FEModel.labelWeights(reducedWeights);
+      const firstFeature = Object.keys(FEModel.featureToId)[0];
+      expect(reducedlabeled[firstFeature].length).toBe(2);
+      const reducedWeights3D = await FEModel.reduceWeights(FEweights,{dim:3});
+      const reducedlabeled3D = FEModel.labelWeights(reducedWeights3D);
+      expect(reducedlabeled3D[firstFeature].length).toBe(3);
+      /**
+       * 
+       * {
+      reducedlabeled: {
+        chair_9: [ 10.00498986402913, -54.73530312852864 ],
+...
+        table_8: [ 13.780806410847555, -9.625880855940855 ],
+        table_9: [ 54.456409915437945, 8.619291671361108 ]
+      }
+    }
+       * 
+       */
+    });
+  });
+  /** @test {FeatureEmbedding#generateLayers} */
+  describe('generateLayers', () => {
+    it('should generate embedding layers',async () =>{6
+      FE = new FeatureEmbedding({
+        windowSize: 3,
+        fit: {
+          epochs: 2,
           batchSize: 1,
           callbacks: {
             // onTrainBegin: (logs:any) => console.log('onTrainBegin',{logs, }),
             // // called when training ends.
-            onTrainEnd: (logs:any) => console.log('onTrainEnd',{logs, }),
+            onTrainEnd: (logs: any) => console.log('onTrainEnd', { logs, }),
             // //called at the start of every epoch.
-            onEpochBegin: (epoch: number, logs: any) => console.log('onEpochBegin',{logs, epoch, }),
+            onEpochBegin: (epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
             // //called at the end of every epoch.
             // onEpochEnd: (epoch: number, logs: any) => console.log('onEpochEnd',{logs, epoch, }),
             // //called at the start of every batch.
@@ -227,59 +269,16 @@ describe('FeatureEmbedding', function () {
           }
         },
       });
-      await FE.train(norm_bible_matrix);
-      const weights = await FE.predict();
-      console.log({ weights });
-      const labeled = FE.labelWeights(weights)
-      console.log('weights.length', weights.length);
-      console.log('FE.id2word', FE.id2word);
-      console.log({ labeled });
-    })
-  })
-  /** @test {FeatureEmbedding#generateLayers} */
-  describe('generateLayers', () => {
-    it('should generate embedding layers', async () => {
-      // const predictions = await nnClassification.predict(input_x);
-      // const answers = await nnClassification.predict(input_x, {
-      //   probability:false,
-      // });
-      // const shape = nnClassification.getInputShape(predictions);
-      // // console.log('nnClassification.layers', nnClassification.layers);
-      // // console.log({
-      // //   predictions_unscaled,
-      // //   predictions,
-      // //   shape,
-      // // });
-      
-      // // const probabilities = ms.DataSet.reverseColumnMatrix({
-      // //   vectors: predictions,
-      // //   labels: dependentVariables,
-      // // });
-      // // const results = ms.DataSet.reverseColumnMatrix({
-      // //   vectors: answers,
-      // //   labels: dependentVariables,
-      // // });
-      // // console.log({
-      // //   predictions,
-      // //   // probabilities,
-      // //   answers,
-      // //   // results,
-      // //   shape,
-      // // });
-      // expect(predictions).toHaveLength(input_x.length);
-      // expect(nnClassification.layers).toHaveLength(2);
-      // expect(shape).toMatchObject([5, 3,]);
-      // expect(answers[ 0 ]).toMatchObject(encodedAnswers[ 'Iris-setosa' ]);
-      // // expect(answers[ 1 ]).to.eql(encodedAnswers[ 'Iris-virginica' ]);
-      // // expect(answers[ 2 ]).to.eql(encodedAnswers[ 'Iris-versicolor' ]);
-      // // expect(answers[ 3 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
-      // // expect(answers[ 4 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
-      return true;
+      // console.log({furniture})
+      // await FE.train(furniture);
+      await FE.train(products);
+      expect(FE.layers).toHaveLength(3);
     });
-    // it('should generate a network from layers', async () => { 
-    //   const nnClassificationCustom = new FeatureEmbedding({ layerPreference:'custom', fit, });
-    //   await nnClassificationCustom.train(x_matrix, y_matrix, nnClassification.layers);
-    //   expect(nnClassificationCustom.layers).toHaveLength(2);
-    // },120000);
+    it('should generate a network from layers', async () => { 
+      const FECustom = new FeatureEmbedding({ layerPreference:'custom', });
+      await FECustom.train(norm_bible_matrix, FEModel.layers);
+      // console.log('FECustom.layers',FECustom.layers)
+      expect(FECustom.layers).toHaveLength(3);
+    },120000);
   });
 });
