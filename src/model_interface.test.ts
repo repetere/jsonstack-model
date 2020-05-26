@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { asyncForEach, } from './model_interface';
+import { asyncForEach, LambdaLayer, } from './model_interface';
 import * as tf from '@tensorflow/tfjs-node';
 import * as ms from '@modelx/data';
 import { TensorScriptModelInterface, MultipleLinearRegression, } from './index';
@@ -26,6 +26,84 @@ describe('asyncForEach', () => {
     expect(mockCallback.mock.results[0].value).toBe(16);
 
   });
+});
+
+describe('LambdaLayer', () => {
+  describe('tf.serialization.registerClass', () => {
+    it('should registerClass on tf', () => {
+      const mockTF = {
+        serialization: {
+          registerClass: jest.fn(() => true),
+        }
+      }
+      new TensorScriptModelInterface({}, { tf: mockTF });
+      expect(mockTF.serialization.registerClass.mock.calls.length).toBe(1);
+    });
+  });
+  describe('static className', () => {
+    it('should return classname', () => {
+      expect(LambdaLayer.className).toBe('LambdaLayer');
+    });
+  });
+  describe('constructor', () => {
+    it('should configure a new instance', () => {
+      const LL = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaOutputShape: [1],
+        name: 'mean layer',
+      });
+      const nonameLL = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaOutputShape: [1],
+      });
+      expect(LL.name).toBe('mean layer');
+      expect(typeof nonameLL.name).toBe('string');
+    });
+  });
+  describe('getConfig', () => {
+    it('should return layer configuration', () => {
+      const LL = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaOutputShape: [1],
+        name: 'mean layer',
+      });
+      const config = LL.getConfig();
+      expect(config.lambdaFunction).toBe('result = tf.mean(input,1)');
+      expect(config).toHaveProperty('trainable');
+      // console.log({ config });
+    });
+  });
+  describe('computeOutputShape', () => {
+    it('should return output shape', () => {
+      const LL = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaOutputShape: [2,2],
+        name: 'mean layer',
+      });
+      const LL2 = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input,1)',
+        // lambdaOutputShape: [2,2],
+        name: 'mean layer',
+      });
+      expect(LL.computeOutputShape([2])).toMatchObject([2, 2]);
+      expect(LL2.computeOutputShape([3, 2])).toBe(3);
+    });
+  });
+  describe('call', () => {
+    it('should calculate a layer output tensor', () => {
+      const LL = new LambdaLayer({
+        lambdaFunction: 'result = tf.mean(input)',
+        lambdaOutputShape: [2, 2],
+        name: 'mean layer',
+      });
+      const output = LL.call(tf.tensor([3, 5, 7]));
+      const outputVal = output.asScalar().dataSync()[0];
+      expect(output).toBeInstanceOf(tf.Tensor);
+      expect(output.dtype).toBe('float32');
+      expect(outputVal).toBe(5);
+      // console.log({ output, outputVal });
+    });
+  })
 });
 
 /** @test {TensorScriptModelInterface} */

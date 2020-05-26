@@ -2,6 +2,7 @@
 // import '@tensorflow/tfjs-node';
 // import * as tensorflow from '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
+import { Tensor, Rank, Shape } from '@tensorflow/tfjs-node';
 // console.log({tensorflow})
 /* fix for rollup */
 /* istanbul ignore next */
@@ -33,10 +34,6 @@ export type TensorScriptProperties = {
   model?: any;
   tf?: any;
 };
-export type LambdaLayer = {
-  lambdaFunction: string;
-  lambdaOutputShape: Matrix;
-}
 // export type LambdaLayer = (...args: any[]) => any;
 export type DenseLayer = {
   units: number;
@@ -132,57 +129,66 @@ export type Calculation = {
   data: ()=>Promise<Vector>;
 }
 
+export type LambdaLayerOptions = {
+  name?: string;
+  lambdaFunction: string;
+  lambdaOutputShape?: Matrix|Vector;
+}
 /******************************************************************************
  * tensorflow.js lambda layer
  * written by twitter.com/benjaminwegener
  * license: MIT
  * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
  */
-export class lambdaLayer extends tf.layers.Layer {
-  constructor(config) {
-      super(config);
-      if (config.name === undefined) {
-          config.name = ((+new Date) * Math.random()).toString(36); //random name from timestamp in case name hasn't been set
-      }
-      this.name = config.name;
-      this.lambdaFunction = config.lambdaFunction;
-      this.lambdaOutputShape = config.lambdaOutputShape;
+export class LambdaLayer extends tf.layers.Layer {
+  name: string;
+  lambdaFunction: string;
+  //@ts-ignore
+  lambdaOutputShape: Shape | Matrix | Vector;
+  constructor(config:LambdaLayerOptions) {
+    super(config);
+    if (config.name === undefined) {
+        config.name = ((+new Date) * Math.random()).toString(36); //random name from timestamp in case name hasn't been set
+    }
+    this.name = config.name;
+    this.lambdaFunction = config.lambdaFunction;
+    if(config.lambdaOutputShape) this.lambdaOutputShape = config.lambdaOutputShape;
   }
 
-  call(input) {
+  call(input: Tensor<Rank> | Tensor<Rank>[], kwargs?: any): Tensor<Rank> | Tensor<Rank>[] {
     // console.log({ input }, 'input[0].shape', input[0].shape)
     // input[0].data().then(inputData=>console.log)
     // console.log('input[0].data()', input[0].data())
-    return input;
+    // return input;
     return tf.tidy(() => {
-        return tf.mean(tf.tensor(input),1,true)
-    //       let result = null;
-    //       eval(this.lambdaFunction);
-    //     // result = tf.mean(input,1);
-    //       return result;
+      // return tf.mean(tf.tensor(input),1,true)
+      let result = new Array();
+      eval(this.lambdaFunction);
+      // result = tf.mean(input,1);
+      return result;
     });
   }
 
-  computeOutputShape(inputShape) {
-    console.log('computeOutputShape',{inputShape})
-      if (this.lambdaOutputShape === undefined) { //if no outputshape provided, try to set as inputshape
-          return inputShape[0];
-      } else {
-          return this.lambdaOutputShape;
-      }
+  computeOutputShape(inputShape:Matrix) {
+    // console.log('computeOutputShape',{inputShape})
+    if (this.lambdaOutputShape === undefined) { //if no outputshape provided, try to set as inputshape
+      return inputShape[0];
+    } else {
+      return this.lambdaOutputShape;
+    }
   }
 
   getConfig() {
-      const config = super.getConfig();
-      Object.assign(config, {
-          lambdaFunction: this.lambdaFunction,
- lambdaOutputShape: this.lambdaOutputShape
-      });
-      return config;
+    const config = {
+      ...super.getConfig(),
+      lambdaFunction: this.lambdaFunction,
+      lambdaOutputShape: this.lambdaOutputShape,
+    };
+    return config;
   }
 
-  static get className() {
-      return 'lambdaLayer';
+  static get className():string {
+      return 'LambdaLayer';
   }
 }
 
@@ -231,6 +237,7 @@ export class TensorScriptModelInterface  {
     this.reshape = TensorScriptModelInterface.reshape;
     /** @type {Function} */
     this.getInputShape = TensorScriptModelInterface.getInputShape;
+    if( this.tf && this.tf.serialization && this.tf.serialization.registerClass) this.tf.serialization.registerClass(LambdaLayer);
     return this;
   }
   /**
