@@ -34,8 +34,8 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @param {Array<Object>} layers - model dense layer parameters
    */
-  generateLayers(x_matrix: Matrix, layers?: TensorScriptLayers | TensorScriptSavedLayers): void 
-  generateLayers(x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers|TensorScriptSavedLayers, x_test?:Matrix, y_test?:Matrix) {
+  generateLayers(x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers|TensorScriptSavedLayers, x_test?:Matrix, y_test?:Matrix): void 
+  generateLayers(this:TensorScriptModelInterface, x_matrix: Matrix, layers?: TensorScriptLayers | TensorScriptSavedLayers|any){
     throw new ReferenceError('generateLayers method is not implemented');
   }
   /**
@@ -48,7 +48,7 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
    * @param {Array<Array<number>>} y_text - validation data dependent variables
    * @return {Object} returns trained tensorflow model 
    */
-  async train(x_matrix:Matrix, y_matrix:Matrix, layers:TensorScriptLayers, x_test:Matrix, y_test:Matrix) {
+  async train(x_matrix:Matrix, y_matrix:Matrix, layers?:TensorScriptLayers, x_test?:Matrix, y_test?:Matrix) {
     const xShape = this.getInputShape(x_matrix);
     const yShape = this.getInputShape(y_matrix);
     const xs = this.tf.tensor(x_matrix, xShape);

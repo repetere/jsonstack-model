@@ -126,7 +126,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @param {Array<Object>} layers - model dense layer parameters
    */
-  generateLayers(this: FeatureEmbedding,x_matrix:Matrix, layers?:TensorScriptLayers) {
+  generateLayers(this: FeatureEmbedding,x_matrix:Matrix,y_matrix:Matrix, layers?:TensorScriptLayers) {
     // const xShape = this.getInputShape(x_matrix);
     const yShape = [this.numberOfFeatures, this.settings.embedSize,];// this.getInputShape(y_matrix);
     this.yShape = yShape;
@@ -158,7 +158,7 @@ cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
     this.model.add(this.tf.layers.flatten());
     this.model.add(this.tf.layers.dense(denseLayers[2]));
   }
-  async train(x_matrix: Matrix|Corpus, layers?: DenseLayer[]) {
+  async train(x_matrix: Matrix|Corpus, y_matrix:Matrix, layers?: DenseLayer[]) {
     const featureEmbedDataSet = await this.getFeatureDataSet({ inputMatrixFeatures: x_matrix, });
     this.featureToId = featureEmbedDataSet.featureToId;
     this.IdToFeature = featureEmbedDataSet.IdToFeature;

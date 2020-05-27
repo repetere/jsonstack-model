@@ -160,7 +160,7 @@ export declare class LSTMMultivariateTimeSeries extends LSTMTimeSeries {
     static getTimeseriesDataSet(this: TensorScriptModelContext, timeseries: NestedArray<number[]> | undefined, look_back: any): {
         yShape: import("./model_interface").Shape;
         xShape: import("./model_interface").Shape;
-        y_matrix: any;
+        y_matrix: Vector;
         x_matrix: Matrix | Vector;
     };
     createDataset: (...args: any[]) => NestedArray<number>;

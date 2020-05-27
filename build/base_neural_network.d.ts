@@ -28,7 +28,7 @@ export declare class BaseNeuralNetwork extends TensorScriptModelInterface {
      * @param {Array<Array<number>>} y_text - validation data dependent variables
      * @return {Object} returns trained tensorflow model
      */
-    train(x_matrix: Matrix, y_matrix: Matrix, layers: TensorScriptLayers, x_test: Matrix, y_test: Matrix): Promise<any>;
+    train(x_matrix: Matrix, y_matrix: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<any>;
     /**
      * Predicts new dependent variables
      * @override

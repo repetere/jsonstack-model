@@ -2,6 +2,7 @@ import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import builtins from 'rollup-plugin-node-builtins';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 import globals from 'rollup-plugin-node-globals';
 import replace from '@rollup/plugin-replace';
 import terser from 'rollup-plugin-terser-js';
@@ -20,6 +21,7 @@ const serverExternal = [
   "lodash.range",
 ];
 const windowGlobals = {
+  // 'encoding':'encoding'
 };
 
 function getOutput({ minify = false, server = false, }) {
@@ -81,14 +83,16 @@ function getPlugins({
           // resolve: ['.js', '.ts'],
           entries: {
             '@tensorflow/tfjs-node': '@tensorflow/tfjs',
+            'node_modules/@tensorflow/tfjs-core/node_modules/node-fetch/lib/index.es.js': 'node-fetch',
           }
-        })
+        }),
+        // nodePolyfills(),
       ]);
   } 
   
   plugins.push(...[
     // sucrase({
-    //   // exclude: ['node_modules/**'],
+    //   exclude: ['node_modules/**'],
     //   transforms: [ 'typescript' ]
     // }),
     json(),
@@ -101,17 +105,19 @@ function getPlugins({
 
     typescript({
       noEmitOnError: false,
-      declaration: false,
-      declarationDir: null,
+      // declaration: false,
+      // declarationDir: null,
     }),
     resolve({
       preferBuiltins: true,
+      browser: browser?true:false,
     }),
     builtins({}),
     commonjs({
-      extensions: [ '.js', '.ts', '.jsx', '.tsx' ]
-      // namedExports: {
-      //     // 'node_modules/react-is/index.js': ['isValidElementType'],
+      extensions: [ '.js', '.ts', '.jsx', '.tsx' ],
+      namedExports: {
+          'events': ['EventEmitter'],
+          'punycode': ['toASCII'],
       //     // 'node_modules/react/index.js': [
       //     //     'Children',
       //     //     'Component',
@@ -134,11 +140,13 @@ function getPlugins({
       //     //     '__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED',
       //     // ],
 
-      // }
+      }
     }), // so Rollup can convert `ms` to an ES module
     globals({
       // react: 'React',
       // 'react-dom': 'ReactDOM'
+      // 'events': 'events.EventEmitter'
+
     }),
   ]);
   if (minify) {
@@ -160,30 +168,30 @@ function getPlugins({
 
 
 export default [
-  {
-    input: "src/index.ts",
-    output: getOutput({
-      minify: false,
-      server: false,
-    }),
-    external,
-    plugins: getPlugins({
-      minify: false,
-      browser:true,
-    }),
-  },
-  {
-    input: "src/index.ts",
-    output: getOutput({
-      minify: true,
-      server: false,
-    }),
-    external,
-    plugins: getPlugins({
-      minify: true,
-      browser:true,
-    }),
-  },
+  // {
+  //   input: "src/index.ts",
+  //   output: getOutput({
+  //     minify: false,
+  //     server: false,
+  //   }),
+  //   external,
+  //   plugins: getPlugins({
+  //     minify: false,
+  //     browser:true,
+  //   }),
+  // },
+  // {
+  //   input: "src/index.ts",
+  //   output: getOutput({
+  //     minify: true,
+  //     server: false,
+  //   }),
+  //   external,
+  //   plugins: getPlugins({
+  //     minify: true,
+  //     browser:true,
+  //   }),
+  // },
   {
     input: "src/index.ts",
     output: getOutput({
@@ -196,16 +204,16 @@ export default [
       server: true,
     }),
   },
-  {
-    input: "src/index.ts",
-    output: getOutput({
-      minify: true,
-      server: true,
-    }),
-    external:serverExternal,
-    plugins: getPlugins({
-      minify: true,
-      server: true,
-    }),
-  },
+  // {
+  //   input: "src/index.ts",
+  //   output: getOutput({
+  //     minify: true,
+  //     server: true,
+  //   }),
+  //   external:serverExternal,
+  //   plugins: getPlugins({
+  //     minify: true,
+  //     server: true,
+  //   }),
+  // },
 ];
