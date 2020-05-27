@@ -7,3 +7,4 @@ export { MultipleLinearRegression, } from './multiple_linear_regression';
 export { LSTMTimeSeries, } from './lstm_time_series';
 export { LSTMMultivariateTimeSeries, } from './lstm_multivariate_time_series';
 export { TextEmbedding, } from './text_embedding';
+export { FeatureEmbedding, } from './feature_embedding';

@@ -100,6 +100,7 @@ function getPlugins({
     }),
 
     typescript({
+      "target": "ES2019",
       noEmitOnError: false,
       declaration: false,
       declarationDir: null,

@@ -1,4 +1,5 @@
 import * as tf from '@tensorflow/tfjs-node';
+import { Tensor, Rank, Shape as TFShape } from '@tensorflow/tfjs-node';
 export interface TensorScriptContext {
     type?: string;
     settings: TensorScriptOptions;
@@ -24,14 +25,18 @@ export declare type TensorScriptProperties = {
     tf?: any;
 };
 export declare type DenseLayer = {
-    units: number;
+    units?: number;
     inputDim?: number;
+    outputDim?: number;
+    inputLength?: number;
     activation?: string;
     kernelInitializer?: string;
     kernelRegularizer?: any;
     inputShape?: any;
     batchInputShape?: any;
     returnSequences?: boolean;
+    lambdaFunction?: string;
+    lambdaOutputShape?: Matrix | Vector;
 };
 export declare type TensorScriptLayers = DenseLayer[];
 export declare type TensorScriptSavedLayers = {
@@ -74,6 +79,9 @@ export declare type TensorScriptOptions = {
     features?: number;
     outputs?: number;
     learningRate?: number;
+    PAD?: string;
+    embedSize?: number;
+    windowSize?: number;
 };
 export declare type PredictionOptions = {
     skip_matrix_check?: boolean;
@@ -86,9 +94,35 @@ export interface NestedArray<T> extends Array<T | NestedArray<T>> {
 export declare type Shape = Array<number> | number;
 export declare type Vector = number[];
 export declare type Matrix = Vector[];
+export declare type Features = Array<string | number>;
+export declare type Corpus = Array<Features>;
 export declare type Calculation = {
     data: () => Promise<Vector>;
 };
+export declare type LambdaLayerOptions = {
+    name?: string;
+    lambdaFunction: string;
+    lambdaOutputShape?: Matrix | Vector;
+};
+/******************************************************************************
+ * tensorflow.js lambda layer
+ * written by twitter.com/benjaminwegener
+ * license: MIT
+ * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
+ */
+export declare class LambdaLayer extends tf.layers.Layer {
+    name: string;
+    lambdaFunction: string;
+    lambdaOutputShape: TFShape | Matrix | Vector;
+    constructor(config: LambdaLayerOptions);
+    call(input: Tensor<Rank> | Tensor<Rank>[], kwargs?: any): Tensor<Rank> | Tensor<Rank>[];
+    computeOutputShape(inputShape: Matrix): Matrix | tf.Shape;
+    getConfig(): {
+        lambdaFunction: string;
+        lambdaOutputShape: Matrix | Vector | tf.Shape;
+    };
+    static get className(): string;
+}
 /**
  * Base class for tensorscript models
  * @interface TensorScriptModelInterface
@@ -157,7 +191,8 @@ export declare class TensorScriptModelInterface {
      * @param {Array<Array<number>>} y_matrix - dependent variables
      * @return {Object} returns trained tensorflow model
      */
-    train(x_matrix: Matrix, y_matrix: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<tf.LayersModel>;
+    train(x_matrix: Matrix, y_matrix?: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<tf.LayersModel>;
+    train(x_matrix: Matrix, y_matrix: Matrix): Promise<Matrix>;
     /**
      * Predicts new dependent variables
      * @abstract
@@ -187,7 +222,7 @@ export declare class TensorScriptModelInterface {
      * @param {Boolean} [options.skip_matrix_check=false] - validate input is a matrix
      * @return {Array<number>|Array<Array<number>>} predicted model values
      */
-    predict(input_matrix: Matrix | Vector | InputTextArray, options?: PredictionOptions): Promise<any>;
+    predict(input_matrix?: Matrix | Vector | InputTextArray | PredictionOptions, options?: PredictionOptions): Promise<any>;
 }
 /**
  * Calculate the size of a multi dimensional array.
@@ -236,3 +271,4 @@ export declare class DimensionError extends RangeError {
  * @return {Array}        The flattened array (1 dimensional)
  */
 export declare function flatten(array: NestedArray<number>): Vector;
+export declare function asyncForEach(array: Array<any>, callback: (item: any, index: number, arr: Array<any>) => Promise<any>): Promise<void>;

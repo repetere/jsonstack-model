@@ -77,5 +77,5 @@ export declare class LSTMTimeSeries extends BaseNeuralNetwork {
     generateLayers(this: TensorScriptLSTMModelContext, x_matrix: Matrix, y_matrix: Matrix, layers: TensorScriptSavedLayers): void;
     train(x_timeseries: any, y_timeseries: any, layers: any, x_test: any, y_test: any): Promise<any>;
     calculate(x_matrix: Matrix | Vector | InputTextArray): any;
-    predict(input_matrix: any[], options: PredictionOptions | undefined): Promise<any>;
+    predict(input_matrix: Matrix | Vector | InputTextArray, options?: PredictionOptions): Promise<any>;
 }

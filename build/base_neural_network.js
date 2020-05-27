@@ -26,14 +26,7 @@ export class BaseNeuralNetwork extends TensorScriptModelInterface {
         this.type = 'BaseNeuralNetwork';
         return this;
     }
-    /**
-     * Adds dense layers to tensorflow model
-     * @abstract
-     * @param {Array<Array<number>>} x_matrix - independent variables
-     * @param {Array<Array<number>>} y_matrix - dependent variables
-     * @param {Array<Object>} layers - model dense layer parameters
-     */
-    generateLayers(x_matrix, y_matrix, layers, x_test, y_test) {
+    generateLayers(x_matrix, layers) {
         throw new ReferenceError('generateLayers method is not implemented');
     }
     /**

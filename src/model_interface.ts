@@ -2,7 +2,7 @@
 // import '@tensorflow/tfjs-node';
 // import * as tensorflow from '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
-import { Tensor, Rank, Shape } from '@tensorflow/tfjs-node';
+import { Tensor, Rank, Shape as TFShape } from '@tensorflow/tfjs-node';
 // console.log({tensorflow})
 /* fix for rollup */
 /* istanbul ignore next */
@@ -146,7 +146,7 @@ export class LambdaLayer extends tf.layers.Layer {
   name: string;
   lambdaFunction: string;
   //@ts-ignore
-  lambdaOutputShape: Shape | Matrix | Vector;
+  lambdaOutputShape: TFShape | Matrix | Vector;
   constructor(config:LambdaLayerOptions) {
     super(config);
     if (config.name === undefined) {
@@ -165,7 +165,8 @@ export class LambdaLayer extends tf.layers.Layer {
     return tf.tidy(() => {
       // return tf.mean(tf.tensor(input),1,true)
       let result = new Array();
-      eval(this.lambdaFunction);
+      // eval(this.lambdaFunction);
+      result = (new Function('input', 'tf', this.lambdaFunction))(input, tf);
       // result = tf.mean(input,1);
       return result;
     });
@@ -418,18 +419,19 @@ export class TensorScriptModelInterface  {
    * @param {Boolean} [options.skip_matrix_check=false] - validate input is a matrix
    * @return {Array<number>|Array<Array<number>>} predicted model values
    */
-  async predict(options?:Matrix|Vector|InputTextArray|PredictionOptions):Promise<Matrix> 
-  async predict(input_matrix:Matrix|Vector|InputTextArray, options:PredictionOptions = {}) {
-    if (!input_matrix || Array.isArray(input_matrix)===false) throw new Error('invalid input matrix');
-    const x_matrix = (Array.isArray(input_matrix[ 0 ])||options.skip_matrix_check)
-      ? input_matrix
+  // async predict(options?:Matrix|Vector|InputTextArray|PredictionOptions):Promise<Matrix> 
+  async predict(input_matrix?: Matrix | Vector | InputTextArray | PredictionOptions, options?: PredictionOptions) {
+    if (!input_matrix || Array.isArray(input_matrix) === false) throw new Error('invalid input matrix');
+    const config:PredictionOptions = {
+      json: true,
+      probability: true,
+      ...options
+    };
+    const x_matrix = (Array.isArray(input_matrix as Matrix | Vector[0]) || config.skip_matrix_check)
+          ? input_matrix
       : [
         input_matrix,
       ];
-    const config = Object.assign({
-      json: true,
-      probability: true,
-    }, options);
     return this.calculate(x_matrix as Matrix)
       .data()
       .then((predictions:Vector) => {
@@ -438,8 +440,8 @@ export class TensorScriptModelInterface  {
           return predictions;
         } else {
           if (!this.yShape) throw new Error('Model is missing yShape');
-          const shape = [x_matrix.length, this.yShape[ 1 ], ];
-          const predictionValues = (options.probability === false) ? Array.from(predictions).map(Math.round) : Array.from(predictions);
+          const shape = [(x_matrix as Matrix | Vector| InputTextArray).length, this.yShape[ 1 ], ];
+          const predictionValues = (config.probability === false) ? Array.from(predictions).map(Math.round) : Array.from(predictions);
           return this.reshape(predictionValues, shape);
         }
       })

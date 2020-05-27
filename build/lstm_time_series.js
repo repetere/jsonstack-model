@@ -233,7 +233,7 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
         const input_matrix = BaseNeuralNetwork.reshape(x_matrix, timeseriesShape);
         return super.calculate(input_matrix);
     }
-    async predict(input_matrix, options) {
+    async predict(input_matrix, options = {}) {
         if (this.settings.stateful && input_matrix.length > 1) {
             //@ts-ignore
             return Promise.all(input_matrix.map((input) => super.predict([input,], options)));

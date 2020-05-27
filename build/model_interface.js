@@ -3,6 +3,58 @@
 // import * as tensorflow from '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
 ;
+/******************************************************************************
+ * tensorflow.js lambda layer
+ * written by twitter.com/benjaminwegener
+ * license: MIT
+ * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
+ */
+export class LambdaLayer extends tf.layers.Layer {
+    constructor(config) {
+        super(config);
+        if (config.name === undefined) {
+            config.name = ((+new Date) * Math.random()).toString(36); //random name from timestamp in case name hasn't been set
+        }
+        this.name = config.name;
+        this.lambdaFunction = config.lambdaFunction;
+        if (config.lambdaOutputShape)
+            this.lambdaOutputShape = config.lambdaOutputShape;
+    }
+    call(input, kwargs) {
+        // console.log({ input }, 'input[0].shape', input[0].shape)
+        // input[0].data().then(inputData=>console.log)
+        // console.log('input[0].data()', input[0].data())
+        // return input;
+        return tf.tidy(() => {
+            // return tf.mean(tf.tensor(input),1,true)
+            let result = new Array();
+            // eval(this.lambdaFunction);
+            result = (new Function('input', 'tf', this.lambdaFunction))(input, tf);
+            // result = tf.mean(input,1);
+            return result;
+        });
+    }
+    computeOutputShape(inputShape) {
+        // console.log('computeOutputShape',{inputShape})
+        if (this.lambdaOutputShape === undefined) { //if no outputshape provided, try to set as inputshape
+            return inputShape[0];
+        }
+        else {
+            return this.lambdaOutputShape;
+        }
+    }
+    getConfig() {
+        const config = {
+            ...super.getConfig(),
+            lambdaFunction: this.lambdaFunction,
+            lambdaOutputShape: this.lambdaOutputShape,
+        };
+        return config;
+    }
+    static get className() {
+        return 'LambdaLayer';
+    }
+}
 /**
  * Base class for tensorscript models
  * @interface TensorScriptModelInterface
@@ -34,6 +86,8 @@ export class TensorScriptModelInterface {
         this.reshape = TensorScriptModelInterface.reshape;
         /** @type {Function} */
         this.getInputShape = TensorScriptModelInterface.getInputShape;
+        if (this.tf && this.tf.serialization && this.tf.serialization.registerClass)
+            this.tf.serialization.registerClass(LambdaLayer);
         return this;
     }
     /**
@@ -194,18 +248,20 @@ export class TensorScriptModelInterface {
      * @param {Boolean} [options.skip_matrix_check=false] - validate input is a matrix
      * @return {Array<number>|Array<Array<number>>} predicted model values
      */
-    async predict(input_matrix, options = {}) {
+    // async predict(options?:Matrix|Vector|InputTextArray|PredictionOptions):Promise<Matrix> 
+    async predict(input_matrix, options) {
         if (!input_matrix || Array.isArray(input_matrix) === false)
             throw new Error('invalid input matrix');
-        const x_matrix = (Array.isArray(input_matrix[0]) || options.skip_matrix_check)
+        const config = {
+            json: true,
+            probability: true,
+            ...options
+        };
+        const x_matrix = (Array.isArray(input_matrix) || config.skip_matrix_check)
             ? input_matrix
             : [
                 input_matrix,
             ];
-        const config = Object.assign({
-            json: true,
-            probability: true,
-        }, options);
         return this.calculate(x_matrix)
             .data()
             .then((predictions) => {
@@ -217,7 +273,7 @@ export class TensorScriptModelInterface {
                 if (!this.yShape)
                     throw new Error('Model is missing yShape');
                 const shape = [x_matrix.length, this.yShape[1],];
-                const predictionValues = (options.probability === false) ? Array.from(predictions).map(Math.round) : Array.from(predictions);
+                const predictionValues = (config.probability === false) ? Array.from(predictions).map(Math.round) : Array.from(predictions);
                 return this.reshape(predictionValues, shape);
             }
         })
@@ -327,4 +383,9 @@ export function flatten(array) {
         }
     });
     return flat;
+}
+export async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
 }
