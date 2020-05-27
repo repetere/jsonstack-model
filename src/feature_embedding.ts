@@ -144,7 +144,10 @@ cbow.add(Dense(numberOfFeatures, activation='softmax'))
 cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
        */
       denseLayers.push({ units: this.numberOfFeatures, inputDim: this.numberOfFeatures, outputDim: this.settings.embedSize, inputLength: (this.settings.windowSize||2) * 2, });
-      denseLayers.push({ lambdaFunction: 'result = tf.mean(input,1,true)', lambdaOutputShape: [this.numberOfFeatures, this.settings.embedSize] });
+      denseLayers.push({
+        lambdaFunction: 'result = tf.mean(input,1,true)',
+        lambdaOutputShape: [this.numberOfFeatures, this.settings.embedSize]
+      });
       denseLayers.push({ units: this.numberOfFeatures, activation: 'softmax', });
     }
     this.layers = denseLayers;

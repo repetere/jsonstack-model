@@ -36,7 +36,7 @@ export type TensorScriptProperties = {
 };
 // export type LambdaLayer = (...args: any[]) => any;
 export type DenseLayer = {
-  units: number;
+  units?: number;
   inputDim?: number;
   outputDim?: number;
   inputLength?: number;
@@ -47,7 +47,9 @@ export type DenseLayer = {
   batchInputShape?: any;
   returnSequences?: boolean;
   // [index: function]
-} | LambdaLayer;
+  lambdaFunction?: string;
+  lambdaOutputShape?: Matrix|Vector;
+};
 
 // tf.layers.add((x)=>tf.mean(x,1))
 export type TensorScriptLayers = DenseLayer[];

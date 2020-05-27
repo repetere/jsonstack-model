@@ -253,24 +253,11 @@ describe('FeatureEmbedding', function () {
           epochs: 2,
           batchSize: 1,
           callbacks: {
-            // onTrainBegin: (logs:any) => console.log('onTrainBegin',{logs, }),
-            // // called when training ends.
             onTrainEnd: (logs: any) => console.log('onTrainEnd', { logs, }),
-            // //called at the start of every epoch.
             onEpochBegin: (epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
-            // //called at the end of every epoch.
-            // onEpochEnd: (epoch: number, logs: any) => console.log('onEpochEnd',{logs, epoch, }),
-            // //called at the start of every batch.
-            // onBatchBegin:(batch:number, logs: any)=> console.log('onBatchBegin',{logs,  batch}),
-            // //called at the end of every batch.
-            // onBatchEnd:(batch:number, logs: any)=> console.log('onBatchEnd',{logs,  batch}),
-            // //called every yieldEvery milliseconds with the current epoch, batch and logs. The logs are the same as in onBatchEnd(). Note that onYield can skip batches or epochs. See also docs for yieldEvery below.
-            // onYield:(epoch:number, batch:number, logs: any)=> console.log('onYield',{logs, epoch, batch}),
           }
         },
       });
-      // console.log({furniture})
-      // await FE.train(furniture);
       await FE.train(products);
       expect(FE.layers).toHaveLength(3);
     });
@@ -280,5 +267,44 @@ describe('FeatureEmbedding', function () {
       // console.log('FECustom.layers',FECustom.layers)
       expect(FECustom.layers).toHaveLength(3);
     },120000);
+  });
+  describe('training notifications and notifications', () => {
+    it('should update on trainning progress', async () => {
+      FE = new FeatureEmbedding({
+        windowSize: 3,
+        fit: {
+          epochs: 2,
+          batchSize: 1,
+          callbacks: {
+            onTrainBegin: jest.fn(()=>{}),//(logs:any) => console.log('onTrainBegin',{logs, }),
+            onTrainEnd: jest.fn(()=>{}),//(logs: any) => console.log('onTrainEnd', { logs, }),
+            onEpochBegin: jest.fn(()=>{}),//(epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
+            onEpochEnd: jest.fn(()=>{}),//(epoch: number, logs: any) => console.log('onEpochEnd',{logs, epoch, }),
+            onBatchBegin: jest.fn(()=>{}),//(batch:number, logs: any)=> console.log('onBatchBegin',{logs,  batch}),
+            onBatchEnd:jest.fn(()=>{}),//(batch:number, logs: any)=> console.log('onBatchEnd',{logs,  batch}),
+            onYield:jest.fn(()=>{}),//(epoch:number, batch:number, logs: any)=> console.log('onYield',{logs, epoch, batch}),
+          }
+        },
+      });
+      expect(FE.compiled).toBe(false);
+
+      // console.log({furniture})
+      // await FE.train(furniture);
+      await FE.train(products);
+      expect(FE.settings.fit.callbacks.onTrainBegin.mock.calls.length).toBe(1);
+      expect(FE.settings.fit.callbacks.onTrainEnd.mock.calls.length).toBe(1);
+      expect(FE.settings.fit.callbacks.onEpochBegin.mock.calls.length).toBe(1);
+      expect(FE.settings.fit.callbacks.onEpochEnd.mock.calls.length).toBe(1);
+      expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onYield.mock.calls.length);
+      expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onBatchEnd.mock.calls.length);
+
+      expect(FE.compiled).toBe(true);
+      FE.generateLayers = jest.fn(() => { });
+      await FE.train(products);
+      expect(FE.generateLayers.mock.calls.length).toBe(0);
+      const predictions = await FE.predict({ json: false });
+      // console.log(predictions);
+      expect(typeof predictions[0]).toBe('number');
+    });
   });
 });
