@@ -1,16 +1,38 @@
 import util from 'util';
 import path from 'path';
-import * as ms from '@modelx/data';
-import * as jskp from 'jskit-plot';
+import os from 'os';
+import fs from 'fs-extra';
+// import * as ms from '@modelx/data';
+// import * as jskp from 'jskit-plot';
+
 import { FeatureEmbedding, } from './index';
 import '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
 import { stop_words, norm_bible, norm_bible_matrix, products, furniture } from './test/mock/data/stopwords';
+import Exporting from 'highcharts-export-server';
+
 const FeatureDS:any = {};
 const ContextPairs: any = {};
 let FE;
 let FEModel;
 let FEweights;
+
+async function exportChart(filename: string, exportSettings: any) {
+  Exporting.initPool();
+  return new Promise((resolve, reject) => {
+    const options = {
+      type: 'png',
+      ...exportSettings,
+    };
+    Exporting.export(options, async (err, res) => {
+      if (err) return reject(err);
+      Exporting.killPool();
+      let file;
+      if(os.platform()==='darwin') file = await fs.outputFile(filename, res.data, { encoding: 'base64' });
+      return resolve({ file, res, });
+    });
+  });
+}
 
 // console.log({ norm_bible_matrix });
 /** @test {FeatureEmbedding} */
@@ -230,6 +252,49 @@ describe('FeatureEmbedding', function () {
       const reducedWeights3D = await FEModel.reduceWeights(FEweights,{dim:3});
       const reducedlabeled3D = FEModel.labelWeights(reducedWeights3D);
       expect(reducedlabeled3D[firstFeature].length).toBe(3);
+      const series = Object.keys(reducedlabeled).reduce((result, key) => {
+        result.push({
+          name: key,
+          data: [reducedlabeled[key]]
+        });
+        return result;
+      }, []);
+      // console.log('series',util.inspect(series,{depth:20}))
+      const chartData = {
+        chart: {
+          type: 'scatter',
+          zoomType: 'xy',
+        },
+        title: {
+          text: 'My Chart',
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'left',
+          verticalAlign: 'top',
+          x: 100,
+          y: 70,
+          floating: true,
+          /* backgroundColor: Highcharts.defaultOptions.chart.backgroundColor, */
+          borderWidth: 1
+        },
+        series: Object.keys(reducedlabeled).reduce((result, key) => {
+          result.push({
+            name: key,
+            data: [reducedlabeled[key]]
+          });
+          return result;
+        }, []),
+        width: 1024,
+        height:768
+      };
+      try {
+        const filename = path.join(__dirname, './test/mocked_saved_files/reduced_weights.png');
+        const plotImage = await exportChart(filename, { options: chartData });
+      } catch (e) {
+        throw e;
+      }
+
       /**
        * 
        * {
@@ -242,15 +307,15 @@ describe('FeatureEmbedding', function () {
     }
        * 
        */
-    });
+    },120000);
   });
   /** @test {FeatureEmbedding#generateLayers} */
   describe('generateLayers', () => {
-    it('should generate embedding layers',async () =>{6
+    it('should generate embedding layers',async () =>{
       FE = new FeatureEmbedding({
         windowSize: 3,
         fit: {
-          epochs: 2,
+          epochs: 25,
           batchSize: 1,
           callbacks: {
             onTrainEnd: (logs: any) => console.log('onTrainEnd', { logs, }),
@@ -260,7 +325,67 @@ describe('FeatureEmbedding', function () {
       });
       await FE.train(products);
       expect(FE.layers).toHaveLength(3);
-    });
+      try {
+        if (os.platform() === 'darwin') {
+          const reducedWeights = await FE.reduceWeights(FEweights);
+          const reducedlabeled = FE.labelWeights(reducedWeights);
+          const series = Object.keys(reducedlabeled).reduce((result, key) => {
+            result.push({
+              name: key,
+              color: key.includes('chair')
+                ? 'blue'
+                : key.includes('table')
+                  ? 'red'
+                  : key.includes('desk')
+                    ? 'green'
+                    : 'yellow',
+              data: [reducedlabeled[key]]
+            });
+            return result;
+          }, []);
+          console.log('series',util.inspect(series,{depth:20}))
+          const chartData = {
+            chart: {
+              type: 'scatter',
+              zoomType: 'xy',
+            },
+            title: {
+              text: 'My Chart',
+            },
+            legend: {
+              layout: 'vertical',
+              align: 'left',
+              verticalAlign: 'top',
+              x: 100,
+              y: 70,
+              floating: true,
+              /* backgroundColor: Highcharts.defaultOptions.chart.backgroundColor, */
+              borderWidth: 1
+            },
+            series: Object.keys(reducedlabeled).reduce((result, key) => {
+              result.push({
+                name: key,
+                color: key.includes('chair')
+                  ? 'blue'
+                  : key.includes('table')
+                    ? 'red'
+                    : key.includes('desk')
+                      ? 'green'
+                      : 'yellow',
+                data: [reducedlabeled[key]]
+              });
+              return result;
+            }, []),
+            width: 1024,
+            height:768
+          }; 
+          const filename = path.join(__dirname, './test/mocked_saved_files/product_reduced_weights.png');
+          const plotImage = await exportChart(filename, { options: chartData });
+        }
+      } catch (e) {
+        throw e;
+      }
+    },120000);
     it('should generate a network from layers', async () => { 
       const FECustom = new FeatureEmbedding({ layerPreference:'custom', });
       await FECustom.train(norm_bible_matrix, FEModel.layers);
@@ -305,6 +430,6 @@ describe('FeatureEmbedding', function () {
       const predictions = await FE.predict({ json: false });
       // console.log(predictions);
       expect(typeof predictions[0]).toBe('number');
-    });
+    },120000);
   });
 });
