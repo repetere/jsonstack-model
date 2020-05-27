@@ -1,0 +1,24 @@
+{
+  "extends":"./tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
+  "exclude": [
+    "./test",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+  ],
+  "compilerOptions": {
+    "declarationDir": null,
+    "outDir": "./dist/web",
+    // "outFile": "./dist/web/index.js",
+    "module": "commonjs",
+    "target": "es2019",
+    "baseUrl": ".", // this must be specified if "paths" is specified.
+    "paths": {
+      "@tensorflow/tfjs-node": ["node_modules/@tensorflow/tfjs"],
+      // "jquery": ["node_modules/jquery/dist/jquery"] // this mapping is relative to "baseUrl"
+    }
+  }
+}
