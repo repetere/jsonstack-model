@@ -25,8 +25,8 @@ async function exportChart(filename: string, exportSettings: any) {
       ...exportSettings,
     };
     Exporting.export(options, async (err, res) => {
-      if (err) return reject(err);
       Exporting.killPool();
+      if (err) return reject(err);
       let file;
       if(os.platform()==='darwin') file = await fs.outputFile(filename, res.data, { encoding: 'base64' });
       return resolve({ file, res, });

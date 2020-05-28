@@ -243,12 +243,12 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
     const input_matrix = BaseNeuralNetwork.reshape(x_matrix, timeseriesShape);
     return super.calculate(input_matrix);
   }
-  async predict(input_matrix: any[], options: PredictionOptions | undefined) {
+  async predict(input_matrix: Matrix | Vector | InputTextArray, options: PredictionOptions = {}) {
     if (this.settings.stateful && input_matrix.length > 1) {
       //@ts-ignore
       return Promise.all(input_matrix.map((input: string | number | Vector)=>super.predict([input, ], options))) ;
     } else {
-      return super.predict(input_matrix, options);
+      return super.predict.call(this,input_matrix, options);
     }
   }
 }

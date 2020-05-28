@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LSTMTimeSeries | @modelx/model</title>
+	<title>FeatureEmbedding | @modelx/model</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_lstm_time_series_.html">&quot;lstm_time_series&quot;</a>
+					<a href="../modules/_feature_embedding_.html">&quot;feature_embedding&quot;</a>
 				</li>
 				<li>
-					<a href="_lstm_time_series_.lstmtimeseries.html">LSTMTimeSeries</a>
+					<a href="_feature_embedding_.featureembedding.html">FeatureEmbedding</a>
 				</li>
 			</ul>
-			<h1>Class LSTMTimeSeries</h1>
+			<h1>Class FeatureEmbedding</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Long Short Term Memory Time Series with Tensorflow</p>
+						<p>use a corpus to generate features from an embedding layer with Tensorflow</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>implements</dt>
@@ -88,12 +88,7 @@
 						<a href="_base_neural_network_.baseneuralnetwork.html" class="tsd-signature-type">BaseNeuralNetwork</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">LSTMTimeSeries</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_lstm_multivariate_time_series_.lstmmultivariatetimeseries.html" class="tsd-signature-type">LSTMMultivariateTimeSeries</a>
-									</li>
-								</ul>
+								<span class="target">FeatureEmbedding</span>
 							</li>
 						</ul>
 					</li>
@@ -106,45 +101,53 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#compiled" class="tsd-kind-icon">compiled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lstm_time_series_.lstmtimeseries.html#createdataset" class="tsd-kind-icon">create<wbr>Dataset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesdataset" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#layers" class="tsd-kind-icon">layers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#reshape" class="tsd-kind-icon">reshape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#settings" class="tsd-kind-icon">settings</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#tf" class="tsd-kind-icon">tf</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#trained" class="tsd-kind-icon">trained</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#idtofeature" class="tsd-kind-icon">Id<wbr>ToFeature</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#compiled" class="tsd-kind-icon">compiled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#featureids" class="tsd-kind-icon">feature<wbr>Ids</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#featuretoid" class="tsd-kind-icon">feature<wbr>ToId</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#getcontextpairs" class="tsd-kind-icon">get<wbr>Context<wbr>Pairs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#getfeaturedataset" class="tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#getmergedarray" class="tsd-kind-icon">get<wbr>Merged<wbr>Array</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#layers" class="tsd-kind-icon">layers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#model" class="tsd-kind-icon">model</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#numberoffeatures" class="tsd-kind-icon">number<wbr>OfFeatures</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#reshape" class="tsd-kind-icon">reshape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#settings" class="tsd-kind-icon">settings</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#tf" class="tsd-kind-icon">tf</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#trained" class="tsd-kind-icon">trained</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#calculate" class="tsd-kind-icon">calculate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#predict" class="tsd-kind-icon">predict</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lstm_time_series_.lstmtimeseries.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_lstm_time_series_.lstmtimeseries.html#train" class="tsd-kind-icon">train</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_lstm_time_series_.lstmtimeseries.html#createdataset-1" class="tsd-kind-icon">create<wbr>Dataset</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_lstm_time_series_.lstmtimeseries.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesdataset-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesshape-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_lstm_time_series_.lstmtimeseries.html#reshape-1" class="tsd-kind-icon">reshape</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#calculate" class="tsd-kind-icon">calculate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#findsimilarfeatures" class="tsd-kind-icon">find<wbr>Similar<wbr>Features</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#labelweights" class="tsd-kind-icon">label<wbr>Weights</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#predict" class="tsd-kind-icon">predict</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_feature_embedding_.featureembedding.html#reduceweights" class="tsd-kind-icon">reduce<wbr>Weights</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_feature_embedding_.featureembedding.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_feature_embedding_.featureembedding.html#train" class="tsd-kind-icon">train</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_feature_embedding_.featureembedding.html#getcontextpairs-1" class="tsd-kind-icon">get<wbr>Context<wbr>Pairs</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_feature_embedding_.featureembedding.html#getfeaturedataset-1" class="tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_feature_embedding_.featureembedding.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_feature_embedding_.featureembedding.html#getmergedarray-1" class="tsd-kind-icon">get<wbr>Merged<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_feature_embedding_.featureembedding.html#reshape-1" class="tsd-kind-icon">reshape</a></li>
 							</ul>
 						</section>
 					</div>
@@ -156,44 +159,42 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new LSTMTime<wbr>Series<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a>, properties<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-signature-type">TensorScriptProperties</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lstm_time_series_.lstmtimeseries.html" class="tsd-signature-type">LSTMTimeSeries</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Feature<wbr>Embedding<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a>, properties<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-signature-type">TensorScriptProperties</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_feature_embedding_.featureembedding.html" class="tsd-signature-type">FeatureEmbedding</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_base_neural_network_.baseneuralnetwork.html">BaseNeuralNetwork</a>.<a href="_base_neural_network_.baseneuralnetwork.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L102">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L93">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:93</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_model_interface_.html#tensorscriptoptions" class="tsd-signature-type">TensorScriptOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>neural network configuration and tensorflow model hyperparameters</p>
-										</div>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> properties: <a href="../modules/_model_interface_.html#tensorscriptproperties" class="tsd-signature-type">TensorScriptProperties</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>extra instance properties</p>
-										</div>
-									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_lstm_time_series_.lstmtimeseries.html" class="tsd-signature-type">LSTMTimeSeries</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_feature_embedding_.featureembedding.html" class="tsd-signature-type">FeatureEmbedding</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="idtofeature" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Id<wbr>ToFeature</h3>
+					<div class="tsd-signature tsd-kind-icon">Id<wbr>ToFeature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L16">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="compiled" class="tsd-anchor"></a>
 					<h3>compiled</h3>
@@ -206,35 +207,44 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="createdataset" class="tsd-anchor"></a>
-					<h3>create<wbr>Dataset</h3>
-					<div class="tsd-signature tsd-kind-icon">create<wbr>Dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="featureids" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> feature<wbr>Ids</h3>
+					<div class="tsd-signature tsd-kind-icon">feature<wbr>Ids<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L100">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L17">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:17</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="featuretoid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> feature<wbr>ToId</h3>
+					<div class="tsd-signature tsd-kind-icon">feature<wbr>ToId<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L15">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:15</a></li>
 						</ul>
-					</div>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="getcontextpairs" class="tsd-anchor"></a>
+					<h3>get<wbr>Context<wbr>Pairs</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Context<wbr>Pairs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="_feature_embedding_.featureembedding.html#getcontextpairs-1" class="tsd-signature-type">getContextPairs</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L93">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:93</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="getfeaturedataset" class="tsd-anchor"></a>
+					<h3>get<wbr>Feature<wbr>Data<wbr>Set</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="_feature_embedding_.featureembedding.html#getfeaturedataset-1" class="tsd-signature-type">getFeatureDataSet</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L92">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:92</a></li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="getinputshape" class="tsd-anchor"></a>
@@ -269,76 +279,34 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="gettimeseriesdataset" class="tsd-anchor"></a>
-					<h3>get<wbr>Timeseries<wbr>Data<wbr>Set</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<a name="getmergedarray" class="tsd-anchor"></a>
+					<h3>get<wbr>Merged<wbr>Array</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Merged<wbr>Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="_feature_embedding_.featureembedding.html#getmergedarray-1" class="tsd-signature-type">getMergedArray</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L102">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L91">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:91</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="gettimeseriesshape" class="tsd-anchor"></a>
-					<h3>get<wbr>Timeseries<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> get<wbr>Timeseries<wbr>Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>x_timeseries<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#gettimeseriesshape">getTimeseriesShape</a></p>
+						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#gettimeseriesshape">getTimeseriesShape</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L101">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:101</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/model_interface.ts#L220">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/model_interface.ts:220</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="layers" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> layers</h3>
-					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a></div>
+					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a></div>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#layers">layers</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L16">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L14">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -350,6 +318,16 @@
 						<p>Inherited from <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#model">model</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/model_interface.ts#L210">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/model_interface.ts:210</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="numberoffeatures" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> number<wbr>OfFeatures</h3>
+					<div class="tsd-signature tsd-kind-icon">number<wbr>OfFeatures<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L18">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -469,23 +447,17 @@
 					<a name="calculate" class="tsd-anchor"></a>
 					<h3>calculate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">calculate<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">calculate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_base_neural_network_.baseneuralnetwork.html">BaseNeuralNetwork</a>.<a href="_base_neural_network_.baseneuralnetwork.html#calculate">calculate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L240">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:240</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L206">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:206</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -507,18 +479,70 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="findsimilarfeatures" class="tsd-anchor"></a>
+					<h3>find<wbr>Similar<wbr>Features</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Similar<wbr>Features<span class="tsd-signature-symbol">(</span>weights<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, options<span class="tsd-signature-symbol">?: </span><a href="../modules/_feature_embedding_.html#similarfeatureoptions" class="tsd-signature-type">SimilarFeatureOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L293">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:293</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Uses either cosineProximity or Eucledian distance to rank similarity</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>//weights = [ [1,2,3,], [1,2,2], [0,-1,3] ]
+											//labeledWeights = [ {car:[1,2,3,],tesla:[1,2,2],boat:[0,-1,3]}]
+											FeatureEmbeddingInstance.findSimilarFeatures(weights,{features:[&#39;car&#39;], limit:2,}) //=&gt;
+											{
+											car:[
+											{
+											comparedFeature: &#39;tesla&#39;,
+											proximity: -0.5087087154388428,
+											distance: 0.03015853278338909
+											},
+											{
+											comparedFeature: &#39;boat&#39;,
+											proximity: -0.3032159209251404,
+											distance: 0.036241017282009125
+											},
+											]
+										}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>weights: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_feature_embedding_.html#similarfeatureoptions" class="tsd-signature-type">SimilarFeatureOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="generatelayers" class="tsd-anchor"></a>
 					<h3>generate<wbr>Layers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>Layers<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-signature-type">TensorScriptLSTMModelContext</a>, x_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, y_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, layers<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Layers<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="_feature_embedding_.featureembedding.html" class="tsd-signature-type">FeatureEmbedding</a>, x_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, y_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, layers<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_base_neural_network_.baseneuralnetwork.html">BaseNeuralNetwork</a>.<a href="_base_neural_network_.baseneuralnetwork.html#generatelayers">generateLayers</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L144">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L129">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -533,7 +557,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>this: <a href="../interfaces/_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-signature-type">TensorScriptLSTMModelContext</a></h5>
+									<h5>this: <a href="_feature_embedding_.featureembedding.html" class="tsd-signature-type">FeatureEmbedding</a></h5>
 								</li>
 								<li>
 									<h5>x_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
@@ -548,7 +572,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>layers: <a href="../modules/_model_interface_.html#tensorscriptsavedlayers" class="tsd-signature-type">TensorScriptSavedLayers</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> layers: <a href="../modules/_model_interface_.html#tensorscriptlayers" class="tsd-signature-type">TensorScriptLayers</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>model dense layer parameters</p>
 									</div>
@@ -579,6 +603,52 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="labelweights" class="tsd-anchor"></a>
+					<h3>label<wbr>Weights</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">label<wbr>Weights<span class="tsd-signature-symbol">(</span>weights<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L234">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:234</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts matrix of layer weights into labeled features</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>const weights = [
+											[1.5,1,4,1.6,3.5],
+											[4.3,3.2,5.5,6.5]
+											]
+											FeatureEmbeddingInstance.labelWeights(weights) //=&gt;
+											weights = {
+											car:[1.5,1,4,1.6,3.5],
+											boat:[4.3,3.2,5.5,6.5]
+										}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>weights: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-index-signature">
+									<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -624,23 +694,64 @@
 					<a name="predict" class="tsd-anchor"></a>
 					<h3>predict</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">predict<span class="tsd-signature-symbol">(</span>input_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a>, options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">predict<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_model_interface_.tensorscriptmodelinterface.html">TensorScriptModelInterface</a>.<a href="_model_interface_.tensorscriptmodelinterface.html#predict">predict</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L246">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L210">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:210</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#inputtextarray" class="tsd-signature-type">InputTextArray</a></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="reduceweights" class="tsd-anchor"></a>
+					<h3>reduce<wbr>Weights</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">reduce<wbr>Weights<span class="tsd-signature-symbol">(</span>weights<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L253">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:253</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Uses tSNE to reduce dimensionality of features</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>const weights = [
+											[1.5,1,4,1.6,3.5],
+											[4.3,3.2,5.5,6.5]
+											]
+											FeatureEmbeddingInstance.reduceWeights(weights) //=&gt;
+											[
+											[1,2],
+											[2,3],
+										]</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>weights: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../modules/_model_interface_.html#predictionoptions" class="tsd-signature-type">PredictionOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -689,32 +800,26 @@
 					<a name="train" class="tsd-anchor"></a>
 					<h3>train</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">train<span class="tsd-signature-symbol">(</span>x_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, layers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, x_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">train<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#corpus" class="tsd-signature-type">Corpus</a>, y_matrix<span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a>, layers<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#denselayer" class="tsd-signature-type">DenseLayer</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_base_neural_network_.baseneuralnetwork.html">BaseNeuralNetwork</a>.<a href="_base_neural_network_.baseneuralnetwork.html#train">train</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L199">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L161">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>x_timeseries: <span class="tsd-signature-type">any</span></h5>
+									<h5>x_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_model_interface_.html#corpus" class="tsd-signature-type">Corpus</a></h5>
 								</li>
 								<li>
-									<h5>y_timeseries: <span class="tsd-signature-type">any</span></h5>
+									<h5>y_matrix: <a href="../modules/_model_interface_.html#matrix" class="tsd-signature-type">Matrix</a></h5>
 								</li>
 								<li>
-									<h5>layers: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>x_test: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>y_test: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> layers: <a href="../modules/_model_interface_.html#denselayer" class="tsd-signature-type">DenseLayer</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -722,56 +827,76 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="createdataset-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Dataset</h3>
+					<a name="getcontextpairs-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Context<wbr>Pairs</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Dataset<span class="tsd-signature-symbol">(</span>dataset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span>, look_back<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Context<wbr>Pairs<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>inputMatrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>numberOfFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>tf<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>window_size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>context_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>emptyXVector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>emptyYVector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L39">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L59">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:59</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates dataset data</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>LSTMTimeSeries.createDataset([ [ 1, ], [ 2, ], [ 3, ], [ 4, ], [ 5, ], [ 6, ], [ 7, ], [ 8, ], [ 9, ], [ 10, ], ], 3) // =&gt;
-											//  [
-											//    [
-											//      [ [ 1 ], [ 2 ], [ 3 ] ],
-											//      [ [ 2 ], [ 3 ], [ 4 ] ],
-											//      [ [ 3 ], [ 4 ], [ 5 ] ],
-											//      [ [ 4 ], [ 5 ], [ 6 ] ],
-											//      [ [ 5 ], [ 6 ], [ 7 ] ],
-											//      [ [ 6 ], [ 7 ], [ 8 ] ],
-											//   ], //x_matrix
-											//   [ [ 4 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ], [ 9 ] ] //y_matrix
-										// ]</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> dataset: <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>array of values</p>
-									</div>
+									<h5>this: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> look_back: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>number of values in each feature</p>
-									</div>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>inputMatrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>numberOfFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>tf<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>window_size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>input<wbr>Matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>number<wbr>OfFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>tf<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>window_<wbr>size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>returns x matrix and y matrix for model trainning</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>context_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>emptyXVector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>emptyYVector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getfeaturedataset-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Feature<wbr>Data<wbr>Set</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>PAD<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>inputMatrixFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>IdToFeature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>0<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>featureIds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>featureToId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>__computed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>numberOfFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L20">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:20</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>this: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>PAD<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>inputMatrixFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>PAD<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>input<wbr>Matrix<wbr>Features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>IdToFeature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>0<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>featureIds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>featureToId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>__computed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>numberOfFeatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -823,99 +948,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="gettimeseriesdataset-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Timeseries<wbr>Data<wbr>Set</h3>
+					<a name="getmergedarray-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Merged<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-signature-type">TensorScriptLSTMModelContext</a>, timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, look_back<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Merged<wbr>Array<span class="tsd-signature-symbol">(</span>base<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a>, merger<span class="tsd-signature-symbol">?: </span><a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a>, append<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L83">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/feature_embedding.ts#L51">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/feature_embedding.ts:51</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns data for predicting values</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>this: <a href="../interfaces/_model_interface_.tensorscriptlstmmodelcontext.html" class="tsd-signature-type">TensorScriptLSTMModelContext</a></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> base: <a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = []</span></h5>
 								</li>
 								<li>
-									<h5>timeseries: <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> merger: <a href="../modules/_model_interface_.html#vector" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = []</span></h5>
 								</li>
 								<li>
-									<h5>look_back: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> append: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>x<wbr>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>x_<wbr>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>y<wbr>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>y_<wbr>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="gettimeseriesshape-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Timeseries<wbr>Shape</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="../modules/_lstm_time_series_.html#timeseriesshapecontext" class="tsd-signature-type">TimeSeriesShapeContext</a>, x_timeseries<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/225c421/src/lstm_time_series.ts#L64">Users/yawjosephetse/Developer/github/repetere/modelx-model/src/lstm_time_series.ts:64</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Reshape input to be [samples, time steps, features]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>LSTMTimeSeries.getTimeseriesShape([
-											[ [ 1 ], [ 2 ], [ 3 ] ],
-											[ [ 2 ], [ 3 ], [ 4 ] ],
-											[ [ 3 ], [ 4 ], [ 5 ] ],
-											[ [ 4 ], [ 5 ], [ 6 ] ],
-											[ [ 5 ], [ 6 ], [ 7 ] ],
-											[ [ 6 ], [ 7 ], [ 8 ] ],
-										]) //=&gt; [6, 1, 3,]</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>this: <a href="../modules/_lstm_time_series_.html#timeseriesshapecontext" class="tsd-signature-type">TimeSeriesShapeContext</a></h5>
-								</li>
-								<li>
-									<h5>x_timeseries: <a href="../interfaces/_model_interface_.nestedarray.html" class="tsd-signature-type">NestedArray</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>dataset array of values</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../modules/_model_interface_.html#shape" class="tsd-signature-type">Shape</a></h4>
-							<p>returns proper timeseries forecasting shape</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -985,7 +1042,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_classification_.html">&quot;classification&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_feature_embedding_.html">&quot;feature_<wbr>embedding&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -997,7 +1054,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_lstm_multivariate_time_series_.html">&quot;lstm_<wbr>multivariate_<wbr>time_<wbr>series&quot;</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_lstm_time_series_.html">&quot;lstm_<wbr>time_<wbr>series&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -1019,104 +1076,140 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/_feature_embedding_.similaritymetric.html" class="tsd-kind-icon">Similarity<wbr>Metric</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_lstm_time_series_.lstmtimeseries.html" class="tsd-kind-icon">LSTMTime<wbr>Series</a>
+						<a href="_feature_embedding_.featureembedding.html" class="tsd-kind-icon">Feature<wbr>Embedding</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#compiled" class="tsd-kind-icon">compiled</a>
+								<a href="_feature_embedding_.featureembedding.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_lstm_time_series_.lstmtimeseries.html#createdataset" class="tsd-kind-icon">create<wbr>Dataset</a>
+								<a href="_feature_embedding_.featureembedding.html#idtofeature" class="tsd-kind-icon">Id<wbr>ToFeature</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+								<a href="_feature_embedding_.featureembedding.html#compiled" class="tsd-kind-icon">compiled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesdataset" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a>
+								<a href="_feature_embedding_.featureembedding.html#featureids" class="tsd-kind-icon">feature<wbr>Ids</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#featuretoid" class="tsd-kind-icon">feature<wbr>ToId</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#getcontextpairs" class="tsd-kind-icon">get<wbr>Context<wbr>Pairs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#getfeaturedataset" class="tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_feature_embedding_.featureembedding.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#getmergedarray" class="tsd-kind-icon">get<wbr>Merged<wbr>Array</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_feature_embedding_.featureembedding.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#layers" class="tsd-kind-icon">layers</a>
+								<a href="_feature_embedding_.featureembedding.html#layers" class="tsd-kind-icon">layers</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#model" class="tsd-kind-icon">model</a>
+								<a href="_feature_embedding_.featureembedding.html#model" class="tsd-kind-icon">model</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#numberoffeatures" class="tsd-kind-icon">number<wbr>OfFeatures</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#reshape" class="tsd-kind-icon">reshape</a>
+								<a href="_feature_embedding_.featureembedding.html#reshape" class="tsd-kind-icon">reshape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#settings" class="tsd-kind-icon">settings</a>
+								<a href="_feature_embedding_.featureembedding.html#settings" class="tsd-kind-icon">settings</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#tf" class="tsd-kind-icon">tf</a>
+								<a href="_feature_embedding_.featureembedding.html#tf" class="tsd-kind-icon">tf</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
+								<a href="_feature_embedding_.featureembedding.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#trained" class="tsd-kind-icon">trained</a>
+								<a href="_feature_embedding_.featureembedding.html#trained" class="tsd-kind-icon">trained</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#type" class="tsd-kind-icon">type</a>
+								<a href="_feature_embedding_.featureembedding.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
+								<a href="_feature_embedding_.featureembedding.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
+								<a href="_feature_embedding_.featureembedding.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#calculate" class="tsd-kind-icon">calculate</a>
+								<a href="_feature_embedding_.featureembedding.html#calculate" class="tsd-kind-icon">calculate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a>
+								<a href="_feature_embedding_.featureembedding.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#findsimilarfeatures" class="tsd-kind-icon">find<wbr>Similar<wbr>Features</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a>
+								<a href="_feature_embedding_.featureembedding.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a>
+								<a href="_feature_embedding_.featureembedding.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#labelweights" class="tsd-kind-icon">label<wbr>Weights</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a>
+								<a href="_feature_embedding_.featureembedding.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#predict" class="tsd-kind-icon">predict</a>
+								<a href="_feature_embedding_.featureembedding.html#predict" class="tsd-kind-icon">predict</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_feature_embedding_.featureembedding.html#reduceweights" class="tsd-kind-icon">reduce<wbr>Weights</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lstm_time_series_.lstmtimeseries.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a>
+								<a href="_feature_embedding_.featureembedding.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_lstm_time_series_.lstmtimeseries.html#train" class="tsd-kind-icon">train</a>
+								<a href="_feature_embedding_.featureembedding.html#train" class="tsd-kind-icon">train</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_lstm_time_series_.lstmtimeseries.html#createdataset-1" class="tsd-kind-icon">create<wbr>Dataset</a>
+								<a href="_feature_embedding_.featureembedding.html#getcontextpairs-1" class="tsd-kind-icon">get<wbr>Context<wbr>Pairs</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_feature_embedding_.featureembedding.html#getfeaturedataset-1" class="tsd-kind-icon">get<wbr>Feature<wbr>Data<wbr>Set</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="_lstm_time_series_.lstmtimeseries.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
+								<a href="_feature_embedding_.featureembedding.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesdataset-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_lstm_time_series_.lstmtimeseries.html#gettimeseriesshape-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
+								<a href="_feature_embedding_.featureembedding.html#getmergedarray-1" class="tsd-kind-icon">get<wbr>Merged<wbr>Array</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="_lstm_time_series_.lstmtimeseries.html#reshape-1" class="tsd-kind-icon">reshape</a>
+								<a href="_feature_embedding_.featureembedding.html#reshape-1" class="tsd-kind-icon">reshape</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_lstm_time_series_.html#timeseriesshapecontext" class="tsd-kind-icon">Time<wbr>Series<wbr>Shape<wbr>Context</a>
+						<a href="../modules/_feature_embedding_.html#labeledweights" class="tsd-kind-icon">Labeled<wbr>Weights</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_feature_embedding_.html#similarfeature" class="tsd-kind-icon">Similar<wbr>Feature</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_feature_embedding_.html#similarfeatureoptions" class="tsd-kind-icon">Similar<wbr>Feature<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_feature_embedding_.html#similarfeatures" class="tsd-kind-icon">Similar<wbr>Features</a>
 					</li>
 				</ul>
 			</nav>

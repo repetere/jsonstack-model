@@ -48,12 +48,12 @@ describe('LambdaLayer', () => {
   describe('constructor', () => {
     it('should configure a new instance', () => {
       const LL = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaFunction: 'return tf.mean(input,1)',
         lambdaOutputShape: [1],
         name: 'mean layer',
       });
       const nonameLL = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaFunction: 'return tf.mean(input,1)',
         lambdaOutputShape: [1],
       });
       expect(LL.name).toBe('mean layer');
@@ -63,12 +63,12 @@ describe('LambdaLayer', () => {
   describe('getConfig', () => {
     it('should return layer configuration', () => {
       const LL = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaFunction: 'return tf.mean(input,1)',
         lambdaOutputShape: [1],
         name: 'mean layer',
       });
       const config = LL.getConfig();
-      expect(config.lambdaFunction).toBe('result = tf.mean(input,1)');
+      expect(config.lambdaFunction).toBe('return tf.mean(input,1)');
       expect(config).toHaveProperty('trainable');
       // console.log({ config });
     });
@@ -76,12 +76,12 @@ describe('LambdaLayer', () => {
   describe('computeOutputShape', () => {
     it('should return output shape', () => {
       const LL = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaFunction: 'return tf.mean(input,1)',
         lambdaOutputShape: [2,2],
         name: 'mean layer',
       });
       const LL2 = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input,1)',
+        lambdaFunction: 'return tf.mean(input,1)',
         // lambdaOutputShape: [2,2],
         name: 'mean layer',
       });
@@ -92,7 +92,7 @@ describe('LambdaLayer', () => {
   describe('call', () => {
     it('should calculate a layer output tensor', () => {
       const LL = new LambdaLayer({
-        lambdaFunction: 'result = tf.mean(input)',
+        lambdaFunction: 'return tf.mean(input)',
         lambdaOutputShape: [2, 2],
         name: 'mean layer',
       });
