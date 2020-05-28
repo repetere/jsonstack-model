@@ -41,8 +41,8 @@
     "compile": "npm run compile:cjs && npm run compile:esm && npm run compile:web && npm run compile:webmin",
     "compile:cjs": "tsc -p tsconfig.cjs.json ",
     "compile:esm": "tsc -p tsconfig.esm.json ",
-    "compile:web": "browserify -t aliasify  -t [ envify purge --NODE_ENV development ] -e dist/cjs/index.js -o dist/web/index.js",
-    "compile:webmin": "browserify -t aliasify -t [ envify purge --NODE_ENV production ] -e dist/cjs/index.js --debug | terser --compress --mangle --source-map -o dist/web/index.min.js",
+    "compile:web": "browserify -s ModelXModel -t aliasify  -t [ envify purge --NODE_ENV development ] -e dist/cjs/index.js -o dist/web/index.js",
+    "compile:webmin": "browserify -s ModelXModel -t aliasify -t [ envify purge --NODE_ENV production ] -e dist/cjs/index.js --debug | terser --compress --mangle --source-map -o dist/web/index.min.js",
     "build": "tsc && rollup -c && typedoc && sitedown manual/ -b docs/manual",
     "coverage": "coveralls"
   },

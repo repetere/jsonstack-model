@@ -254,7 +254,7 @@ describe('LSTMTimeSeries', function () {
     // });
     it('should make single predictions', async () => {
       const testData = TSTSONE.getTimeseriesDataSet(x_matrix_test);
-      const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
+      const predictions = await TSTSONE.predict([testData.x_matrix[ 0 ]]);
       expect(predictions).toHaveLength(1);
       // console.log({ predictions });
       return true;
@@ -269,7 +269,7 @@ describe('LSTMTimeSeries', function () {
       const x = matrices[ 0 ];
       const y = matrices[ 1 ];
       await LSTMTS.train(x, y);
-      const predictions = await TSTSONE.predict(testData.x_matrix[ 0 ]);
+      const predictions = await TSTSONE.predict([testData.x_matrix[ 0 ]]);
       const predictions_unscaled = predictions.map(pred => [DataSet.scalers.get('Passengers').descale(pred[ 0 ]),]);
       console.log({ predictions_unscaled });
       expect(predictions).toHaveLength(1);
@@ -305,7 +305,7 @@ describe('LSTMTimeSeries', function () {
     // });
     it('should generate a network from layers', async () => { 
       const LSTMTS = new LSTMTimeSeries({ layerPreference: 'custom', fit, });
-      console.log('TSTSONE.layers', TSTSONE.layers);
+      // console.log('TSTSONE.layers', TSTSONE.layers);
       await LSTMTS.train(x_matrix, y_matrix, TSTSONE.layers);
       expect(typeof LSTMTS.layers).toBe('object');
       return true;

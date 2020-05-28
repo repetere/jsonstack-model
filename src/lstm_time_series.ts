@@ -248,7 +248,7 @@ export class LSTMTimeSeries extends BaseNeuralNetwork {
       //@ts-ignore
       return Promise.all(input_matrix.map((input: string | number | Vector)=>super.predict([input, ], options))) ;
     } else {
-      return super.predict(input_matrix, options);
+      return super.predict.call(this,input_matrix, options);
     }
   }
 }
