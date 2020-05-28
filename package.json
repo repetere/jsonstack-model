@@ -55,7 +55,7 @@
   "devDependencies": {
     "@modelx/data": "1.0.7",
     "@rollup/plugin-sucrase": "3.0.2",
-    "@tensorflow/tfjs-backend-wasm": "1.7.4",
+    "@tensorflow/tfjs-backend-wasm": "2.0.0",
     "@types/enzyme": "3.10.5",
     "@types/enzyme-adapter-react-16": "1.0.6",
     "@types/jest": "25.2.3",
