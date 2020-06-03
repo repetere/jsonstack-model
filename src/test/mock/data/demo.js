@@ -2,6 +2,9 @@
 // import { LSTMMultivariateTimeSeries, } from '../../../lib/lstm_multivariate_time_series.mjs';
 // import range from 'lodash.range';
 
+export const shimmed = true;
+export default {dummy : true};
+
 // const independentVariables = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8', ];
 // const dependentVariables = ['o1',];
 

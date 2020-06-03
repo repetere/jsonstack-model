@@ -78,7 +78,7 @@ describe('FeatureEmbedding', function () {
       // console.log('FEModel loss', FEModel.loss);
       // console.log('FEModelNonStream loss', FEModelNonStream.loss);
       const compareLoss = Math.abs(FEModel.loss - FEModelNonStream.loss);
-      console.log({ compareLoss });
+      // console.log({ compareLoss });
       //@ts-ignore
       expect(compareLoss).toBeWithinRange(0.0, 0.3);
     });
