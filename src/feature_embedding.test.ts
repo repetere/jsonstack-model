@@ -10,10 +10,13 @@ import '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
 import { stop_words, norm_bible, norm_bible_matrix, products, furniture } from './test/mock/data/stopwords';
 import Exporting from 'highcharts-export-server';
+import { toBeWithinRange, } from './jest.test';
+expect.extend({ toBeWithinRange });
 
 const FeatureDS:any = {};
 const ContextPairs: any = {};
 let FE;
+let FEModelNonStream;
 let FEModel;
 let FEweights;
 
@@ -64,11 +67,22 @@ describe('FeatureEmbedding', function () {
     // console.log('ContextPairs.y',ContextPairs.y);
 
     // nnClassification = new FeatureEmbedding({ fit, });
-    FEModel = new FeatureEmbedding({});
-    await FEModel.train(norm_bible_matrix);
+    FEModel = new FeatureEmbedding({ name:'FEModel', });
+    FEModelNonStream = new FeatureEmbedding({ name:'FEModelNonStream', streamInputMatrix:false, });
+    await Promise.all([FEModel.train(norm_bible_matrix),FEModelNonStream.train(norm_bible_matrix)]);
     FEweights = await FEModel.predict();
 
   }, 120000);
+  describe('streaming vs non-streaming', () => {
+    it('should have similar loss rates', () => {
+      // console.log('FEModel loss', FEModel.loss);
+      // console.log('FEModelNonStream loss', FEModelNonStream.loss);
+      const compareLoss = Math.abs(FEModel.loss - FEModelNonStream.loss);
+      console.log({ compareLoss });
+      //@ts-ignore
+      expect(compareLoss).toBeWithinRange(0.0, 0.3);
+    });
+  });
   /** @test {FeatureEmbedding#getFeatureDataSet} */
   describe('static getFeatureDataSet', () => {
     it('should assign each feature to an ID', () => {
@@ -132,7 +146,7 @@ describe('FeatureEmbedding', function () {
       const merged2 = FeatureEmbedding.getMergedArray(b2, m2);
       expect(merged).toMatchObject([1, 2, 0, 0]);
       expect(merged1).toMatchObject([0, 0, 0, 0]);
-      expect(merged2).toMatchObject([5, 6, 7, 8]);
+      expect(merged2).toMatchObject([5, 6, ]);
     });
     it('should append and merge two arrays', () => {
       const b = [0, 0, 0, 0];
@@ -147,7 +161,7 @@ describe('FeatureEmbedding', function () {
       // console.log({merged,merged1,merged2})
       expect(merged).toMatchObject([0, 0, 1, 2,]);
       expect(merged1).toMatchObject([0, 0, 0, 0]);
-      expect(merged2).toMatchObject([5, 6, 7, 8]);
+      expect(merged2).toMatchObject([ 7, 8]);
     });
     it('should handle empty arrays', () => {
       const merged = FeatureEmbedding.getMergedArray();
@@ -418,8 +432,8 @@ describe('FeatureEmbedding', function () {
       await FE.train(products);
       expect(FE.settings.fit.callbacks.onTrainBegin.mock.calls.length).toBe(1);
       expect(FE.settings.fit.callbacks.onTrainEnd.mock.calls.length).toBe(1);
-      expect(FE.settings.fit.callbacks.onEpochBegin.mock.calls.length).toBe(1);
-      expect(FE.settings.fit.callbacks.onEpochEnd.mock.calls.length).toBe(1);
+      expect(FE.settings.fit.callbacks.onEpochBegin.mock.calls.length).toBe(124);
+      expect(FE.settings.fit.callbacks.onEpochEnd.mock.calls.length).toBe(124);
       expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onYield.mock.calls.length);
       expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onBatchEnd.mock.calls.length);
 

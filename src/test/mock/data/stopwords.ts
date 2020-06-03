@@ -36,7 +36,7 @@ export const products = [
   ['chair_2', 'chair_1', 'table_4', 'table_2', 'chair_10',],
   ['chair_2', 'chair_1', 'table_4', 'table_2', 'chair_3',],
   ['chair_1', 'chair_2', 'chair_3', 'chair_4', 'chair_5',],
-  ['chair_1', 'chair_10', 'chair_2', 'chair_8', 'chair_2',],
+  ['chair_1', 'chair_10', 'chair_2', 'chair_8', 'chair_2','chair_1', 'chair_10', 'chair_2', 'chair_8', 'chair_2',],
   ['chair_9', 'chair_10', 'chair_8', 'chair_7', 'chair_6',],
   ['chair_8', 'chair_6', 'chair_3', 'chair_6', 'chair_5',],
   ['desk_1', 'chair_6', 'desk_2', 'table_1', 'desk_1',],

@@ -63,6 +63,7 @@ export type EpochLog = {
   loss: number;
 }
 export type TensorScriptOptions = {
+  name?: string;
   layers?: TensorScriptLayers | TensorScriptSavedLayers;
   layerPreference?: string;
   compile?: {
@@ -107,6 +108,7 @@ export type TensorScriptOptions = {
   PAD?: string;
   embedSize?: number;
   windowSize?: number;
+  streamInputMatrix?: boolean;
 };
 
 export type PredictionOptions = {
@@ -218,7 +220,7 @@ export class TensorScriptModelInterface  {
   yShape?: number[];
   layers?: TensorScriptLayers | TensorScriptSavedLayers;
   getTimeseriesShape?: (x_timeseries: NestedArray<any> | undefined) => Shape;
-
+  loss?: number;
   /**
    * @param {Object} options - tensorflow model hyperparameters
    * @param {Object} customTF - custom, overridale tensorflow / tensorflow-node / tensorflow-node-gpu

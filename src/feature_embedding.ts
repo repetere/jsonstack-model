@@ -16,6 +16,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
   IdToFeature?: any;
   featureIds?: any;
   numberOfFeatures?: any;
+  loss?: number;
   // settings: TensorScriptOptions;
   static async getFeatureDataSet(this: any, { inputMatrixFeatures, PAD = 'PAD', }: { inputMatrixFeatures: Corpus; PAD?: string;}) {
     let featIndex = 1;
@@ -48,11 +49,13 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       numberOfFeatures, //vocab_size
     };
   }
-  static getMergedArray(base:Vector = [], merger:Vector= [], append=false) {
+  static getMergedArray(base:Vector = [], merger:Vector= [], append=false, truncate=true) {
     let arr = new Array().concat(base);
     if (append) arr.splice(base.length-merger.length,merger.length,...merger);
     else arr.splice(0, merger.length, ...merger);
-    return arr;
+    if (truncate && append) return arr.slice(-1 * base.length);
+    else if (truncate) return arr.slice(0, base.length);
+    else return arr;
   }
   /**
    */
@@ -105,7 +108,8 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       },
       embedSize: 50,
       windowSize: 2,
-      PAD:'PAD',
+      PAD: 'PAD',
+      streamInputMatrix:true,
       ...options
     };
     super(config, properties);
@@ -158,47 +162,96 @@ cbow.compile(loss='categorical_crossentropy', optimizer='rmsprop')
     this.model.add(this.tf.layers.flatten());
     this.model.add(this.tf.layers.dense(denseLayers[2]));
   }
+  async trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss, }: { x_input_matrix: Matrix, y_output_matrix: Matrix, epoch: number, trainingLoss: number, }) {
+    let loss = Infinity;
+    if (this.settings.fit?.callbacks?.onEpochBegin) this.settings.fit?.callbacks?.onEpochBegin(epoch, { loss:trainingLoss });
+    await asyncForEach(x_input_matrix, async (x_input:Vector, xIndex:number) => {
+      if (this.settings.fit?.callbacks?.onBatchBegin) this.settings.fit?.callbacks?.onBatchBegin(xIndex, { loss:trainingLoss, });
+      const y_output = y_output_matrix[xIndex];
+      const xShape = this.getInputShape([x_input]);
+      const xs = this.tf.tensor(x_input, xShape);
+      const yShape = this.getInputShape([y_output]);
+      const ys = this.tf.tensor(y_output, yShape);
+      // const xdata = await xs.data()
+      // console.log({ xs, xdata, xShape });
+      loss = await this.model.trainOnBatch(xs, ys);
+      if (this.settings.fit?.callbacks?.onYield) this.settings.fit?.callbacks?.onYield(epoch, xIndex, { loss });
+      if (this.settings.fit?.callbacks?.onBatchEnd) this.settings.fit?.callbacks?.onBatchEnd(xIndex, { loss });
+      // console.log({ x_input, xIndex, xShape, y_output, yShape, loss })
+      xs.dispose();
+      ys.dispose();
+    });
+    if (this.settings.fit?.callbacks?.onEpochEnd) this.settings.fit?.callbacks?.onEpochEnd(epoch, { loss });
+    return {
+      loss
+    };
+  }
+  async generateBatch() {
+    const preTransformedMatrix: Matrix = this.featureIds;
+    const context_length = (this && this.settings && this.settings.windowSize ? this.settings.windowSize : 2) * 2;
+    const [emptyXVector, emptyYVector] = await Promise.all([
+      this.tf.zeros([context_length]).array(),
+      this.tf.zeros([this.numberOfFeatures]).array(),
+    ]);
+    let x_input_matrix: Matrix = [];
+    let y_output_matrix: Matrix = [];
+    let epoch = 0;
+    let trainingLoss = Infinity;
+    await asyncForEach(preTransformedMatrix, async (inputVector: Vector, inputVectorIndex: number) => {
+      await asyncForEach(inputVector, async (word:number, index:number) => {
+        if (word != 0) {
+          const output = new Array().concat(emptyYVector);
+          const inputMerger = new Array().concat(preTransformedMatrix[inputVectorIndex]);
+          inputMerger.splice(index, 1);
+          const input = FeatureEmbedding.getMergedArray(emptyXVector, inputMerger,true);
+          output[word] = 1;
+          // x.push([[word],input]);
+          // x.push(input);
+          // y.push(output);
+          x_input_matrix = [input];
+          y_output_matrix = [output];
+          // console.log({ input, output });
+          const modelStatus = await this.trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss,  });
+          trainingLoss = modelStatus.loss;
+        }
+      });
+    });
+    return {
+      loss: trainingLoss,
+    };
+  }
   async train(x_matrix: Matrix|Corpus, y_matrix:Matrix, layers?: DenseLayer[]) {
     const featureEmbedDataSet = await this.getFeatureDataSet({ inputMatrixFeatures: x_matrix, });
     this.featureToId = featureEmbedDataSet.featureToId;
     this.IdToFeature = featureEmbedDataSet.IdToFeature;
     this.featureIds = featureEmbedDataSet.featureIds;
     this.numberOfFeatures = featureEmbedDataSet.numberOfFeatures;
-    const cxt = await this.getContextPairs({ tf:this.tf, numberOfFeatures: this.numberOfFeatures, inputMatrix: this.featureIds });
-    const x_input_matrix = cxt.x;
-    const y_output_matrix = cxt.y;
     if (this.compiled === false) {
       this.model = this.tf.sequential();
       //@ts-ignore
-      this.generateLayers.call(this, x_input_matrix,[], layers || this.layers,
+      this.generateLayers.call(this, [], [], layers || this.layers,
         // x_test, y_test
       );
       this.model.compile(this.settings.compile);
       this.compiled = true;
     }
-    let loss=NaN;
-    if(this.settings.fit?.callbacks?.onTrainBegin)this.settings.fit?.callbacks?.onTrainBegin({ loss });
-    await asyncForEach(range(1, this.settings.fit?.epochs), async (epoch:number) => {
-      if (this.settings.fit?.callbacks?.onEpochBegin) this.settings.fit?.callbacks?.onEpochBegin(epoch, { loss });
-      await asyncForEach(x_input_matrix, async (x_input:Vector, xIndex:number) => {
-        if (this.settings.fit?.callbacks?.onBatchBegin) this.settings.fit?.callbacks?.onBatchBegin(xIndex, { loss });
-        const y_output = y_output_matrix[xIndex];
-        const xShape = this.getInputShape([x_input]);
-        const xs = this.tf.tensor(x_input, xShape);
-        const yShape = this.getInputShape([y_output]);
-        const ys = this.tf.tensor(y_output, yShape);
-        // const xdata = await xs.data()
-        // console.log({ xs, xdata, xShape });
-        loss = await this.model.trainOnBatch(xs, ys);
-        if (this.settings.fit?.callbacks?.onYield) this.settings.fit?.callbacks?.onYield(epoch, xIndex, { loss });
-        if (this.settings.fit?.callbacks?.onBatchEnd) this.settings.fit?.callbacks?.onBatchEnd(xIndex, { loss });
-        // console.log({ x_input, xIndex, y_output, loss })
-        xs.dispose();
-        ys.dispose();
-      });
-      if (this.settings.fit?.callbacks?.onEpochEnd) this.settings.fit?.callbacks?.onEpochEnd(epoch, { loss });
+    let loss = Infinity;
+    if (this.settings.fit?.callbacks?.onTrainBegin) this.settings.fit?.callbacks?.onTrainBegin({ loss });
+    await asyncForEach(range(1, this.settings.fit?.epochs), async (epoch: number) => {
+      if (this.settings.streamInputMatrix) {
+        let modelStatus = await this.generateBatch();
+        loss = modelStatus.loss;
+      } else {
+        const cxt = await this.getContextPairs({ tf:this.tf, numberOfFeatures: this.numberOfFeatures, inputMatrix: this.featureIds });
+        const x_input_matrix = cxt.x;
+        const y_output_matrix = cxt.y;
+        let modelStatus = await this.trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss:loss, });
+        loss = modelStatus.loss;
+      }
     });
-    if(this.settings.fit?.callbacks?.onTrainEnd)this.settings.fit?.callbacks?.onTrainEnd({ loss });
+    if (this.settings.fit?.callbacks?.onTrainEnd) this.settings.fit?.callbacks?.onTrainEnd({ loss });
+    this.loss = loss;
+
     this.trained = true;
     return this.model;
   }
