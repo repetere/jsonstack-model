@@ -1,4 +1,5 @@
 import { FeatureEmbedding, } from './index';
+import * as tf from '@tensorflow/tfjs';
 
 export function toBeWithinRange(received, floor, ceiling) {
   const pass = received >= floor && received <= ceiling;
@@ -31,22 +32,3 @@ describe('toBeWithinRage', () => {
     });
   });
 });
-
-describe('static feature_embedding modules', () => {
-  it('should merge two arrays', () => {
-    const b = [0, 0, 0, 0];
-    const m = [1, 2];
-    const b1 = [0, 0, 0, 0];
-    const m1 = [];
-    const b2 = [0, 0];
-    const m2 = [5, 6, 7, 8];
-    const merged = FeatureEmbedding.getMergedArray(b, m);
-    const merged1 = FeatureEmbedding.getMergedArray(b1, m1);
-    const merged2 = FeatureEmbedding.getMergedArray(b2, m2);
-    const merged3 = FeatureEmbedding.getMergedArray(b2, m2,false,false);
-    expect(merged).toMatchObject([1, 2, 0, 0]);
-    expect(merged1).toMatchObject([0, 0, 0, 0]);
-    expect(merged2).toMatchObject([5, 6,]);
-    expect(merged3).toMatchObject([5, 6,7,8]);
-  });
-})

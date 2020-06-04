@@ -46,6 +46,8 @@ export type DenseLayer = {
   inputShape?: any;
   batchInputShape?: any;
   returnSequences?: boolean;
+  weights?: Tensor;
+  embeddingsInitializer?: any;
   // [index: function]
   lambdaFunction?: string;
   lambdaOutputShape?: Matrix|Vector;
@@ -94,6 +96,8 @@ export type TensorScriptOptions = {
       onYield?:(epoch:number, batch:number, logs: EpochLog)=> void;
     }
   }
+  initialLayerInitializerType?: string;
+  initialLayerInitializerOptions?: any;
   //logistic regression
   type?: string;
   //LSTM Options
