@@ -46,7 +46,7 @@ describe('FeatureEmbedding', function () {
     });
     
     FeatureDS.featureToId = ds.featureToId;
-    FeatureDS.IdToFeature = ds.IdToFeature;
+    FeatureDS.idToFeature = ds.idToFeature;
     FeatureDS.featureIds = ds.featureIds;
     FeatureDS.numberOfFeatures = ds.numberOfFeatures;
     // console.log('FeatureDS',FeatureDS);
@@ -67,9 +67,9 @@ describe('FeatureEmbedding', function () {
     // console.log('ContextPairs.y',ContextPairs.y);
 
     // nnClassification = new FeatureEmbedding({ fit, });
-    FEModel = new FeatureEmbedding({ name:'FEModel', });
-    FEModelNonStream = new FeatureEmbedding({ name:'FEModelNonStream', streamInputMatrix:false, });
-    await Promise.all([FEModel.train(norm_bible_matrix),FEModelNonStream.train(norm_bible_matrix)]);
+    FEModel = new FeatureEmbedding({ name: 'FEModel', });
+    FEModelNonStream = new FeatureEmbedding({ name: 'FEModelNonStream', streamInputMatrix: false, });
+    await Promise.all([FEModel.train(norm_bible_matrix), FEModelNonStream.train(norm_bible_matrix)]);
     FEweights = await FEModel.predict();
 
   }, 120000);
@@ -90,8 +90,8 @@ describe('FeatureEmbedding', function () {
       expect(FeatureDS.featureToId.food).toBe(1);
     });
     it('should assign each ID to a feature', () => {
-      expect(FeatureDS.IdToFeature[0]).toBe('PAD');
-      expect(FeatureDS.IdToFeature[1]).toBe('food');
+      expect(FeatureDS.idToFeature[0]).toBe('PAD');
+      expect(FeatureDS.idToFeature[1]).toBe('food');
     });
     it('should convert list of features to ids', () => {
       FeatureDS.featureIds.forEach(feats => {
@@ -103,6 +103,17 @@ describe('FeatureEmbedding', function () {
     });
     it('should calculate total number of features', () => {
       expect(Array.from(new Set(FeatureDS.featureIds.flat())).length).toBe(Object.values(FeatureDS.featureToId).length - 1);
+    });
+    it('should add to existing data', async () => {
+      const addToExisting = await FeatureEmbedding.getFeatureDataSet({
+        inputMatrixFeatures: [['new1', 'new2', 'old1', 'old2']],
+        initialIdToFeature: { 1: 'old1', 2: 'old2' },
+        initialFeatureToId: { old1: 1, old2: 2 },
+      });
+      expect(addToExisting.numberOfFeatures).toBe(5);
+      expect(addToExisting.featureIds).toMatchObject([[3, 4, 1, 2]]);
+      expect(addToExisting.featureToId).toMatchObject({ PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 });
+      expect(addToExisting.idToFeature).toMatchObject({ '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' });
     });
   });
   /** @test {FeatureEmbedding#getContextPairs} */
@@ -146,7 +157,7 @@ describe('FeatureEmbedding', function () {
       const merged2 = FeatureEmbedding.getMergedArray(b2, m2);
       expect(merged).toMatchObject([1, 2, 0, 0]);
       expect(merged1).toMatchObject([0, 0, 0, 0]);
-      expect(merged2).toMatchObject([5, 6, ]);
+      expect(merged2).toMatchObject([5, 6,]);
     });
     it('should append and merge two arrays', () => {
       const b = [0, 0, 0, 0];
@@ -161,7 +172,7 @@ describe('FeatureEmbedding', function () {
       // console.log({merged,merged1,merged2})
       expect(merged).toMatchObject([0, 0, 1, 2,]);
       expect(merged1).toMatchObject([0, 0, 0, 0]);
-      expect(merged2).toMatchObject([ 7, 8]);
+      expect(merged2).toMatchObject([7, 8]);
     });
     it('should handle empty arrays', () => {
       const merged = FeatureEmbedding.getMergedArray();
@@ -263,7 +274,7 @@ describe('FeatureEmbedding', function () {
       const reducedlabeled = FEModel.labelWeights(reducedWeights);
       const firstFeature = Object.keys(FEModel.featureToId)[0];
       expect(reducedlabeled[firstFeature].length).toBe(2);
-      const reducedWeights3D = await FEModel.reduceWeights(FEweights,{dim:3});
+      const reducedWeights3D = await FEModel.reduceWeights(FEweights, { dim: 3 });
       const reducedlabeled3D = FEModel.labelWeights(reducedWeights3D);
       expect(reducedlabeled3D[firstFeature].length).toBe(3);
       const series = Object.keys(reducedlabeled).reduce((result, key) => {
@@ -300,7 +311,7 @@ describe('FeatureEmbedding', function () {
           return result;
         }, []),
         width: 1024,
-        height:768
+        height: 768
       };
       try {
         const filename = path.join(__dirname, './test/mocked_saved_files/reduced_weights.png');
@@ -321,11 +332,11 @@ describe('FeatureEmbedding', function () {
     }
        * 
        */
-    },120000);
+    }, 120000);
   });
   /** @test {FeatureEmbedding#generateLayers} */
   describe('generateLayers', () => {
-    it('should generate embedding layers',async () =>{
+    it('should generate embedding layers', async () => {
       FE = new FeatureEmbedding({
         windowSize: 3,
         fit: {
@@ -357,7 +368,7 @@ describe('FeatureEmbedding', function () {
             });
             return result;
           }, []);
-          console.log('series',util.inspect(series,{depth:20}))
+          console.log('series', util.inspect(series, { depth: 20 }))
           const chartData = {
             chart: {
               type: 'scatter',
@@ -391,23 +402,106 @@ describe('FeatureEmbedding', function () {
               return result;
             }, []),
             width: 1024,
-            height:768
-          }; 
+            height: 768
+          };
           const filename = path.join(__dirname, './test/mocked_saved_files/product_reduced_weights.png');
           const plotImage = await exportChart(filename, { options: chartData });
         }
       } catch (e) {
         throw e;
       }
-    },120000);
-    it('should generate a network from layers', async () => { 
-      const FECustom = new FeatureEmbedding({ layerPreference:'custom', });
+    }, 120000);
+    it('should generate a network from layers', async () => {
+      const FECustom = new FeatureEmbedding({ layerPreference: 'custom', });
       await FECustom.train(norm_bible_matrix, FEModel.layers);
       // console.log('FECustom.layers',FECustom.layers)
       expect(FECustom.layers).toHaveLength(3);
-    },120000);
+    }, 120000);
+    it('should add to pretrained weights', () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      layerModel.numberOfFeatures = 5;
+      layerModel.model = {};
+      layerModel.model.add = jest.fn(() => { });
+      layerModel.model.getWeights = jest.fn(() => [
+        tf.tensor([1, 2, 3]),
+        tf.tensor([4, 5, 6]),
+        tf.tensor([7, 8, 9]),
+      ]);
+      layerModel.model.setWeights = jest.fn(() => { });
+  
+      layerModel.generateLayers([], [], [{ weights: tf.tensor([0, 0, 0]) }]);
+      expect(layerModel.model.add.mock.calls.length).toBe(3);
+      expect(layerModel.model.getWeights.mock.calls.length).toBe(1);
+      expect(layerModel.model.setWeights.mock.calls.length).toBe(1);
+    });
+    it('should set embedding initializer', () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+        initialLayerInitializerType: 'randomUniform',
+        initialLayerInitializerOptions: { seed: 1 },
+      });
+      layerModel.numberOfFeatures = 5;
+
+      layerModel.model = {};
+      layerModel.model.add = jest.fn(() => { });
+      layerModel.generateLayers([], []);
+      expect(layerModel.layers[0].embeddingsInitializer).toMatchObject({
+        DEFAULT_MINVAL: -0.05,
+        DEFAULT_MAXVAL: 0.05,
+        minval: -0.05,
+        maxval: 0.05,
+        seed: 1
+      });
+    });
+    it('should handle missing settings', () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      const layerModel2 = new FeatureEmbedding({
+        embedSize: 0,
+      });
+      layerModel2.numberOfFeatures = 5;
+      expect(() => {
+        layerModel.generateLayers([], []);
+      }).toThrowError(/missing numberOfFeatures/g);
+      expect(() => {
+        layerModel2.generateLayers([], []);
+      }).toThrowError(/missing embedSize/g);
+    });
   });
   describe('training notifications and notifications', () => {
+    const x_matrix = [[4, 3, 1, 2]];
+    const x_matrix_corpus = [['new1', 'new2', 'old1', 'old2']];
+    const featureSet = {
+      numberOfFeatures: 5,
+      featureIds: [[3, 4, 1, 2]],
+      featureToId: { PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 },
+      idToFeature: { '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' }
+    }
+    it('generate dataset with training data', async () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      //@ts-ignore
+      layerModel.getFeatureDataSet = jest.fn(() => featureSet);
+      //@ts-ignore
+      layerModel.generateBatch = jest.fn(() => ({ loss: 1 }));
+      await layerModel.train(x_matrix, []);
+      expect(layerModel.featureIds).toMatchObject(featureSet.featureIds);
+      layerModel.importedEmbeddings = true;
+      await layerModel.train(x_matrix, []);
+      expect(layerModel.featureIds).toMatchObject(x_matrix);
+      //@ts-ignore
+      expect(layerModel.getFeatureDataSet.mock.calls.length).toBe(1);
+      //@ts-ignore
+      expect(layerModel.generateBatch.mock.calls.length).toBe(28);
+      layerModel.settings.streamInputMatrix = false;
+      await layerModel.train(x_matrix, []);
+      //@ts-ignore
+      expect(layerModel.generateBatch.mock.calls.length).toBe(28);
+    });
     it('should update on trainning progress', async () => {
       FE = new FeatureEmbedding({
         windowSize: 3,
@@ -415,13 +509,13 @@ describe('FeatureEmbedding', function () {
           epochs: 2,
           batchSize: 1,
           callbacks: {
-            onTrainBegin: jest.fn(()=>{}),//(logs:any) => console.log('onTrainBegin',{logs, }),
-            onTrainEnd: jest.fn(()=>{}),//(logs: any) => console.log('onTrainEnd', { logs, }),
-            onEpochBegin: jest.fn(()=>{}),//(epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
-            onEpochEnd: jest.fn(()=>{}),//(epoch: number, logs: any) => console.log('onEpochEnd',{logs, epoch, }),
-            onBatchBegin: jest.fn(()=>{}),//(batch:number, logs: any)=> console.log('onBatchBegin',{logs,  batch}),
-            onBatchEnd:jest.fn(()=>{}),//(batch:number, logs: any)=> console.log('onBatchEnd',{logs,  batch}),
-            onYield:jest.fn(()=>{}),//(epoch:number, batch:number, logs: any)=> console.log('onYield',{logs, epoch, batch}),
+            onTrainBegin: jest.fn(() => { }),//(logs:any) => console.log('onTrainBegin',{logs, }),
+            onTrainEnd: jest.fn(() => { }),//(logs: any) => console.log('onTrainEnd', { logs, }),
+            onEpochBegin: jest.fn(() => { }),//(epoch: number, logs: any) => console.log('onEpochBegin', { logs, epoch, }),
+            onEpochEnd: jest.fn(() => { }),//(epoch: number, logs: any) => console.log('onEpochEnd',{logs, epoch, }),
+            onBatchBegin: jest.fn(() => { }),//(batch:number, logs: any)=> console.log('onBatchBegin',{logs,  batch}),
+            onBatchEnd: jest.fn(() => { }),//(batch:number, logs: any)=> console.log('onBatchEnd',{logs,  batch}),
+            onYield: jest.fn(() => { }),//(epoch:number, batch:number, logs: any)=> console.log('onYield',{logs, epoch, batch}),
           }
         },
       });
@@ -444,6 +538,132 @@ describe('FeatureEmbedding', function () {
       const predictions = await FE.predict({ json: false });
       // console.log(predictions);
       expect(typeof predictions[0]).toBe('number');
-    },120000);
+    }, 120000);
+  });
+  describe('compileModel', () => {
+    it('should compile a sequential model', () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      layerModel.numberOfFeatures = 5;
+      layerModel.compileModel();
+      expect(layerModel.model).toBeInstanceOf(tf.Sequential);
+      expect(layerModel.compiled).toBe(true);
+    });
+  });
+  describe('exportEmbeddings', () => {
+    const x_matrix = [[4, 3, 1, 2]];
+    const x_matrix_corpus = [['new1', 'new2', 'old1', 'old2']];
+    const featureSet = {
+      numberOfFeatures: 5,
+      featureIds: [[3, 4, 1, 2]],
+      featureToId: { PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 },
+      idToFeature: { '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' }
+    };
+    it('should handle untrained model errors', async () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      expect.assertions(1);
+      try {
+        await layerModel.exportEmbeddings();
+      } catch (e) {
+        expect(e.message).toEqual('The model has to be trained before embeddings can be exported');
+      }
+    });
+    it('should export embeddings', async () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      layerModel.trained = true;
+      layerModel.predict = jest.fn(async () => ([
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+      ]));
+      layerModel.featureToId = featureSet.featureToId;
+      layerModel.idToFeature = featureSet.idToFeature;
+      layerModel.featureIds = featureSet.featureIds;
+      layerModel.numberOfFeatures = featureSet.numberOfFeatures;
+      const embeddings = await layerModel.exportEmbeddings();
+      expect(embeddings).toMatchObject({
+        featureToId: { PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 },
+        idToFeature: { '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' },
+        featureIds: [[3, 4, 1, 2]],
+        numberOfFeatures: 5,
+        labeledWeights: {
+          PAD: [1, 2, 3, 4, 5],
+          old1: [1, 2, 3, 4, 5],
+          old2: [1, 2, 3, 4, 5],
+          new1: [1, 2, 3, 4, 5],
+          new2: [1, 2, 3, 4, 5]
+        }
+      });
+    });
+  });
+  describe('importEmbeddings', () => {
+    const x_matrix = [[4, 3, 1,2]];
+    const x_matrix_corpus = [['new1', 'new2', 'old1', 'old2']];
+    const featureSet = {
+      numberOfFeatures:5,
+      featureIds:[[3, 4, 1, 2]],
+      featureToId:{ PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 },
+      idToFeature:{ '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' }
+    }
+    const labeledWeights = {
+      PAD: [1, 2, 3, 4, 5],
+      old1: [1, 2, 3, 4, 5],
+      old2: [1, 2, 3, 4, 5],
+      new1: [1, 2, 3, 4, 5],
+      new2: [1, 2, 3, 4, 5]
+    };
+    it('should handle embedding size errors', async () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      expect.assertions(1);
+      try {
+        await layerModel.importEmbeddings({labeledWeights:{}});
+      } catch (e) {
+        expect(e.message).toMatch(/must have the same embedding size as/g);
+      }
+    });
+    it('should compile model with imported Embeddings', async () => {
+      const layerModel = new FeatureEmbedding({
+        embedSize: 5,
+      });
+      layerModel.compileModel = jest.fn(() => { });
+      layerModel.getFeatureDataSet = jest.fn(async() => featureSet);
+      await layerModel.importEmbeddings({
+        ...featureSet,
+        labeledWeights,
+        addNewWeights:false,
+      });
+      //@ts-ignore
+      expect(layerModel.compileModel.mock.calls.length).toBe(1);
+      expect(layerModel.importedEmbeddings).toBe(true);
+      
+      await layerModel.importEmbeddings({
+        ...featureSet,
+        labeledWeights,
+      });
+      //@ts-ignore
+      expect(layerModel.compileModel.mock.calls.length).toBe(2);
+      expect(layerModel.importedEmbeddings).toBe(true);
+      //@ts-ignore
+      expect(layerModel.getFeatureDataSet.mock.calls.length).toBe(0);
+
+
+      await layerModel.importEmbeddings({
+        ...featureSet,
+        labeledWeights,
+        inputMatrixFeatures:x_matrix_corpus,
+      });
+      //@ts-ignore
+      expect(layerModel.getFeatureDataSet.mock.calls.length).toBe(1);
+
+    });
   });
 });
