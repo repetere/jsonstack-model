@@ -163,7 +163,8 @@ describe('reloading model weights', () => {
     await UpdatedModel.train([],[]);
     const UpdatedEmbeddingData2 = await UpdatedModel.exportEmbeddings();
     const UpdatedModelLoss2 = UpdatedModel.loss;
-    console.log({ UpdatedModelLoss2, UpdatedEmbeddingData2 });
+    // console.log({ UpdatedModelLoss2, UpdatedEmbeddingData2 });
+    expect(UpdatedModelLoss2).toBeLessThan(1);
 
 
   });

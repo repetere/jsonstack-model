@@ -31,4 +31,16 @@ describe('toBeWithinRage', () => {
       bananas: expect.not.toBeWithinRange(11, 20),
     });
   });
+  // it('should add to existing data', async () => {
+  //   const addToExisting = await FeatureEmbedding.getFeatureDataSet({
+  //     inputMatrixFeatures: [['new1', 'new2', 'old1', 'old2']],
+  //     initialIdToFeature: { 1: 'old1', 2: 'old2' },
+  //     initialFeatureToId: { old1: 1, old2: 2 },
+  //   });
+  //   console.log('addToExisting', addToExisting);
+  //   expect(addToExisting.numberOfFeatures).toBe(5);
+  //   expect(addToExisting.featureIds).toMatchObject([[3, 4, 1, 2]]);
+  //   expect(addToExisting.featureToId).toMatchObject({ PAD: 0, old1: 1, old2: 2, new1: 3, new2: 4 });
+  //   expect(addToExisting.idToFeature).toMatchObject({ '0': 'PAD', '1': 'old1', '2': 'old2', '3': 'new1', '4': 'new2' });
+  // });
 });

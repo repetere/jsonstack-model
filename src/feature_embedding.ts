@@ -30,8 +30,8 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     initialIdToFeature?: IdToFeature;
     initialFeatureToId?: FeatureToId;
   }) {
-    let featIndex = initialFeatureToId ? Object.keys(initialFeatureToId).length+1 : 1;
-    const idToFeature = {
+    let featIndex = initialFeatureToId ? Object.keys(initialFeatureToId).length : 1;
+    const idToFeature:IdToFeature = {
       0: this && this.settings && this.settings.PAD
         ? this.settings.PAD
         : PAD,
@@ -40,6 +40,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     const featureToId = inputMatrixFeatures.reduce((result, inputFeatureArray) => { 
       inputFeatureArray.forEach((inputFeature) => {
         if (!result[inputFeature]) {
+          if (idToFeature[featIndex]) featIndex++;
           result[inputFeature] = featIndex;
           //@ts-ignore
           idToFeature[featIndex] = inputFeature;
