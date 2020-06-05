@@ -327,7 +327,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     if (this.compiled === false) this.compileModel({layers});
     let loss = Infinity;
     if (this.settings.fit?.callbacks?.onTrainBegin) this.settings.fit?.callbacks?.onTrainBegin({ loss });
-    await asyncForEach(range(1, this.settings.fit?.epochs), async (epoch: number) => {
+    await asyncForEach(range(0, this.settings.fit?.epochs), async (epoch: number) => {
       if (this.settings.streamInputMatrix) {
         let modelStatus = await this.generateBatch({epoch,});
         loss = modelStatus.loss;

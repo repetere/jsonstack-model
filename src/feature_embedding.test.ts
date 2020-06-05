@@ -496,11 +496,11 @@ describe('FeatureEmbedding', function () {
       //@ts-ignore
       expect(layerModel.getFeatureDataSet.mock.calls.length).toBe(1);
       //@ts-ignore
-      expect(layerModel.generateBatch.mock.calls.length).toBe(28);
+      expect(layerModel.generateBatch.mock.calls.length).toBe(30);
       layerModel.settings.streamInputMatrix = false;
       await layerModel.train(x_matrix, []);
       //@ts-ignore
-      expect(layerModel.generateBatch.mock.calls.length).toBe(28);
+      expect(layerModel.generateBatch.mock.calls.length).toBe(30);
     });
     it('should update on trainning progress', async () => {
       FE = new FeatureEmbedding({
@@ -526,8 +526,8 @@ describe('FeatureEmbedding', function () {
       await FE.train(products);
       expect(FE.settings.fit.callbacks.onTrainBegin.mock.calls.length).toBe(1);
       expect(FE.settings.fit.callbacks.onTrainEnd.mock.calls.length).toBe(1);
-      expect(FE.settings.fit.callbacks.onEpochBegin.mock.calls.length).toBe(124);
-      expect(FE.settings.fit.callbacks.onEpochEnd.mock.calls.length).toBe(124);
+      expect(FE.settings.fit.callbacks.onEpochBegin.mock.calls.length).toBe(248);
+      expect(FE.settings.fit.callbacks.onEpochEnd.mock.calls.length).toBe(248);
       expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onYield.mock.calls.length);
       expect(FE.settings.fit.callbacks.onBatchBegin.mock.calls.length).toBe(FE.settings.fit.callbacks.onBatchEnd.mock.calls.length);
 
