@@ -291,6 +291,10 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
           if (!labeledWeights[weightLabel] || !labeledWeights[weightLabel].length) {
             // newWeights[weightLabel] = await this.tf.randomUniform([1, this.settings.embedSize], -1, 1).array();
             labeledWeights[weightLabel] = await this.tf.randomUniform([1, this.settings.embedSize], -1, 1).array();
+            if (Array.isArray(labeledWeights[weightLabel][0])) {
+              if (typeof labeledWeights[weightLabel].flat ==='function') labeledWeights[weightLabel].flat();
+              else labeledWeights[weightLabel].reduce((acc:number[], val:number) => acc.concat(val), []);
+            }
           }
         });
       }
