@@ -63,6 +63,9 @@ export type TensorScriptSavedLayers = {
 
 export type EpochLog = {
   loss: number;
+  inputVectorIndex?: number;
+  inputVectorLength?: number;
+  completion?: string;
 }
 export type TensorScriptOptions = {
   name?: string;
@@ -113,6 +116,7 @@ export type TensorScriptOptions = {
   embedSize?: number;
   windowSize?: number;
   streamInputMatrix?: boolean;
+  checkInputMatrix?: boolean;
 };
 
 export type PredictionOptions = {

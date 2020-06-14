@@ -192,7 +192,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     }
     // console.log('this.model.layers',this.model.layers)
   }
-  async trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss, }: { x_input_matrix: Matrix, y_output_matrix: Matrix, epoch: number, trainingLoss: number, }) {
+  async trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss, inputVectorIndex, inputVectorLength,}: { x_input_matrix: Matrix, y_output_matrix: Matrix, epoch: number, trainingLoss: number, inputVectorIndex:number, inputVectorLength:number, }) {
     let loss = Infinity;
     if (this.settings.fit?.callbacks?.onEpochBegin) this.settings.fit?.callbacks?.onEpochBegin(epoch, { loss:trainingLoss });
     await asyncForEach(x_input_matrix, async (x_input:Vector, xIndex:number) => {
@@ -205,7 +205,10 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       // const xdata = await xs.data()
       // console.log({ xs, xdata, xShape });
       loss = await this.model.trainOnBatch(xs, ys);
-      if (this.settings.fit?.callbacks?.onYield) this.settings.fit?.callbacks?.onYield(epoch, xIndex, { loss });
+      if (this.settings.fit?.callbacks?.onYield) this.settings.fit?.callbacks?.onYield(epoch, xIndex, { loss, 
+        inputVectorIndex,
+        inputVectorLength,
+        completion: `${( 100 * ( (inputVectorIndex+1) / inputVectorLength ) ).toFixed(2)}%`  });
       if (this.settings.fit?.callbacks?.onBatchEnd) this.settings.fit?.callbacks?.onBatchEnd(xIndex, { loss });
       // console.log({ x_input, xIndex, xShape, y_output, yShape, loss })
       xs.dispose();
@@ -230,7 +233,14 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     let trainingLoss = Infinity;
     await asyncForEach(preTransformedMatrix, async (inputVector: Vector, inputVectorIndex: number) => {
       await asyncForEach(inputVector, async (word:number, index:number) => {
-        if (word != 0) {
+        if (this.settings.checkInputMatrix && this.numberOfFeatures&& word >= (this.numberOfFeatures)) {
+          console.warn('invalid word in corpus', {
+            trainingLoss,
+            word,
+            'this.idToFeature[word]': this.idToFeature&& this.idToFeature[word],
+            'this.numberOfFeatures': this.numberOfFeatures,
+          });
+      } else if (word != 0) {
           const output = new Array().concat(emptyYVector);
           const inputMerger = new Array().concat(preTransformedMatrix[inputVectorIndex]);
           inputMerger.splice(index, 1);
@@ -242,8 +252,15 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
           x_input_matrix = [input];
           y_output_matrix = [output];
           // console.log({ input, output });
-          const modelStatus = await this.trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss,  });
-          trainingLoss = modelStatus.loss;
+          if (this.settings.checkInputMatrix && this.numberOfFeatures&& this.numberOfFeatures > 0 && input.filter((wordInput:number) => this.numberOfFeatures&&wordInput >= this.numberOfFeatures).length) {
+            console.warn('Input matrix contains unknown weight', { input, 'this.numberOfFeatures': this.numberOfFeatures });
+          } else {
+              x_input_matrix = [input];
+              y_output_matrix = [output];
+              // console.log({ input, output });
+              const modelStatus = await this.trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss , inputVectorIndex, inputVectorLength: preTransformedMatrix.length, });
+              trainingLoss = modelStatus.loss;
+          }
         }
       });
     });
@@ -264,13 +281,14 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       labeledWeights,
     };
   }
-  async importEmbeddings({ featureToId, idToFeature, featureIds, numberOfFeatures, labeledWeights, addNewWeights = true, inputMatrixFeatures }: {
+  async importEmbeddings({ featureToId, idToFeature, featureIds, numberOfFeatures, labeledWeights, addNewWeights = true, inputMatrixFeatures, fixImportedWeights = false, }: {
     featureToId?: FeatureToId;
     idToFeature?: IdToFeature;
     featureIds?: Matrix,
     numberOfFeatures?: number;
     labeledWeights: LabeledWeights;
     addNewWeights?: boolean;
+    fixImportedWeights?: boolean;
     inputMatrixFeatures?: Corpus;
   }) {
     // console.log(this.settings.name,'before - labeledWeights', labeledWeights);
@@ -292,12 +310,20 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
             // newWeights[weightLabel] = await this.tf.randomUniform([1, this.settings.embedSize], -1, 1).array();
             labeledWeights[weightLabel] = await this.tf.randomUniform([1, this.settings.embedSize], -1, 1).array();
             if (Array.isArray(labeledWeights[weightLabel][0])) {
-              if (typeof labeledWeights[weightLabel].flat ==='function') labeledWeights[weightLabel].flat();
-              else labeledWeights[weightLabel].reduce((acc:number[], val:number) => acc.concat(val), []);
+              if (typeof labeledWeights[weightLabel].flat ==='function') labeledWeights[weightLabel] = labeledWeights[weightLabel].flat();
+              else labeledWeights[weightLabel] = labeledWeights[weightLabel].reduce((acc:number[], val:number) => acc.concat(val), []);
             }
           }
         });
       }
+    }
+    if (fixImportedWeights) {
+      Object.keys(labeledWeights).forEach(weightLabel => {
+        if (Array.isArray(labeledWeights[weightLabel][0])) {
+          if (typeof labeledWeights[weightLabel].flat ==='function') labeledWeights[weightLabel] = labeledWeights[weightLabel].flat();
+          else labeledWeights[weightLabel] = labeledWeights[weightLabel].reduce((acc:number[], val:number) => acc.concat(val), []);
+        }
+      });
     }
     // console.log(this.settings.name,'newWeights', newWeights);
     // console.log(this.settings.name,'after - labeledWeights', labeledWeights);
@@ -305,6 +331,14 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     const firstLabeledWeight = Object.keys(labeledWeights)[0];
     if (!firstLabeledWeight || !labeledWeights[firstLabeledWeight] || labeledWeights[firstLabeledWeight].length !== this.settings.embedSize) throw new RangeError(`imported weights (${labeledWeights[firstLabeledWeight]?labeledWeights[firstLabeledWeight].length:'firstLabeledWeight:undefined'}) must have the same embedding size as model (${this.settings.embedSize})`);
     const trainedWeights = this.tf.variable(this.tf.tensor(Object.values(labeledWeights)));
+
+    if (trainedWeights.shape[0] !== this.numberOfFeatures) {
+      console.warn('INVALID NUMBER OF this.numberOfFeatures', {
+          'trainedWeights.shape[0]': trainedWeights.shape[0],
+          'this.numberOfFeatures': this.numberOfFeatures,
+      })
+      this.numberOfFeatures = trainedWeights.shape[0];
+  }
     this.featureToId = featureToId;
     this.idToFeature = idToFeature;
     this.featureIds = featureIds;
