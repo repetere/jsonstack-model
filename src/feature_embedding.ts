@@ -332,17 +332,18 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     if (!firstLabeledWeight || !labeledWeights[firstLabeledWeight] || labeledWeights[firstLabeledWeight].length !== this.settings.embedSize) throw new RangeError(`imported weights (${labeledWeights[firstLabeledWeight]?labeledWeights[firstLabeledWeight].length:'firstLabeledWeight:undefined'}) must have the same embedding size as model (${this.settings.embedSize})`);
     const trainedWeights = this.tf.variable(this.tf.tensor(Object.values(labeledWeights)));
 
-    if (trainedWeights.shape[0] !== this.numberOfFeatures) {
-      console.warn('INVALID NUMBER OF this.numberOfFeatures', {
-          'trainedWeights.shape[0]': trainedWeights.shape[0],
-          'this.numberOfFeatures': this.numberOfFeatures,
-      })
-      this.numberOfFeatures = trainedWeights.shape[0];
-  }
+    
     this.featureToId = featureToId;
     this.idToFeature = idToFeature;
     this.featureIds = featureIds;
     this.numberOfFeatures = numberOfFeatures;
+    if (trainedWeights.shape[0] !== this.numberOfFeatures) {
+      console.warn('INVALID NUMBER OF this.numberOfFeatures', {
+        'trainedWeights.shape[0]': trainedWeights.shape[0],
+        'this.numberOfFeatures': this.numberOfFeatures,
+      });
+      this.numberOfFeatures = trainedWeights.shape[0];
+    }
     this.compileModel({ layers: [{ weights: trainedWeights }] });
     this.importedEmbeddings = true;
   }
