@@ -192,7 +192,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
     }
     // console.log('this.model.layers',this.model.layers)
   }
-  async trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss, inputVectorIndex, inputVectorLength,}: { x_input_matrix: Matrix, y_output_matrix: Matrix, epoch: number, trainingLoss: number, inputVectorIndex:number, inputVectorLength:number, }) {
+  async trainOnBatch({ x_input_matrix, y_output_matrix, epoch, trainingLoss, inputVectorIndex, inputVectorLength,}: { x_input_matrix: Matrix, y_output_matrix: Matrix, epoch: number, trainingLoss: number, inputVectorIndex?:number, inputVectorLength?:number, }) {
     let loss = Infinity;
     if (this.settings.fit?.callbacks?.onEpochBegin) this.settings.fit?.callbacks?.onEpochBegin(epoch, { loss:trainingLoss });
     await asyncForEach(x_input_matrix, async (x_input:Vector, xIndex:number) => {
@@ -208,7 +208,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
       if (this.settings.fit?.callbacks?.onYield) this.settings.fit?.callbacks?.onYield(epoch, xIndex, { loss, 
         inputVectorIndex,
         inputVectorLength,
-        completion: `${( 100 * ( (inputVectorIndex+1) / inputVectorLength ) ).toFixed(2)}%`  });
+        completion: `${( 100 * ( ((inputVectorIndex||xIndex)+1) / (inputVectorLength||x_input_matrix.length) ) ).toFixed(2)}%`  });
       if (this.settings.fit?.callbacks?.onBatchEnd) this.settings.fit?.callbacks?.onBatchEnd(xIndex, { loss });
       // console.log({ x_input, xIndex, xShape, y_output, yShape, loss })
       xs.dispose();
