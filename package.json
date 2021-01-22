@@ -67,7 +67,7 @@
     "@types/react-dom": "16.9.8",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
-    "fs-extra": "9.0.0",
+    "fs-extra": "9.1.0",
     "highcharts": "8.1.0",
     "highcharts-export-server": "2.0.28",
     "jest": "26.0.1",
