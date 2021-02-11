@@ -81,7 +81,7 @@
     "ts-jest": "26.0.0",
     "tslib": "2.0.0",
     "typedoc": "0.17.3",
-    "typescript": "3.9.3"
+    "typescript": "3.9.9"
   },
   "jest": {
     "preset": "ts-jest",
