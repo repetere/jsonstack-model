@@ -66,8 +66,6 @@
     "@semantic-release/git": "9.0.0",
     "@semantic-release/npm": "^7.1.0",
     "@semantic-release/release-notes-generator": "9.0.2",
-    "@tensorflow/tfjs-backend-cpu": "^3.3.0",
-    "@tensorflow/tfjs-backend-wasm": "^3.3.0",
     "@types/jest": "^26.0.22",
     "@types/lodash.range": "3.2.6",
     "fs-extra": "^9.1.0",
