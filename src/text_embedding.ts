@@ -1,7 +1,7 @@
 import { TensorScriptModelInterface, TensorScriptOptions, TensorScriptProperties, Matrix, Vector, PredictionOptions, InputTextArray, } from './model_interface';
 import { Tokenizer, UniversalSentenceEncoder, load } from '@tensorflow-models/universal-sentence-encoder';
 const BASE_PATH = 'https://storage.googleapis.com/tfjs-models/savedmodel/universal_sentence_encoder';
-import * as tf from '@tensorflow/tfjs-core';
+import axios from 'axios'
 
 // import {loadTokenizer} from '@tensorflow-models/universal-sentence-encoder/dist/tokenizer/index';
 /**
@@ -10,8 +10,8 @@ import * as tf from '@tensorflow/tfjs-core';
  * @param {string} pathToVocabulary (optional) Provide a path to the vocabulary file.
  */
 export async function loadVocabulary(pathToVocabulary:string) {
-  const vocabulary = await tf.util.fetch(pathToVocabulary);
-  return vocabulary.json();
+  const vocabulary = await axios.get(pathToVocabulary);
+  return vocabulary.data;
 }
 export async function loadTokenizer() {
   const vocabulary = await (loadVocabulary(`${BASE_PATH}/vocab.json`));
