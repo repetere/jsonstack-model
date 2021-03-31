@@ -4,7 +4,8 @@
     <script>
     // const natural={}
     </script>
-    <script src="/Users/yawjosephetse/Developer/github/repetere/modelx-data/dist/index.web.js"></script>
+    <!-- <script src="/Users/yawjosephetse/Developer/github/repetere/modelx-data/dist/index.web.js"></script> -->
+    <script src="https://unpkg.com/@modelx/data@1.1.0/dist/index.umd.js"></script>
     <script src="../../../dist/web/index.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
 
@@ -196,7 +197,6 @@ const predictions = await nnClassification.predict(input_x);
           }
           housingDataCSV = await ModelXData.csv.loadCSVURI('https://raw.githubusercontent.com/repetere/modelx-model/master/src/test/mock/data/iris_data.csv');
           DataSet = new ModelXData.DataSet(housingDataCSV);
-
           const encodedData = DataSet.fitColumns({
             columns: [
               {
@@ -236,12 +236,16 @@ const predictions = await nnClassification.predict(input_x);
 
 
           // const backend = await nnClassification.tf.backend();
-          console.log({nnClassification})
-          updateLoadingDom(csvtest1DOM,{ msg: 'attempting to load model', });
-          await nnClassification.loadModel('localstorage://iris-model');
+          // console.log({nnClassification})
+          try {
+            updateLoadingDom(csvtest1DOM,{ msg: 'attempting to load model', });
+            await nnClassification.loadModel('localstorage://iris-model');
+          } catch(e){
+            console.warn(e)
+          }
 
 
-          console.log({ nnClassification, });
+          // console.log({ nnClassification, });
           if(nnClassification.trained===false){
             nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
           }
@@ -279,13 +283,6 @@ const predictions = await nnClassification.predict(input_x);
 
     </pre>
     <pre id='csvtest2' class="result"></pre>
-    <h3>ModelXData.DataSet.selectColumns</h3>
-    <pre>
-      const cols = ['Age', 'Salary', ];
-      const selectedCols = CSVDataSet.selectColumns(cols);
-    </pre>
-    <pre id='csvtest3' class="result"></pre>
-
     <script>
       window.addEventListener('load',()=>{
         (async function csvtest1Main(){
@@ -310,6 +307,13 @@ const predictions = await nnClassification.predict(input_x);
         })();
       });
     </script>
+    <!-- <h3>ModelXData.DataSet.selectColumns</h3>
+    <pre>
+      const cols = ['Age', 'Salary', ];
+      const selectedCols = CSVDataSet.selectColumns(cols);
+    </pre>
+    <pre id='csvtest3' class="result"></pre> -->
+
           <!--
 
     <h2>ModelXData.nlp</h2>
