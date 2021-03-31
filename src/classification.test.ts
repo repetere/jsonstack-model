@@ -2,6 +2,7 @@ import path from 'path';
 import * as ms from '@modelx/data';
 import { DeepLearningClassification, } from './index';
 import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-backend-wasm';
 const independentVariables = [
   'sepal_length_cm',
   'sepal_width_cm',
@@ -107,12 +108,19 @@ describe('DeepLearningClassification', function () {
     // console.log({ x_matrix, y_matrix, });
 
     nnClassification = new DeepLearningClassification({ fit, });
+    await nnClassification.tf.setBackend('wasm');
+    console.log('nnClassification.tf.getBackend()',nnClassification.tf.getBackend());
+
+
     nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
   },120000);
   /** @test {DeepLearningClassification#constructor} */
   describe('constructor', () => {
-    it('should export a named module class', () => {
+    it('should export a named module class', async () => {
       const NN = new DeepLearningClassification();
+      await NN.tf.setBackend('wasm');
+      console.log('NN.tf.getBackend()',NN.tf.getBackend());
+
       //@ts-ignore
       const NNConfigured = new DeepLearningClassification({ test: 'prop', });
       expect(typeof DeepLearningClassification).toBe('function');
@@ -162,6 +170,9 @@ describe('DeepLearningClassification', function () {
     });
     it('should generate a network from layers', async () => { 
       const nnClassificationCustom = new DeepLearningClassification({ layerPreference:'custom', fit, });
+      await nnClassificationCustom.tf.setBackend('cpu');
+      console.log('nnClassificationCustom.tf.getBackend()',nnClassificationCustom.tf.getBackend());
+
       await nnClassificationCustom.train(x_matrix, y_matrix, nnClassification.layers);
       expect(nnClassificationCustom.layers).toHaveLength(2);
     },120000);
