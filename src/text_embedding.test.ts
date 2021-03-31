@@ -62,14 +62,15 @@ describe('TextEmbedding', function () {
       const TextEmbedder = new TextEmbedding();
       await TextEmbedder.train();
       const sentences = [
-        '',
+        ' ',
       ];
       const predictions = await TextEmbedder.predict(sentences);
       // console.log('predictions[0]', predictions[0]);
-      // const tokens = await TextEmbedder.tokenizer.encode('Hello, how are you?');
-      // expect(predictions).to.be.an('array');
-      // expect(predictions).to.have.lengthOf(2);
-      // expect(predictions[0]).to.have.lengthOf(512);
+      const tokens = await TextEmbedder.tokenizer.encode('Hello, how are you?');
+      // console.log('tokens',tokens)
+      expect(Array.isArray(predictions)).toBe(true)
+      expect(predictions.length).toBe(sentences.length)
+      expect(predictions[0].length).toBe(512);
     }, 10000);
   });
 });

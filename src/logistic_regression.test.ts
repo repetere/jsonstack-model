@@ -1,7 +1,10 @@
 import path from 'path';
 import * as ms from '@modelx/data';
 import { LogisticRegression, } from './index';
-
+import '@tensorflow/tfjs-node';
+// import '@tensorflow/tfjs-node-gpu';
+import '@tensorflow/tfjs-backend-cpu';
+import '@tensorflow/tfjs-backend-wasm';
 const independentVariables = [
   'Age',
   'EstimatedSalary',
@@ -89,6 +92,15 @@ describe('LogisticRegression', function () {
     nnLR = new LogisticRegression({ fit,  });
     nnLRClass = new LogisticRegression({ type: 'class', fit, });
     nnLRReg = new LogisticRegression({ type: 'l1l2', fit, });
+    // await nnLR.tf.setBackend('cpu')
+    // await nnLRClass.tf.setBackend('cpu')
+    // await nnLRReg.tf.setBackend('cpu')
+    await nnLR.tf.setBackend('wasm')
+    await nnLRClass.tf.setBackend('wasm')
+    await nnLRReg.tf.setBackend('cpu')
+    // console.log('nnLR.tf.getBackend()',nnLR.tf.getBackend())
+    // console.log('nnLRClass.tf.getBackend()',nnLRClass.tf.getBackend())
+    // console.log('nnLRReg.tf.getBackend()',nnLRReg.tf.getBackend())
     const models = await Promise.all([
       nnLR.train(x_matrix, y_matrix),
       nnLRClass.train(x_matrix, y_matrix),

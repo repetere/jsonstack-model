@@ -1,9 +1,26 @@
 import { TensorScriptModelInterface, TensorScriptOptions, TensorScriptProperties, Matrix, Vector, PredictionOptions, InputTextArray, } from './model_interface';
-import * as UniversalSentenceEncoder from '@tensorflow-models/universal-sentence-encoder';
+import { Tokenizer, UniversalSentenceEncoder, load } from '@tensorflow-models/universal-sentence-encoder';
+const BASE_PATH = 'https://storage.googleapis.com/tfjs-models/savedmodel/universal_sentence_encoder';
+import * as tf from '@tensorflow/tfjs-core';
 
-
-let model:UniversalSentenceEncoder.UniversalSentenceEncoder;
-let tokenizer:UniversalSentenceEncoder.Tokenizer;
+// import {loadTokenizer} from '@tensorflow-models/universal-sentence-encoder/dist/tokenizer/index';
+/**
+ * Load the Tokenizer for use independently from the UniversalSentenceEncoder.
+ *
+ * @param {string} pathToVocabulary (optional) Provide a path to the vocabulary file.
+ */
+export async function loadVocabulary(pathToVocabulary:string) {
+  const vocabulary = await tf.util.fetch(pathToVocabulary);
+  return vocabulary.json();
+}
+export async function loadTokenizer() {
+  const vocabulary = await (loadVocabulary(`${BASE_PATH}/vocab.json`));
+  // console.log('vocabulary',vocabulary)
+  const tokenizer = new Tokenizer(vocabulary);
+  return tokenizer;
+}
+let model:UniversalSentenceEncoder;
+let tokenizer:Tokenizer;
 /**
  * Text Embedding with Tensorflow Universal Sentence Encoder (USE)
  * @class TextEmbedding
@@ -29,13 +46,14 @@ export class TextEmbedding extends TensorScriptModelInterface {
    */
   async train() {
     const promises:Promise<any>[] = [];
-    if (!model) promises.push(UniversalSentenceEncoder.load());
+    if (!model) promises.push(load());
     else promises.push(Promise.resolve(model));
-    if (!tokenizer) promises.push(UniversalSentenceEncoder.loadTokenizer());
+    if (!tokenizer) promises.push(loadTokenizer());
     else promises.push(Promise.resolve(tokenizer));
     const USE = await Promise.all(promises);
     if (!model) model = USE[ 0 ];
     if (!tokenizer) tokenizer = USE[ 1 ];
+    // console.log({model,tokenizer})
     this.model = model;
     this.tokenizer = tokenizer;
     this.trained = true;
