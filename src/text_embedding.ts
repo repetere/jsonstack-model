@@ -1,5 +1,6 @@
 import { TensorScriptModelInterface, TensorScriptOptions, TensorScriptProperties, Matrix, Vector, PredictionOptions, InputTextArray, } from './model_interface';
-import { Tokenizer, UniversalSentenceEncoder, load } from '@tensorflow-models/universal-sentence-encoder';
+//@ts-ignore
+import { Tokenizer, UniversalSentenceEncoder, load } from '@tensorflow-models/universal-sentence-encoder/dist/universal-sentence-encoder.js';
 const BASE_PATH = 'https://storage.googleapis.com/tfjs-models/savedmodel/universal_sentence_encoder';
 import axios from 'axios'
 

@@ -94,11 +94,7 @@
         "diagnostics": false,
         "tsconfig": {
           "target": "ES2019",
-          "allowJs": true,
-          "include": [
-            "src/**/*.ts",
-            "src/**/*.tsx"
-          ]
+          "allowJs": true
         }
       }
     }
