@@ -69,7 +69,7 @@
     "enzyme-adapter-react-16": "1.15.2",
     "fs-extra": "9.0.0",
     "highcharts": "8.1.0",
-    "highcharts-export-server": "2.0.28",
+    "highcharts-export-server": "2.1.0",
     "jest": "26.0.1",
     "npm": "6.14.5",
     "react": "16.13.1",
