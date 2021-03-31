@@ -4,16 +4,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@modelx/model</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for @modelx/model">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -40,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,11 +50,6 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
 			<h1>@modelx/model</h1>
 		</div>
 	</div>
@@ -72,17 +66,19 @@
 					<h2>Getting started</h2>
 				</a>
 				<p>Clone the repo and drop your module in the src directory.</p>
-				<pre><code class="language-shell"><span class="hljs-meta">#</span><span class="bash"> Install Prerequisites</span>
-<span class="hljs-meta">$</span><span class="bash"> npm install rollup typedoc jest sitedown --g</span></code></pre>
+				<pre><code class="language-shell"><span style="color: #008000"># Install Prerequisites</span>
+<span style="color: #000000">$ npm install rollup typedoc jest sitedown --g</span>
+</code></pre>
 				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
 					<h2>Basic Usage</h2>
 				</a>
-				<pre><code class="language-shell"><span class="hljs-meta">$</span><span class="bash"> npm run build <span class="hljs-comment">#builds type declarations, created bundled artifacts with rollup and generates documenation</span></span></code></pre>
+				<pre><code class="language-shell"><span style="color: #000000">$ npm run build </span><span style="color: #008000">#builds type declarations, created bundled artifacts with rollup and generates documenation</span>
+</code></pre>
 				<a href="#introduction" id="introduction" style="color: inherit; text-decoration: none;">
 					<h2>Introduction</h2>
 				</a>
 				<p>This library is a compilation of model building modules with a consistent API for quickly implementing Tensorflow at edge(browser) or any JavaScript environment (Node JS / GPU).</p>
-				<a href="#a-hrefhttpsrepeteregithubiomodelx-modelmanualoverviewhtmlread-the-manuala" id="a-hrefhttpsrepeteregithubiomodelx-modelmanualoverviewhtmlread-the-manuala" style="color: inherit; text-decoration: none;">
+				<a href="#read-the-manual" id="read-the-manual" style="color: inherit; text-decoration: none;">
 					<h3><a href="https://repetere.github.io/modelx-model/manual/overview.html">Read the manual</a></h3>
 				</a>
 				<a href="#list-of-tensorflow-models" id="list-of-tensorflow-models" style="color: inherit; text-decoration: none;">
@@ -123,123 +119,127 @@
 				<a href="#regression-examples" id="regression-examples" style="color: inherit; text-decoration: none;">
 					<h3>Regression Examples</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { MultipleLinearRegression, DeepLearningRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
-<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">MultipleLinearRegression</span><span style="color: #000000">, </span><span style="color: #001080">DeepLearningRegression</span><span style="color: #000000">, } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@modelx/model&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;modelscript&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-keyword">const</span> independentVariables = [ <span class="hljs-string">'sqft'</span>, <span class="hljs-string">'bedrooms'</span>,];
-  <span class="hljs-keyword">const</span> dependentVariables = [ <span class="hljs-string">'price'</span>, ];
-  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/portland_housing_data.csv'</span>);
-  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV);
-  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
-  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
-  <span class="hljs-keyword">const</span> MLR = <span class="hljs-keyword">new</span> MultipleLinearRegression();
-  <span class="hljs-keyword">await</span> MLR.train(x_matrix, y_matrix);
-  <span class="hljs-keyword">const</span> DLR = <span class="hljs-keyword">new</span> DeepLearningRegression();
-  <span class="hljs-keyword">await</span> DLR.train(x_matrix, y_matrix);
-  <span class="hljs-comment">//1600 sqft, 3 bedrooms</span>
-  <span class="hljs-keyword">await</span> MLR.predict([<span class="hljs-number">1650</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt;[293081.46]</span>
-  <span class="hljs-keyword">await</span> DLR.predict([<span class="hljs-number">1650</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt;[293081.46]</span>
-}
-main();</code></pre>
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(){</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">independentVariables</span><span style="color: #000000"> = [ </span><span style="color: #A31515">&#039;sqft&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;bedrooms&#039;</span><span style="color: #000000">,];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dependentVariables</span><span style="color: #000000"> = [ </span><span style="color: #A31515">&#039;price&#039;</span><span style="color: #000000">, ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">housingdataCSV</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #001080">csv</span><span style="color: #000000">.</span><span style="color: #795E26">loadCSV</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./test/mock/data/portland_housing_data.csv&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">DataSet</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #795E26">DataSet</span><span style="color: #000000">(</span><span style="color: #001080">housingdataCSV</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">x_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">independentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">y_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">dependentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">MLR</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MultipleLinearRegression</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">MLR</span><span style="color: #000000">.</span><span style="color: #795E26">train</span><span style="color: #000000">(</span><span style="color: #001080">x_matrix</span><span style="color: #000000">, </span><span style="color: #001080">y_matrix</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">DLR</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DeepLearningRegression</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">DLR</span><span style="color: #000000">.</span><span style="color: #795E26">train</span><span style="color: #000000">(</span><span style="color: #001080">x_matrix</span><span style="color: #000000">, </span><span style="color: #001080">y_matrix</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #008000">//1600 sqft, 3 bedrooms</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">MLR</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">([</span><span style="color: #098658">1650</span><span style="color: #000000">,</span><span style="color: #098658">3</span><span style="color: #000000">]); </span><span style="color: #008000">//=&gt;[293081.46]</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">DLR</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">([</span><span style="color: #098658">1650</span><span style="color: #000000">,</span><span style="color: #098658">3</span><span style="color: #000000">]); </span><span style="color: #008000">//=&gt;[293081.46]</span>
+<span style="color: #000000">}</span>
+<span style="color: #795E26">main</span><span style="color: #000000">();</span>
+</code></pre>
 				<a href="#classification-examples" id="classification-examples" style="color: inherit; text-decoration: none;">
 					<h3>Classification Examples</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DeepLearningClassification, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
-<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DeepLearningClassification</span><span style="color: #000000">, } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@modelx/model&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;modelscript&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-keyword">const</span> independentVariables = [
-    <span class="hljs-string">'sepal_length_cm'</span>,
-    <span class="hljs-string">'sepal_width_cm'</span>,
-    <span class="hljs-string">'petal_length_cm'</span>,
-    <span class="hljs-string">'petal_width_cm'</span>,
-  ];
-  <span class="hljs-keyword">const</span> dependentVariables = [
-    <span class="hljs-string">'plant_Iris-setosa'</span>,
-    <span class="hljs-string">'plant_Iris-versicolor'</span>,
-    <span class="hljs-string">'plant_Iris-virginica'</span>,
-  ];
-  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/iris_data.csv'</span>);
-  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV).fitColumns({ <span class="hljs-attr">columns</span>: {<span class="hljs-attr">plant</span>:<span class="hljs-string">'onehot'</span>}, });
-  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
-  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
-  <span class="hljs-keyword">const</span> nnClassification = <span class="hljs-keyword">new</span> DeepLearningClassification();
-  <span class="hljs-keyword">await</span> nnClassification.train(x_matrix, y_matrix);
-  <span class="hljs-keyword">const</span> input_x = [
-    [<span class="hljs-number">5.1</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">1.4</span>, <span class="hljs-number">0.2</span>, ],
-    [<span class="hljs-number">6.3</span>, <span class="hljs-number">3.3</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">2.5</span>, ],
-    [<span class="hljs-number">5.6</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">1.5</span>, ],
-    [<span class="hljs-number">5.0</span>, <span class="hljs-number">3.2</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">0.2</span>, ],
-    [<span class="hljs-number">4.5</span>, <span class="hljs-number">2.3</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">0.3</span>, ],
-  ];
-  <span class="hljs-keyword">const</span> predictions = <span class="hljs-keyword">await</span> nnClassification.predict(input_x); 
-  <span class="hljs-keyword">const</span> answers = <span class="hljs-keyword">await</span> nnClassification.predict(input_x, { <span class="hljs-attr">probability</span>:<span class="hljs-literal">false</span>, });
-  <span class="hljs-comment">/*
-    predictions = [
-      [ 0.989512026309967, 0.010471616871654987, 0.00001649192017794121, ],
-      [ 0.0000016141033256644732, 0.054614484310150146, 0.9453839063644409, ],
-      [ 0.001930746017023921, 0.6456733345985413, 0.3523959517478943, ],
-      [ 0.9875779747962952, 0.01239941269159317, 0.00002274810685776174, ],
-      [ 0.9545140862464905, 0.04520365223288536, 0.0002823179238475859, ],
-    ];
-    answers = [
-      [ 1, 0, 0, ], //setosa
-      [ 0, 0, 1, ], //virginica
-      [ 0, 1, 0, ], //versicolor
-      [ 1, 0, 0, ], //setosa
-      [ 1, 0, 0, ], //setosa
-    ];
-   */</span>
-}
-main();</code></pre>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LogisticRegression, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
-<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(){</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">independentVariables</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;sepal_length_cm&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;sepal_width_cm&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;petal_length_cm&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;petal_width_cm&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dependentVariables</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;plant_Iris-setosa&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;plant_Iris-versicolor&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;plant_Iris-virginica&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">housingdataCSV</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #001080">csv</span><span style="color: #000000">.</span><span style="color: #795E26">loadCSV</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./test/mock/data/iris_data.csv&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">DataSet</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #795E26">DataSet</span><span style="color: #000000">(</span><span style="color: #001080">housingdataCSV</span><span style="color: #000000">).</span><span style="color: #795E26">fitColumns</span><span style="color: #000000">({ </span><span style="color: #001080">columns:</span><span style="color: #000000"> {</span><span style="color: #001080">plant:</span><span style="color: #A31515">&#039;onehot&#039;</span><span style="color: #000000">}, });</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">x_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">independentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">y_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">dependentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">nnClassification</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DeepLearningClassification</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">nnClassification</span><span style="color: #000000">.</span><span style="color: #795E26">train</span><span style="color: #000000">(</span><span style="color: #001080">x_matrix</span><span style="color: #000000">, </span><span style="color: #001080">y_matrix</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">input_x</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    [</span><span style="color: #098658">5.1</span><span style="color: #000000">, </span><span style="color: #098658">3.5</span><span style="color: #000000">, </span><span style="color: #098658">1.4</span><span style="color: #000000">, </span><span style="color: #098658">0.2</span><span style="color: #000000">, ],</span>
+<span style="color: #000000">    [</span><span style="color: #098658">6.3</span><span style="color: #000000">, </span><span style="color: #098658">3.3</span><span style="color: #000000">, </span><span style="color: #098658">6.0</span><span style="color: #000000">, </span><span style="color: #098658">2.5</span><span style="color: #000000">, ],</span>
+<span style="color: #000000">    [</span><span style="color: #098658">5.6</span><span style="color: #000000">, </span><span style="color: #098658">3.0</span><span style="color: #000000">, </span><span style="color: #098658">4.5</span><span style="color: #000000">, </span><span style="color: #098658">1.5</span><span style="color: #000000">, ],</span>
+<span style="color: #000000">    [</span><span style="color: #098658">5.0</span><span style="color: #000000">, </span><span style="color: #098658">3.2</span><span style="color: #000000">, </span><span style="color: #098658">1.2</span><span style="color: #000000">, </span><span style="color: #098658">0.2</span><span style="color: #000000">, ],</span>
+<span style="color: #000000">    [</span><span style="color: #098658">4.5</span><span style="color: #000000">, </span><span style="color: #098658">2.3</span><span style="color: #000000">, </span><span style="color: #098658">1.3</span><span style="color: #000000">, </span><span style="color: #098658">0.3</span><span style="color: #000000">, ],</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">predictions</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">nnClassification</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">(</span><span style="color: #001080">input_x</span><span style="color: #000000">); </span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">answers</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">nnClassification</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">(</span><span style="color: #001080">input_x</span><span style="color: #000000">, { </span><span style="color: #001080">probability:</span><span style="color: #0000FF">false</span><span style="color: #000000">, });</span>
+<span style="color: #000000">  </span><span style="color: #008000">/*</span>
+<span style="color: #008000">    predictions = [</span>
+<span style="color: #008000">      [ 0.989512026309967, 0.010471616871654987, 0.00001649192017794121, ],</span>
+<span style="color: #008000">      [ 0.0000016141033256644732, 0.054614484310150146, 0.9453839063644409, ],</span>
+<span style="color: #008000">      [ 0.001930746017023921, 0.6456733345985413, 0.3523959517478943, ],</span>
+<span style="color: #008000">      [ 0.9875779747962952, 0.01239941269159317, 0.00002274810685776174, ],</span>
+<span style="color: #008000">      [ 0.9545140862464905, 0.04520365223288536, 0.0002823179238475859, ],</span>
+<span style="color: #008000">    ];</span>
+<span style="color: #008000">    answers = [</span>
+<span style="color: #008000">      [ 1, 0, 0, ], //setosa</span>
+<span style="color: #008000">      [ 0, 0, 1, ], //virginica</span>
+<span style="color: #008000">      [ 0, 1, 0, ], //versicolor</span>
+<span style="color: #008000">      [ 1, 0, 0, ], //setosa</span>
+<span style="color: #008000">      [ 1, 0, 0, ], //setosa</span>
+<span style="color: #008000">    ];</span>
+<span style="color: #008000">   */</span>
+<span style="color: #000000">}</span>
+<span style="color: #795E26">main</span><span style="color: #000000">();</span>
+</code></pre>
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">LogisticRegression</span><span style="color: #000000">, } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@modelx/model&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;modelscript&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-keyword">const</span> independentVariables = [
-    <span class="hljs-string">'Age'</span>,
-    <span class="hljs-string">'EstimatedSalary'</span>,
-  ];
-  <span class="hljs-keyword">const</span> dependentVariables = [
-    <span class="hljs-string">'Purchased'</span>,
-  ];
-  <span class="hljs-keyword">const</span> housingdataCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/social_network_ads.csv'</span>);
-  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(housingdataCSV).fitColumns({ <span class="hljs-attr">columns</span>: {<span class="hljs-attr">Age</span>:[<span class="hljs-string">'scale'</span>,<span class="hljs-string">'standard'</span>],
-  <span class="hljs-attr">EstimatedSalary</span>:[<span class="hljs-string">'scale'</span>,<span class="hljs-string">'standard'</span>],}, });
-  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
-  <span class="hljs-keyword">const</span> y_matrix = DataSet.columnMatrix(dependentVariables);
-  <span class="hljs-keyword">const</span> LR = <span class="hljs-keyword">new</span> LogisticRegression();
-  <span class="hljs-keyword">await</span> LR.train(x_matrix, y_matrix);
-  <span class="hljs-keyword">const</span> input_x = [
-    [<span class="hljs-number">-0.062482849427819266</span>, <span class="hljs-number">0.30083326827486173</span>,], <span class="hljs-comment">//0</span>
-    [<span class="hljs-number">0.7960601198093905</span>, <span class="hljs-number">-1.1069168538010206</span>,], <span class="hljs-comment">//1</span>
-    [<span class="hljs-number">0.7960601198093905</span>, <span class="hljs-number">0.12486450301537644</span>,], <span class="hljs-comment">//0</span>
-    [<span class="hljs-number">0.4144854668150751</span>, <span class="hljs-number">-0.49102617539282206</span>,], <span class="hljs-comment">//0</span>
-    [<span class="hljs-number">0.3190918035664962</span>, <span class="hljs-number">0.5061301610775946</span>,], <span class="hljs-comment">//1</span>
-  ];
-  <span class="hljs-keyword">const</span> predictions = <span class="hljs-keyword">await</span> LR.predict(input_x); <span class="hljs-comment">// =&gt; [ [ 0 ], [ 0 ], [ 1 ], [ 0 ], [ 1 ] ];</span>
-}
-main();</code></pre>
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(){</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">independentVariables</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;Age&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;EstimatedSalary&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dependentVariables</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;Purchased&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">housingdataCSV</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #001080">csv</span><span style="color: #000000">.</span><span style="color: #795E26">loadCSV</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./test/mock/data/social_network_ads.csv&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">DataSet</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #795E26">DataSet</span><span style="color: #000000">(</span><span style="color: #001080">housingdataCSV</span><span style="color: #000000">).</span><span style="color: #795E26">fitColumns</span><span style="color: #000000">({ </span><span style="color: #001080">columns:</span><span style="color: #000000"> {</span><span style="color: #001080">Age:</span><span style="color: #000000">[</span><span style="color: #A31515">&#039;scale&#039;</span><span style="color: #000000">,</span><span style="color: #A31515">&#039;standard&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #001080">EstimatedSalary:</span><span style="color: #000000">[</span><span style="color: #A31515">&#039;scale&#039;</span><span style="color: #000000">,</span><span style="color: #A31515">&#039;standard&#039;</span><span style="color: #000000">],}, });</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">x_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">independentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">y_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">dependentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">LR</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">LogisticRegression</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">LR</span><span style="color: #000000">.</span><span style="color: #795E26">train</span><span style="color: #000000">(</span><span style="color: #001080">x_matrix</span><span style="color: #000000">, </span><span style="color: #001080">y_matrix</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">input_x</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    [-</span><span style="color: #098658">0.062482849427819266</span><span style="color: #000000">, </span><span style="color: #098658">0.30083326827486173</span><span style="color: #000000">,], </span><span style="color: #008000">//0</span>
+<span style="color: #000000">    [</span><span style="color: #098658">0.7960601198093905</span><span style="color: #000000">, -</span><span style="color: #098658">1.1069168538010206</span><span style="color: #000000">,], </span><span style="color: #008000">//1</span>
+<span style="color: #000000">    [</span><span style="color: #098658">0.7960601198093905</span><span style="color: #000000">, </span><span style="color: #098658">0.12486450301537644</span><span style="color: #000000">,], </span><span style="color: #008000">//0</span>
+<span style="color: #000000">    [</span><span style="color: #098658">0.4144854668150751</span><span style="color: #000000">, -</span><span style="color: #098658">0.49102617539282206</span><span style="color: #000000">,], </span><span style="color: #008000">//0</span>
+<span style="color: #000000">    [</span><span style="color: #098658">0.3190918035664962</span><span style="color: #000000">, </span><span style="color: #098658">0.5061301610775946</span><span style="color: #000000">,], </span><span style="color: #008000">//1</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">predictions</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">LR</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">(</span><span style="color: #001080">input_x</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; [ [ 0 ], [ 0 ], [ 1 ], [ 0 ], [ 1 ] ];</span>
+<span style="color: #000000">}</span>
+<span style="color: #795E26">main</span><span style="color: #000000">();</span>
+</code></pre>
 				<a href="#time-series-example" id="time-series-example" style="color: inherit; text-decoration: none;">
 					<h3>Time Series Example</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { LSTMTimeSeries, } <span class="hljs-keyword">from</span> <span class="hljs-string">'@modelx/model'</span>;
-<span class="hljs-keyword">import</span> ms <span class="hljs-keyword">from</span> <span class="hljs-string">'modelscript'</span>;
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">LSTMTimeSeries</span><span style="color: #000000">, } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@modelx/model&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;modelscript&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-keyword">const</span> dependentVariables = [
-    <span class="hljs-string">'Passengers'</span>,
-  ];
-  <span class="hljs-keyword">const</span> airlineCSV = <span class="hljs-keyword">await</span> ms.csv.loadCSV(<span class="hljs-string">'./test/mock/data/airline-sales.csv'</span>);
-  <span class="hljs-keyword">const</span> DataSet = <span class="hljs-keyword">new</span> ms.DataSet(airlineCSV);
-  <span class="hljs-keyword">const</span> x_matrix = DataSet.columnMatrix(independentVariables);
-  <span class="hljs-keyword">const</span> TS = <span class="hljs-keyword">new</span> LSTMTimeSeries();
-  <span class="hljs-keyword">await</span> TS.train(x_matrix);
-  <span class="hljs-keyword">const</span> forecastData = TS.getTimeseriesDataSet([ [<span class="hljs-number">100</span> ], [<span class="hljs-number">200</span>], [<span class="hljs-number">300</span>], ])
-  <span class="hljs-keyword">await</span> TS.predict(forecastData.x_matrix); <span class="hljs-comment">//=&gt;[200,300,400]</span>
-}
-main();</code></pre>
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(){</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dependentVariables</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;Passengers&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">airlineCSV</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #001080">csv</span><span style="color: #000000">.</span><span style="color: #795E26">loadCSV</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./test/mock/data/airline-sales.csv&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">DataSet</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ms</span><span style="color: #000000">.</span><span style="color: #795E26">DataSet</span><span style="color: #000000">(</span><span style="color: #001080">airlineCSV</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">x_matrix</span><span style="color: #000000"> = </span><span style="color: #001080">DataSet</span><span style="color: #000000">.</span><span style="color: #795E26">columnMatrix</span><span style="color: #000000">(</span><span style="color: #001080">independentVariables</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">TS</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">LSTMTimeSeries</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">TS</span><span style="color: #000000">.</span><span style="color: #795E26">train</span><span style="color: #000000">(</span><span style="color: #001080">x_matrix</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">forecastData</span><span style="color: #000000"> = </span><span style="color: #0070C1">TS</span><span style="color: #000000">.</span><span style="color: #795E26">getTimeseriesDataSet</span><span style="color: #000000">([ [</span><span style="color: #098658">100</span><span style="color: #000000"> ], [</span><span style="color: #098658">200</span><span style="color: #000000">], [</span><span style="color: #098658">300</span><span style="color: #000000">], ])</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #0070C1">TS</span><span style="color: #000000">.</span><span style="color: #795E26">predict</span><span style="color: #000000">(</span><span style="color: #001080">forecastData</span><span style="color: #000000">.</span><span style="color: #001080">x_matrix</span><span style="color: #000000">); </span><span style="color: #008000">//=&gt;[200,300,400]</span>
+<span style="color: #000000">}</span>
+<span style="color: #795E26">main</span><span style="color: #000000">();</span>
+</code></pre>
 				<a href="#special-thanks" id="special-thanks" style="color: inherit; text-decoration: none;">
 					<h3>Special Thanks</h3>
 				</a>
@@ -259,49 +259,43 @@ main();</code></pre>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_base_neural_network_.html">&quot;base_<wbr>neural_<wbr>network&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_classification_.html">&quot;classification&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_feature_embedding_.html">&quot;feature_<wbr>embedding&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_index_.html">&quot;index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_logistic_regression_.html">&quot;logistic_<wbr>regression&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_lstm_multivariate_time_series_.html">&quot;lstm_<wbr>multivariate_<wbr>time_<wbr>series&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_lstm_time_series_.html">&quot;lstm_<wbr>time_<wbr>series&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_model_interface_.html">&quot;model_<wbr>interface&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_multiple_linear_regression_.html">&quot;multiple_<wbr>linear_<wbr>regression&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_regression_.html">&quot;regression&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_test_mock_data_stopwords_.html">&quot;test/mock/data/stopwords&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_text_embedding_.html">&quot;text_<wbr>embedding&quot;</a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/baseneuralnetwork.html" class="tsd-kind-icon">Base<wbr>Neural<wbr>Network</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/deeplearningclassification.html" class="tsd-kind-icon">Deep<wbr>Learning<wbr>Classification</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/deeplearningregression.html" class="tsd-kind-icon">Deep<wbr>Learning<wbr>Regression</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/featureembedding.html" class="tsd-kind-icon">Feature<wbr>Embedding</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/lstmmultivariatetimeseries.html" class="tsd-kind-icon">LSTMMultivariate<wbr>Time<wbr>Series</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/lstmtimeseries.html" class="tsd-kind-icon">LSTMTime<wbr>Series</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/logisticregression.html" class="tsd-kind-icon">Logistic<wbr>Regression</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/multiplelinearregression.html" class="tsd-kind-icon">Multiple<wbr>Linear<wbr>Regression</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/tensorscriptmodelinterface.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Interface</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/textembedding.html" class="tsd-kind-icon">Text<wbr>Embedding</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -312,25 +306,21 @@ main();</code></pre>
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
