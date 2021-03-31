@@ -51,13 +51,20 @@
     "tsne-js": "1.0.3"
   },
   "devDependencies": {
-    "@modelx/data": "1.0.7",
+    "@commitlint/cli": "12.0.1",
+    "@commitlint/config-conventional": "12.0.1",
+    "@modelx/data": "1.1.0",
     "@rollup/plugin-alias": "3.1.0",
     "@rollup/plugin-commonjs": "12.0.0",
     "@rollup/plugin-json": "4.0.3",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@rollup/plugin-replace": "2.3.2",
     "@rollup/plugin-sucrase": "3.0.2",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/npm": "7.0.10",
+    "@semantic-release/release-notes-generator": "9.0.2",
     "@tensorflow/tfjs-backend-wasm": "1.7.4",
     "@types/enzyme": "3.10.5",
     "@types/enzyme-adapter-react-16": "1.0.6",
@@ -93,5 +100,61 @@
         }
       }
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "Release: ${nextRelease.version}\n\n${nextRelease.notes}"
+      }
+    ],
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "scope": "README",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/changelog"
+    ]
   }
 }
