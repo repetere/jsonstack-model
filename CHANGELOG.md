@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/repetere/jsonm-model/compare/v1.1.0...v1.1.1) (2021-04-17)
+
+
+### Bug Fixes
+
+* dependencies update ([95c396d](https://github.com/repetere/jsonm-model/commit/95c396d539a2ae4735f8a57278d549541132410e))
+* renaming modelscript to jsonstack data ([8a67095](https://github.com/repetere/jsonm-model/commit/8a67095aaadfa94d1c1c209d6180b8af22fa5bf9))
+
 # [1.1.0](https://github.com/repetere/modelx-model/compare/v1.0.2...v1.1.0) (2021-03-31)
 
 
