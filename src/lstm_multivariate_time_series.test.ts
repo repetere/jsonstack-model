@@ -1,5 +1,5 @@
 import path from 'path';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { LSTMMultivariateTimeSeries, } from './index';
 
 const independentVariables = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8',];

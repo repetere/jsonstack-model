@@ -2,7 +2,7 @@ import util from 'util';
 import path from 'path';
 import os from 'os';
 import fs from 'fs-extra';
-// import * as ms from '@modelx/data';
+// import * as ms from '@jsonstack/data';
 // import * as jskp from 'jskit-plot';
 
 import { FeatureEmbedding, } from './index';

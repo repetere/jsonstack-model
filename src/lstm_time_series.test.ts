@@ -1,5 +1,5 @@
 import path from 'path';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { LSTMTimeSeries, } from './index';
 const independentVariables = [
   'Passengers',

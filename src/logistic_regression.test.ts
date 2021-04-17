@@ -1,5 +1,5 @@
 import path from 'path';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { LogisticRegression, } from './index';
 import '@tensorflow/tfjs-node';
 // import '@tensorflow/tfjs-node-gpu';

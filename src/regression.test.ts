@@ -1,5 +1,5 @@
 import path from 'path';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { DeepLearningRegression, } from './index';
 import * as tf from '@tensorflow/tfjs-node';
 import '@tensorflow/tfjs-node';

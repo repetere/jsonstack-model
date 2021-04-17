@@ -1,5 +1,5 @@
 import path from 'path';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { BaseNeuralNetwork, } from './index';
 const independentVariables = [
   'CRIM',

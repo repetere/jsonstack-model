@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import { asyncForEach, LambdaLayer, } from './model_interface';
 import * as tf from '@tensorflow/tfjs-node';
-import * as ms from '@modelx/data';
+import * as ms from '@jsonstack/data';
 import { TensorScriptModelInterface, MultipleLinearRegression, } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });

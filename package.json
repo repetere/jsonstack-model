@@ -1,6 +1,6 @@
 {
-  "name": "@modelx/model",
-  "version": "1.1.0",
+  "name": "@jsonstack/model",
+  "version": "0.0.1",
   "description": "Deep Learning Classification, LSTM Time Series, Regression and Multi-Layered Perceptrons with Tensorflow",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,7 +10,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/repetere/modelx-model.git"
+    "url": "git+https://github.com/repetere/jsonm-model.git"
   },
   "keywords": [
     "regression",
@@ -29,9 +29,9 @@
     "email": "yaw.etse@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/repetere/modelx-model/issues"
+    "url": "https://github.com/repetere/jsonm-model/issues"
   },
-  "homepage": "https://github.com/repetere/modelx-model#readme",
+  "homepage": "https://github.com/repetere/jsonm-model#readme",
   "scripts": {
     "dev": "tsc -c -w",
     "benchmark": "node -r esm  benchmark/main_bmrk.js",
@@ -54,7 +54,7 @@
   "devDependencies": {
     "@commitlint/cli": "12.1.1",
     "@commitlint/config-conventional": "12.1.1",
-    "@modelx/data": "1.1.2",
+    "@jsonstack/data": "0.0.1",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-json": "^4.1.0",
