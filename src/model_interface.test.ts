@@ -11,7 +11,7 @@ expect.extend({ toBeWithinRange });
 describe('asyncForEach', () => {
   it('should interate asynchrnously', async () => {
     const arr = [4, 3, 2, 1];
-    const mockCallback = jest.fn(x =>Promise.resolve( x * x));
+    const mockCallback = jest.fn(x =>( x * x));
     await asyncForEach(arr, mockCallback);
     
     // The mock function is called twice
