@@ -30,6 +30,7 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: |
+          sudo apt-get install --only-upgrade libstdc++6
           npm i jest typescript rollup typedoc sitedown -g
           npm i @tensorflow/tfjs @tensorflow/tfjs-node
           npm ci
