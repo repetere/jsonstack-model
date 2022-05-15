@@ -16,12 +16,12 @@ export type FeatureToId = { [index: string]: number };
  * @implements {BaseNeuralNetwork}
  */
 export class FeatureEmbedding extends BaseNeuralNetwork {
-  layers?: TensorScriptLayers;
+  declare layers?: TensorScriptLayers;
   featureToId?: FeatureToId;
   idToFeature?: IdToFeature;
   featureIds?: Matrix;
   numberOfFeatures?: number;
-  loss?: number;
+  declare loss?: number;
   importedEmbeddings?: boolean;
   // settings: TensorScriptOptions;
   static async getFeatureDataSet(this: any, { inputMatrixFeatures, PAD = 'PAD', initialIdToFeature, initialFeatureToId, }: {

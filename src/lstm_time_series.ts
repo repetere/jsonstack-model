@@ -13,7 +13,7 @@ export type TimeSeriesShapeContext = {
  * @implements {BaseNeuralNetwork}
  */
 export class LSTMTimeSeries extends BaseNeuralNetwork {
-  layers?: TensorScriptSavedLayers;
+  declare layers?: TensorScriptSavedLayers;
   // settings: TensorScriptOptions;
 
   /**
