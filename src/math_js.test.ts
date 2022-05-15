@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { TensorScriptModelInterface, size, flatten, } from './model_interface';
 import assert from 'assert';
 const array = {

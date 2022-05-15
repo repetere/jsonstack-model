@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { LSTMMultivariateTimeSeries, } from './index';
@@ -260,7 +261,9 @@ describe('LSTMMultivariateTimeSeries', function () {
         [12, 22,],
         [13, 23,],
       ];
+      //@ts-expect-error
       const series = LSTMMultivariateTimeSeries.seriesToSupervised(originalData, n_in, n_out);
+      //@ts-expect-error
       const series1 = LSTMMultivariateTimeSeries.seriesToSupervised(s1, 3, n_out);
       expect(series).toEqual(data);
       expect(series1[ 0 ]).toHaveLength(8);

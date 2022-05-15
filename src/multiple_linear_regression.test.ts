@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { MultipleLinearRegression, } from './index';
@@ -84,9 +85,11 @@ describe('MultipleLinearRegression', function () {
           batchSize: 5,
         },
       });
+      //@ts-expect-error
       const MLRConfigured = new MultipleLinearRegression({ test: 'prop', }, {});
       expect(typeof MultipleLinearRegression).toBe('function');
       expect(MLR).toBeInstanceOf(MultipleLinearRegression);
+      //@ts-expect-error
       expect(MLRConfigured.settings.test).toEqual('prop');
     });
   });
@@ -103,7 +106,9 @@ describe('MultipleLinearRegression', function () {
       expect(predictions).toHaveLength(input_x.length);
       expect(trainedMLR.layers).toHaveLength(1);
       const descaledPredictions = predictions.map(DataSet.scalers.get('price').descale);
+      //@ts-expect-error
       expect(descaledPredictions[ 0 ]).toBeWithinRange(610000, 650000);
+      //@ts-expect-error
       expect(descaledPredictions[ 1 ]).toBeWithinRange(180000, 200000);
       return true;
     });

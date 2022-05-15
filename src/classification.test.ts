@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { DeepLearningClassification, } from './index';
@@ -124,6 +125,7 @@ describe('DeepLearningClassification', function () {
       const NNConfigured = new DeepLearningClassification({ test: 'prop', });
       expect(typeof DeepLearningClassification).toBe('function');
       expect(NN).toBeInstanceOf(DeepLearningClassification);
+      //@ts-expect-error
       expect(NNConfigured.settings.test).toBe('prop');
     });
   });

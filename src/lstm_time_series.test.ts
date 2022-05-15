@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { LSTMTimeSeries, } from './index';

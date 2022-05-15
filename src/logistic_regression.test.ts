@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { LogisticRegression, } from './index';
@@ -114,9 +115,11 @@ describe('LogisticRegression', function () {
   describe('constructor', () => {
     it('should export a named module class', () => {
       const NN = new LogisticRegression();
+      //@ts-expect-error
       const NNConfigured = new LogisticRegression({ test: 'prop', });
       expect(typeof LogisticRegression).toBe('function');
       expect(NN).toBeInstanceOf(LogisticRegression);
+      //@ts-expect-error
       expect(NNConfigured.settings.test).toEqual('prop');
     });
   });

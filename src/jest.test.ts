@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FeatureEmbedding, } from './index';
 import * as tf from '@tensorflow/tfjs';
 
@@ -24,10 +25,14 @@ expect.extend({
 
 describe('toBeWithinRage', () => {
   it('numeric ranges', () => {
+    //@ts-expect-error
     expect(100).toBeWithinRange(90, 110);
+    //@ts-expect-error
     expect(101).not.toBeWithinRange(0, 100);
     expect({ apples: 6, bananas: 3 }).toEqual({
+      //@ts-expect-error
       apples: expect.toBeWithinRange(1, 10),
+      //@ts-expect-error
       bananas: expect.not.toBeWithinRange(11, 20),
     });
   });

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import fs from 'fs-extra';
 import { asyncForEach, LambdaLayer, } from './model_interface';
@@ -10,7 +11,7 @@ expect.extend({ toBeWithinRange });
 describe('asyncForEach', () => {
   it('should interate asynchrnously', async () => {
     const arr = [4, 3, 2, 1];
-    const mockCallback = jest.fn(x => x * x);
+    const mockCallback = jest.fn(x =>Promise.resolve( x * x));
     await asyncForEach(arr, mockCallback);
     
     // The mock function is called twice
@@ -85,7 +86,9 @@ describe('LambdaLayer', () => {
         // lambdaOutputShape: [2,2],
         name: 'mean layer',
       });
+      //@ts-ignore
       expect(LL.computeOutputShape([2])).toMatchObject([2, 2]);
+      //@ts-ignore
       expect(LL2.computeOutputShape([3, 2])).toBe(3);
     });
   });
@@ -97,8 +100,10 @@ describe('LambdaLayer', () => {
         name: 'mean layer',
       });
       const output = LL.call(tf.tensor([3, 5, 7]));
+      //@ts-expect-error
       const outputVal = output.asScalar().dataSync()[0];
       expect(output).toBeInstanceOf(tf.Tensor);
+      //@ts-expect-error
       expect(output.dtype).toBe('float32');
       expect(outputVal).toBe(5);
       // console.log({ output, outputVal });
@@ -157,9 +162,12 @@ describe('TensorScriptModelInterface', function () {
       // console.log(tf.getBackend());
 
       const TSM = new TensorScriptModelInterface({},{tf});
-      const TSMConfigured = new TensorScriptModelInterface({ test: 'prop', });
+      const TSMConfigured = new 
+      //@ts-expect-error
+      TensorScriptModelInterface({ test: 'prop', });
       expect(typeof TensorScriptModelInterface).toBe('function');
       expect(TSM).toBeInstanceOf(TensorScriptModelInterface);
+      //@ts-expect-error
       expect(TSMConfigured.settings.test).toBe('prop');
     });
   });
@@ -237,6 +245,7 @@ describe('TensorScriptModelInterface', function () {
       expect(TensorScriptModelInterface.getInputShape(matrix5)).toMatchObject([6, 3, 1,]);
     });
     it('should throw an error if input is not a matrix', () => {
+      //@ts-expect-error
       expect(TensorScriptModelInterface.getInputShape.bind()).toThrowError(/must be a matrix/);
     });
   });
@@ -244,6 +253,7 @@ describe('TensorScriptModelInterface', function () {
   describe('train', () => {
     it('should throw an error if train method is not implemented', () => {
       class MLR extends TensorScriptModelInterface{
+      //@ts-expect-error
         train(x, y) {
           return true;
         }
@@ -260,6 +270,7 @@ describe('TensorScriptModelInterface', function () {
   describe('calculate', () => {
     it('should throw an error if calculate method is not implemented', () => {
       class MLR extends TensorScriptModelInterface{
+        //@ts-expect-error
         calculate(x, y) {
           return true;
         }
@@ -275,6 +286,7 @@ describe('TensorScriptModelInterface', function () {
   /** @test {TensorScriptModelInterface#predict} */
   describe('predict', () => {
     class MLR extends TensorScriptModelInterface{
+      //@ts-expect-error
       calculate(x) {
         this.yShape = [100, 2, ];
         return {
@@ -331,6 +343,7 @@ describe('TensorScriptModelInterface', function () {
           })),
         },
       });
+      //@ts-expect-error
       const loadedModel = await TSM.loadModel();
       expect(typeof loadedModel).toBe('object');
     });
@@ -355,7 +368,9 @@ describe('TensorScriptModelInterface', function () {
         const datum = Object.assign({}, input, val);
         return DataSet.inverseTransformObject(datum);
       });
+      //@ts-expect-error
       expect(Math.round(descaledPredictions[0].price)).toBeWithinRange(610000, 650000);
+      //@ts-expect-error
       expect(Math.round(descaledPredictions[1].price)).toBeWithinRange(180000, 200000);
     },120000);
   });
@@ -366,6 +381,7 @@ describe('TensorScriptModelInterface', function () {
           save: () => new Promise((resolve) => resolve(true)),
         },
       });
+      //@ts-expect-error
       const savedModel = await TSM.saveModel();
       expect(savedModel).toBe(true);
     });

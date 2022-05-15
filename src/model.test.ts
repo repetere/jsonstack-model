@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FeatureEmbedding, } from './index';
 
 describe('static feature_embedding modules', () => {

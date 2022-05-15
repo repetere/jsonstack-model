@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { TextEmbedding, } from './index';
 
 let housingDataCSV;
@@ -19,9 +20,11 @@ describe('TextEmbedding', function () {
   describe('constructor', () => {
     it('should export a named module class', () => {
       const TE = new TextEmbedding();
+      //@ts-expect-error
       const TEConfigured = new TextEmbedding({ test: 'prop', });
       expect(typeof TextEmbedding).toBe('function');
       expect(TE).toBeInstanceOf(TextEmbedding);
+      //@ts-expect-error
       expect(TEConfigured.settings.test).toEqual('prop');
     });
   });
@@ -40,6 +43,7 @@ describe('TextEmbedding', function () {
     it('should throw an error if input is invalid', () => {
       const NN = new TextEmbedding();
       expect(typeof NN.calculate).toBe('function');
+      //@ts-expect-error
       expect(NN.calculate.bind()).toThrowError(/invalid input array of sentences/);
       expect(NN.calculate.bind(null, 'invalid')).toThrowError(/invalid input array of sentences/);
     },10000);
@@ -70,6 +74,7 @@ describe('TextEmbedding', function () {
       // console.log('tokens',tokens)
       expect(Array.isArray(predictions)).toBe(true)
       expect(predictions.length).toBe(sentences.length)
+      //@ts-expect-error
       expect(predictions[0].length).toBe(512);
     }, 10000);
   });

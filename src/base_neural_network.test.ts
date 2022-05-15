@@ -1,3 +1,4 @@
+//@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import { BaseNeuralNetwork, } from './index';
@@ -50,9 +51,11 @@ describe('BaseNeuralNetwork', function () {
   describe('constructor', () => {
     it('should export a named module class', () => {
       const MLR = new BaseNeuralNetwork();
+      //@ts-ignore
       const MLRConfigured = new BaseNeuralNetwork({ test: 'prop', });
       expect(typeof BaseNeuralNetwork).toBe('function');
       expect(MLR).toBeInstanceOf(BaseNeuralNetwork);
+      //@ts-ignore
       expect(MLRConfigured.settings.test).toEqual('prop');
     });
   });
@@ -113,6 +116,7 @@ describe('BaseNeuralNetwork', function () {
     it('should throw an error if input is invalid', () => {
       const NN = new BaseNeuralNetwork();
       expect(typeof NN.calculate).toBe('function');
+      //@ts-ignore
       expect(NN.calculate.bind()).toThrowError(/invalid input matrix/);
       expect(NN.calculate.bind(null, 'invalid')).toThrowError(/invalid input matrix/);
     });

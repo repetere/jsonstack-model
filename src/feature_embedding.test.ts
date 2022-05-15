@@ -1,3 +1,4 @@
+//@ts-nocheck
 import util from 'util';
 import path from 'path';
 import os from 'os';
@@ -187,6 +188,7 @@ describe('FeatureEmbedding', function () {
       const FEConfigured = new FeatureEmbedding({ test: 'prop', });
       expect(typeof FeatureEmbedding).toBe('function');
       expect(FE).toBeInstanceOf(FeatureEmbedding);
+      //@ts-expect-error
       expect(FEConfigured.settings.test).toBe('prop');
     });
   });
@@ -205,6 +207,7 @@ describe('FeatureEmbedding', function () {
       });
       // console.log({furniture})
       // await FE.train(furniture);
+      //@ts-expect-error
       await FE.train(products);
       const weights = await FE.predict();
       const firstFeature = Object.keys(FE.featureToId)[0];
@@ -413,6 +416,7 @@ describe('FeatureEmbedding', function () {
     }, 120000);
     it('should generate a network from layers', async () => {
       const FECustom = new FeatureEmbedding({ layerPreference: 'custom', });
+      //@ts-expect-error
       await FECustom.train(norm_bible_matrix, FEModel.layers);
       // console.log('FECustom.layers',FECustom.layers)
       expect(FECustom.layers).toHaveLength(3);
