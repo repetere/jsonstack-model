@@ -1,12 +1,7 @@
-// import * as tensorflow from '@tensorflow/tfjs';
-// import '@tensorflow/tfjs-node';
-// import * as tensorflow from '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
-import { Tensor, Rank, Shape as TFShape } from '@tensorflow/tfjs-node';
-// console.log({tensorflow})
-/* fix for rollup */
-/* istanbul ignore next */
-// const tf = (tensorflow && tensorflow.default) ? tensorflow.default : tensorflow;
+import { Tensor, Rank } from '@tensorflow/tfjs-core';
+import { Shape as TFShape } from '@tensorflow/tfjs-layers';
+import { getBackend } from './tensorflow_singleton'
 
 export interface TensorScriptContext { 
   type?: string;
@@ -235,7 +230,7 @@ export class TensorScriptModelInterface  {
    * @param {{model:Object,tf:Object,}} properties - extra instance properties
    */
   constructor(options:TensorScriptOptions = {}, properties:TensorScriptProperties = {}) {
-    // tf.setBackend('cpu');
+    let tf = getBackend();
     this.type = 'ModelInterface';
     /** @type {Object} */
     this.settings = Object.assign({  }, options);
