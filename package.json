@@ -138,7 +138,7 @@
             },
             {
               "type": "refactor",
-              "release": "patch"
+              "release": "major"
             },
             {
               "type": "style",
@@ -147,6 +147,7 @@
           ],
           "parserOpts": {
             "noteKeywords": [
+              "breaking",
               "BREAKING CHANGE",
               "BREAKING CHANGES"
             ]

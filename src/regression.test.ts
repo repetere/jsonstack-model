@@ -41,7 +41,6 @@ let nnRegressionWideModel;
 const fit = {
   epochs: 10,
   batchSize: 5,
-  // verbose:0,
   callbacks: {
     // onTrainBegin: function(logs){
     //   console.log('onTrainBegin', { logs });
