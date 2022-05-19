@@ -1,3 +1,11 @@
+# [2.0.0](https://github.com/repetere/jsonm-model/compare/v1.1.2...v2.0.0) (2022-05-19)
+
+
+### Features
+
+* **#256:** added tensorflow singleton ([73db171](https://github.com/repetere/jsonm-model/commit/73db171235a9db3c487d742a32560248bb99814f)), closes [#256](https://github.com/repetere/jsonm-model/issues/256)
+* **#256:** removes tensorflow as a dependency. closes [#256](https://github.com/repetere/jsonm-model/issues/256) ([6be369d](https://github.com/repetere/jsonm-model/commit/6be369d51d8453031ebd8734c1ae137ef311b09f))
+
 ## [1.1.2](https://github.com/repetere/jsonm-model/compare/v1.1.1...v1.1.2) (2022-05-15)
 
 
