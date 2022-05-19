@@ -1,8 +1,10 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { DeepLearningClassification, } from './index';
-import '@tensorflow/tfjs-node';
+import { DeepLearningClassification, setBackend, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+setBackend(tf);
+
 const independentVariables = [
   'sepal_length_cm',
   'sepal_width_cm',

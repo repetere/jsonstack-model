@@ -1,9 +1,12 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { MultipleLinearRegression, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+import { MultipleLinearRegression, setBackend } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });
+setBackend(tf);
+
 const independentVariables = ['sqft', 'bedrooms', ];
 const dependentVariables = ['price',];
 let housingDataCSV;

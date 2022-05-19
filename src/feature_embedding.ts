@@ -1,8 +1,8 @@
 import { TensorScriptOptions, TensorScriptProperties, Matrix, Vector, TensorScriptLayers, NestedArray, InputTextArray, PredictionOptions, Shape, TensorScriptLSTMModelContext, LambdaLayer, DenseLayer, asyncForEach, Features, Corpus} from './model_interface';
-import * as Tensorflow from '@tensorflow/tfjs-node';
 import { BaseNeuralNetwork, } from './base_neural_network';
 import range from 'lodash.range';
 import TSNE from 'tsne-js';
+import { getBackend } from './tensorflow_singleton'
 //https://towardsdatascience.com/understanding-feature-engineering-part-4-deep-learning-methods-for-text-data-96c44370bbfa
 
 export type LabeledWeight = {
@@ -78,7 +78,7 @@ export class FeatureEmbedding extends BaseNeuralNetwork {
   /**
    */
   static async getContextPairs(this:any, { inputMatrix, numberOfFeatures, window_size = 2, tf, }: { inputMatrix: Matrix; numberOfFeatures: number; window_size?: number; tf?: any;}) {
-    const tensorflow = this && this.tf ? this.tf : Tensorflow;
+    const tensorflow = this && this.tf ? this.tf : getBackend();
     const context_length = (this && this.settings && this.settings.windowSize ? this.settings.windowSize : window_size) * 2;
     const [emptyXVector, emptyYVector] = await Promise.all([
       tensorflow.zeros([context_length]).array(),
@@ -476,7 +476,7 @@ FeatureEmbeddingInstance.findSimilarFeatures(weights,{features:['car'], limit:2,
 }
  */
   async findSimilarFeatures(weights: Matrix, options: SimilarFeatureOptions = {}) {
-    const tf:typeof Tensorflow = this.tf;
+    const tf = this.tf;
     const { features = [], limit=5, labeledWeights, metric='distance' } = options;
     const labeledFeatureWeights = labeledWeights || this.labelWeights(weights);
     if(this.settings && this.settings.PAD) delete labeledFeatureWeights[this.settings.PAD]

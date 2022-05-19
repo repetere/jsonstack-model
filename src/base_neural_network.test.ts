@@ -1,7 +1,8 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { BaseNeuralNetwork, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+import { BaseNeuralNetwork, setBackend } from './index';
 const independentVariables = [
   'CRIM',
   'ZN',
@@ -35,6 +36,9 @@ function scaleColumnMap(columnName) {
     },
   };
 }
+
+setBackend(tf);
+
 /** @test {BaseNeuralNetwork} */
 describe('BaseNeuralNetwork', function () {
   beforeAll(async function () {

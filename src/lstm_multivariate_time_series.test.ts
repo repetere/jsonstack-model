@@ -1,7 +1,9 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { LSTMMultivariateTimeSeries, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+import { LSTMMultivariateTimeSeries, setBackend} from './index';
+setBackend(tf);
 
 const independentVariables = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8',];
 const dependentVariables = ['o1', ];

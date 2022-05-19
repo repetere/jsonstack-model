@@ -1,5 +1,7 @@
 //@ts-nocheck
-import { FeatureEmbedding, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+import { FeatureEmbedding, setBackend } from './index';
+setBackend(tf);
 
 describe('static feature_embedding modules', () => {
   it('should merge two arrays', () => {

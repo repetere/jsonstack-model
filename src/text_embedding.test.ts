@@ -1,8 +1,10 @@
 //@ts-nocheck
-import { TextEmbedding, } from './index';
+import { TextEmbedding, setBackend } from './index';
+import * as tf from '@tensorflow/tfjs-node';
 
 let housingDataCSV;
 let DataSet;
+setBackend(tf);
 
 
 /** @test {TextEmbedding} */

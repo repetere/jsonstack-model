@@ -6,12 +6,14 @@ import fs from 'fs-extra';
 // import * as ms from '@jsonstack/data';
 // import * as jskp from 'jskit-plot';
 
-import { FeatureEmbedding, } from './index';
+import { FeatureEmbedding, setBackend, } from './index';
 import '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
 import { stop_words, norm_bible, norm_bible_matrix, products, furniture } from './test/mock/data/stopwords';
 import Exporting from 'highcharts-export-server';
 import { toBeWithinRange, } from './jest.test';
+setBackend(tf);
+
 expect.extend({ toBeWithinRange });
 
 const FeatureDS:any = {};
