@@ -1,8 +1,10 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { LogisticRegression, } from './index';
-import '@tensorflow/tfjs-node';
+import { LogisticRegression, setBackend, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+setBackend(tf);
+
 // import '@tensorflow/tfjs-node-gpu';
 // import '@tensorflow/tfjs-backend-cpu';
 // import '@tensorflow/tfjs-backend-wasm';

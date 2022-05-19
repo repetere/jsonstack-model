@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import { asyncForEach, LambdaLayer, } from './model_interface';
 import * as tf from '@tensorflow/tfjs-node';
 import * as ms from '@jsonstack/data';
-import { TensorScriptModelInterface, MultipleLinearRegression, } from './index';
+import { TensorScriptModelInterface, MultipleLinearRegression, setBackend, } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });
 
@@ -37,6 +37,7 @@ describe('LambdaLayer', () => {
           registerClass: jest.fn(() => true),
         }
       }
+      setBackend(tf);
       new TensorScriptModelInterface({}, { tf: mockTF });
       expect(mockTF.serialization.registerClass.mock.calls.length).toBe(1);
     });

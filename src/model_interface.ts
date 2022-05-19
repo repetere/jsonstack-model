@@ -1,12 +1,6 @@
-// import * as tensorflow from '@tensorflow/tfjs';
-// import '@tensorflow/tfjs-node';
-// import * as tensorflow from '@tensorflow/tfjs-node';
-import * as tf from '@tensorflow/tfjs-node';
-import { Tensor, Rank, Shape as TFShape } from '@tensorflow/tfjs-node';
-// console.log({tensorflow})
-/* fix for rollup */
-/* istanbul ignore next */
-// const tf = (tensorflow && tensorflow.default) ? tensorflow.default : tensorflow;
+import { Tensor, Rank } from '@tensorflow/tfjs-core';
+import { Shape as TFShape, layers } from '@tensorflow/tfjs-layers';
+import { getBackend } from './tensorflow_singleton'
 
 export interface TensorScriptContext { 
   type?: string;
@@ -152,7 +146,7 @@ export type LambdaLayerOptions = {
  * license: MIT
  * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
  */
-export class LambdaLayer extends tf.layers.Layer {
+export class LambdaLayer extends layers.Layer {
   name: string;
   lambdaFunction: string;
   //@ts-ignore
@@ -168,6 +162,7 @@ export class LambdaLayer extends tf.layers.Layer {
   }
 
   call(input: Tensor<Rank> | Tensor<Rank>[], kwargs?: any): Tensor<Rank> | Tensor<Rank>[] {
+    let tf = getBackend();
     // console.log({ input }, 'input[0].shape', input[0].shape)
     // input[0].data().then(inputData=>console.log)
     // console.log('input[0].data()', input[0].data())
@@ -235,7 +230,7 @@ export class TensorScriptModelInterface  {
    * @param {{model:Object,tf:Object,}} properties - extra instance properties
    */
   constructor(options:TensorScriptOptions = {}, properties:TensorScriptProperties = {}) {
-    // tf.setBackend('cpu');
+    let tf = getBackend();
     this.type = 'ModelInterface';
     /** @type {Object} */
     this.settings = Object.assign({  }, options);
@@ -383,7 +378,7 @@ export class TensorScriptModelInterface  {
    * @param {Array<Array<number>>} y_matrix - dependent variables
    * @return {Object} returns trained tensorflow model 
    */
-  async train(x_matrix: Matrix, y_matrix?: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<tf.LayersModel>
+  async train(x_matrix: Matrix, y_matrix?: Matrix, layers?: TensorScriptLayers, x_test?: Matrix, y_test?: Matrix): Promise<layers.Layer>
   async train(x_matrix:Matrix, y_matrix:Matrix):Promise<Matrix>
   train(x_matrix:Matrix, y_matrix:Matrix):any {
     throw new ReferenceError('train method is not implemented');

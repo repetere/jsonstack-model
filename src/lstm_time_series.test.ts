@@ -1,7 +1,10 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { LSTMTimeSeries, } from './index';
+import * as tf from '@tensorflow/tfjs-node';
+import { LSTMTimeSeries, setBackend} from './index';
+setBackend(tf);
+
 const independentVariables = [
   'Passengers',
 ];

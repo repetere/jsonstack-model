@@ -1,11 +1,12 @@
 //@ts-nocheck
 import path from 'path';
 import * as ms from '@jsonstack/data';
-import { DeepLearningRegression, } from './index';
 import * as tf from '@tensorflow/tfjs-node';
-import '@tensorflow/tfjs-node';
+import { DeepLearningRegression, setBackend, } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });
+setBackend(tf);
+
 // import '@tensorflow/tfjs-backend-wasm';
 // import { setWasmPath } from '@tensorflow/tfjs-backend-wasm';
 // const wasmpath = `${path.join(__dirname, '../node_modules/@tensorflow/tfjs-backend-wasm/dist/tfjs-backend-wasm.wasm')}`;
@@ -40,7 +41,6 @@ let nnRegressionWideModel;
 const fit = {
   epochs: 10,
   batchSize: 5,
-  // verbose:0,
   callbacks: {
     // onTrainBegin: function(logs){
     //   console.log('onTrainBegin', { logs });
