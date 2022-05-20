@@ -1,5 +1,5 @@
 # @jsonstack/Model - Machine Learning and Neural Networks with Tensorflow
-[![Coverage Status](https://coveralls.io/repos/github/repetere/jsonstack-model/badge.svg?branch=master)](https://coveralls.io/github/repetere/jsonstack-model?branch=master) ![Build, Test & Coverage](https://github.com/repetere/jsonstack-model/workflows/Build,%20Test%20&%20Coverage/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/repetere/jsonstack-model/badge.svg?branch=main)](https://coveralls.io/github/repetere/jsonstack-model?branch=main) ![Build, Test & Coverage](https://github.com/repetere/jsonstack-model/workflows/Build,%20Test%20&%20Coverage/badge.svg)
 
 ## Getting started
 Clone the repo and drop your module in the src directory.
@@ -51,8 +51,12 @@ Please read more on tensorflow configuration options, specifying epochs, and usi
 ### Regression Examples
 
 ```javascript
-import { MultipleLinearRegression, DeepLearningRegression, } from '@jsonstack/model';
+import * as tf from '@tensorflow/tfjs-node';
+import { MultipleLinearRegression, DeepLearningRegression, setBackend } from '@jsonstack/model';
 import ms from 'modelscript';
+
+//setup jsonstack model tensorflow
+setBackend(tf);
 
 async function main(){
   const independentVariables = [ 'sqft', 'bedrooms',];
@@ -75,8 +79,12 @@ main();
 ### Classification Examples
 
 ```javascript
-import { DeepLearningClassification, } from '@jsonstack/model';
+import * as tf from '@tensorflow/tfjs';
+import { DeepLearningClassification, setBackend } from '@jsonstack/model';
 import ms from 'modelscript';
+
+//setup jsonstack model tensorflow
+setBackend(tf);
 
 async function main(){
   const independentVariables = [
@@ -126,8 +134,12 @@ main();
 ```
 
 ```javascript
-import { LogisticRegression, } from '@jsonstack/model';
+import * as tf from '@tensorflow/tfjs';
+import { LogisticRegression, setBackend } from '@jsonstack/model';
 import ms from 'modelscript';
+
+//setup jsonstack model tensorflow
+setBackend(tf);
 
 async function main(){
   const independentVariables = [
@@ -159,8 +171,12 @@ main();
 ### Time Series Example
 
 ```javascript
-import { LSTMTimeSeries, } from '@jsonstack/model';
+import * as tf from '@tensorflow/tfjs';
+import { LSTMTimeSeries, setBackend } from '@jsonstack/model';
 import ms from 'modelscript';
+
+//setup jsonstack model tensorflow
+setBackend(tf);
 
 async function main(){
   const dependentVariables = [
