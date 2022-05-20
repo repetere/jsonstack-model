@@ -1,1481 +1,199 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LSTMMultivariateTimeSeries | @modelx/model</title>
-	<meta name="description" content="Documentation for @modelx/model">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../assets/css/main.css">
-	<script async src="../assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="../index.html" class="title">@modelx/model</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="../modules.html">@modelx/model</a>
-				</li>
-				<li>
-					<a href="lstmmultivariatetimeseries.html">LSTMMultivariateTimeSeries</a>
-				</li>
-			</ul>
-			<h1>Class LSTMMultivariateTimeSeries</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Long Short Term Memory Multivariate Time Series with Tensorflow</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<a href="lstmtimeseries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMTimeSeries</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">LSTMMultivariateTimeSeries</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#compiled" class="tsd-kind-icon">compiled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#createdataset" class="tsd-kind-icon">create<wbr>Dataset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="lstmmultivariatetimeseries.html#drop" class="tsd-kind-icon">drop</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="lstmmultivariatetimeseries.html#getdropablecolumns" class="tsd-kind-icon">get<wbr>Dropable<wbr>Columns</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#gettimeseriesdataset" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#layers" class="tsd-kind-icon">layers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#loss" class="tsd-kind-icon">loss</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#reshape" class="tsd-kind-icon">reshape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="lstmmultivariatetimeseries.html#seriestosupervised" class="tsd-kind-icon">series<wbr>ToSupervised</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#settings" class="tsd-kind-icon">settings</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#tf" class="tsd-kind-icon">tf</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#trained" class="tsd-kind-icon">trained</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#calculate" class="tsd-kind-icon">calculate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#predict" class="tsd-kind-icon">predict</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lstmmultivariatetimeseries.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="lstmmultivariatetimeseries.html#train" class="tsd-kind-icon">train</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="lstmmultivariatetimeseries.html#createdataset-1" class="tsd-kind-icon">create<wbr>Dataset</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="lstmmultivariatetimeseries.html#drop-1" class="tsd-kind-icon">drop</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="lstmmultivariatetimeseries.html#getdropablecolumns-1" class="tsd-kind-icon">get<wbr>Dropable<wbr>Columns</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="lstmmultivariatetimeseries.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="lstmmultivariatetimeseries.html#gettimeseriesdataset-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="lstmmultivariatetimeseries.html#gettimeseriesshape-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="lstmmultivariatetimeseries.html#reshape-1" class="tsd-kind-icon">reshape</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="lstmmultivariatetimeseries.html#seriestosupervised-1" class="tsd-kind-icon">series<wbr>ToSupervised</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new LSTMMultivariate<wbr>Time<wbr>Series<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TensorScriptOptions</span>, properties<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TensorScriptProperties</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="lstmmultivariatetimeseries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMMultivariateTimeSeries</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#constructor">constructor</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L277">lstm_multivariate_time_series.ts:277</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>options: <span class="tsd-signature-type">TensorScriptOptions</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>neural network configuration and tensorflow model hyperparameters</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> properties: <span class="tsd-signature-type">TensorScriptProperties</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>extra instance properties</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="lstmmultivariatetimeseries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMMultivariateTimeSeries</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="compiled" class="tsd-anchor"></a>
-					<h3>compiled</h3>
-					<div class="tsd-signature tsd-kind-icon">compiled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#compiled">compiled</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L224">model_interface.ts:224</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="createdataset" class="tsd-anchor"></a>
-					<h3>create<wbr>Dataset</h3>
-					<div class="tsd-signature tsd-kind-icon">create<wbr>Dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#createdataset">createDataset</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L272">lstm_multivariate_time_series.ts:272</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="drop" class="tsd-anchor"></a>
-					<h3>drop</h3>
-					<div class="tsd-signature tsd-kind-icon">drop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L275">lstm_multivariate_time_series.ts:275</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="getdropablecolumns" class="tsd-anchor"></a>
-					<h3>get<wbr>Dropable<wbr>Columns</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Dropable<wbr>Columns<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L274">lstm_multivariate_time_series.ts:274</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="getinputshape" class="tsd-anchor"></a>
-					<h3>get<wbr>Input<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#getinputshape">getInputShape</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L226">model_interface.ts:226</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="gettimeseriesdataset" class="tsd-anchor"></a>
-					<h3>get<wbr>Timeseries<wbr>Data<wbr>Set</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#gettimeseriesdataset">getTimeseriesDataSet</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L277">lstm_multivariate_time_series.ts:277</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="gettimeseriesshape" class="tsd-anchor"></a>
-					<h3>get<wbr>Timeseries<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#gettimeseriesshape">getTimeseriesShape</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L276">lstm_multivariate_time_series.ts:276</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="layers" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> layers</h3>
-					<div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TensorScriptSavedLayers</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#layers">layers</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_time_series.ts#L16">lstm_time_series.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="loss" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> loss</h3>
-					<div class="tsd-signature tsd-kind-icon">loss<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#loss">loss</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L231">model_interface.ts:231</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="model" class="tsd-anchor"></a>
-					<h3>model</h3>
-					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#model">model</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L220">model_interface.ts:220</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="reshape" class="tsd-anchor"></a>
-					<h3>reshape</h3>
-					<div class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#reshape">reshape</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L225">model_interface.ts:225</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="seriestosupervised" class="tsd-anchor"></a>
-					<h3>series<wbr>ToSupervised</h3>
-					<div class="tsd-signature tsd-kind-icon">series<wbr>ToSupervised<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L273">lstm_multivariate_time_series.ts:273</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="settings" class="tsd-anchor"></a>
-					<h3>settings</h3>
-					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TensorScriptOptions</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#settings">settings</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L219">model_interface.ts:219</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="tf" class="tsd-anchor"></a>
-					<h3>tf</h3>
-					<div class="tsd-signature tsd-kind-icon">tf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#tf">tf</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L222">model_interface.ts:222</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="tokenizer" class="tsd-anchor"></a>
-					<h3>tokenizer</h3>
-					<div class="tsd-signature tsd-kind-icon">tokenizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#tokenizer">tokenizer</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L221">model_interface.ts:221</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="trained" class="tsd-anchor"></a>
-					<h3>trained</h3>
-					<div class="tsd-signature tsd-kind-icon">trained<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#trained">trained</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L223">model_interface.ts:223</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#type">type</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L218">model_interface.ts:218</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="xshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> x<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">x<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#xshape">xShape</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L227">model_interface.ts:227</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="yshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> y<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">y<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#yshape">yShape</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L228">model_interface.ts:228</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="calculate" class="tsd-anchor"></a>
-					<h3>calculate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">calculate<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#calculate">calculate</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_time_series.ts#L240">lstm_time_series.ts:240</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x_matrix: <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="exportconfiguration" class="tsd-anchor"></a>
-					<h3>export<wbr>Configuration</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">export<wbr>Configuration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptContext</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#exportconfiguration">exportConfiguration</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L356">model_interface.ts:356</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TensorScriptContext</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="generatelayers" class="tsd-anchor"></a>
-					<h3>generate<wbr>Layers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>Layers<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, layers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptSavedLayers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#generatelayers">generateLayers</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L321">lstm_multivariate_time_series.ts:321</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds dense layers to tensorflow classification model</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>override</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x_matrix: <span class="tsd-signature-type">Matrix</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>independent variables</p>
-									</div>
-								</li>
-								<li>
-									<h5>y_matrix: <span class="tsd-signature-type">Matrix</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>dependent variables</p>
-									</div>
-								</li>
-								<li>
-									<h5>layers: <span class="tsd-signature-type">TensorScriptSavedLayers</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>model dense layer parameters</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="importconfiguration" class="tsd-anchor"></a>
-					<h3>import<wbr>Configuration</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">import<wbr>Configuration<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#importconfiguration">importConfiguration</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L367">model_interface.ts:367</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>configuration: <span class="tsd-signature-type">TensorScriptContext</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="loadmodel" class="tsd-anchor"></a>
-					<h3>load<wbr>Model</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">load<wbr>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#loadmodel">loadModel</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L406">model_interface.ts:406</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Loads a saved tensoflow / keras model, this is an alias for</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>options: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>tensorflow load model options</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>tensorflow model</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="predict" class="tsd-anchor"></a>
-					<h3>predict</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">predict<span class="tsd-signature-symbol">(</span>input_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredictionOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#predict">predict</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_time_series.ts#L246">lstm_time_series.ts:246</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>input_matrix: <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span></h5>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">PredictionOptions</span><span class="tsd-signature-symbol"> = ...</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="savemodel" class="tsd-anchor"></a>
-					<h3>save<wbr>Model</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">save<wbr>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#savemodel">saveModel</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L419">model_interface.ts:419</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>saves a tensorflow model, this is an alias for</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>options: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>tensorflow save model options</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>tensorflow model</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="train" class="tsd-anchor"></a>
-					<h3>train</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">train<span class="tsd-signature-symbol">(</span>x_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, layers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptLayers</span>, x_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, y_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#train">train</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L367">lstm_multivariate_time_series.ts:367</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>override</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x_timeseries: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>y_timeseries: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>layers: <span class="tsd-signature-type">TensorScriptLayers</span></h5>
-								</li>
-								<li>
-									<h5>x_test: <span class="tsd-signature-type">Matrix</span></h5>
-								</li>
-								<li>
-									<h5>y_test: <span class="tsd-signature-type">Matrix</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-					<a name="createdataset-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Dataset</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Dataset<span class="tsd-signature-symbol">(</span>dataset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, look_back<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#createdataset-1">createDataset</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L49">lstm_multivariate_time_series.ts:49</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates dataset data</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>const ds = [
-											[10, 20, 30, 40, 50, 60, 70, 80, 90,],
-											[11, 21, 31, 41, 51, 61, 71, 81, 91,],
-											[12, 22, 32, 42, 52, 62, 72, 82, 92,],
-											[13, 23, 33, 43, 53, 63, 73, 83, 93,],
-											[14, 24, 34, 44, 54, 64, 74, 84, 94,],
-											[15, 25, 35, 45, 55, 65, 75, 85, 95,],
-											[16, 26, 36, 46, 56, 66, 76, 86, 96,],
-											[17, 27, 37, 47, 57, 67, 77, 87, 97,],
-											[18, 28, 38, 48, 58, 68, 78, 88, 98,],
-											[19, 29, 39, 49, 59, 69, 79, 89, 99,],
-											];
-											LSTMMultivariateTimeSeries.createDataset(ds,1) // =&gt;
-											//  [
-											//   [
-											//    [ 20, 30, 40, 50, 60, 70, 80, 90 ],
-											//    [ 21, 31, 41, 51, 61, 71, 81, 91 ],
-											//    [ 22, 32, 42, 52, 62, 72, 82, 92 ],
-											//    [ 23, 33, 43, 53, 63, 73, 83, 93 ],
-											//    [ 24, 34, 44, 54, 64, 74, 84, 94 ],
-											//    [ 25, 35, 45, 55, 65, 75, 85, 95 ],
-											//    [ 26, 36, 46, 56, 66, 76, 86, 96 ],
-											//    [ 27, 37, 47, 57, 67, 77, 87, 97 ],
-											//    [ 28, 38, 48, 58, 68, 78, 88, 98 ]
-											//   ], //x_matrix
-											//   [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ], //y_matrix
-											//   8 //features
-										// ]</p>
-									</dd>
-									<dt>override</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>dataset: <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>array of values</p>
-									</div>
-								</li>
-								<li>
-									<h5>look_back: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>number of values in each feature</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>returns x matrix and y matrix for model trainning</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="drop-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> drop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">drop<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, columns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L105">lstm_multivariate_time_series.ts:105</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Drops columns by array index</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>const data = [ [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11, 21, 31, 41, 51, 61, 71, 81, 91 ],
-											[ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12, 22, 32, 42, 52, 62, 72, 82, 92 ],
-											[ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 93 ],
-											[ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14, 24, 34, 44, 54, 64, 74, 84, 94 ],
-											[ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15, 25, 35, 45, 55, 65, 75, 85, 95 ],
-											[ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16, 26, 36, 46, 56, 66, 76, 86, 96 ],
-											[ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17, 27, 37, 47, 57, 67, 77, 87, 97 ],
-											[ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18, 28, 38, 48, 58, 68, 78, 88, 98 ],
-											[ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19, 29, 39, 49, 59, 69, 79, 89, 99 ] ];
-											const n_in = 1; //lookbacks
-											const n_out = 1;
-											const dropColumns = getDropableColumns(8, n_in, n_out); // =&gt;[ 10, 11, 12, 13, 14, 15, 16, 17 ]
-											const newdata = drop(data,dropColumns); //=&gt; [
-											// [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11 ],
-											// [ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12 ],
-											// [ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13 ],
-											// [ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14 ],
-											// [ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15 ],
-											// [ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16 ],
-											// [ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17 ],
-											// [ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18 ],
-											// [ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19 ]
-										//]</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>data set to drop columns</p>
-									</div>
-								</li>
-								<li>
-									<h5>columns: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>array of column indexes</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>matrix with dropped columns</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="getdropablecolumns-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Dropable<wbr>Columns</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Dropable<wbr>Columns<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, n_in<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, n_out<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L208">lstm_multivariate_time_series.ts:208</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Calculates which columns to drop by index</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>todo</dt>
-									<dd><p>support multiple iterations in the future, also only one output variable supported in column features * lookbacks -1</p>
-									</dd>
-									<dt>example</dt>
-									<dd><p>const ds = [
-											[10, 20, 30, 40, 50, 60, 70, 80, 90,],
-											[11, 21, 31, 41, 51, 61, 71, 81, 91,],
-											[12, 22, 32, 42, 52, 62, 72, 82, 92,],
-											[13, 23, 33, 43, 53, 63, 73, 83, 93,],
-											[14, 24, 34, 44, 54, 64, 74, 84, 94,],
-											[15, 25, 35, 45, 55, 65, 75, 85, 95,],
-											[16, 26, 36, 46, 56, 66, 76, 86, 96,],
-											[17, 27, 37, 47, 57, 67, 77, 87, 97,],
-											[18, 28, 38, 48, 58, 68, 78, 88, 98,],
-											[19, 29, 39, 49, 59, 69, 79, 89, 99,],
-											];
-											const n_in = 1; //lookbacks
-											const n_out = 1;
-										const dropped = getDropableColumns(8, n_in, n_out); //=&gt; [ 10, 11, 12, 13, 14, 15, 16, 17 ]</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>features: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>number of independent variables</p>
-									</div>
-								</li>
-								<li>
-									<h5>n_in: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>look backs</p>
-									</div>
-								</li>
-								<li>
-									<h5>n_out: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>future iterations (currently only 1 supported)</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>array indexes to drop</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-					<a name="getinputshape-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Input<wbr>Shape</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Input<wbr>Shape<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#getinputshape-1">getInputShape</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L337">model_interface.ts:337</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the shape of an input matrix</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><p>const input = [
-											[ 0, 1, ],
-											[ 1, 0, ],
-											];
-										TensorScriptModelInterface.getInputShape(input) // =&gt; [2,2]</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>{<a href="https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array%7D">https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array}</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>matrix: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>input matrix</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Shape</span></h4>
-							<p>returns the shape of a matrix (e.g. [2,2])</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-					<a name="gettimeseriesdataset-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Timeseries<wbr>Data<wbr>Set</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set<span class="tsd-signature-symbol">(</span>timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, look_back<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> }</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#gettimeseriesdataset-1">getTimeseriesDataSet</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L248">lstm_multivariate_time_series.ts:248</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns data for predicting values</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>override</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>timeseries: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5>look_back: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> }</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>x<wbr>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>x_<wbr>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>y<wbr>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>y_<wbr>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span></h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-					<a name="gettimeseriesshape-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Timeseries<wbr>Shape</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeseries<wbr>Shape<span class="tsd-signature-symbol">(</span>x_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#gettimeseriesshape-1">getTimeseriesShape</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L230">lstm_multivariate_time_series.ts:230</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Reshape input to be [samples, time steps, features]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd></dd>
-									<dt>override</dt>
-									<dd><p>LSTMTimeSeries.getTimeseriesShape([
-											[ [ 1 ], [ 2 ], [ 3 ] ],
-											[ [ 2 ], [ 3 ], [ 4 ] ],
-											[ [ 3 ], [ 4 ], [ 5 ] ],
-											[ [ 4 ], [ 5 ], [ 6 ] ],
-											[ [ 5 ], [ 6 ], [ 7 ] ],
-											[ [ 6 ], [ 7 ], [ 8 ] ],
-										]) //=&gt; [6, 1, 3,]</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x_timeseries: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>dataset array of values</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>returns proper timeseries forecasting shape</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-					<a name="reshape-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> reshape</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span>, shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="lstmtimeseries.html">LSTMTimeSeries</a>.<a href="lstmtimeseries.html#reshape-1">reshape</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/model_interface.ts#L272">model_interface.ts:272</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Reshapes an array</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><p>const array = [ 0, 1, 1, 0, ];
-											const shape = [2,2];
-											TensorScriptModelInterface.reshape(array,shape) // =&gt;
-											[
-											[ 0, 1, ],
-											[ 1, 0, ],
-										];</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <span class="tsd-signature-type">Vector</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>input array</p>
-									</div>
-								</li>
-								<li>
-									<h5>shape: <span class="tsd-signature-type">Shape</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>shape array</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></h4>
-							<p>returns a matrix with the defined shape</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="seriestosupervised-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> series<wbr>ToSupervised</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">series<wbr>ToSupervised<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, n_in<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, n_out<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/repetere/modelx-model/blob/5c9602f/src/lstm_multivariate_time_series.ts#L151">lstm_multivariate_time_series.ts:151</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Converts data set to supervised labels for forecasting, the first column must be the dependent variable</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>const ds = [
-											[10, 20, 30, 40, 50, 60, 70, 80, 90,],
-											[11, 21, 31, 41, 51, 61, 71, 81, 91,],
-											[12, 22, 32, 42, 52, 62, 72, 82, 92,],
-											[13, 23, 33, 43, 53, 63, 73, 83, 93,],
-											[14, 24, 34, 44, 54, 64, 74, 84, 94,],
-											[15, 25, 35, 45, 55, 65, 75, 85, 95,],
-											[16, 26, 36, 46, 56, 66, 76, 86, 96,],
-											[17, 27, 37, 47, 57, 67, 77, 87, 97,],
-											[18, 28, 38, 48, 58, 68, 78, 88, 98,],
-											[19, 29, 39, 49, 59, 69, 79, 89, 99,],
-											];
-											const n_in = 1; //lookbacks
-											const n_out = 1;
-											const series = seriesToSupervised(ds, n_in, n_out); //=&gt; [
-											// [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11, 21, 31, 41, 51, 61, 71, 81, 91 ],
-											// [ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12, 22, 32, 42, 52, 62, 72, 82, 92 ],
-											// [ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 93 ],
-											// [ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14, 24, 34, 44, 54, 64, 74, 84, 94 ],
-											// [ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15, 25, 35, 45, 55, 65, 75, 85, 95 ],
-											// [ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16, 26, 36, 46, 56, 66, 76, 86, 96 ],
-											// [ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17, 27, 37, 47, 57, 67, 77, 87, 97 ],
-											// [ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18, 28, 38, 48, 58, 68, 78, 88, 98 ],
-											// [ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19, 29, 39, 49, 59, 69, 79, 89, 99 ]
-										//];</p>
-									</dd>
-									<dt>todo</dt>
-									<dd><p>support multiple future iterations</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>data set</p>
-									</div>
-								</li>
-								<li>
-									<h5>n_in: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>look backs</p>
-									</div>
-								</li>
-								<li>
-									<h5>n_out: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>future iterations (only 1 supported)</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>multivariate dataset for time series</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="../modules.html">Exports</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="baseneuralnetwork.html" class="tsd-kind-icon">Base<wbr>Neural<wbr>Network</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="deeplearningclassification.html" class="tsd-kind-icon">Deep<wbr>Learning<wbr>Classification</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="deeplearningregression.html" class="tsd-kind-icon">Deep<wbr>Learning<wbr>Regression</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="featureembedding.html" class="tsd-kind-icon">Feature<wbr>Embedding</a>
-					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="lstmmultivariatetimeseries.html" class="tsd-kind-icon">LSTMMultivariate<wbr>Time<wbr>Series</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#compiled" class="tsd-kind-icon">compiled</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#createdataset" class="tsd-kind-icon">create<wbr>Dataset</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="lstmmultivariatetimeseries.html#drop" class="tsd-kind-icon">drop</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="lstmmultivariatetimeseries.html#getdropablecolumns" class="tsd-kind-icon">get<wbr>Dropable<wbr>Columns</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#getinputshape" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#gettimeseriesdataset" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#gettimeseriesshape" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#layers" class="tsd-kind-icon">layers</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#loss" class="tsd-kind-icon">loss</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#model" class="tsd-kind-icon">model</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#reshape" class="tsd-kind-icon">reshape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="lstmmultivariatetimeseries.html#seriestosupervised" class="tsd-kind-icon">series<wbr>ToSupervised</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#settings" class="tsd-kind-icon">settings</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#tf" class="tsd-kind-icon">tf</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#trained" class="tsd-kind-icon">trained</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#xshape" class="tsd-kind-icon">x<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#yshape" class="tsd-kind-icon">y<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#calculate" class="tsd-kind-icon">calculate</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#generatelayers" class="tsd-kind-icon">generate<wbr>Layers</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#importconfiguration" class="tsd-kind-icon">import<wbr>Configuration</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#loadmodel" class="tsd-kind-icon">load<wbr>Model</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#predict" class="tsd-kind-icon">predict</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="lstmmultivariatetimeseries.html#savemodel" class="tsd-kind-icon">save<wbr>Model</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="lstmmultivariatetimeseries.html#train" class="tsd-kind-icon">train</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#createdataset-1" class="tsd-kind-icon">create<wbr>Dataset</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#drop-1" class="tsd-kind-icon">drop</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#getdropablecolumns-1" class="tsd-kind-icon">get<wbr>Dropable<wbr>Columns</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#getinputshape-1" class="tsd-kind-icon">get<wbr>Input<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#gettimeseriesdataset-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Data<wbr>Set</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#gettimeseriesshape-1" class="tsd-kind-icon">get<wbr>Timeseries<wbr>Shape</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#reshape-1" class="tsd-kind-icon">reshape</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="lstmmultivariatetimeseries.html#seriestosupervised-1" class="tsd-kind-icon">series<wbr>ToSupervised</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="lstmtimeseries.html" class="tsd-kind-icon">LSTMTime<wbr>Series</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="logisticregression.html" class="tsd-kind-icon">Logistic<wbr>Regression</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="multiplelinearregression.html" class="tsd-kind-icon">Multiple<wbr>Linear<wbr>Regression</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="tensorscriptmodelinterface.html" class="tsd-kind-icon">Tensor<wbr>Script<wbr>Model<wbr>Interface</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="textembedding.html" class="tsd-kind-icon">Text<wbr>Embedding</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer>
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="overlay"></div>
-<script src="../assets/js/main.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>LSTMMultivariateTimeSeries | @jsonstack/model</title><meta name="description" content="Documentation for @jsonstack/model"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base=".."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">@jsonstack/model</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><ul class="tsd-breadcrumb"><li><a href="../modules.html">@jsonstack/model</a></li><li><a href="LSTMMultivariateTimeSeries.html">LSTMMultivariateTimeSeries</a></li></ul><h1>Class LSTMMultivariateTimeSeries </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Long Short Term Memory Multivariate Time Series with Tensorflow</p>
+</div></div></section><section class="tsd-panel tsd-hierarchy"><h3>Hierarchy</h3><ul class="tsd-hierarchy"><li><a href="LSTMTimeSeries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMTimeSeries</a><ul class="tsd-hierarchy"><li><span class="target">LSTMMultivariateTimeSeries</span></li></ul></li></ul></section><section class="tsd-panel-group tsd-index-group"><h2>Index</h2><section class="tsd-panel tsd-index-panel"><div class="tsd-index-content"><section class="tsd-index-section "><h3>Constructors</h3><ul class="tsd-index-list"><li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#constructor" class="tsd-kind-icon">constructor</a></li></ul></section><section class="tsd-index-section "><h3>Properties</h3><ul class="tsd-index-list"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#compiled" class="tsd-kind-icon">compiled</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#createDataset" class="tsd-kind-icon">create<wbr/>Dataset</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#drop" class="tsd-kind-icon">drop</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#getDropableColumns" class="tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#getInputShape" class="tsd-kind-icon">get<wbr/>Input<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesDataSet" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesShape" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#layers" class="tsd-kind-icon">layers</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#loss" class="tsd-kind-icon">loss</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#model" class="tsd-kind-icon">model</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#reshape" class="tsd-kind-icon">reshape</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#seriesToSupervised" class="tsd-kind-icon">series<wbr/>To<wbr/>Supervised</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#settings" class="tsd-kind-icon">settings</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#tf" class="tsd-kind-icon">tf</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#trained" class="tsd-kind-icon">trained</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#type" class="tsd-kind-icon">type</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#xShape" class="tsd-kind-icon">x<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#yShape" class="tsd-kind-icon">y<wbr/>Shape</a></li></ul></section><section class="tsd-index-section "><h3>Methods</h3><ul class="tsd-index-list"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#calculate" class="tsd-kind-icon">calculate</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#exportConfiguration" class="tsd-kind-icon">export<wbr/>Configuration</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#generateLayers" class="tsd-kind-icon">generate<wbr/>Layers</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#importConfiguration" class="tsd-kind-icon">import<wbr/>Configuration</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#loadModel" class="tsd-kind-icon">load<wbr/>Model</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#predict" class="tsd-kind-icon">predict</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#saveModel" class="tsd-kind-icon">save<wbr/>Model</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#train" class="tsd-kind-icon">train</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#createDataset-1" class="tsd-kind-icon">create<wbr/>Dataset</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#drop-1" class="tsd-kind-icon">drop</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getDropableColumns-1" class="tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getInputShape-1" class="tsd-kind-icon">get<wbr/>Input<wbr/>Shape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesDataSet-1" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesShape-1" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#reshape-1" class="tsd-kind-icon">reshape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#seriesToSupervised-1" class="tsd-kind-icon">series<wbr/>To<wbr/>Supervised</a></li></ul></section></div></section></section><section class="tsd-panel-group tsd-member-group "><h2>Constructors</h2><section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a id="constructor" class="tsd-anchor"></a><h3 class="tsd-anchor-link">constructor<a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><li class="tsd-signature tsd-kind-icon">new LSTMMultivariate<wbr/>Time<wbr/>Series<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TensorScriptOptions</span>, properties<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TensorScriptProperties</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="LSTMMultivariateTimeSeries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMMultivariateTimeSeries</a></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#constructor">constructor</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L282">lstm_multivariate_time_series.ts:282</a></li></ul></aside><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>options: <span class="tsd-signature-type">TensorScriptOptions</span><span class="tsd-signature-symbol"> = {}</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>neural network configuration and tensorflow model hyperparameters</p>
+</div></div></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> properties: <span class="tsd-signature-type">TensorScriptProperties</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>extra instance properties</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <a href="LSTMMultivariateTimeSeries.html" class="tsd-signature-type" data-tsd-kind="Class">LSTMMultivariateTimeSeries</a></h4></li></ul></section></section><section class="tsd-panel-group tsd-member-group "><h2>Properties</h2><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="compiled" class="tsd-anchor"></a><h3 class="tsd-anchor-link">compiled<a href="#compiled" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">compiled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#compiled">compiled</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L219">model_interface.ts:219</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a id="createDataset" class="tsd-anchor"></a><h3 class="tsd-anchor-link">create<wbr/>Dataset<a href="#createDataset" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">create<wbr/>Dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#createDataset">createDataset</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L272">lstm_multivariate_time_series.ts:272</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="drop" class="tsd-anchor"></a><h3 class="tsd-anchor-link">drop<a href="#drop" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">drop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L275">lstm_multivariate_time_series.ts:275</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="getDropableColumns" class="tsd-anchor"></a><h3 class="tsd-anchor-link">get<wbr/>Dropable<wbr/>Columns<a href="#getDropableColumns" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L274">lstm_multivariate_time_series.ts:274</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="getInputShape" class="tsd-anchor"></a><h3 class="tsd-anchor-link">get<wbr/>Input<wbr/>Shape<a href="#getInputShape" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">get<wbr/>Input<wbr/>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getInputShape">getInputShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L221">model_interface.ts:221</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a id="getTimeseriesDataSet" class="tsd-anchor"></a><h3 class="tsd-anchor-link">get<wbr/>Timeseries<wbr/>Data<wbr/>Set<a href="#getTimeseriesDataSet" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getTimeseriesDataSet">getTimeseriesDataSet</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L277">lstm_multivariate_time_series.ts:277</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a id="getTimeseriesShape" class="tsd-anchor"></a><h3 class="tsd-anchor-link">get<wbr/>Timeseries<wbr/>Shape<a href="#getTimeseriesShape" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getTimeseriesShape">getTimeseriesShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L276">lstm_multivariate_time_series.ts:276</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="layers" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagOptional">Optional</span> layers<a href="#layers" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">layers<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">TensorScriptSavedLayers</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#layers">layers</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_time_series.ts#L16">lstm_time_series.ts:16</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="loss" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagOptional">Optional</span> loss<a href="#loss" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">loss<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#loss">loss</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L226">model_interface.ts:226</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="model" class="tsd-anchor"></a><h3 class="tsd-anchor-link">model<a href="#model" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#model">model</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L215">model_interface.ts:215</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="reshape" class="tsd-anchor"></a><h3 class="tsd-anchor-link">reshape<a href="#reshape" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#reshape">reshape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L220">model_interface.ts:220</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="seriesToSupervised" class="tsd-anchor"></a><h3 class="tsd-anchor-link">series<wbr/>To<wbr/>Supervised<a href="#seriesToSupervised" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">series<wbr/>To<wbr/>Supervised<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L273">lstm_multivariate_time_series.ts:273</a></li></ul></aside><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4></li></ul></li></ul></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="settings" class="tsd-anchor"></a><h3 class="tsd-anchor-link">settings<a href="#settings" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TensorScriptOptions</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#settings">settings</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L214">model_interface.ts:214</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="tf" class="tsd-anchor"></a><h3 class="tsd-anchor-link">tf<a href="#tf" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">tf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#tf">tf</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L217">model_interface.ts:217</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="tokenizer" class="tsd-anchor"></a><h3 class="tsd-anchor-link">tokenizer<a href="#tokenizer" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">tokenizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#tokenizer">tokenizer</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L216">model_interface.ts:216</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="trained" class="tsd-anchor"></a><h3 class="tsd-anchor-link">trained<a href="#trained" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">trained<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#trained">trained</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L218">model_interface.ts:218</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="type" class="tsd-anchor"></a><h3 class="tsd-anchor-link">type<a href="#type" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#type">type</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L213">model_interface.ts:213</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="xShape" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagOptional">Optional</span> x<wbr/>Shape<a href="#xShape" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">x<wbr/>Shape<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#xShape">xShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L222">model_interface.ts:222</a></li></ul></aside></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a id="yShape" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagOptional">Optional</span> y<wbr/>Shape<a href="#yShape" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">y<wbr/>Shape<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#yShape">yShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L223">model_interface.ts:223</a></li></ul></aside></section></section><section class="tsd-panel-group tsd-member-group "><h2>Methods</h2><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="calculate" class="tsd-anchor"></a><h3 class="tsd-anchor-link">calculate<a href="#calculate" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">calculate<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#calculate">calculate</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_time_series.ts#L240">lstm_time_series.ts:240</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Predicts new dependent variables</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>x_matrix: <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4><div><p>returns tensorflow prediction</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="exportConfiguration" class="tsd-anchor"></a><h3 class="tsd-anchor-link">export<wbr/>Configuration<a href="#exportConfiguration" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">export<wbr/>Configuration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptContext</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#exportConfiguration">exportConfiguration</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L351">model_interface.ts:351</a></li></ul></aside><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TensorScriptContext</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a id="generateLayers" class="tsd-anchor"></a><h3 class="tsd-anchor-link">generate<wbr/>Layers<a href="#generateLayers" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><li class="tsd-signature tsd-kind-icon">generate<wbr/>Layers<span class="tsd-signature-symbol">(</span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, layers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptSavedLayers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#generateLayers">generateLayers</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L321">lstm_multivariate_time_series.ts:321</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Adds dense layers to tensorflow classification model</p>
+</div><dl class="tsd-comment-tags"><dt>override</dt><dd></dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>x_matrix: <span class="tsd-signature-type">Matrix</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>independent variables</p>
+</div></div></li><li><h5>y_matrix: <span class="tsd-signature-type">Matrix</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>dependent variables</p>
+</div></div></li><li><h5>layers: <span class="tsd-signature-type">TensorScriptSavedLayers</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>model dense layer parameters</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="importConfiguration" class="tsd-anchor"></a><h3 class="tsd-anchor-link">import<wbr/>Configuration<a href="#importConfiguration" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">import<wbr/>Configuration<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#importConfiguration">importConfiguration</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L362">model_interface.ts:362</a></li></ul></aside><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>configuration: <span class="tsd-signature-type">TensorScriptContext</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="loadModel" class="tsd-anchor"></a><h3 class="tsd-anchor-link">load<wbr/>Model<a href="#loadModel" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">load<wbr/>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#loadModel">loadModel</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L401">model_interface.ts:401</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Loads a saved tensoflow / keras model, this is an alias for</p>
+</div><dl class="tsd-comment-tags"><dt>see</dt><dd><p><a href="https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#loading_a_tfmodel</a></p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>options: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>tensorflow load model options</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>tensorflow model</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="predict" class="tsd-anchor"></a><h3 class="tsd-anchor-link">predict<a href="#predict" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">predict<span class="tsd-signature-symbol">(</span>input_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredictionOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#predict">predict</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_time_series.ts#L246">lstm_time_series.ts:246</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Returns prediction values from tensorflow model</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>input_matrix: <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InputTextArray</span></h5></li><li><h5>options: <span class="tsd-signature-type">PredictionOptions</span><span class="tsd-signature-symbol"> = {}</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>predicted model values</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="saveModel" class="tsd-anchor"></a><h3 class="tsd-anchor-link">save<wbr/>Model<a href="#saveModel" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><li class="tsd-signature tsd-kind-icon">save<wbr/>Model<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#saveModel">saveModel</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L414">model_interface.ts:414</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>saves a tensorflow model, this is an alias for</p>
+</div><dl class="tsd-comment-tags"><dt>see</dt><dd><p><a href="https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel" class="external">https://www.tensorflow.org/js/guide/save_load#save_a_tfmodel</a></p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>options: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>tensorflow save model options</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>tensorflow model</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a id="train" class="tsd-anchor"></a><h3 class="tsd-anchor-link">train<a href="#train" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><li class="tsd-signature tsd-kind-icon">train<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptLSTMModelContext</span>, x_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, layers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptLayers</span>, x_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span>, y_test<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#train">train</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L367">lstm_multivariate_time_series.ts:367</a></li></ul></aside><div class="tsd-comment tsd-typography"><dl class="tsd-comment-tags"><dt>override</dt><dd></dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>this: <span class="tsd-signature-type">TensorScriptLSTMModelContext</span></h5></li><li><h5>x_timeseries: <span class="tsd-signature-type">any</span></h5></li><li><h5>y_timeseries: <span class="tsd-signature-type">any</span></h5></li><li><h5>layers: <span class="tsd-signature-type">TensorScriptLayers</span></h5></li><li><h5>x_test: <span class="tsd-signature-type">Matrix</span></h5></li><li><h5>y_test: <span class="tsd-signature-type">Matrix</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a id="createDataset-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> create<wbr/>Dataset<a href="#createDataset-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><li class="tsd-signature tsd-kind-icon">create<wbr/>Dataset<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptModelContext</span>, dataset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, look_back<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#createDataset-1">createDataset</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L49">lstm_multivariate_time_series.ts:49</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Creates dataset data</p>
+</div><dl class="tsd-comment-tags"><dt>example</dt><dd><p>const ds = [
+[10, 20, 30, 40, 50, 60, 70, 80, 90,],
+[11, 21, 31, 41, 51, 61, 71, 81, 91,],
+[12, 22, 32, 42, 52, 62, 72, 82, 92,],
+[13, 23, 33, 43, 53, 63, 73, 83, 93,],
+[14, 24, 34, 44, 54, 64, 74, 84, 94,],
+[15, 25, 35, 45, 55, 65, 75, 85, 95,],
+[16, 26, 36, 46, 56, 66, 76, 86, 96,],
+[17, 27, 37, 47, 57, 67, 77, 87, 97,],
+[18, 28, 38, 48, 58, 68, 78, 88, 98,],
+[19, 29, 39, 49, 59, 69, 79, 89, 99,],
+];
+LSTMMultivariateTimeSeries.createDataset(ds,1) // =&gt;
+//  [
+//   [
+//    [ 20, 30, 40, 50, 60, 70, 80, 90 ],
+//    [ 21, 31, 41, 51, 61, 71, 81, 91 ],
+//    [ 22, 32, 42, 52, 62, 72, 82, 92 ],
+//    [ 23, 33, 43, 53, 63, 73, 83, 93 ],
+//    [ 24, 34, 44, 54, 64, 74, 84, 94 ],
+//    [ 25, 35, 45, 55, 65, 75, 85, 95 ],
+//    [ 26, 36, 46, 56, 66, 76, 86, 96 ],
+//    [ 27, 37, 47, 57, 67, 77, 87, 97 ],
+//    [ 28, 38, 48, 58, 68, 78, 88, 98 ]
+//   ], //x_matrix
+//   [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ], //y_matrix
+//   8 //features
+// ]</p>
+</dd><dt>override</dt><dd></dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>this: <span class="tsd-signature-type">TensorScriptModelContext</span></h5></li><li><h5>dataset: <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>array of values</p>
+</div></div></li><li><h5>look_back: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>number of values in each feature</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>returns x matrix and y matrix for model trainning</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static"><a id="drop-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> drop<a href="#drop-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static"><li class="tsd-signature tsd-kind-icon">drop<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, columns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L105">lstm_multivariate_time_series.ts:105</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Drops columns by array index</p>
+</div><dl class="tsd-comment-tags"><dt>example</dt><dd><p>const data = [ [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11, 21, 31, 41, 51, 61, 71, 81, 91 ],
+[ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12, 22, 32, 42, 52, 62, 72, 82, 92 ],
+[ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 93 ],
+[ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14, 24, 34, 44, 54, 64, 74, 84, 94 ],
+[ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15, 25, 35, 45, 55, 65, 75, 85, 95 ],
+[ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16, 26, 36, 46, 56, 66, 76, 86, 96 ],
+[ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17, 27, 37, 47, 57, 67, 77, 87, 97 ],
+[ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18, 28, 38, 48, 58, 68, 78, 88, 98 ],
+[ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19, 29, 39, 49, 59, 69, 79, 89, 99 ] ];
+const n_in = 1; //lookbacks
+const n_out = 1;
+const dropColumns = getDropableColumns(8, n_in, n_out); // =&gt;[ 10, 11, 12, 13, 14, 15, 16, 17 ]
+const newdata = drop(data,dropColumns); //=&gt; [
+// [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11 ],
+// [ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12 ],
+// [ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13 ],
+// [ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14 ],
+// [ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15 ],
+// [ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16 ],
+// [ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17 ],
+// [ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18 ],
+// [ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19 ]
+//]</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>data: <span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>data set to drop columns</p>
+</div></div></li><li><h5>columns: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>array of column indexes</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>matrix with dropped columns</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static"><a id="getDropableColumns-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> get<wbr/>Dropable<wbr/>Columns<a href="#getDropableColumns-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static"><li class="tsd-signature tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, n_in<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, n_out<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L208">lstm_multivariate_time_series.ts:208</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Calculates which columns to drop by index</p>
+</div><dl class="tsd-comment-tags"><dt>todo</dt><dd><p>support multiple iterations in the future, also only one output variable supported in column features * lookbacks -1</p>
+</dd><dt>example</dt><dd><p>const ds = [
+[10, 20, 30, 40, 50, 60, 70, 80, 90,],
+[11, 21, 31, 41, 51, 61, 71, 81, 91,],
+[12, 22, 32, 42, 52, 62, 72, 82, 92,],
+[13, 23, 33, 43, 53, 63, 73, 83, 93,],
+[14, 24, 34, 44, 54, 64, 74, 84, 94,],
+[15, 25, 35, 45, 55, 65, 75, 85, 95,],
+[16, 26, 36, 46, 56, 66, 76, 86, 96,],
+[17, 27, 37, 47, 57, 67, 77, 87, 97,],
+[18, 28, 38, 48, 58, 68, 78, 88, 98,],
+[19, 29, 39, 49, 59, 69, 79, 89, 99,],
+];
+const n_in = 1; //lookbacks
+const n_out = 1;
+const dropped = getDropableColumns(8, n_in, n_out); //=&gt; [ 10, 11, 12, 13, 14, 15, 16, 17 ]</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>features: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>number of independent variables</p>
+</div></div></li><li><h5>n_in: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>look backs</p>
+</div></div></li><li><h5>n_out: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>future iterations (currently only 1 supported)</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4><div><p>array indexes to drop</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a id="getInputShape-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> get<wbr/>Input<wbr/>Shape<a href="#getInputShape-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><li class="tsd-signature tsd-kind-icon">get<wbr/>Input<wbr/>Shape<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getInputShape-1">getInputShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L332">model_interface.ts:332</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Returns the shape of an input matrix</p>
+</div><dl class="tsd-comment-tags"><dt>function</dt><dd></dd><dt>example</dt><dd><p>const input = [
+  [ 0, 1, ],
+  [ 1, 0, ],
+];
+TensorScriptModelInterface.getInputShape(input) // =&gt; [2,2]</p>
+</dd><dt>see</dt><dd><p>{<a href="https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array%7D">https://stackoverflow.com/questions/10237615/get-size-of-dimensions-in-array}</a></p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>matrix: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = []</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>input matrix</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Shape</span></h4><div><p>returns the shape of a matrix (e.g. [2,2])</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a id="getTimeseriesDataSet-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> get<wbr/>Timeseries<wbr/>Data<wbr/>Set<a href="#getTimeseriesDataSet-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><li class="tsd-signature tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptModelContext</span>, timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, look_back<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> }</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getTimeseriesDataSet-1">getTimeseriesDataSet</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L248">lstm_multivariate_time_series.ts:248</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Returns data for predicting values</p>
+</div><dl class="tsd-comment-tags"><dt>override</dt><dd></dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>this: <span class="tsd-signature-type">TensorScriptModelContext</span></h5></li><li><h5>timeseries: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5></li><li><h5>look_back: <span class="tsd-signature-type">any</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>xShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>x_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span><span class="tsd-signature-symbol">; </span>yShape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">; </span>y_matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> }</span></h4><ul class="tsd-parameters"><li class="tsd-parameter"><h5>x<wbr/>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></h5></li><li class="tsd-parameter"><h5>x_<wbr/>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></h5></li><li class="tsd-parameter"><h5>y<wbr/>Shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span></h5></li><li class="tsd-parameter"><h5>y_<wbr/>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span></h5></li></ul></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a id="getTimeseriesShape-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> get<wbr/>Timeseries<wbr/>Shape<a href="#getTimeseriesShape-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><li class="tsd-signature tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TensorScriptModelContext</span>, x_timeseries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Overrides <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#getTimeseriesShape-1">getTimeseriesShape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L230">lstm_multivariate_time_series.ts:230</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Reshape input to be [samples, time steps, features]</p>
+</div><dl class="tsd-comment-tags"><dt>example</dt><dd></dd><dt>override</dt><dd><p>LSTMTimeSeries.getTimeseriesShape([
+[ [ 1 ], [ 2 ], [ 3 ] ],
+[ [ 2 ], [ 3 ], [ 4 ] ],
+[ [ 3 ], [ 4 ], [ 5 ] ],
+[ [ 4 ], [ 5 ], [ 6 ] ],
+[ [ 5 ], [ 6 ], [ 7 ] ],
+[ [ 6 ], [ 7 ], [ 8 ] ],
+]) //=&gt; [6, 1, 3,]</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>this: <span class="tsd-signature-type">TensorScriptModelContext</span></h5></li><li><h5>x_timeseries: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NestedArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>dataset array of values</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4><div><p>returns proper timeseries forecasting shape</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a id="reshape-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> reshape<a href="#reshape-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><li class="tsd-signature tsd-kind-icon">reshape<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span>, shape<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shape</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><p>Inherited from <a href="LSTMTimeSeries.html">LSTMTimeSeries</a>.<a href="LSTMTimeSeries.html#reshape-1">reshape</a></p><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/model_interface.ts#L267">model_interface.ts:267</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Reshapes an array</p>
+</div><dl class="tsd-comment-tags"><dt>function</dt><dd></dd><dt>example</dt><dd><p>const array = [ 0, 1, 1, 0, ];
+const shape = [2,2];
+TensorScriptModelInterface.reshape(array,shape) // =&gt;
+[
+  [ 0, 1, ],
+  [ 1, 0, ],
+];</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>array: <span class="tsd-signature-type">Vector</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>input array</p>
+</div></div></li><li><h5>shape: <span class="tsd-signature-type">Shape</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>shape array</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Vector</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Matrix</span></h4><div><p>returns a matrix with the defined shape</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static"><a id="seriesToSupervised-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagStatic">Static</span> series<wbr/>To<wbr/>Supervised<a href="#seriesToSupervised-1" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static"><li class="tsd-signature tsd-kind-icon">series<wbr/>To<wbr/>Supervised<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, n_in<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, n_out<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/repetere/jsonm-model/blob/39c200b/src/lstm_multivariate_time_series.ts#L151">lstm_multivariate_time_series.ts:151</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Converts data set to supervised labels for forecasting, the first column must be the dependent variable</p>
+</div><dl class="tsd-comment-tags"><dt>example</dt><dd><p>const ds = [
+[10, 20, 30, 40, 50, 60, 70, 80, 90,],
+[11, 21, 31, 41, 51, 61, 71, 81, 91,],
+[12, 22, 32, 42, 52, 62, 72, 82, 92,],
+[13, 23, 33, 43, 53, 63, 73, 83, 93,],
+[14, 24, 34, 44, 54, 64, 74, 84, 94,],
+[15, 25, 35, 45, 55, 65, 75, 85, 95,],
+[16, 26, 36, 46, 56, 66, 76, 86, 96,],
+[17, 27, 37, 47, 57, 67, 77, 87, 97,],
+[18, 28, 38, 48, 58, 68, 78, 88, 98,],
+[19, 29, 39, 49, 59, 69, 79, 89, 99,],
+];
+const n_in = 1; //lookbacks
+const n_out = 1;
+const series = seriesToSupervised(ds, n_in, n_out); //=&gt; [
+// [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 11, 21, 31, 41, 51, 61, 71, 81, 91 ],
+// [ 11, 21, 31, 41, 51, 61, 71, 81, 91, 12, 22, 32, 42, 52, 62, 72, 82, 92 ],
+// [ 12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 93 ],
+// [ 13, 23, 33, 43, 53, 63, 73, 83, 93, 14, 24, 34, 44, 54, 64, 74, 84, 94 ],
+// [ 14, 24, 34, 44, 54, 64, 74, 84, 94, 15, 25, 35, 45, 55, 65, 75, 85, 95 ],
+// [ 15, 25, 35, 45, 55, 65, 75, 85, 95, 16, 26, 36, 46, 56, 66, 76, 86, 96 ],
+// [ 16, 26, 36, 46, 56, 66, 76, 86, 96, 17, 27, 37, 47, 57, 67, 77, 87, 97 ],
+// [ 17, 27, 37, 47, 57, 67, 77, 87, 97, 18, 28, 38, 48, 58, 68, 78, 88, 98 ],
+// [ 18, 28, 38, 48, 58, 68, 78, 88, 98, 19, 29, 39, 49, 59, 69, 79, 89, 99 ]
+//];</p>
+</dd><dt>todo</dt><dd><p>support multiple future iterations</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>data set</p>
+</div></div></li><li><h5>n_in: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>look backs</p>
+</div></div></li><li><h5>n_out: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>future iterations (only 1 supported)</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4><div><p>multivariate dataset for time series</p>
+</div></li></ul></section></section></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class=""><a href="../modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="current tsd-kind-class"><a href="LSTMMultivariateTimeSeries.html" class="tsd-kind-icon">LSTMMultivariate<wbr/>Time<wbr/>Series</a><ul><li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#constructor" class="tsd-kind-icon">constructor</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#compiled" class="tsd-kind-icon">compiled</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#createDataset" class="tsd-kind-icon">create<wbr/>Dataset</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#drop" class="tsd-kind-icon">drop</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#getDropableColumns" class="tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#getInputShape" class="tsd-kind-icon">get<wbr/>Input<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesDataSet" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesShape" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#layers" class="tsd-kind-icon">layers</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#loss" class="tsd-kind-icon">loss</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#model" class="tsd-kind-icon">model</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#reshape" class="tsd-kind-icon">reshape</a></li><li class="tsd-kind-property tsd-parent-kind-class"><a href="LSTMMultivariateTimeSeries.html#seriesToSupervised" class="tsd-kind-icon">series<wbr/>To<wbr/>Supervised</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#settings" class="tsd-kind-icon">settings</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#tf" class="tsd-kind-icon">tf</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#tokenizer" class="tsd-kind-icon">tokenizer</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#trained" class="tsd-kind-icon">trained</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#type" class="tsd-kind-icon">type</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#xShape" class="tsd-kind-icon">x<wbr/>Shape</a></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#yShape" class="tsd-kind-icon">y<wbr/>Shape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#calculate" class="tsd-kind-icon">calculate</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#exportConfiguration" class="tsd-kind-icon">export<wbr/>Configuration</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#generateLayers" class="tsd-kind-icon">generate<wbr/>Layers</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#importConfiguration" class="tsd-kind-icon">import<wbr/>Configuration</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#loadModel" class="tsd-kind-icon">load<wbr/>Model</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#predict" class="tsd-kind-icon">predict</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LSTMMultivariateTimeSeries.html#saveModel" class="tsd-kind-icon">save<wbr/>Model</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="LSTMMultivariateTimeSeries.html#train" class="tsd-kind-icon">train</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#createDataset-1" class="tsd-kind-icon">create<wbr/>Dataset</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#drop-1" class="tsd-kind-icon">drop</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getDropableColumns-1" class="tsd-kind-icon">get<wbr/>Dropable<wbr/>Columns</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getInputShape-1" class="tsd-kind-icon">get<wbr/>Input<wbr/>Shape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesDataSet-1" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Data<wbr/>Set</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#getTimeseriesShape-1" class="tsd-kind-icon">get<wbr/>Timeseries<wbr/>Shape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#reshape-1" class="tsd-kind-icon">reshape</a></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="LSTMMultivariateTimeSeries.html#seriesToSupervised-1" class="tsd-kind-icon">series<wbr/>To<wbr/>Supervised</a></li></ul></li></ul></nav></div></div></div><footer class=""><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="overlay"></div><script src="../assets/main.js"></script></body></html>
