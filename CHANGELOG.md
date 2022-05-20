@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/repetere/jsonm-model/compare/v2.0.0...v2.1.0) (2022-05-20)
+
+
+### Features
+
+* changed name from ModelXModel to JSONStackModel ([39c200b](https://github.com/repetere/jsonm-model/commit/39c200b520c008f981861bc4b6abbb23bb9a8d55))
+
 # [2.0.0](https://github.com/repetere/jsonm-model/compare/v1.1.2...v2.0.0) (2022-05-19)
 
 
