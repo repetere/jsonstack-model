@@ -9,7 +9,7 @@ import pkg from "./package.json";
 import alias from '@rollup/plugin-alias';
 import sucrase from '@rollup/plugin-sucrase';
 
-const name = 'ModelXModel';
+const name = 'JSONStackModel';
 const external = [
 ];
 const windowGlobals = {
