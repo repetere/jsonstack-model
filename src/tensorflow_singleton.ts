@@ -1,4 +1,23 @@
+import { CustomCallback } from "@tensorflow/tfjs-layers";
+
 let tf: any = null;
+export type TrainingProgressUpdate = {
+  completion_percentage?: number;
+  loss?: number;
+  epoch?: number;
+  logs: {
+    loss: number
+  };
+  status?: string;
+  batch?:number;
+  defaultLog?: boolean;
+}
+
+export type TrainingProgressCallback =(...args:any[])=> void;
+
+export type CustomCallbackFunctions = {
+  [index: string]: TrainingProgressCallback
+}
 
 export function setBackend(tfInput: any) {
   tf = tfInput;
@@ -20,4 +39,16 @@ That will let @jsonstack/model know you wish to use a tensorflow library to perf
     `);
   }
   return tf;
+}
+
+export function createModelFitCallback(callbackFunctions?: CustomCallbackFunctions|any[]){
+  const tf = getBackend();
+
+  if(Array.isArray(callbackFunctions)){ 
+    return callbackFunctions;
+  } else if(callbackFunctions){
+    return Object.keys(callbackFunctions).map((callbackFunctionName:string)=>{
+      return new tf.CustomCallback({ [callbackFunctionName]: callbackFunctions[callbackFunctionName]})
+    });
+  } else return [];
 }
