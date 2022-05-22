@@ -88,7 +88,7 @@
     "typescript": "^4.2.3"
   },
   "jest": {
-    "preset":"ts-jest/presets/js-with-ts-esm",
+    "preset": "ts-jest",
     "globals": {
       "ts-jest": {
         "extensionsToTreatAsEsm": [
@@ -97,12 +97,12 @@
         ],
         "useESM": true,
         "diagnostics": false,
-        "tsconfig": {
-          "target": "ES2019",
-          "allowJs": true
-        }
+        "tsconfig": "tsconfig.jest.json"
       }
-    }
+    },
+    "transformIgnorePatterns": [
+      "node_modules/?!(scikitjs)"
+    ]
   },
   "commitlint": {
     "extends": [
