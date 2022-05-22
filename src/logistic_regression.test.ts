@@ -133,7 +133,6 @@ describe('LogisticRegression', function () {
       const answers = await nnLR.predict(input_x, {
         probability:false,
       });
-      // console.log({predictions,answers})
 
       const shape = nnLR.getInputShape(predictions);
      
