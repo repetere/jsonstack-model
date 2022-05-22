@@ -12,3 +12,4 @@ export { setBackend, getBackend, createModelFitCallback, } from './tensorflow_si
 export { setScikit, getScikit } from './scikitjs_singleton';
 export { MachineLearningModelInterface } from './ml_model_interface';
 export { MachineLearningLinearRegression } from './ml_regression';
+export { MachineLearningLogisticRegression } from './ml_logistic_regression';
