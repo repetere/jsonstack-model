@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt-get install --only-upgrade libstdc++6
           npm i jest typescript rollup typedoc sitedown -g
-          npm i @tensorflow/tfjs @tensorflow/tfjs-node
+          npm i @tensorflow/tfjs @tensorflow/tfjs-node scikitjs
           npm ci
       - name: Test coverage
         run: |
