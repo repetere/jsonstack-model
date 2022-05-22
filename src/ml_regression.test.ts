@@ -2,7 +2,7 @@
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import * as tf from '@tensorflow/tfjs-node';
-import * as scikit from 'scikitjs/dist/node';
+import * as scikit from 'scikitjs/dist/node/index';
 import { MachineLearningLinearRegression, setBackend, setScikit, } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });
