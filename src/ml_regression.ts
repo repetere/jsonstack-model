@@ -19,6 +19,7 @@ export class MachineLearningLinearRegression extends MachineLearningModelInterfa
       compile: {
       },
       fit: {
+        callbacks:[]
       },
       ...options,
     };
