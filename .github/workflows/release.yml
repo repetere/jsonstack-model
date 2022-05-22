@@ -34,6 +34,8 @@ jobs:
           npm i jest typescript rollup typedoc sitedown -g
           npm i @tensorflow/tfjs @tensorflow/tfjs-node scikitjs
           npm ls scikitjs
+          ls node_modules/scikitjs
+          ls node_modules/scikitjs/dist
           npm ci
       - name: Test coverage
         run: |
