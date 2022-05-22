@@ -44,13 +44,14 @@ export class MachineLearningLogisticRegression extends MachineLearningModelInter
    * @return {Object} returns trained tensorflow model 
    */
   async train(x_matrix:Matrix, y_matrix:Matrix) {
+    const trainable_y_matrix = y_matrix.map(y=>y[0])
     const xShape = this.getInputShape(x_matrix);
     const yShape = this.getInputShape(y_matrix);
     // const xs = this.tf.tensor(x_matrix, xShape);
-    // const ys = this.tf.tensor(y_matrix, yShape);
+    // const ys = this.tf.tensor(trainable_y_matrix, yShape);
     this.xShape = xShape;
     this.yShape = yShape;
-    await this.model.fit(x_matrix, y_matrix, this.settings.fit);
+    await this.model.fit(x_matrix, trainable_y_matrix, this.settings.fit);
     this.trained = true;
     this.compiled = true;
     return this.model;

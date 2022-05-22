@@ -41,6 +41,7 @@ let evals;
 const fit= {
   epochs: 10,
   batchSize: 1,
+  verbose: 0,
 };
 
 function scaleColumnMap(columnName) {

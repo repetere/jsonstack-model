@@ -64,6 +64,7 @@ describe('MultipleLinearRegression', function () {
       fit: {
         epochs: 100,
         batchSize: 5,
+        verbose: 0,
       },
     });
     trainedMLRModel = await trainedMLR.train(x_matrix, y_matrix);
@@ -86,6 +87,7 @@ describe('MultipleLinearRegression', function () {
         fit: {
           epochs: 200,
           batchSize: 5,
+          verbose: 0,
         },
       });
       //@ts-expect-error
@@ -121,6 +123,7 @@ describe('MultipleLinearRegression', function () {
         fit: {
           epochs: 10,
           batchSize: 5,
+          verbose: 0,
         },
       });
       await nnLRCustom.train(x_matrix, y_matrix, trainedMLR.layers);

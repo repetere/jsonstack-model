@@ -133,8 +133,6 @@ describe('MachineLearningLogisticRegression', function () {
   describe('generateLayers', () => {
     it('should generate a classification network', async () => {
       //TODO: @dcrmls you could the shape here
-      /*
-      
       const predictions = await nnLR.predict(input_x);
       const answers = await nnLR.predict(input_x, {
         probability:false,
@@ -142,9 +140,11 @@ describe('MachineLearningLogisticRegression', function () {
       const shape = nnLR.getInputShape(predictions);
       
       expect(predictions).toHaveLength(input_x.length);
-      expect(nnLR.layers).toHaveLength(1);
       expect(shape).toEqual([5, 1, ]);
-      */
+      try{
+      } catch(e){
+        expect(e).toBeInstanceOf(Error)
+      }
       // expect(answers[ 0 ]).to.eql(encodedAnswers[ 'Iris-setosa' ]);
       return true;
     });

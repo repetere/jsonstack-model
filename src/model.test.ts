@@ -39,12 +39,14 @@ describe('reloading model weights', () => {
   beforeAll(async () => {
     // const randomUni = tf.randomUniform([1, 100], -1, 1);
     // randomUni.print()
+    console.log = jest.fn()
     FEModel = new FeatureEmbedding({
       name: 'FEModel',
       embedSize: 5,
       fit: {
         epochs: 30,
         batchSize: 1,
+        verbose: 0,
         callbacks: {
           onTrainEnd: (logs: any) => console.log('FEModel onTrainEnd', { logs, }),
           // onEpochBegin: (epoch: number, logs: any) => console.log('FEModel onEpochBegin', { logs, epoch, }),
@@ -63,6 +65,7 @@ describe('reloading model weights', () => {
       fit: {
         epochs: 30,
         batchSize: 1,
+        verbose: 0,
         callbacks: {
           onTrainEnd: (logs: any) => console.log('NewFEModel onTrainEnd', { logs, }),
           // onEpochBegin: (epoch: number, logs: any) => console.log('NewFEModel onEpochBegin', { logs, epoch, }),
@@ -78,6 +81,7 @@ describe('reloading model weights', () => {
       fit: {
         epochs: 50,
         batchSize: 1,
+        verbose: 0,
         callbacks: {
           onTrainEnd: (logs: any) => console.log('ConvergedFEModel onTrainEnd', { logs, }),
           // onEpochBegin: (epoch: number, logs: any) => console.log('ConvergedFEModel onEpochBegin', { logs, epoch, }),
@@ -109,19 +113,21 @@ describe('reloading model weights', () => {
     // expect(ConvergedFEModelLoss).toBeLessThan(NewFEModelLoss);
   });
   it('should allow for adding more features', async () => {
+    console.log = jest.fn()
     let UpdatedModel = new FeatureEmbedding({
       name: 'UpdatedModel',
       embedSize: 5,
       fit: {
         epochs: 70,
         batchSize: 1,
+        verbose: 0,
         callbacks: {
           onTrainEnd: (logs: any) => console.log('ConvergedFEModel onTrainEnd', { logs, }),
           // onEpochBegin: (epoch: number, logs: any) => console.log('ConvergedFEModel onEpochBegin', { logs, epoch, }),
         }
       },
     });
-    console.log('EmbeddingData', EmbeddingData);
+    console.info('EmbeddingData', EmbeddingData);
 
     await UpdatedModel.importEmbeddings({
       ...EmbeddingData,

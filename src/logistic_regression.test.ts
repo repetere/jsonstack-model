@@ -32,6 +32,7 @@ const encodedAnswers = {
 const fit = {
   epochs: 10,
   batchSize: 5,
+  verbose: 0,
 };
 const input_x = [
   [-0.062482849427819266, 0.30083326827486173, ], //0
@@ -100,7 +101,7 @@ describe('LogisticRegression', function () {
     // await nnLRReg.tf.setBackend('cpu')
     // await nnLR.tf.setBackend('wasm')
     // await nnLRClass.tf.setBackend('wasm')
-    await nnLRReg.tf.setBackend('cpu')
+    // await nnLRReg.tf.setBackend('cpu')
     // console.log('nnLR.tf.getBackend()',nnLR.tf.getBackend())
     // console.log('nnLRClass.tf.getBackend()',nnLRClass.tf.getBackend())
     // console.log('nnLRReg.tf.getBackend()',nnLRReg.tf.getBackend())
@@ -132,6 +133,8 @@ describe('LogisticRegression', function () {
       const answers = await nnLR.predict(input_x, {
         probability:false,
       });
+      // console.log({predictions,answers})
+
       const shape = nnLR.getInputShape(predictions);
      
       expect(predictions).toHaveLength(input_x.length);
