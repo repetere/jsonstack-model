@@ -1,3 +1,17 @@
+# [2.2.0](https://github.com/repetere/jsonm-model/compare/v2.1.0...v2.2.0) (2022-05-24)
+
+
+### Bug Fixes
+
+* type error on scikit models ([962f96b](https://github.com/repetere/jsonm-model/commit/962f96bc62eb52b7ab3c3e77782e540c7d2303b8))
+
+
+### Features
+
+* **#257:** adding ML classification ([edb80e6](https://github.com/repetere/jsonm-model/commit/edb80e683f82a508c1b0d9cdd827b56e783d72b0)), closes [#257](https://github.com/repetere/jsonm-model/issues/257)
+* **#257:** adding scikit ml regression ([5d30bf3](https://github.com/repetere/jsonm-model/commit/5d30bf333345287970576d927f52654bf0a2524b)), closes [#257](https://github.com/repetere/jsonm-model/issues/257)
+* added scikit based ml logistic regression ([4db53f6](https://github.com/repetere/jsonm-model/commit/4db53f6f5e30c941947f0d7806c62f94b5bca27b))
+
 # [2.1.0](https://github.com/repetere/jsonm-model/compare/v2.0.0...v2.1.0) (2022-05-20)
 
 
