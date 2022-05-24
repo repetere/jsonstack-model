@@ -2,10 +2,13 @@
 import path from 'path';
 import * as ms from '@jsonstack/data';
 import * as tf from '@tensorflow/tfjs-node';
-import { MultipleLinearRegression, setBackend } from './index';
+import * as scikit from 'scikitjs';
+import { MachineLearningLinearRegression, setBackend, setScikit, } from './index';
 import { toBeWithinRange, } from './jest.test';
 expect.extend({ toBeWithinRange });
 setBackend(tf);
+scikit.setBackend(tf);
+setScikit(scikit);
 
 const independentVariables = ['sqft', 'bedrooms', ];
 const dependentVariables = ['price',];
@@ -15,6 +18,8 @@ let DataSet;
 let x_matrix;
 let y_matrix;
 let trainedMLR;
+let trainedWithCallbacksMLR;
+let trainedCallbackMLR;
 let trainedMLRModel;
 
 function scaleColumnMap(columnName) {
@@ -28,9 +33,10 @@ function scaleColumnMap(columnName) {
     },
   };
 }
-/** @test {MultipleLinearRegression} */
-describe('MultipleLinearRegression', function () {
+/** @test {MachineLearningLinearRegression} */
+describe('MachineLearningLinearRegression', function () {
   beforeAll(async function () {
+    console.log = jest.fn()
     const fpath = `${path.join(__dirname, '/test/mock/data/portland_housing_data.csv')}`;
 
     housingDataCSV = await ms.csv.loadCSV(fpath);
@@ -60,14 +66,25 @@ describe('MultipleLinearRegression', function () {
       ] 
       y_vector = [ 399900, 329900]
     */
-    trainedMLR = new MultipleLinearRegression({
+    trainedMLR = new MachineLearningLinearRegression({
       fit: {
         epochs: 100,
         batchSize: 5,
-        verbose: 0,
       },
     });
     trainedMLRModel = await trainedMLR.train(x_matrix, y_matrix);
+
+    trainedWithCallbacksMLR = new MachineLearningLinearRegression({
+      fit:{
+        callbacks:{
+          onEpochBegin: function(epoch:number, logs:unknown){
+            console.log('onEpochBegin', { epoch, logs });
+          }
+        }
+      }
+    });
+    trainedCallbackMLR = await trainedWithCallbacksMLR.train(x_matrix, y_matrix);
+
     input_x = [
       [
         DataSet.scalers.get('sqft').scale(4215),
@@ -80,27 +97,25 @@ describe('MultipleLinearRegression', function () {
     ];
     return true;
   }, 120000);
-  /** @test {MultipleLinearRegression#constructor} */
+  /** @test {MachineLearningLinearRegression#constructor} */
   describe('constructor', () => {
     it('should export a named module class', () => {
-      const MLR = new MultipleLinearRegression({
+      const MLR = new MachineLearningLinearRegression({
         fit: {
           epochs: 200,
           batchSize: 5,
-          verbose: 0,
         },
       });
       //@ts-expect-error
-      const MLRConfigured = new MultipleLinearRegression({ test: 'prop', }, {});
-      expect(typeof MultipleLinearRegression).toBe('function');
-      expect(MLR).toBeInstanceOf(MultipleLinearRegression);
+      const MLRConfigured = new MachineLearningLinearRegression({ test: 'prop', }, {});
+      expect(typeof MachineLearningLinearRegression).toBe('function');
+      expect(MLR).toBeInstanceOf(MachineLearningLinearRegression);
       //@ts-expect-error
       expect(MLRConfigured.settings.test).toEqual('prop');
     });
   });
-  /** @test {MultipleLinearRegression#generateLayers} */
-  describe('generateLayers', () => {
-    it('should generate a classification network', async () => {
+  describe('predict',()=>{
+    it('should make predictions from trained model', async () => {
       const predictions = await trainedMLR.predict(input_x);
       const shape = trainedMLR.getInputShape(predictions);
       // console.log('nnLR.layers', nnLR.layers);
@@ -109,26 +124,18 @@ describe('MultipleLinearRegression', function () {
       //   shape,
       // });
       expect(predictions).toHaveLength(input_x.length);
-      expect(trainedMLR.layers).toHaveLength(1);
+      // expect(trainedMLR.layers).toHaveLength(1);
       const descaledPredictions = predictions.map(DataSet.scalers.get('price').descale);
+      // console.log({
+      //   descaledPredictions,
+      //   shape,
+      //   explain: trainedMLR.explain()
+      // },trainedMLR.model.getParams())
       //@ts-expect-error
-      expect(descaledPredictions[ 0 ]).toBeWithinRange(610000, 650000);
+      expect(descaledPredictions[ 0 ]).toBeWithinRange(600000, 670000);
       //@ts-expect-error
-      expect(descaledPredictions[ 1 ]).toBeWithinRange(180000, 200000);
+      expect(descaledPredictions[ 1 ]).toBeWithinRange(160000, 220000);
       return true;
     });
-    it('should generate a network from layers', async () => {
-      const nnLRCustom = new MultipleLinearRegression({
-        type: 'custom',
-        fit: {
-          epochs: 10,
-          batchSize: 5,
-          verbose: 0,
-        },
-      });
-      await nnLRCustom.train(x_matrix, y_matrix, trainedMLR.layers);
-      expect(nnLRCustom.layers).toHaveLength(1);
-      return true;
-    }, 20000);
-  });
+  })
 });

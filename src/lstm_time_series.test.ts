@@ -36,6 +36,7 @@ const ds = [
 const fit= {
   epochs: 10,
   batchSize: 1,
+  verbose: 0,
 };
 
 function scaleColumnMap(columnName) {
@@ -275,7 +276,7 @@ describe('LSTMTimeSeries', function () {
       await LSTMTS.train(x, y);
       const predictions = await TSTSONE.predict([testData.x_matrix[ 0 ]]);
       const predictions_unscaled = predictions.map(pred => [DataSet.scalers.get('Passengers').descale(pred[ 0 ]),]);
-      console.log({ predictions_unscaled });
+      // console.log({ predictions_unscaled });
       expect(predictions).toHaveLength(1);
       expect(typeof LSTMTS.layers).toBe('object');
       return true;

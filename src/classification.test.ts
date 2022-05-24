@@ -26,6 +26,7 @@ let nnClassificationModel;
 const fit = {
   epochs: 100,
   batchSize: 5,
+  verbose: 0,
 };
 const encodedAnswers = {
   'Iris-setosa': [1, 0, 0, ],
@@ -111,7 +112,7 @@ describe('DeepLearningClassification', function () {
 
     nnClassification = new DeepLearningClassification({ fit, });
     // await nnClassification.tf.setBackend('wasm');
-    console.log('nnClassification.tf.getBackend()',nnClassification.tf.getBackend());
+    // console.log('nnClassification.tf.getBackend()',nnClassification.tf.getBackend());
 
 
     nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
@@ -121,7 +122,8 @@ describe('DeepLearningClassification', function () {
     it('should export a named module class', async () => {
       const NN = new DeepLearningClassification();
       // await NN.tf.setBackend('wasm');
-      console.log('NN.tf.getBackend()',NN.tf.getBackend());
+      // console.log('NN.tf.getBackend()',NN.tf.getBackend());
+      expect(NN.tf.getBackend()).toBe('tensorflow');
 
       //@ts-ignore
       const NNConfigured = new DeepLearningClassification({ test: 'prop', });
@@ -174,8 +176,10 @@ describe('DeepLearningClassification', function () {
     it('should generate a network from layers', async () => { 
       const nnClassificationCustom = new DeepLearningClassification({ layerPreference:'custom', fit, });
       await nnClassificationCustom.tf.setBackend('cpu');
-      console.log('nnClassificationCustom.tf.getBackend()',nnClassificationCustom.tf.getBackend());
+      // console.log('nnClassificationCustom.tf.getBackend()',nnClassificationCustom.tf.getBackend());
+      expect(nnClassificationCustom.tf.getBackend()).toBe('cpu');
 
+      await nnClassificationCustom.tf.setBackend('tensorflow');
       await nnClassificationCustom.train(x_matrix, y_matrix, nnClassification.layers);
       expect(nnClassificationCustom.layers).toHaveLength(2);
     },120000);

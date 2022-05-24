@@ -27,6 +27,7 @@ export interface TensorScriptLSTMModelContext extends TensorScriptModelContext{
 export type TensorScriptProperties = {
   model?: any;
   tf?: any;
+  scikit?: any;
 };
 // export type LambdaLayer = (...args: any[]) => any;
 export type DenseLayer = {
@@ -91,7 +92,7 @@ export type TensorScriptOptions = {
       onBatchEnd?:(batch:number, logs: EpochLog)=> void;
       //called every yieldEvery milliseconds with the current epoch, batch and logs. The logs are the same as in onBatchEnd(). Note that onYield can skip batches or epochs. See also docs for yieldEvery below.
       onYield?:(epoch:number, batch:number, logs: EpochLog)=> void;
-    }
+    } & any[]
   }
   initialLayerInitializerType?: string;
   initialLayerInitializerOptions?: any;

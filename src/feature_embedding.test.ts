@@ -196,6 +196,7 @@ describe('FeatureEmbedding', function () {
   });
   describe('generate feature embedder', () => {
     it('should train a model and get embedding weights', async () => {
+      console.log = jest.fn()
       const FE = new FeatureEmbedding({
         windowSize: 3,
         fit: {
@@ -209,6 +210,7 @@ describe('FeatureEmbedding', function () {
       });
       // console.log({furniture})
       // await FE.train(furniture);
+      
       //@ts-expect-error
       await FE.train(products);
       const weights = await FE.predict();
@@ -342,6 +344,7 @@ describe('FeatureEmbedding', function () {
   /** @test {FeatureEmbedding#generateLayers} */
   describe('generateLayers', () => {
     it('should generate embedding layers', async () => {
+      console.log = jest.fn()
       FE = new FeatureEmbedding({
         windowSize: 3,
         fit: {
