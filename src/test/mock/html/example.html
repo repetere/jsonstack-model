@@ -1,0 +1,498 @@
+<html>
+  <head>
+    <title>Data test</title>
+    <script>
+    // const natural={}
+    </script>
+    <!-- <script src="/Users/yawjosephetse/Developer/github/repetere/modelx-data/dist/index.web.js"></script> -->
+    <script src="https://unpkg.com/@jsonstack/data@1.1.3/dist/index.umd.js"></script>
+    <script src="../../../../dist/web/index.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
+    <script src="https://unpkg.com/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script> -->
+
+    <style type="text/css">
+    .result{
+      border:1px solid black;
+      padding:1rem;
+    }
+    </style>
+    <script type="application/javascript">
+    const cacheData={};
+    function setLoadingDom(selector){
+      const el = document.querySelector(selector);
+      el.innerHTML = '';
+      return el;
+    }
+    function updateLoadingDom(el,content){
+      const resultPre = document.createElement('pre');
+      resultPre.innerHTML = JSON.stringify(content ,null,2);
+      el.appendChild(resultPre);
+    }
+    JSONStackModel.setBackend(tf);
+    </script>
+  </head>
+  <body>
+    <h1>JSONStackModel</h1>
+    <h2>DeepLearningClassification</h2>
+    <code>
+      
+const independentVariables = [
+'sepal_length_cm',
+'sepal_width_cm',
+'petal_length_cm',
+'petal_width_cm',
+];
+const dependentVariables = [
+'plant_Iris-setosa',
+'plant_Iris-versicolor',
+'plant_Iris-virginica',
+];
+const columns = independentVariables.concat(dependentVariables);
+let housingDataCSV;
+let DataSet;
+let x_matrix;
+let y_matrix;
+let nnClassification;
+let nnClassificationModel;
+const fit = {
+epochs: 100,
+batchSize: 5,
+};
+const encodedAnswers = {
+'Iris-setosa': [1, 0, 0, ],
+'Iris-versicolor': [0, 1, 0, ],
+'Iris-virginica': [0, 0, 1, ],
+};
+const input_x = [
+[5.1, 3.5, 1.4, 0.2, ],
+[6.3,3.3,6.0,2.5, ],
+[5.6, 3.0, 4.5, 1.5, ],
+[5.0, 3.2, 1.2, 0.2, ],
+[4.5, 2.3, 1.3, 0.3, ],
+];
+function scaleColumnMap(columnName) {
+return {
+  name: columnName,
+  options: {
+    strategy: 'scale',
+    scaleOptions: {
+      strategy:'standard',
+    },
+  },
+};
+}
+/** @test {DeepLearningClassification} */
+describe('DeepLearningClassification', function () {
+beforeAll(async function () {
+  /**
+   * encodedData = [ 
+   *  { sepal_length_cm: 5.1,
+       sepal_width_cm: 3.5,
+      petal_length_cm: 1.4,
+      petal_width_cm: 0.2,
+      plant: 'Iris-setosa',
+      'plant_Iris-setosa': 1,
+      'plant_Iris-versicolor': 0,
+      'plant_Iris-virginica': 0 },
+      ...
+      { sepal_length_cm: 5.9,
+      sepal_width_cm: 3,
+      petal_length_cm: 4.2,
+      petal_width_cm: 1.5,
+      plant: 'Iris-versicolor',
+      'plant_Iris-setosa': 0,
+      'plant_Iris-versicolor': 1,
+      'plant_Iris-virginica': 0 },
+    ];
+  */
+  housingDataCSV = await ms.csv.loadCSV(path.join(__dirname,'/test/mock/data/iris_data.csv'));
+  DataSet = new ms.DataSet(housingDataCSV);
+  // DataSet.fitColumns({
+  //   columns: columns.map(scaleColumnMap),
+  //   returnData:false,
+  // });
+  const encodedData = DataSet.fitColumns({
+    columns: [
+      {
+        name: 'plant',
+        options: {
+          strategy: 'onehot',
+        },
+      },
+    ],
+    returnData:true,
+  });
+  x_matrix = DataSet.columnMatrix(independentVariables); 
+  y_matrix = DataSet.columnMatrix(dependentVariables);
+  /*
+  x_matrix = [
+    [ 5.1, 3.5, 1.4, 0.2 ],
+    [ 4.9, 3, 1.4, 0.2 ],
+    [ 4.7, 3.2, 1.3, 0.2 ],
+    ...
+  ]; 
+  y_matrix = [
+    [ 1, 0, 0 ],
+    [ 1, 0, 0 ],
+    [ 1, 0, 0 ],
+    ...
+  ] 
+  */
+  // console.log({ x_matrix, y_matrix, });
+
+  nnClassification = new DeepLearningClassification({ fit, });
+  nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
+},120000);
+const predictions = await nnClassification.predict(input_x);
+      const answers = await nnClassification.predict(input_x, {
+        probability:false,
+      });
+      const shape = nnClassification.getInputShape(predictions);
+    </code>
+    <script>
+      window.addEventListener('load',()=>{
+        const csvtest1Main = (async function csvtest1Main(){
+          const csvtest1DOM= setLoadingDom('#csvtest1');
+                    
+          const independentVariables = [
+            'sepal_length_cm',
+            'sepal_width_cm',
+            'petal_length_cm',
+            'petal_width_cm',
+          ];
+          const dependentVariables = [
+            'plant_Iris-setosa',
+            'plant_Iris-versicolor',
+            'plant_Iris-virginica',
+          ];
+          const columns = independentVariables.concat(dependentVariables);
+          let housingDataCSV;
+          let DataSet;
+          let x_matrix;
+          let y_matrix;
+          let nnClassification;
+          let nnClassificationModel;
+          const encodedAnswers = {
+            'Iris-setosa': [1, 0, 0, ],
+            'Iris-versicolor': [0, 1, 0, ],
+            'Iris-virginica': [0, 0, 1, ],
+          };
+          const input_x = [
+            [5.1, 3.5, 1.4, 0.2, ],
+            [6.3,3.3,6.0,2.5, ],
+            [5.6, 3.0, 4.5, 1.5, ],
+            [5.0, 3.2, 1.2, 0.2, ],
+            [4.5, 2.3, 1.3, 0.3, ],
+          ];
+          function scaleColumnMap(columnName) {
+            return {
+              name: columnName,
+              options: {
+                strategy: 'scale',
+                scaleOptions: {
+                  strategy:'standard',
+                },
+              },
+            };
+          }
+          housingDataCSV = await ModelXData.csv.loadCSVURI('https://raw.githubusercontent.com/repetere/modelx-model/master/src/test/mock/data/iris_data.csv');
+          DataSet = new ModelXData.DataSet(housingDataCSV);
+          const encodedData = DataSet.fitColumns({
+            columns: [
+              {
+                name: 'plant',
+                options: {
+                  strategy: 'onehot',
+                },
+              },
+            ],
+            returnData:true,
+          });
+          x_matrix = DataSet.columnMatrix(independentVariables); 
+          y_matrix = DataSet.columnMatrix(dependentVariables);
+
+          updateLoadingDom(csvtest1DOM,{ training:'started', });
+          const fit = {
+            epochs: 100,
+            batchSize: 5,
+            callbacks: {
+              onTrainBegin: function(logs){
+                // console.log('onTrainBegin', { logs });
+                updateLoadingDom(csvtest1DOM,{ training:'onTrainBegin', logs });
+              },
+              onEpochBegin: function(epoch, logs){
+                // console.log('onEpochBegin', { epoch, logs });
+                updateLoadingDom(csvtest1DOM,{ training:'onEpochBegin', epoch, logs });
+              },
+              onYield: function(epoch, batch, logs){
+                // console.log('onYield', { epoch, batch, logs });
+                updateLoadingDom(csvtest1DOM,{ training:'onYield', epoch, batch, logs });
+              }
+            }
+          };
+          nnClassification = new JSONStackModel.DeepLearningClassification({ fit, });
+          window.nnClassification = nnClassification;
+          // await nnClassification.tf.setBackend('wasm');
+
+
+          // const backend = await nnClassification.tf.backend();
+          // console.log({nnClassification})
+          try {
+            updateLoadingDom(csvtest1DOM,{ msg: 'attempting to load model', });
+            await nnClassification.loadModel('localstorage://iris-model');
+          } catch(e){
+            console.warn(e)
+          }
+
+
+          // console.log({ nnClassification, });
+          if(nnClassification.trained===false){
+            nnClassificationModel = await nnClassification.train(x_matrix, y_matrix);
+          }
+
+          
+          const predictions = await nnClassification.predict(input_x);
+          updateLoadingDom(csvtest1DOM,{ predictions, });
+          
+          const answers = await nnClassification.predict(input_x, {
+            probability:false,
+          });
+          updateLoadingDom(csvtest1DOM,{ answers, });
+
+          const shape = nnClassification.getInputShape(predictions);
+          updateLoadingDom(csvtest1DOM,{ shape, });
+
+          await nnClassification.saveModel('localstorage://iris-model');
+          // await nnClassification.saveModel('downloads://iris-model-save');
+          
+          console.log({encodedData})
+          // updateLoadingDom(csvtest1DOM,{encodedData});
+        })();
+      });
+    </script>
+    <pre id='csvtest1' class="result"></pre>
+    <h2>TextEmbedding</h2>
+    <pre>
+      const TextEmbedder = new JSONStackModel.TextEmbedding();
+      await TextEmbedder.train();
+      const sentences = [
+        'Hello.',
+        'How are you?',
+      ];
+      const predictions = await TextEmbedder.predict(sentences);
+
+    </pre>
+    <pre id='csvtest2' class="result"></pre>
+    <script>
+      window.addEventListener('load',()=>{
+        (async function csvtest1Main(){
+          const csvtest2DOM= setLoadingDom('#csvtest2');          
+          const TextEmbedder = new JSONStackModel.TextEmbedding();
+          console.log('before',{TextEmbedder})
+          updateLoadingDom(csvtest2DOM,{ msg: 'attempting to train TextEmbedding model', });
+          await TextEmbedder.train();
+          console.log('after',{TextEmbedder})
+          const sentences = [
+            'Hello.',
+            'How are you?',
+          ];
+          const predictions = await TextEmbedder.predict(sentences);
+          console.log({predictions});
+          updateLoadingDom(csvtest2DOM, {predictions});
+          const tokens = await TextEmbedder.tokenizer.encode('Hello, how are you?');
+          console.log({tokens});
+          updateLoadingDom(csvtest2DOM, {tokens});
+
+
+        })();
+      });
+    </script>
+    <!-- <h3>ModelXData.DataSet.selectColumns</h3>
+    <pre>
+      const cols = ['Age', 'Salary', ];
+      const selectedCols = CSVDataSet.selectColumns(cols);
+    </pre>
+    <pre id='csvtest3' class="result"></pre> -->
+
+          <!--
+
+    <h2>ModelXData.nlp</h2>
+    <h3>ModelXData.nlp.ColumnVectorizer</h3>
+    <pre>
+const csvData = [
+  {
+    'Review': 'This is really good',
+    'Liked': 1,
+  },
+  {
+    'Review': 'I would definitely recommend',
+    'Liked': 1,
+  },
+  {
+    'Review': 'The wait staff was really rude',
+    'Liked': 0,
+  },
+  {
+    'Review': 'Great views',
+    'Liked': 1,
+  },
+  {
+    'Review': 'the food was not great',
+    'Liked': 0,
+  },
+  {
+    'Review': 'food came out cold, took forever to get seated',
+    'Liked': 0,
+  },
+  {
+    'Review': 'we had a great time, and they were really prompt and attentive',
+    'Liked': 1,
+  },
+  {
+    'Review': 'the food was bland',
+    'Liked': 0,
+  },
+  {
+    'Review': 'not very flavorful',
+    'Liked': 0,
+  },
+  {
+    'Review': 'it was kind of so-so',
+    'Liked': 0,
+  },
+];
+const eVString = 'I would rate everything Great, views Great, food Great';
+const CSVDataSet = new ModelXData.DataSet(csvData);
+const nlpVectors = new ModelXData.nlp.ColumnVectorizer({
+  data: CSVDataSet.columnArray('Review'),
+  maxFeatures: 9,
+});
+nlpVectors.fit_transform();
+    </pre>
+    <pre id='csvtest4' class="result"></pre>
+
+    <script>
+      window.addEventListener('load',()=>{
+        (async function csvtest1Main(){
+        const csvtest4DOM= setLoadingDom('#csvtest4');
+          const csvData = [
+            {
+              'Review': 'This is really good',
+              'Liked': 1,
+            },
+            {
+              'Review': 'I would definitely recommend',
+              'Liked': 1,
+            },
+            {
+              'Review': 'The wait staff was really rude',
+              'Liked': 0,
+            },
+            {
+              'Review': 'Great views',
+              'Liked': 1,
+            },
+            {
+              'Review': 'the food was not great',
+              'Liked': 0,
+            },
+            {
+              'Review': 'food came out cold, took forever to get seated',
+              'Liked': 0,
+            },
+            {
+              'Review': 'we had a great time, and they were really prompt and attentive',
+              'Liked': 1,
+            },
+            {
+              'Review': 'the food was bland',
+              'Liked': 0,
+            },
+            {
+              'Review': 'not very flavorful',
+              'Liked': 0,
+            },
+            {
+              'Review': 'it was kind of so-so',
+              'Liked': 0,
+            },
+          ];
+          const eVString = 'I would rate everything Great, views Great, food Great';
+          const CSVDataSet = new ModelXData.DataSet(csvData);
+          const nlpVectors = new ModelXData.nlp.ColumnVectorizer({
+            data: CSVDataSet.columnArray('Review'),
+            maxFeatures: 9,
+          });
+          nlpVectors.fit_transform();
+          updateLoadingDom(csvtest4DOM, nlpVectors);
+
+          // csvtest3DOM= setLoadingDom('#csvtest3');
+          // const cols = ['Age', 'Salary', ];
+          // const selectedCols = CSVDataSet.selectColumns(cols);
+          // updateLoadingDom(csvtest3DOM, selectedCols);
+        })();
+      });
+    </script>
+    <h2>ModelXData.cross_validation</h2>
+    <h3>ModelXData.cross_validation.train_test_split</h3>
+    <pre>
+      const testArray = [20, 25, 10, 33, 50, 42, 19, 34, 90, 23, ];
+      const defaultTrainTestSplitSize = ModelXData.cross_validation.train_test_split(testArray, { test_size: 0.4, });
+      const { train, test, } = defaultTrainTestSplitSize;
+      expect(train.length).to.equal(6);
+    </pre>
+    <script>
+      window.addEventListener('load',()=>{
+        (async function csvtest1Main(){
+          const csvtest5DOM= setLoadingDom('#csvtest5');
+          const testArray = [20, 25, 10, 33, 50, 42, 19, 34, 90, 23, ];
+          const defaultTrainTestSplitSize = ModelXData.cross_validation.train_test_split(testArray, { test_size: 0.4, });
+          const { train, test, } = defaultTrainTestSplitSize;
+          updateLoadingDom(csvtest5DOM, { train, test, } );
+
+        })();
+      });
+    </script>
+    <pre id='csvtest5' class="result"></pre>
+    <h2>ModelXData.calc</h2>
+    <h3>ModelXData.calc.assocationRuleLearning</h3>
+    <pre>
+      const rawTransactions = [
+        ['Cookies', 'Milk', 'Plates', ],
+        ['Cups', 'Milk', 'Silverware', ],
+        ['Cookies', 'Cups', 'Milk', 'Silverware', ],
+        ['Cups', 'Silverware', ],
+        ['Cookies', 'Cups', 'Milk', 'Silverware', ],
+      ];
+      const gt = ModelXData.calc.getTransactions(rawTransactions);
+      const arl = await ModelXData.calc.assocationRuleLearning(gt.transactions, {
+        valuesMap: gt.valuesMap,
+      });
+    </pre>
+    <script>
+      window.addEventListener('load',()=>{
+        (async function csvtest1Main(){
+          const csvtest6DOM= setLoadingDom('#csvtest6');
+          const rawTransactions = [
+            ['Cookies', 'Milk', 'Plates', ],
+            ['Cups', 'Milk', 'Silverware', ],
+            ['Cookies', 'Cups', 'Milk', 'Silverware', ],
+            ['Cups', 'Silverware', ],
+            ['Cookies', 'Cups', 'Milk', 'Silverware', ],
+          ];
+          const gt = ModelXData.calc.getTransactions(rawTransactions);
+          const arl = await ModelXData.calc.assocationRuleLearning(gt.transactions, {
+            valuesMap: gt.valuesMap,
+          });
+          updateLoadingDom(csvtest6DOM, { gt, arl, } );
+
+        })();
+      });
+    </script>
+    <pre id='csvtest6' class="result"></pre>
+  -->
+    <!-- <script type="application/javascript" async src="/Users/yawjosephetse/Developer/github/repetere/natural/dist/index.web.js"></script> -->
+  </body>
+</html>
