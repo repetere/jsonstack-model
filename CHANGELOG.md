@@ -1,3 +1,10 @@
+# [3.0.0](https://github.com/repetere/jsonm-model/compare/v2.2.0...v3.0.0) (2022-06-30)
+
+
+### Bug Fixes
+
+* new build files and docs ([e6f4063](https://github.com/repetere/jsonm-model/commit/e6f4063a5abdb0daee4f555a673eaca2b56e7294))
+
 # [2.2.0](https://github.com/repetere/jsonm-model/compare/v2.1.0...v2.2.0) (2022-05-24)
 
 
