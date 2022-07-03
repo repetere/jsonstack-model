@@ -26,7 +26,7 @@ describe('End to End HTML Tests', function(){
       // await page.$eval('#formSubmitButton',(el:any)=>el.click())
       // await page.focus('#formResult')
       // await page.keyboard.press('Enter');
-      await page.waitForTimeout(1000)
+      await page.waitForTimeout(10000)
       const loadedPageModelDataCSV1 = await page.evaluate(()=>{
         const csvtest1 = document.querySelector('#csvtest1')?.textContent
         //@ts-ignore
