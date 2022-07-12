@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import os from 'os';
 
 describe('End to End HTML Tests', function(){
   let browser:puppeteer.Browser;
@@ -26,7 +27,10 @@ describe('End to End HTML Tests', function(){
       // await page.$eval('#formSubmitButton',(el:any)=>el.click())
       // await page.focus('#formResult')
       // await page.keyboard.press('Enter');
-      await page.waitForTimeout(10000)
+      console.log('os.type()', os.type());
+      console.log('os.arch()', os.arch());
+      console.log('os.platform()', os.platform());
+      await page.waitForTimeout(30000)
       const loadedPageModelDataCSV1 = await page.evaluate(()=>{
         const csvtest1 = document.querySelector('#csvtest1')?.textContent
         //@ts-ignore
@@ -35,6 +39,6 @@ describe('End to End HTML Tests', function(){
       expect((loadedPageModelDataCSV1.csvtest1 as string)).toMatch(/answers/gi)
       
       // // await page.screenshot({ path: 'example.png' });
-    },30000);
+    },40000);
   });
 })
