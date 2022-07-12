@@ -30,12 +30,13 @@ describe('End to End HTML Tests', function(){
       // console.log('os.type()', os.type());
       // console.log('os.arch()', os.arch());
       // console.log('os.platform()', os.platform());
-      await page.waitForTimeout(10000)
+      await page.waitForTimeout(20000)
       const loadedPageModelDataCSV1 = await page.evaluate(()=>{
         const csvtest1 = document.querySelector('#csvtest1')?.textContent
         //@ts-ignore
         return {csvtest1}
       })
+      console.log('loadedPageModelDataCSV1.csvtest1',loadedPageModelDataCSV1.csvtest1)
       expect((loadedPageModelDataCSV1.csvtest1 as string)).toMatch(/BaseNeuralNetwork/gi)
       
       // // await page.screenshot({ path: 'example.png' });
