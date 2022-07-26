@@ -148,7 +148,7 @@ export type LambdaLayerOptions = {
  * @see https://benjamin-wegener.blogspot.com/2020/02/tensorflowjs-lambda-layer.html
  */
 export class LambdaLayer extends layers.Layer {
-  name: string;
+  declare name: string;
   lambdaFunction: string;
   //@ts-ignore
   lambdaOutputShape: TFShape | Matrix | Vector;
