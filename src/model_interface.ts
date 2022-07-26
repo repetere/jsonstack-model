@@ -92,7 +92,7 @@ export type TensorScriptOptions = {
       onBatchEnd?:(batch:number, logs: EpochLog)=> void;
       //called every yieldEvery milliseconds with the current epoch, batch and logs. The logs are the same as in onBatchEnd(). Note that onYield can skip batches or epochs. See also docs for yieldEvery below.
       onYield?:(epoch:number, batch:number, logs: EpochLog)=> void;
-    } & any[]
+    } & any
   }
   initialLayerInitializerType?: string;
   initialLayerInitializerOptions?: any;
