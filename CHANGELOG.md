@@ -1,3 +1,11 @@
+## [3.0.1](https://github.com/repetere/jsonm-model/compare/v3.0.0...v3.0.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* making it easier to test in the browser ([fd9d121](https://github.com/repetere/jsonm-model/commit/fd9d121aabe24eafffb981c18496eda42aeceea7))
+* removed highcharts server ([e78371a](https://github.com/repetere/jsonm-model/commit/e78371a5ed1231b66ffe8d4e2175adcf81b5737d))
+
 # [3.0.0](https://github.com/repetere/jsonm-model/compare/v2.2.0...v3.0.0) (2022-06-30)
 
 
