@@ -33,7 +33,7 @@ describe('End to End HTML Tests', function(){
       
       if(os.platform()==='linux' && os.type() ==='Linux') expect(true).toBe(true)
       else {
-        await page.waitForTimeout(5000)
+        await page.waitForTimeout(20000)
         const loadedPageModelDataCSV1 = await page.evaluate(()=>{
           const csvtest1 = document.querySelector('#csvtest1')?.textContent
           //@ts-ignore

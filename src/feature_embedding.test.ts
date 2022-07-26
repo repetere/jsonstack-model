@@ -2,7 +2,7 @@
 import util from 'util';
 import path from 'path';
 import os from 'os';
-import fs from 'fs-extra';
+// import fs from 'fs-extra';
 // import * as ms from '@jsonstack/data';
 // import * as jskp from 'jskit-plot';
 
@@ -10,7 +10,7 @@ import { FeatureEmbedding, setBackend, } from './index';
 import '@tensorflow/tfjs-node';
 import * as tf from '@tensorflow/tfjs-node';
 import { stop_words, norm_bible, norm_bible_matrix, products, furniture } from './test/mock/data/stopwords';
-import Exporting from 'highcharts-export-server';
+// import Exporting from 'highcharts-export-server';
 import { toBeWithinRange, } from './jest.test';
 setBackend(tf);
 
@@ -23,22 +23,23 @@ let FEModelNonStream;
 let FEModel;
 let FEweights;
 
-async function exportChart(filename: string, exportSettings: any) {
-  Exporting.initPool();
-  return new Promise((resolve, reject) => {
-    const options = {
-      type: 'png',
-      ...exportSettings,
-    };
-    Exporting.export(options, async (err, res) => {
-      Exporting.killPool();
-      if (err) return reject(err);
-      let file;
-      if(os.platform()==='darwin') file = await fs.outputFile(filename, res.data, { encoding: 'base64' });
-      return resolve({ file, res, });
-    });
-  });
-}
+//TODO: replace export server
+// async function exportChart(filename: string, exportSettings: any) {
+//   Exporting.initPool();
+//   return new Promise((resolve, reject) => {
+//     const options = {
+//       type: 'png',
+//       ...exportSettings,
+//     };
+//     Exporting.export(options, async (err, res) => {
+//       Exporting.killPool();
+//       if (err) return reject(err);
+//       let file;
+//       if(os.platform()==='darwin') file = await fs.outputFile(filename, res.data, { encoding: 'base64' });
+//       return resolve({ file, res, });
+//     });
+//   });
+// }
 
 // console.log({ norm_bible_matrix });
 /** @test {FeatureEmbedding} */
@@ -322,7 +323,7 @@ describe('FeatureEmbedding', function () {
       };
       try {
         const filename = path.join(__dirname, './test/mocked_saved_files/reduced_weights.png');
-        const plotImage = await exportChart(filename, { options: chartData });
+        //TODO: //TODO: // const plotImage = await exportChart(filename, { options: chartData });
       } catch (e) {
         throw e;
       }
@@ -413,7 +414,7 @@ describe('FeatureEmbedding', function () {
             height: 768
           };
           const filename = path.join(__dirname, './test/mocked_saved_files/product_reduced_weights.png');
-          const plotImage = await exportChart(filename, { options: chartData });
+          //TODO: const plotImage = await exportChart(filename, { options: chartData });
         }
       } catch (e) {
         throw e;

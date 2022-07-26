@@ -132,7 +132,7 @@ describe('MachineLearningLinearRegression', function () {
       //   explain: trainedMLR.explain()
       // },trainedMLR.model.getParams())
       //@ts-expect-error
-      expect(descaledPredictions[ 0 ]).toBeWithinRange(600000, 670000);
+      expect(descaledPredictions[ 0 ]).toBeWithinRange(500000, 700000);
       //@ts-expect-error
       expect(descaledPredictions[ 1 ]).toBeWithinRange(160000, 220000);
       return true;
