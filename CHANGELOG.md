@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/repetere/jsonm-model/compare/v3.0.2...v3.0.3) (2022-07-26)
+
+
+### Bug Fixes
+
+* callback signature ([0ba8ca8](https://github.com/repetere/jsonm-model/commit/0ba8ca8eb33177ffe37d4ab0b9f6d218b1ebd9c7))
+
 ## [3.0.2](https://github.com/repetere/jsonm-model/compare/v3.0.1...v3.0.2) (2022-07-26)
 
 
