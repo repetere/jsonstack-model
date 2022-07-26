@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/repetere/jsonm-model/compare/v3.0.1...v3.0.2) (2022-07-26)
+
+
+### Bug Fixes
+
+* declare modifier on base layer ([8f89749](https://github.com/repetere/jsonm-model/commit/8f897493ee3981a696b09d01478972a78bde1fee))
+
 ## [3.0.1](https://github.com/repetere/jsonm-model/compare/v3.0.0...v3.0.1) (2022-07-26)
 
 
