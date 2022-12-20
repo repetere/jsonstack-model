@@ -59,7 +59,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "@tensorflow/tfjs": "^3.19.0",
+    "@tensorflow/tfjs": "^4.1.0",
     "@tensorflow/tfjs-converter": "^3.17.0",
     "@tensorflow/tfjs-node": "^3.19.0",
     "@types/fs-extra": "^9.0.9",
