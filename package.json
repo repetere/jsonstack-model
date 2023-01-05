@@ -67,7 +67,7 @@
     "@types/lodash.range": "^3.2.7",
     "esbuild": "^0.15.0",
     "esbuild-node-builtins": "^0.1.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^11.1.0",
     "highcharts": "^10.1.0",
     "husky": "^8.0.1",
     "jest": "^28.1.2",
