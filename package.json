@@ -68,7 +68,7 @@
     "esbuild": "^0.17.6",
     "esbuild-node-builtins": "^0.1.0",
     "fs-extra": "^11.1.0",
-    "highcharts": "^10.1.0",
+    "highcharts": "^11.0.0",
     "husky": "^8.0.1",
     "jest": "^28.1.2",
     "puppeteer": "^19.3.0",
