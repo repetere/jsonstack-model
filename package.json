@@ -71,7 +71,7 @@
     "highcharts": "^11.0.0",
     "husky": "^8.0.1",
     "jest": "^28.1.2",
-    "puppeteer": "^19.3.0",
+    "puppeteer": "^20.4.0",
     "scikitjs": "^1.24.0",
     "ts-jest": "^28.0.5",
     "tslib": "^2.1.0",
